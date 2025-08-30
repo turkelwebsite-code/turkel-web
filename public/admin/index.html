@@ -54,11 +54,19 @@
       left: 0 !important;
     }
     
+    /* App Main Container - max-width kaldır, geniş yap */
+    .css-1fehwpo-AppMainContainer.eh2m33j2,
+    [class*="css-"][class*="AppMainContainer"] {
+      max-width: none !important;
+      width: 100% !important;
+      flex: 1 !important;
+    }
+    
     /* Main content - sidebar'dan etkilenmesin */
     .css-kg0ufi-CollectionMain.e1sogrfi2,
     [class*="css-"][class*="CollectionMain"] {
       max-width: none !important;
-      width: calc(100% - 280px) !important;
+      width: 100% !important;
       margin-left: 0 !important;
       padding: 0 !important;
       flex: 1 !important;
