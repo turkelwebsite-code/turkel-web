@@ -1,9 +1,9 @@
 ---
-name: "Partner Company"
+name: "Partner 01"
 logo: "/images/partner01.png"
-website: "https://example.com"
+website: ""
 order: 1
 is_active: true
 ---
 
-Örnek partner şirketi.
+Partner 01 şirketi.

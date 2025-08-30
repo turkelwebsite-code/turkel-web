@@ -1,15 +1,15 @@
 ---
 basic_info:
-  name_tr: "LeShow Moscow"
-  name_en: "LeShow Moscow"
-  date: "15-18 Eylül 2025"
+  name_tr: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı"
+  name_en: "LeShow Moscow - International Fashion and Textile Industry Fair"
+  date: "15-18 Mart 2025"
   location_tr: "Moskova, Rusya"
   location_en: "Moscow, Russia"
   year: 2025
 
 visuals:
-  logo: "/images/fuarlar-logo.png"
-  background_image: "/images/fuarlar-arkaplan.jpg"
+  logo: "/images/leshow-logo.png"
+  background_image: "/images/leshow-bg.jpg"
 
 settings:
   show_in_slider: true
@@ -17,4 +17,4 @@ settings:
   is_active: true
 ---
 
-Bu LeShow Moscow 2025 fuarı için otomatik oluşturulan içeriktir.
+Rusya'nın en büyük moda ve tekstil fuarı. Doğu Avrupa ve Orta Asya pazarlarına açılan kapınız.
