@@ -5,31 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Türkel CMS</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  
-  <!-- Use same fonts as main website -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Include Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Simple, Clean Setup -->
   <script>
-    // Clear caches
-    localStorage.clear();
-    sessionStorage.clear();
-
     // Simple Identity Setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
-          window.netlifyIdentity.open();
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
         }
       });
       
@@ -43,363 +32,52 @@
           return;
         }
         
-        window.netlifyIdentity.close();
         console.log("✅ Login successful:", user.email);
-        
-        // Apply clean styling after login
-        setTimeout(applyWebsiteInspiredStyling, 1000);
       });
     }
-    
-    // Website-Inspired CMS Styling
-    function applyWebsiteInspiredStyling() {
-      const style = document.createElement('style');
-      style.textContent = `
-        /* WEBSITE-INSPIRED CLEAN CMS DESIGN */
-        
-        /* Reset - Clean like main website */
-        * {
-          box-sizing: border-box;
-        }
-        
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: 'Radio Canada Big', -apple-system, BlinkMacSystemFont, sans-serif;
-          background: #FCFCFC;
-          height: 100vh;
-          overflow: hidden;
-        }
-        
-        /* CUSTOM HEADER - Website style */
-        .turkel-cms-header {
-          background: white;
-          border-bottom: 1px solid #e2e8f0;
-          padding: 16px 32px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 10000;
-          height: 70px;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .turkel-cms-header .logo {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-        
-        .turkel-cms-header .logo-text {
-          background: #CE1A28;
-          color: white;
-          padding: 8px 16px;
-          border-radius: 6px;
-          font-weight: 700;
-          font-size: 16px;
-          letter-spacing: 0.5px;
-        }
-        
-        .turkel-cms-header .title {
-          color: #1e293b;
-          font-size: 18px;
-          font-weight: 600;
-        }
-        
-        .turkel-cms-header .user-info {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          color: #64748b;
-          font-size: 14px;
-        }
-        
-        .turkel-cms-header .logout-btn {
-          background: #f1f5f9;
-          border: 1px solid #e2e8f0;
-          color: #475569;
-          padding: 8px 16px;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 12px;
-          font-weight: 500;
-          transition: all 0.2s ease;
-        }
-        
-        .turkel-cms-header .logout-btn:hover {
-          background: #e2e8f0;
-          color: #334155;
-        }
-        
-        /* HIDE DEFAULT DECAP HEADERS */
-        [class*="AppHeader"],
-        [class*="Header"]:not(.turkel-cms-header),
-        header:not(.turkel-cms-header) {
-          display: none !important;
-        }
-        
-        /* CMS MAIN CONTAINER - Website inspired */
-        [data-testid="cms-app"] {
-          margin-top: 70px;
-          height: calc(100vh - 70px);
-          width: 100vw;
-          display: flex;
-          background: #FCFCFC;
-        }
-        
-        /* SIDEBAR - Clean like website navigation */
-        [class*="AppSidebar"],
-        [class*="Sidebar"] {
-          width: 300px;
-          min-width: 300px;
-          background: white;
-          border-right: 1px solid #e2e8f0;
-          padding: 24px 0;
-          overflow-y: auto;
-        }
-        
-        /* Sidebar Navigation - Website header style */
-        [class*="AppSidebar"] a,
-        [class*="Sidebar"] a {
-          color: #374151;
-          padding: 12px 24px;
-          display: block;
-          text-decoration: none;
-          font-size: 15px;
-          font-weight: 500;
-          margin: 2px 16px;
-          border-radius: 8px;
-          transition: all 0.2s ease;
-          border-left: 3px solid transparent;
-        }
-        
-        [class*="AppSidebar"] a:hover,
-        [class*="Sidebar"] a:hover {
-          background: #f8fafc;
-          color: #CE1A28;
-          border-left-color: #CE1A28;
-        }
-        
-        [class*="AppSidebar"] a.active,
-        [class*="Sidebar"] a.active {
-          background: #fef2f2;
-          color: #CE1A28;
-          border-left-color: #CE1A28;
-        }
-        
-        /* MAIN CONTENT - Website content style */
-        [class*="AppMainContainer"],
-        [class*="MainContainer"] {
-          flex: 1;
-          background: white;
-          margin: 16px;
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-          overflow: hidden;
-        }
-        
-        /* Collection Header - Clean like website sections */
-        [class*="CollectionTop"] {
-          background: white;
-          color: #1e293b;
-          padding: 32px;
-          border-bottom: 1px solid #e2e8f0;
-        }
-        
-        [class*="CollectionTop"] h1,
-        [class*="CollectionTop"] h2 {
-          color: #1e293b;
-          margin: 0;
-          font-size: 28px;
-          font-weight: 700;
-          font-family: 'Radio Canada Big', sans-serif;
-        }
-        
-        /* New Entry Button - Website button style */
-        [class*="CollectionTop"] button,
-        [class*="CollectionTop"] a[href*="new"] {
-          background: #CE1A28;
-          color: white;
-          border: none;
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 14px;
-          transition: all 0.2s ease;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-        }
-        
-        [class*="CollectionTop"] button:hover,
-        [class*="CollectionTop"] a[href*="new"]:hover {
-          background: #b01624;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.25);
-        }
-        
-        /* ENTRY CARDS - Website fair card style */
-        [class*="EntryListing"] {
-          padding: 32px;
-          background: #FCFCFC;
-        }
-        
-        [class*="EntryCard"] {
-          background: white;
-          border: 1px solid #e2e8f0;
-          border-radius: 12px;
-          padding: 24px;
-          margin-bottom: 16px;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-        
-        [class*="EntryCard"]:hover {
-          border-color: #CE1A28;
-          box-shadow: 0 8px 24px rgba(206, 26, 40, 0.1);
-          transform: translateY(-2px);
-        }
-        
-        [class*="EntryCard"] h2,
-        [class*="EntryCard"] h3 {
-          color: #1e293b;
-          margin: 0 0 8px 0;
-          font-size: 18px;
-          font-weight: 600;
-          font-family: 'Radio Canada Big', sans-serif;
-        }
-        
-        [class*="EntryCard"] p {
-          color: #64748b;
-          margin: 0;
-          font-size: 14px;
-          line-height: 1.5;
-        }
-        
-        /* FORM EDITOR - Website form style */
-        [class*="EditorContainer"] {
-          background: white;
-          padding: 32px;
-        }
-        
-        /* Form Labels - Website style */
-        [class*="Widget"] label {
-          color: #374151;
-          font-weight: 600;
-          font-size: 14px;
-          margin-bottom: 8px;
-          display: block;
-          font-family: 'Radio Canada Big', sans-serif;
-        }
-        
-        /* Form Inputs - Website input style */
-        [class*="Widget"] input,
-        [class*="Widget"] textarea,
-        [class*="Widget"] select {
-          width: 100%;
-          border: 1px solid #d1d5db;
-          border-radius: 8px;
-          padding: 12px 16px;
-          font-size: 14px;
-          font-family: 'Radio Canada Big', sans-serif;
-          background: white;
-          transition: all 0.2s ease;
-        }
-        
-        [class*="Widget"] input:focus,
-        [class*="Widget"] textarea:focus,
-        [class*="Widget"] select:focus {
-          border-color: #CE1A28;
-          box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1);
-          outline: none;
-        }
-        
-        /* Buttons - Website button style */
-        button[class*="btn"],
-        [class*="Button"] {
-          background: #CE1A28;
-          color: white;
-          border: none;
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-weight: 600;
-          font-size: 14px;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          font-family: 'Radio Canada Big', sans-serif;
-        }
-        
-        button[class*="btn"]:hover,
-        [class*="Button"]:hover {
-          background: #b01624;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.25);
-        }
-        
-        /* Custom Scrollbars - Subtle like website */
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: #f8fafc;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 3px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
-        }
-      `;
-      
-      document.head.appendChild(style);
-      
-      // Add custom header like website
-      addWebsiteStyleHeader();
-    }
-    
-    function addWebsiteStyleHeader() {
-      // Remove any existing headers
-      const existingHeaders = document.querySelectorAll('.turkel-cms-header');
-      existingHeaders.forEach(h => h.remove());
-      
-      // Create website-style header
-      const header = document.createElement('header');
-      header.className = 'turkel-cms-header';
-      header.innerHTML = `
-        <div class="logo">
-          <div class="logo-text">TÜRKEL</div>
-          <div class="title">Content Management System</div>
-        </div>
-        <div class="user-info">
-          <span>${window.netlifyIdentity?.currentUser()?.email || 'Admin'}</span>
-          <button class="logout-btn" onclick="window.netlifyIdentity?.logout()">Çıkış</button>
-        </div>
-      `;
-      
-      document.body.insertBefore(header, document.body.firstChild);
-    }
-    
-    // Initialize
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('🎯 Türkel CMS loading...');
-      
-      // Apply styling when CMS loads
-      setTimeout(() => {
-        if (window.netlifyIdentity?.currentUser()) {
-          applyWebsiteInspiredStyling();
-        }
-      }, 1500);
-    });
   </script>
+
+  <style>
+    /* MINIMAL CLEAN FIXES - Don't break Decap CMS */
+    
+    /* Fix main container width only */
+    .css-1fehwpo-AppMainContainer,
+    [class*="css-"][class*="AppMainContainer"] {
+      max-width: none !important;
+      width: 100% !important;
+    }
+    
+    /* Fix sidebar width */
+    [class*="css-"][class*="AppSidebar"] {
+      width: 300px !important;
+      min-width: 300px !important;
+    }
+    
+    /* Remove extra scrollbars */
+    body {
+      overflow: hidden !important;
+    }
+    
+    /* Fix content area */
+    [data-testid="cms-app"] {
+      height: 100vh !important;
+      width: 100vw !important;
+    }
+    
+    /* Simple Türkel accent color */
+    [class*="CollectionTop"] {
+      border-left: 4px solid #CE1A28 !important;
+    }
+    
+    /* Clean button styling */
+    button[class*="Button"] {
+      background: #CE1A28 !important;
+      border-radius: 6px !important;
+    }
+    
+    button[class*="Button"]:hover {
+      background: #b01624 !important;
+    }
+  </style>
 </body>
 </html>
