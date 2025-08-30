@@ -148,13 +148,13 @@
       flex-direction: row !important;
     }
     
-    /* Sidebar optimization */
+    /* Sidebar optimization - Wider for better usability */
     .cms-sidebar,
     [class*="sidebar"],
     [class*="Sidebar"] {
-      width: 280px !important;
-      min-width: 280px !important;
-      max-width: 280px !important;
+      width: 320px !important;
+      min-width: 320px !important;
+      max-width: 320px !important;
       height: 100vh !important;
       background: #1a1a1a !important;
       border-right: 1px solid #333 !important;
@@ -259,11 +259,23 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
     }
     
-    /* Grid layout for content */
+    /* Grid layout for content - Wider cards */
     .content-grid {
       display: grid !important;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
-      gap: 20px !important;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important;
+      gap: 24px !important;
+      padding: 24px !important;
+    }
+    
+    /* Collection list wider spacing */
+    [class*="CollectionList"] {
+      padding: 24px !important;
+      max-width: none !important;
+    }
+    
+    /* Entry cards wider */
+    [class*="EntryCard"] {
+      min-width: 400px !important;
       padding: 20px !important;
     }
     

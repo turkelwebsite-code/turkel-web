@@ -9,9 +9,148 @@ locale: 'tr'
 display_url: https://turkel-web.netlify.app
 
 collections:
-  # FUARLAR - Ana Sistem
-  - name: "fairs"
-    label: "🎪 Fuarlar"
+  # FUAR YILLARI - Ana Yönetim
+  - name: "fair_years"
+    label: "📅 Fuar Yılları"
+    files:
+      - label: "2026 Fuarları"
+        name: "fairs_2026"
+        file: "src/content/fair-years/2026.yml"
+        fields:
+          - label: "Yıl"
+            name: "year"
+            widget: "number"
+            default: 2026
+          - label: "Aktif"
+            name: "is_active"
+            widget: "boolean"
+            default: true
+          - label: "Fuarlar"
+            name: "fairs"
+            widget: "list"
+            fields:
+              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
+              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
+              - {label: "Tarih", name: "date", widget: "string"}
+              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
+              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Arka Plan", name: "background_image", widget: "image"}
+              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Sektör", name: "sector", widget: "string"}
+      
+      - label: "2025 Fuarları"
+        name: "fairs_2025"
+        file: "src/content/fair-years/2025.yml"
+        fields:
+          - label: "Yıl"
+            name: "year"
+            widget: "number"
+            default: 2025
+          - label: "Aktif"
+            name: "is_active"
+            widget: "boolean"
+            default: true
+          - label: "Fuarlar"
+            name: "fairs"
+            widget: "list"
+            fields:
+              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
+              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
+              - {label: "Tarih", name: "date", widget: "string"}
+              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
+              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Arka Plan", name: "background_image", widget: "image"}
+              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Sektör", name: "sector", widget: "string"}
+      
+      - label: "2024 Fuarları"
+        name: "fairs_2024"
+        file: "src/content/fair-years/2024.yml"
+        fields:
+          - label: "Yıl"
+            name: "year"
+            widget: "number"
+            default: 2024
+          - label: "Aktif"
+            name: "is_active"
+            widget: "boolean"
+            default: true
+          - label: "Fuarlar"
+            name: "fairs"
+            widget: "list"
+            fields:
+              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
+              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
+              - {label: "Tarih", name: "date", widget: "string"}
+              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
+              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Arka Plan", name: "background_image", widget: "image"}
+              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Sektör", name: "sector", widget: "string"}
+      
+      - label: "2023 Fuarları"
+        name: "fairs_2023"
+        file: "src/content/fair-years/2023.yml"
+        fields:
+          - label: "Yıl"
+            name: "year"
+            widget: "number"
+            default: 2023
+          - label: "Aktif"
+            name: "is_active"
+            widget: "boolean"
+            default: true
+          - label: "Fuarlar"
+            name: "fairs"
+            widget: "list"
+            fields:
+              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
+              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
+              - {label: "Tarih", name: "date", widget: "string"}
+              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
+              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Arka Plan", name: "background_image", widget: "image"}
+              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Sektör", name: "sector", widget: "string"}
+      
+      - label: "2022 Fuarları"
+        name: "fairs_2022"
+        file: "src/content/fair-years/2022.yml"
+        fields:
+          - label: "Yıl"
+            name: "year"
+            widget: "number"
+            default: 2022
+          - label: "Aktif"
+            name: "is_active"
+            widget: "boolean"
+            default: true
+          - label: "Fuarlar"
+            name: "fairs"
+            widget: "list"
+            fields:
+              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
+              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
+              - {label: "Tarih", name: "date", widget: "string"}
+              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
+              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Arka Plan", name: "background_image", widget: "image"}
+              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Sektör", name: "sector", widget: "string"}
+
+  # FUARLAR - Eski Sistem (Backup)
+  - name: "fairs_backup"
+    label: "🎪 Fuarlar (Eski)"
     folder: "src/content/fairs"
     create: true
     slug: "{{year}}-{{slug}}"
