@@ -43,12 +43,33 @@
   <style>
     /* NOKTA ATIŞI DEĞİŞİKLİKLER */
     
-    /* Specific main class genişletme */
+    /* Sidebar specific class - sola yasla, main content ezmesin */
+    .css-102us41-SidebarContainer-card-card.e1t18l343,
+    [class*="css-"][class*="SidebarContainer"] {
+      width: 280px !important;
+      min-width: 280px !important;
+      max-width: 280px !important;
+      flex-shrink: 0 !important;
+      position: relative !important;
+      left: 0 !important;
+    }
+    
+    /* Main content - sidebar'dan etkilenmesin */
     .css-kg0ufi-CollectionMain.e1sogrfi2,
     [class*="css-"][class*="CollectionMain"] {
       max-width: none !important;
-      width: 100% !important;
+      width: calc(100% - 280px) !important;
+      margin-left: 0 !important;
       padding: 0 !important;
+      flex: 1 !important;
+    }
+    
+    /* CMS app container - flex layout düzelt */
+    [data-testid="cms-app"] {
+      display: flex !important;
+      flex-direction: row !important;
+      width: 100vw !important;
+      height: 100vh !important;
     }
     
     /* Header içerikleri genişletme - boxed durmasın */
