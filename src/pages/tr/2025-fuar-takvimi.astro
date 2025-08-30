@@ -554,3 +554,22 @@ const sectors = Object.keys(fairsData);
     });
   });
 </script>
+
+<!-- SIMPLE CLIENT DEBUG -->
+<script>
+  // Simple debug for 2025 fairs
+  console.log('🎯 2025 FUAR TAKVİMİ - CMS TEST');
+  console.log('📊 Page loaded successfully');
+  
+  // Check if fair cards are rendered
+  setTimeout(() => {
+    const fairCards = document.querySelectorAll('.fair-card');
+    console.log('🎪 Fair cards found on page:', fairCards.length);
+    
+    if (fairCards.length === 0) {
+      console.log('❌ No fair cards found - CMS data issue');
+    } else {
+      console.log('✅ Fair cards rendered successfully');
+    }
+  }, 1000);
+</script>

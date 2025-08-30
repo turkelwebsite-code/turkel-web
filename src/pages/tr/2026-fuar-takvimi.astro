@@ -653,13 +653,23 @@ const debugInfo = {
       }
     });
   });
+</script>
+
+<!-- SIMPLE CLIENT DEBUG -->
+<script>
+  // Simple debug without template literals
+  console.log('🎯 2026 FUAR TAKVİMİ - CMS TEST');
+  console.log('📊 Page loaded successfully');
   
-  // CLIENT-SIDE DEBUG - Browser console'da görünür
-  console.log('🎯 2026 FUAR TAKVİMİ DEBUG:');
-  console.log('📊 Total Fairs:', ${debugInfo.totalFairs});
-  console.log('🏷️ Sectors:', ${JSON.stringify(debugInfo.sectors)});
-  console.log('📋 Fairs per sector:', ${JSON.stringify(debugInfo.fairsPerSector)});
-  
-  console.log('🔍 FairsData Check - Total sectors:', ${Object.keys(fairsData).length});
-  console.log('🔍 FairsData Content:', ${JSON.stringify(fairsData)});
+  // Check if fair cards are rendered
+  setTimeout(() => {
+    const fairCards = document.querySelectorAll('.fair-card');
+    console.log('🎪 Fair cards found on page:', fairCards.length);
+    
+    if (fairCards.length === 0) {
+      console.log('❌ No fair cards found - CMS data issue');
+    } else {
+      console.log('✅ Fair cards rendered successfully');
+    }
+  }, 1000);
 </script>
