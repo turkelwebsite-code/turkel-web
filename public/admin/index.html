@@ -169,6 +169,78 @@
       padding-top: 16px !important;
     }
     
+    /* PREVIEW KALDIRMA */
+    [class*="PreviewPane"],
+    [class*="preview"],
+    [class*="Preview"] {
+      display: none !important;
+    }
+    
+    /* EXCEL TABLO TASARIMI */
+    
+    /* Form container - full width */
+    [class*="EditorContainer"] {
+      width: 100% !important;
+      max-width: none !important;
+      padding: 32px !important;
+    }
+    
+    /* Yıl ve Aktif - tek satırda */
+    [class*="Widget"]:first-child,
+    [class*="Widget"]:nth-child(2) {
+      display: inline-block !important;
+      width: 48% !important;
+      margin-right: 4% !important;
+      vertical-align: top !important;
+    }
+    
+    /* Fuar listesi - tablo görünümü */
+    [class*="Widget"][class*="list"] {
+      width: 100% !important;
+      margin-top: 24px !important;
+    }
+    
+    /* List widget header - excel style */
+    [class*="Widget"][class*="list"] > label {
+      background: #f8f9fa !important;
+      padding: 12px 16px !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 8px 8px 0 0 !important;
+      font-weight: 600 !important;
+      margin-bottom: 0 !important;
+      display: block !important;
+    }
+    
+    /* List items - excel row style */
+    [class*="Widget"][class*="list"] [class*="ListItem"] {
+      border: 1px solid #e2e8f0 !important;
+      border-top: none !important;
+      padding: 16px !important;
+      background: white !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+    
+    [class*="Widget"][class*="list"] [class*="ListItem"]:hover {
+      background: #f8f9fa !important;
+    }
+    
+    /* Add button - excel style */
+    [class*="Widget"][class*="list"] button[class*="add"] {
+      background: #28a745 !important;
+      color: white !important;
+      border: none !important;
+      padding: 12px 24px !important;
+      border-radius: 6px !important;
+      margin-top: 16px !important;
+      font-weight: 600 !important;
+    }
+    
+    [class*="Widget"][class*="list"] button[class*="add"]:hover {
+      background: #218838 !important;
+    }
+    
     /* Content area genişletme */
     [class*="EntryListing"],
     [class*="FilesList"] {
