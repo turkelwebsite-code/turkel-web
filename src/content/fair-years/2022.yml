@@ -2,13 +2,16 @@ year: 2022
 is_active: false
 
 fairs:
-  - name_tr: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı"
-    name_en: "HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair"
-    date: "22-25 Nisan 2022"
-    location_tr: "Almatı, Kazakistan"
-    location_en: "Almaty, Kazakhstan"
-    logo: "/images/homedeco-logo.png"
-    background_image: "/images/fuarlar-arkaplan.jpg"
-    show_in_slider: false
-    show_in_forms: false
-    sector: "Ev Tekstili ve Dekorasyon"
+  - basic_info:
+      name_tr: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı"
+      name_en: "HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair"
+      date: "22-25 Nisan 2022"
+      location_tr: "Almatı, Kazakistan"
+      location_en: "Almaty, Kazakhstan"
+      sector: "Ev Tekstili ve Dekorasyon"
+    visuals:
+      logo: "/images/homedeco-logo.png"
+      background_image: "/images/fuarlar-arkaplan.jpg"
+    settings:
+      show_in_slider: false
+      show_in_forms: false

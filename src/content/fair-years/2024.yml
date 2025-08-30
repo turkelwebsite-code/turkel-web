@@ -2,24 +2,30 @@ year: 2024
 is_active: false
 
 fairs:
-  - name_tr: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı"
-    name_en: "LeShow Moscow - International Fashion and Textile Industry Fair"
-    date: "15-18 Mart 2024"
-    location_tr: "Moskova, Rusya"
-    location_en: "Moscow, Russia"
-    logo: "/images/leshow-logo.png"
-    background_image: "/images/leshow-bg.jpg"
-    show_in_slider: false
-    show_in_forms: false
-    sector: "Moda ve Tekstil"
+  - basic_info:
+      name_tr: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı"
+      name_en: "LeShow Moscow - International Fashion and Textile Industry Fair"
+      date: "15-18 Mart 2024"
+      location_tr: "Moskova, Rusya"
+      location_en: "Moscow, Russia"
+      sector: "Moda ve Tekstil"
+    visuals:
+      logo: "/images/leshow-logo.png"
+      background_image: "/images/leshow-bg.jpg"
+    settings:
+      show_in_slider: false
+      show_in_forms: false
   
-  - name_tr: "Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı"
-    name_en: "Fashion Week Istanbul Premium Textile and Fashion Industry Fair"
-    date: "20-23 Haziran 2024"
-    location_tr: "İstanbul, Türkiye"
-    location_en: "Istanbul, Turkey"
-    logo: "/images/fashion-logo.png"
-    background_image: "/images/fashion-bg.jpg"
-    show_in_slider: false
-    show_in_forms: false
-    sector: "Moda ve Tekstil"
+  - basic_info:
+      name_tr: "Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı"
+      name_en: "Fashion Week Istanbul Premium Textile and Fashion Industry Fair"
+      date: "20-23 Haziran 2024"
+      location_tr: "İstanbul, Türkiye"
+      location_en: "Istanbul, Turkey"
+      sector: "Moda ve Tekstil"
+    visuals:
+      logo: "/images/fashion-logo.png"
+      background_image: "/images/fashion-bg.jpg"
+    settings:
+      show_in_slider: false
+      show_in_forms: false
