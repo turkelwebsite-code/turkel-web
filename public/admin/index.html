@@ -210,87 +210,185 @@
       padding-top: 16px !important;
     }
     
-    /* PREVIEW KALDIRMA */
+    /* PREVIEW TAMAMEN KALDIRMA */
     [class*="PreviewPane"],
     [class*="preview"],
-    [class*="Preview"] {
+    [class*="Preview"],
+    [class*="SplitView"] {
       display: none !important;
     }
     
-    /* EXCEL TABLO TASARIMI */
+    /* EXCEL TABLE - 30 FUAR YÖNETİMİ İÇİN */
     
-    /* Form container - full width + visibility */
-    [class*="EditorContainer"] {
-      width: 100% !important;
-      max-width: none !important;
-      padding: 32px !important;
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      background: white !important;
-      min-height: 500px !important;
-    }
-    
-    /* Force all form elements to show */
-    [class*="EditorContainer"] * {
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    
-    /* Yıl ve Aktif - tek satırda */
-    [class*="Widget"]:first-child,
-    [class*="Widget"]:nth-child(2) {
-      display: inline-block !important;
-      width: 48% !important;
-      margin-right: 4% !important;
-      vertical-align: top !important;
-    }
-    
-    /* Fuar listesi - tablo görünümü */
+    /* List widget'i table'a çevir */
     [class*="Widget"][class*="list"] {
+      display: table !important;
       width: 100% !important;
-      margin-top: 24px !important;
-    }
-    
-    /* List widget header - excel style */
-    [class*="Widget"][class*="list"] > label {
-      background: #f8f9fa !important;
-      padding: 12px 16px !important;
-      border: 1px solid #e2e8f0 !important;
-      border-radius: 8px 8px 0 0 !important;
-      font-weight: 600 !important;
-      margin-bottom: 0 !important;
-      display: block !important;
-    }
-    
-    /* List items - excel row style */
-    [class*="Widget"][class*="list"] [class*="ListItem"] {
-      border: 1px solid #e2e8f0 !important;
-      border-top: none !important;
-      padding: 16px !important;
+      border-collapse: collapse !important;
+      border: 2px solid #d1d5db !important;
+      border-radius: 8px !important;
       background: white !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 16px !important;
+      margin-top: 20px !important;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+    
+    /* Table header row */
+    [class*="Widget"][class*="list"] > label {
+      display: table-header-group !important;
+      background: #f1f5f9 !important;
+      color: #1e293b !important;
+      font-weight: 700 !important;
+      font-size: 13px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+      border-bottom: 2px solid #cbd5e1 !important;
+    }
+    
+    /* Table body */
+    [class*="Widget"][class*="list"] > div {
+      display: table-row-group !important;
+      max-height: 500px !important;
+      overflow-y: auto !important;
+    }
+    
+    /* Table rows */
+    [class*="Widget"][class*="list"] [class*="ListItem"] {
+      display: table-row !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      transition: background 0.15s ease !important;
     }
     
     [class*="Widget"][class*="list"] [class*="ListItem"]:hover {
+      background: #f8fafc !important;
+    }
+    
+    /* Table cells */
+    [class*="Widget"][class*="list"] [class*="ListItem"] > * {
+      display: table-cell !important;
+      padding: 12px 16px !important;
+      vertical-align: middle !important;
+      border-right: 1px solid #f1f5f9 !important;
+      font-size: 14px !important;
+      color: #374151 !important;
+    }
+    
+    /* Last cell - no border */
+    [class*="Widget"][class*="list"] [class*="ListItem"] > *:last-child {
+      border-right: none !important;
+    }
+    
+    /* Action buttons in cells */
+    [class*="Widget"][class*="list"] [class*="ListItem"] button {
+      background: #3b82f6 !important;
+      color: white !important;
+      border: none !important;
+      padding: 4px 8px !important;
+      border-radius: 3px !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+    }
+    
+    [class*="Widget"][class*="list"] [class*="ListItem"] button:hover {
+      background: #2563eb !important;
+    }
+    
+    /* Yıl ve Aktif - compact tek satır */
+    [class*="Widget"]:first-child,
+    [class*="Widget"]:nth-child(2) {
+      display: inline-block !important;
+      width: 200px !important;
+      margin-right: 20px !important;
+      vertical-align: top !important;
+    }
+    
+    /* Fuar listesi - EXCEL TABLE GÖRÜNÜMÜ */
+    [class*="Widget"][class*="list"] {
+      width: 100% !important;
+      margin-top: 20px !important;
+      border: 1px solid #d1d5db !important;
+      border-radius: 8px !important;
+      overflow: hidden !important;
+    }
+    
+    /* Table header - Excel style */
+    [class*="Widget"][class*="list"] > label {
+      background: #f3f4f6 !important;
+      color: #374151 !important;
+      padding: 16px 20px !important;
+      font-weight: 700 !important;
+      font-size: 14px !important;
+      border-bottom: 2px solid #d1d5db !important;
+      margin: 0 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+    
+    /* List container - scrollable for 30 items */
+    [class*="Widget"][class*="list"] > div {
+      max-height: 400px !important;
+      overflow-y: auto !important;
+      border-radius: 0 0 8px 8px !important;
+    }
+    
+    /* Table rows - Excel style */
+    [class*="Widget"][class*="list"] [class*="ListItem"] {
+      border-bottom: 1px solid #e5e7eb !important;
+      padding: 12px 20px !important;
+      background: white !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 60px !important;
+      transition: background 0.2s ease !important;
+    }
+    
+    [class*="Widget"][class*="list"] [class*="ListItem"]:hover {
+      background: #f9fafb !important;
+    }
+    
+    [class*="Widget"][class*="list"] [class*="ListItem"]:nth-child(even) {
       background: #f8f9fa !important;
     }
     
-    /* Add button - excel style */
+    [class*="Widget"][class*="list"] [class*="ListItem"]:nth-child(even):hover {
+      background: #f3f4f6 !important;
+    }
+    
+    /* List item content - table cell style */
+    [class*="Widget"][class*="list"] [class*="ListItem"] span {
+      font-size: 14px !important;
+      color: #374151 !important;
+      font-weight: 500 !important;
+    }
+    
+    /* Edit/Delete buttons - table action buttons */
+    [class*="Widget"][class*="list"] [class*="ListItem"] button {
+      background: #6b7280 !important;
+      color: white !important;
+      border: none !important;
+      padding: 6px 12px !important;
+      border-radius: 4px !important;
+      font-size: 12px !important;
+      margin-left: 8px !important;
+    }
+    
+    /* Add new item button - Excel style */
+    [class*="Widget"][class*="list"] > button,
     [class*="Widget"][class*="list"] button[class*="add"] {
-      background: #28a745 !important;
+      background: #10b981 !important;
       color: white !important;
       border: none !important;
       padding: 12px 24px !important;
       border-radius: 6px !important;
-      margin-top: 16px !important;
+      margin: 16px 20px !important;
       font-weight: 600 !important;
+      font-size: 14px !important;
+      width: calc(100% - 40px) !important;
     }
     
-    [class*="Widget"][class*="list"] button[class*="add"]:hover {
-      background: #218838 !important;
+    [class*="Widget"][class*="list"] > button:hover {
+      background: #059669 !important;
     }
     
     /* Content area genişletme */
