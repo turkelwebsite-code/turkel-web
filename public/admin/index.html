@@ -42,20 +42,27 @@
   </script>
 
   <style>
-    /* PREVIEW TAMAMEN KALDIRMA */
-    [class*="PreviewPane"],
-    [class*="preview"],
-    [class*="Preview"],
-    [class*="SplitView"] {
+    /* SADECE PREVIEW PANEL'İ GİZLE - EDITOR'U DEĞİL */
+    [class*="PreviewPane"]:not([class*="Editor"]),
+    [class*="SplitView"] > div:last-child {
       display: none !important;
-      width: 0 !important;
-      height: 0 !important;
-      visibility: hidden !important;
     }
     
-    /* EDITOR FULL WIDTH */
+    /* EDITOR FULL WIDTH - PREVIEW OLMADAN */
+    [class*="SplitView"] {
+      display: block !important;
+    }
+    
+    [class*="SplitView"] > div:first-child {
+      width: 100% !important;
+      max-width: none !important;
+    }
+    
+    /* EDITOR CONTAINER VİSİBLE */
     [class*="EditorContainer"],
     [class*="Editor"] {
+      display: block !important;
+      visibility: visible !important;
       width: 100% !important;
       max-width: none !important;
     }

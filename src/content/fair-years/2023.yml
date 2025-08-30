@@ -10,8 +10,8 @@ fairs:
       location_en: "Moscow, Russia"
       sector: "Moda ve Tekstil"
     visuals:
-      logo: "/images/leshow-logo.png"
-      background_image: "/images/leshow-bg.jpg"
+      logo: "/images/fuarlar-logo.png"
+      background_image: "/images/fuarlar-arkaplan.jpg"
     settings:
       show_in_slider: false
       show_in_forms: false
