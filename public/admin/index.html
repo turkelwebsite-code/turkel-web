@@ -29,7 +29,18 @@
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         console.log("Identity init, user:", user ? user.email : "No user");
-        if (!user) {
+        
+        // Check for invite token in URL
+        const hash = window.location.hash.substring(1);
+        const urlParams = new URLSearchParams(hash);
+        const inviteToken = urlParams.get('invite_token');
+        
+        if (inviteToken) {
+          console.log("🎯 Invite token found:", inviteToken.substring(0, 10) + "...");
+          console.log("🔄 Opening Identity widget for signup...");
+          // Auto-open signup modal for invite
+          window.netlifyIdentity.open('signup');
+        } else if (!user) {
           // Auto-open login widget if no user
           console.log("No user found, opening login widget");
           window.netlifyIdentity.open();
