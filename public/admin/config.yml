@@ -9,9 +9,9 @@ locale: 'tr'
 display_url: https://turkel-web.netlify.app
 
 collections:
-  # FUAR YILLARI - Ana Yönetim
+  # FUARLAR - Yıl Bazlı Yönetim
   - name: "fair_years"
-    label: "📅 Fuar Yılları"
+    label: "🎪 Fuarlar"
     files:
       - label: "2026 Fuarları"
         name: "fairs_2026"
@@ -25,20 +25,21 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "Fuarlar"
+          - label: "Fuarlar Listesi"
             name: "fairs"
             widget: "list"
+            summary: "{{fields.name_tr}} | {{fields.date}} | {{fields.location_tr}}"
             fields:
-              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
-              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
-              - {label: "Tarih", name: "date", widget: "string"}
-              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
-              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image"}
-              - {label: "Arka Plan", name: "background_image", widget: "image"}
-              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Sektör", name: "sector", widget: "string"}
+              - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
+              - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+              - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+              - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+              - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+              - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka planı"}
+              - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
       
       - label: "2025 Fuarları"
         name: "fairs_2025"
@@ -52,20 +53,21 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "Fuarlar"
+          - label: "Fuarlar Listesi"
             name: "fairs"
             widget: "list"
+            summary: "{{fields.name_tr}} | {{fields.date}} | {{fields.location_tr}}"
             fields:
-              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
-              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
-              - {label: "Tarih", name: "date", widget: "string"}
-              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
-              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image"}
-              - {label: "Arka Plan", name: "background_image", widget: "image"}
-              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Sektör", name: "sector", widget: "string"}
+              - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
+              - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+              - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+              - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+              - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+              - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka planı"}
+              - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
       
       - label: "2024 Fuarları"
         name: "fairs_2024"
@@ -79,20 +81,21 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "Fuarlar"
+          - label: "Fuarlar Listesi"
             name: "fairs"
             widget: "list"
+            summary: "{{fields.name_tr}} | {{fields.date}} | {{fields.location_tr}}"
             fields:
-              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
-              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
-              - {label: "Tarih", name: "date", widget: "string"}
-              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
-              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image"}
-              - {label: "Arka Plan", name: "background_image", widget: "image"}
-              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Sektör", name: "sector", widget: "string"}
+              - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
+              - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+              - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+              - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+              - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+              - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka planı"}
+              - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
       
       - label: "2023 Fuarları"
         name: "fairs_2023"
@@ -106,20 +109,21 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "Fuarlar"
+          - label: "Fuarlar Listesi"
             name: "fairs"
             widget: "list"
+            summary: "{{fields.name_tr}} | {{fields.date}} | {{fields.location_tr}}"
             fields:
-              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
-              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
-              - {label: "Tarih", name: "date", widget: "string"}
-              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
-              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image"}
-              - {label: "Arka Plan", name: "background_image", widget: "image"}
-              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Sektör", name: "sector", widget: "string"}
+              - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
+              - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+              - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+              - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+              - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+              - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka planı"}
+              - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
       
       - label: "2022 Fuarları"
         name: "fairs_2022"
@@ -133,20 +137,21 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "Fuarlar"
+          - label: "Fuarlar Listesi"
             name: "fairs"
             widget: "list"
+            summary: "{{fields.name_tr}} | {{fields.date}} | {{fields.location_tr}}"
             fields:
-              - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string"}
-              - {label: "Fuar Adı (EN)", name: "name_en", widget: "string"}
-              - {label: "Tarih", name: "date", widget: "string"}
-              - {label: "Lokasyon (TR)", name: "location_tr", widget: "string"}
-              - {label: "Lokasyon (EN)", name: "location_en", widget: "string"}
-              - {label: "Logo", name: "logo", widget: "image"}
-              - {label: "Arka Plan", name: "background_image", widget: "image"}
-              - {label: "Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "Form'da Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Sektör", name: "sector", widget: "string"}
+              - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
+              - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+              - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+              - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+              - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+              - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka planı"}
+              - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
 
 
 
