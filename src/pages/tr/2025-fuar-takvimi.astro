@@ -18,7 +18,8 @@ try {
   console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
   console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
   
-  const year2025Data = fairYearData.find(item => item.id === 'fairs_2025');
+  // File-based collection uses filename as ID
+  const year2025Data = fairYearData.find(item => item.id === '2025');
   console.log('🔍 DEBUG: 2025 data found:', !!year2025Data);
   console.log('🔍 DEBUG: 2025 data content:', year2025Data?.data);
   
