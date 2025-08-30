@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { generateSEOTags, generateHreflang, generateStructuredData, type SEOProps } from '../lib/seo';
 import { getLocaleFromUrl, type Locale } from '../lib/i18n';
+import IdentityWidget from '../components/IdentityWidget.astro';
 
 interface Props extends SEOProps {
   class?: string;
@@ -147,3 +148,6 @@ const structuredData = generateStructuredData(locale);
     }
   }
 </script>
+
+<!-- Netlify Identity Widget -->
+<IdentityWidget />

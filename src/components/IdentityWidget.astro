@@ -1,0 +1,60 @@
+---
+// Netlify Identity Widget component for better integration
+---
+
+<!-- Netlify Identity Widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script>
+  // Initialize Netlify Identity
+  if (window.netlifyIdentity) {
+    // Open widget on login
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        // Auto-open widget for first-time users
+        console.log("No user found, widget ready for login");
+      } else {
+        console.log("User already logged in:", user.email);
+      }
+    });
+
+    // Handle login success
+    window.netlifyIdentity.on("login", user => {
+      console.log("Login successful:", user.email);
+      console.log("User confirmed:", user.confirmed_at);
+      console.log("Email verified:", user.email_verified);
+      
+      // Redirect to admin after login
+      if (window.location.pathname === "/admin/") {
+        window.location.reload();
+      }
+    });
+
+    // Handle logout
+    window.netlifyIdentity.on("logout", () => {
+      console.log("User logged out");
+      if (window.location.pathname === "/admin/") {
+        window.location.href = "/";
+      }
+    });
+
+    // Handle errors
+    window.netlifyIdentity.on("error", err => {
+      console.error("Identity error:", err);
+    });
+
+    // Handle signup completion
+    window.netlifyIdentity.on("signup", user => {
+      console.log("Signup completed:", user.email);
+      window.netlifyIdentity.close();
+    });
+  }
+</script>
+
+<style>
+  /* Netlify Identity Widget Styling */
+  .netlify-identity-widget {
+    position: fixed !important;
+    z-index: 9999 !important;
+  }
+</style>

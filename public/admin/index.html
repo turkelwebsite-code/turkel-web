@@ -8,47 +8,75 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <!-- Loading message -->
+  <div id="loading" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial, sans-serif; text-align: center;">
+    <h2>Türkel CMS Yükleniyor...</h2>
+    <p>Lütfen bekleyiniz...</p>
+  </div>
+  
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
+    // Hide loading when CMS loads
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('loading');
+        if (loading) loading.style.display = 'none';
+      }, 2000);
+    });
+
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
+        console.log("Identity init, user:", user ? user.email : "No user");
         if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-      
-      // Debug: Check if Git Gateway is properly configured
-      window.netlifyIdentity.on("ready", () => {
-        console.log("Netlify Identity ready");
-        const user = window.netlifyIdentity.currentUser();
-        if (user) {
-          console.log("User logged in:", user.email);
-          console.log("Email confirmed:", user.email_verified);
-          console.log("User metadata:", user.user_metadata);
-        } else {
-          console.log("No user logged in");
+          // Auto-open login widget if no user
+          console.log("No user found, opening login widget");
+          window.netlifyIdentity.open();
         }
       });
       
       window.netlifyIdentity.on("login", user => {
         console.log("Login successful:", user.email);
         console.log("Email verified:", user.email_verified);
-        if (!user.email_verified) {
-          console.warn("Email not verified! Check Netlify admin panel.");
-          alert("Email doğrulanmamış! Netlify admin panel'den 'Confirm user' yapın.");
-        }
+        console.log("User confirmed:", user.confirmed_at);
+        
+        // Close widget and reload page
+        window.netlifyIdentity.close();
+        window.location.reload();
+      });
+      
+      window.netlifyIdentity.on("signup", user => {
+        console.log("Signup completed:", user.email);
+        window.netlifyIdentity.close();
+      });
+      
+      window.netlifyIdentity.on("logout", () => {
+        console.log("User logged out");
+        window.location.href = "/";
       });
       
       window.netlifyIdentity.on("error", err => {
         console.error("Netlify Identity error:", err);
-        if (err.message && err.message.includes("Email not confirmed")) {
-          alert("Email doğrulanmamış! Netlify admin panel'den kullanıcıyı confirm edin.");
+        alert("Identity hatası: " + err.message);
+      });
+      
+      // Debug: Check configuration
+      window.netlifyIdentity.on("ready", () => {
+        console.log("Netlify Identity ready");
+        const user = window.netlifyIdentity.currentUser();
+        if (user) {
+          console.log("Current user:", {
+            email: user.email,
+            confirmed: user.confirmed_at,
+            verified: user.email_verified,
+            roles: user.app_metadata?.roles
+          });
         }
       });
+    } else {
+      console.error("Netlify Identity not loaded!");
+      alert("Netlify Identity yüklenemedi! Sayfa yenilemeyi deneyin.");
     }
   </script>
 </body>
