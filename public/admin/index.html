@@ -4,73 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Türkel Admin Panel</title>
+  <title>Türkel CMS - Admin Panel</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Türkel Admin Header -->
-  <div id="turkel-header" style="background: #CE1A28; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 10000; height: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="background: white; color: #CE1A28; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 16px;">TÜRKEL</div>
-      <span style="font-weight: 600; font-size: 18px;">Admin Panel</span>
-    </div>
-    <div style="font-size: 14px; opacity: 0.95;">
-      <span id="user-email">Admin User</span>
-      <button onclick="window.netlifyIdentity?.logout()" style="margin-left: 16px; background: rgba(255,255,255,0.2); border: none; color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500;">Çıkış</button>
-    </div>
-  </div>
-  
-  <!-- CMS Container -->
-  <div id="cms-wrapper" style="margin-top: 50px; height: calc(100vh - 50px); width: 100vw; display: flex;">
-    <!-- CMS will load here -->
-  </div>
-
   <!-- Include Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Identity and CMS Setup -->
+  <!-- Netlify Identity & Modern CMS Setup -->
   <script>
-    // Clear caches for fresh start
+    // Clear caches
     if ('caches' in window) {
       caches.keys().then(names => names.forEach(name => caches.delete(name)));
     }
     localStorage.clear();
     sessionStorage.clear();
 
-    // Netlify Identity Setup - Fix infinite loop
+    // Netlify Identity Setup
     if (window.netlifyIdentity) {
       let isLoggingIn = false;
       
       window.netlifyIdentity.on("init", user => {
-        console.log("Identity init, user:", user ? user.email : "No user");
-        
         if (user) {
-          // User already logged in
-          console.log("✅ User already authenticated:", user.email);
-          document.getElementById('user-email').textContent = user.email;
-          
-          // Security check for existing user
-          const allowedEmails = [
-            'turkelwebsite@gmail.com',
-            'admin@turkel.com.tr',
-            'sezani991@gmail.com'
-          ];
-          
-          if (!allowedEmails.includes(user.email)) {
-            alert('Bu email ile admin paneline erişim yetkiniz yok!');
-            window.netlifyIdentity.logout();
-            window.location.href = '/';
-            return;
-          }
-          
-          // Don't redirect, just ensure CMS loads
-          console.log("✅ Authorized user, CMS should load");
+          console.log("✅ User authenticated:", user.email);
+          setupModernCMS();
         } else {
-          // No user, need to login
-          console.log("No user found, need authentication");
+          console.log("No user, opening login");
           if (!isLoggingIn) {
             isLoggingIn = true;
             window.netlifyIdentity.open();
@@ -79,9 +44,6 @@
       });
       
       window.netlifyIdentity.on("login", user => {
-        console.log("Login event triggered:", user.email);
-        
-        // Security check
         const allowedEmails = [
           'turkelwebsite@gmail.com',
           'admin@turkel.com.tr',
@@ -95,218 +57,446 @@
           return;
         }
         
-        // Update header and close widget
-        document.getElementById('user-email').textContent = user.email;
         window.netlifyIdentity.close();
         isLoggingIn = false;
-        
-        console.log("✅ Login successful, CMS should now load");
-        
-        // Don't redirect - let CMS load naturally
+        console.log("✅ Login successful:", user.email);
+        setupModernCMS();
       });
       
       window.netlifyIdentity.on("logout", () => {
-        console.log("User logged out");
         window.location.href = '/';
       });
     }
     
-    // CMS Styling after load
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('🎯 Setting up Türkel CMS styling...');
+    // Modern CMS Setup Function
+    function setupModernCMS() {
+      console.log('🎨 Setting up modern Türkel CMS...');
       
+      // Wait for CMS to load
       setTimeout(() => {
-        // Apply custom styling to CMS
-        const style = document.createElement('style');
-        style.textContent = `
-          /* TÜRKEL CMS CUSTOM STYLING */
-          
-          /* Main CMS App Container */
-          [data-testid="cms-app"] {
-            width: 100% !important;
-            height: 100% !important;
-            display: flex !important;
-            background: #f8f9fa !important;
-          }
-          
-          /* Sidebar Navigation */
-          [class*="AppSidebar"],
-          [class*="Sidebar"] {
-            width: 350px !important;
-            min-width: 350px !important;
-            background: #2c3e50 !important;
-            border-right: 3px solid #CE1A28 !important;
-            color: white !important;
-          }
-          
-          /* Main Content Area */
-          [class*="AppMainContainer"],
-          [class*="MainContainer"] {
-            flex: 1 !important;
-            background: white !important;
-            padding: 0 !important;
-          }
-          
-          /* Collection List Items */
-          [class*="AppSidebar"] a,
-          [class*="Sidebar"] a {
-            color: white !important;
-            padding: 16px 24px !important;
-            display: block !important;
-            text-decoration: none !important;
-            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
-            font-size: 15px !important;
-            font-weight: 500 !important;
-            transition: all 0.2s ease !important;
-          }
-          
-          [class*="AppSidebar"] a:hover,
-          [class*="Sidebar"] a:hover {
-            background: #34495e !important;
-            padding-left: 32px !important;
-          }
-          
-          /* Collection Headers */
-          [class*="CollectionTop"] {
-            background: #CE1A28 !important;
-            color: white !important;
-            padding: 24px 32px !important;
-          }
-          
-          [class*="CollectionTop"] h1,
-          [class*="CollectionTop"] h2 {
-            color: white !important;
-            margin: 0 !important;
-            font-size: 24px !important;
-            font-weight: 600 !important;
-          }
-          
-          /* New Entry Button */
-          [class*="CollectionTop"] button,
-          [class*="CollectionTop"] a[href*="new"] {
-            background: white !important;
-            color: #CE1A28 !important;
-            border: none !important;
-            padding: 12px 24px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            font-size: 14px !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-          }
-          
-          /* Entry List Container */
-          [class*="EntryListing"] {
-            padding: 32px !important;
-            background: #f8f9fa !important;
-          }
-          
-          /* Entry Cards */
-          [class*="EntryCard"] {
-            background: white !important;
-            border: 1px solid #e1e5e9 !important;
-            border-radius: 12px !important;
-            padding: 24px !important;
-            margin-bottom: 20px !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-            transition: all 0.2s ease !important;
-            cursor: pointer !important;
-          }
-          
-          [class*="EntryCard"]:hover {
-            border-color: #CE1A28 !important;
-            box-shadow: 0 4px 16px rgba(206, 26, 40, 0.15) !important;
-            transform: translateY(-2px) !important;
-          }
-          
-          /* Entry Card Content */
-          [class*="EntryCard"] h2,
-          [class*="EntryCard"] h3 {
-            color: #2c3e50 !important;
-            margin: 0 0 8px 0 !important;
-            font-size: 18px !important;
-            font-weight: 600 !important;
-          }
-          
-          [class*="EntryCard"] p {
-            color: #7f8c8d !important;
-            margin: 0 !important;
-            font-size: 14px !important;
-          }
-          
-          /* Form Editor */
-          [class*="EditorContainer"] {
-            background: white !important;
-            padding: 32px !important;
-          }
-          
-          /* Form Fields */
-          [class*="Widget"] input,
-          [class*="Widget"] textarea,
-          [class*="Widget"] select {
-            border: 2px solid #e1e5e9 !important;
-            border-radius: 8px !important;
-            padding: 12px 16px !important;
-            font-size: 14px !important;
-            transition: border-color 0.2s ease !important;
-          }
-          
-          [class*="Widget"] input:focus,
-          [class*="Widget"] textarea:focus,
-          [class*="Widget"] select:focus {
-            border-color: #CE1A28 !important;
-            box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
-            outline: none !important;
-          }
-          
-          /* Form Labels */
-          [class*="Widget"] label {
-            color: #2c3e50 !important;
-            font-weight: 600 !important;
-            margin-bottom: 8px !important;
-            display: block !important;
-          }
-          
-          /* Buttons */
-          button[class*="btn"],
-          [class*="Button"] {
-            background: #CE1A28 !important;
-            color: white !important;
-            border: none !important;
-            padding: 12px 24px !important;
-            border-radius: 8px !important;
-            font-weight: 600 !important;
-            cursor: pointer !important;
-            transition: background 0.2s ease !important;
-          }
-          
-          button[class*="btn"]:hover,
-          [class*="Button"]:hover {
-            background: #b01624 !important;
-          }
-          
-          /* Custom Scrollbars */
-          ::-webkit-scrollbar {
-            width: 12px;
-          }
-          
-          ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 6px;
-          }
-          
-          ::-webkit-scrollbar-thumb {
-            background: #CE1A28;
-            border-radius: 6px;
-          }
-          
-          ::-webkit-scrollbar-thumb:hover {
-            background: #b01624;
-          }
-        `;
-        document.head.appendChild(style);
+        // Create modern header
+        createModernHeader();
         
-        console.log('✅ Türkel CMS styling applied');
-      }, 1000);
+        // Apply modern styling
+        applyModernStyling();
+        
+        console.log('✅ Modern CMS setup complete');
+      }, 1500);
+    }
+    
+    function createModernHeader() {
+      // Remove any existing headers
+      const existingHeaders = document.querySelectorAll('#turkel-modern-header');
+      existingHeaders.forEach(header => header.remove());
+      
+      // Create modern header
+      const header = document.createElement('div');
+      header.id = 'turkel-modern-header';
+      header.innerHTML = `
+        <div style="
+          background: linear-gradient(135deg, #CE1A28 0%, #b01624 100%);
+          color: white;
+          padding: 16px 32px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.15);
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 10000;
+          height: 70px;
+        ">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="
+              background: white;
+              color: #CE1A28;
+              padding: 8px 16px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-size: 18px;
+              letter-spacing: 1px;
+            ">TÜRKEL</div>
+            <div>
+              <div style="font-weight: 600; font-size: 20px; margin-bottom: 2px;">Content Management</div>
+              <div style="font-size: 12px; opacity: 0.9;">Fuar & İçerik Yönetim Sistemi</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="text-align: right;">
+              <div style="font-size: 14px; font-weight: 500;">${window.netlifyIdentity?.currentUser()?.email || 'Admin User'}</div>
+              <div style="font-size: 11px; opacity: 0.8;">Yönetici</div>
+            </div>
+            <button onclick="window.netlifyIdentity?.logout()" style="
+              background: rgba(255,255,255,0.2);
+              border: 1px solid rgba(255,255,255,0.3);
+              color: white;
+              padding: 8px 16px;
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 12px;
+              font-weight: 500;
+              transition: all 0.2s ease;
+            " onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+              Çıkış Yap
+            </button>
+          </div>
+        </div>
+      `;
+      
+      document.body.insertBefore(header, document.body.firstChild);
+    }
+    
+    function applyModernStyling() {
+      const style = document.createElement('style');
+      style.textContent = `
+        /* MODERN TÜRKEL CMS STYLING */
+        
+        /* Base Reset */
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          margin: 0;
+          padding: 70px 0 0 0;
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+          background: #f8fafc;
+          height: 100vh;
+          overflow: hidden;
+        }
+        
+        /* Main CMS Container */
+        [data-testid="cms-app"] {
+          height: calc(100vh - 70px) !important;
+          width: 100vw !important;
+          display: flex !important;
+          background: #f8fafc !important;
+        }
+        
+        /* SIDEBAR - Modern & Clean */
+        [class*="AppSidebar"],
+        [class*="Sidebar"] {
+          width: 280px !important;
+          min-width: 280px !important;
+          background: white !important;
+          border-right: 1px solid #e2e8f0 !important;
+          box-shadow: 4px 0 12px rgba(0,0,0,0.05) !important;
+          padding: 24px 0 !important;
+        }
+        
+        /* Sidebar Navigation Items */
+        [class*="AppSidebar"] a,
+        [class*="Sidebar"] a {
+          color: #475569 !important;
+          padding: 12px 24px !important;
+          display: flex !important;
+          align-items: center !important;
+          text-decoration: none !important;
+          font-size: 14px !important;
+          font-weight: 500 !important;
+          margin: 2px 12px !important;
+          border-radius: 8px !important;
+          transition: all 0.2s ease !important;
+          border: none !important;
+        }
+        
+        [class*="AppSidebar"] a:hover,
+        [class*="Sidebar"] a:hover {
+          background: #f1f5f9 !important;
+          color: #CE1A28 !important;
+          transform: translateX(4px) !important;
+        }
+        
+        [class*="AppSidebar"] a.active,
+        [class*="Sidebar"] a.active {
+          background: #fef2f2 !important;
+          color: #CE1A28 !important;
+          border-left: 3px solid #CE1A28 !important;
+        }
+        
+        /* MAIN CONTENT AREA */
+        [class*="AppMainContainer"],
+        [class*="MainContainer"] {
+          flex: 1 !important;
+          background: white !important;
+          margin: 16px 16px 16px 0 !important;
+          border-radius: 12px !important;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+          overflow: hidden !important;
+        }
+        
+        /* Collection Header */
+        [class*="CollectionTop"] {
+          background: linear-gradient(135deg, #CE1A28 0%, #b01624 100%) !important;
+          color: white !important;
+          padding: 24px 32px !important;
+          border-bottom: none !important;
+        }
+        
+        [class*="CollectionTop"] h1,
+        [class*="CollectionTop"] h2 {
+          color: white !important;
+          margin: 0 !important;
+          font-size: 24px !important;
+          font-weight: 600 !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+        }
+        
+        /* New Entry Button - Modern */
+        [class*="CollectionTop"] button,
+        [class*="CollectionTop"] a[href*="new"] {
+          background: white !important;
+          color: #CE1A28 !important;
+          border: none !important;
+          padding: 12px 20px !important;
+          border-radius: 8px !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+          transition: all 0.2s ease !important;
+        }
+        
+        [class*="CollectionTop"] button:hover,
+        [class*="CollectionTop"] a[href*="new"]:hover {
+          background: #f8f9fa !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* ENTRY LIST - Clean & Organized */
+        [class*="EntryListing"] {
+          padding: 32px !important;
+          background: #f8fafc !important;
+          min-height: calc(100vh - 160px) !important;
+        }
+        
+        /* Entry Cards - Modern Design */
+        [class*="EntryCard"] {
+          background: white !important;
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 12px !important;
+          padding: 24px !important;
+          margin-bottom: 16px !important;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+          transition: all 0.3s ease !important;
+          cursor: pointer !important;
+          position: relative !important;
+        }
+        
+        [class*="EntryCard"]:hover {
+          border-color: #CE1A28 !important;
+          box-shadow: 0 8px 24px rgba(206, 26, 40, 0.12) !important;
+          transform: translateY(-2px) !important;
+        }
+        
+        [class*="EntryCard"]::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: #CE1A28;
+          border-radius: 12px 0 0 12px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        [class*="EntryCard"]:hover::before {
+          opacity: 1;
+        }
+        
+        /* Entry Card Content */
+        [class*="EntryCard"] h2,
+        [class*="EntryCard"] h3 {
+          color: #1e293b !important;
+          margin: 0 0 8px 0 !important;
+          font-size: 18px !important;
+          font-weight: 600 !important;
+          font-family: 'Inter', sans-serif !important;
+        }
+        
+        [class*="EntryCard"] p {
+          color: #64748b !important;
+          margin: 0 !important;
+          font-size: 14px !important;
+          line-height: 1.5 !important;
+        }
+        
+        /* FORM EDITOR - Clean & Professional */
+        [class*="EditorContainer"] {
+          background: white !important;
+          padding: 32px !important;
+          min-height: calc(100vh - 160px) !important;
+        }
+        
+        /* Form Sections */
+        [class*="Widget"] {
+          margin-bottom: 24px !important;
+        }
+        
+        /* Form Labels - Modern Typography */
+        [class*="Widget"] label {
+          color: #374151 !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          margin-bottom: 8px !important;
+          display: block !important;
+          font-family: 'Inter', sans-serif !important;
+        }
+        
+        /* Form Inputs - Modern Design */
+        [class*="Widget"] input,
+        [class*="Widget"] textarea,
+        [class*="Widget"] select {
+          width: 100% !important;
+          border: 2px solid #e2e8f0 !important;
+          border-radius: 8px !important;
+          padding: 12px 16px !important;
+          font-size: 14px !important;
+          font-family: 'Inter', sans-serif !important;
+          background: white !important;
+          transition: all 0.2s ease !important;
+        }
+        
+        [class*="Widget"] input:focus,
+        [class*="Widget"] textarea:focus,
+        [class*="Widget"] select:focus {
+          border-color: #CE1A28 !important;
+          box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
+          outline: none !important;
+        }
+        
+        /* Textarea Specific */
+        [class*="Widget"] textarea {
+          min-height: 120px !important;
+          resize: vertical !important;
+        }
+        
+        /* Boolean/Checkbox Widgets */
+        [class*="Widget"] input[type="checkbox"] {
+          width: auto !important;
+          margin-right: 8px !important;
+          transform: scale(1.2) !important;
+        }
+        
+        /* Image Upload Widget */
+        [class*="Widget"] [class*="image"] {
+          border: 2px dashed #e2e8f0 !important;
+          border-radius: 12px !important;
+          padding: 24px !important;
+          text-align: center !important;
+          transition: all 0.2s ease !important;
+        }
+        
+        [class*="Widget"] [class*="image"]:hover {
+          border-color: #CE1A28 !important;
+          background: #fef2f2 !important;
+        }
+        
+        /* Action Buttons - Professional */
+        button[class*="btn"],
+        [class*="Button"],
+        [type="submit"] {
+          background: #CE1A28 !important;
+          color: white !important;
+          border: none !important;
+          padding: 12px 24px !important;
+          border-radius: 8px !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          cursor: pointer !important;
+          transition: all 0.2s ease !important;
+          font-family: 'Inter', sans-serif !important;
+        }
+        
+        button[class*="btn"]:hover,
+        [class*="Button"]:hover {
+          background: #b01624 !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.3) !important;
+        }
+        
+        /* Secondary Buttons */
+        button[class*="btn"][class*="secondary"],
+        [class*="Button"][class*="secondary"] {
+          background: #f1f5f9 !important;
+          color: #475569 !important;
+          border: 1px solid #e2e8f0 !important;
+        }
+        
+        button[class*="btn"][class*="secondary"]:hover {
+          background: #e2e8f0 !important;
+          color: #334155 !important;
+        }
+        
+        /* List Widget - Clean Design */
+        [class*="Widget"] [class*="list"] {
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 12px !important;
+          padding: 16px !important;
+          background: #f8fafc !important;
+        }
+        
+        /* Object Widget - Card Design */
+        [class*="Widget"] [class*="object"] {
+          border: 1px solid #e2e8f0 !important;
+          border-radius: 12px !important;
+          padding: 20px !important;
+          background: white !important;
+          margin-bottom: 16px !important;
+        }
+        
+        /* Success/Error Messages */
+        [class*="toast"],
+        [class*="notification"] {
+          border-radius: 8px !important;
+          font-family: 'Inter', sans-serif !important;
+          font-weight: 500 !important;
+        }
+        
+        /* Loading States */
+        [class*="loading"],
+        [class*="Loading"] {
+          color: #CE1A28 !important;
+        }
+        
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #f1f5f9;
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8;
+        }
+        
+        /* Hide any conflicting elements */
+        [style*="background: #CE1A28"][style*="position: fixed"] {
+          display: none !important;
+        }
+      `;
+      
+      document.head.appendChild(style);
+    }
+    
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🎯 DOM ready, waiting for authentication...');
     });
   </script>
 </body>
