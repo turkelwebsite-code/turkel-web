@@ -1,17 +1,29 @@
 year: 2026
 is_active: true
-
 fairs:
   - basic_info:
-      name_tr: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı"
-      name_en: "HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair"
-      date: "16-18 Şubat 2026"
-      location_tr: "Almatı, Kazakistan"
-      location_en: "Almaty, Kazakhstan"
-      sector: "Ev Tekstili ve Dekorasyon"
+      name_tr: HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı
+      name_en: HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair
+      date: 16-18 Şubat 2026
+      location_tr: Almatı, Kazakistan
+      location_en: Almaty, Kazakhstan
+      sector: Ev Tekstili ve Dekorasyon
     visuals:
-      logo: "/images/homedeco-logo.png"
-      background_image: "/images/fuarlar-arkaplan.jpg"
+      logo: /images/homedeco-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
     settings:
       show_in_slider: true
       show_in_forms: true
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      name_tr: TEst
+      name_en: test
+      date: 12.10.2022
+      location_tr: test
+      location_en: test
+      sector: Gıda ve İçecek
+    visuals:
+      logo: /images/fuarlar-arkaplan.jpg
+      background_image: /images/fuarlar-logo.png
