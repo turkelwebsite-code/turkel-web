@@ -4,51 +4,37 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Türkel CMS - Admin Panel</title>
+  <title>Türkel CMS</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <!-- Use same fonts as main website -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Include Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Netlify Identity & Modern CMS Setup -->
+  <!-- Simple, Clean Setup -->
   <script>
     // Clear caches
-    if ('caches' in window) {
-      caches.keys().then(names => names.forEach(name => caches.delete(name)));
-    }
     localStorage.clear();
     sessionStorage.clear();
 
-    // Netlify Identity Setup
+    // Simple Identity Setup
     if (window.netlifyIdentity) {
-      let isLoggingIn = false;
-      
       window.netlifyIdentity.on("init", user => {
-        if (user) {
-          console.log("✅ User authenticated:", user.email);
-          setupModernCMS();
-        } else {
-          console.log("No user, opening login");
-          if (!isLoggingIn) {
-            isLoggingIn = true;
-            window.netlifyIdentity.open();
-          }
+        if (!user) {
+          window.netlifyIdentity.open();
         }
       });
       
       window.netlifyIdentity.on("login", user => {
-        const allowedEmails = [
-          'turkelwebsite@gmail.com',
-          'admin@turkel.com.tr',
-          'sezani991@gmail.com'
-        ];
+        const allowedEmails = ['turkelwebsite@gmail.com', 'admin@turkel.com.tr', 'sezani991@gmail.com'];
         
         if (!allowedEmails.includes(user.email)) {
           alert('Bu email ile admin paneline erişim yetkiniz yok!');
@@ -58,553 +44,361 @@
         }
         
         window.netlifyIdentity.close();
-        isLoggingIn = false;
         console.log("✅ Login successful:", user.email);
-        setupModernCMS();
-      });
-      
-      window.netlifyIdentity.on("logout", () => {
-        window.location.href = '/';
+        
+        // Apply clean styling after login
+        setTimeout(applyWebsiteInspiredStyling, 1000);
       });
     }
     
-    // Modern CMS Setup Function
-    function setupModernCMS() {
-      console.log('🎨 Setting up modern Türkel CMS...');
-      
-      // Wait for CMS to load
-      setTimeout(() => {
-        // Create modern header
-        createModernHeader();
+    // Website-Inspired CMS Styling
+    function applyWebsiteInspiredStyling() {
+      const style = document.createElement('style');
+      style.textContent = `
+        /* WEBSITE-INSPIRED CLEAN CMS DESIGN */
         
-        // Apply modern styling
-        applyModernStyling();
+        /* Reset - Clean like main website */
+        * {
+          box-sizing: border-box;
+        }
         
-        console.log('✅ Modern CMS setup complete');
-      }, 1500);
-    }
-    
-    function createModernHeader() {
-      // Remove any existing headers
-      const existingHeaders = document.querySelectorAll('#turkel-modern-header');
-      existingHeaders.forEach(header => header.remove());
-      
-      // Create modern header
-      const header = document.createElement('div');
-      header.id = 'turkel-modern-header';
-      header.innerHTML = `
-        <div style="
-          background: linear-gradient(135deg, #CE1A28 0%, #b01624 100%);
-          color: white;
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Radio Canada Big', -apple-system, BlinkMacSystemFont, sans-serif;
+          background: #FCFCFC;
+          height: 100vh;
+          overflow: hidden;
+        }
+        
+        /* CUSTOM HEADER - Website style */
+        .turkel-cms-header {
+          background: white;
+          border-bottom: 1px solid #e2e8f0;
           padding: 16px 32px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.15);
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 10000;
           height: 70px;
-        ">
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="
-              background: white;
-              color: #CE1A28;
-              padding: 8px 16px;
-              border-radius: 8px;
-              font-weight: 700;
-              font-size: 18px;
-              letter-spacing: 1px;
-            ">TÜRKEL</div>
-            <div>
-              <div style="font-weight: 600; font-size: 20px; margin-bottom: 2px;">Content Management</div>
-              <div style="font-size: 12px; opacity: 0.9;">Fuar & İçerik Yönetim Sistemi</div>
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="text-align: right;">
-              <div style="font-size: 14px; font-weight: 500;">${window.netlifyIdentity?.currentUser()?.email || 'Admin User'}</div>
-              <div style="font-size: 11px; opacity: 0.8;">Yönetici</div>
-            </div>
-            <button onclick="window.netlifyIdentity?.logout()" style="
-              background: rgba(255,255,255,0.2);
-              border: 1px solid rgba(255,255,255,0.3);
-              color: white;
-              padding: 8px 16px;
-              border-radius: 6px;
-              cursor: pointer;
-              font-size: 12px;
-              font-weight: 500;
-              transition: all 0.2s ease;
-            " onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
-              Çıkış Yap
-            </button>
-          </div>
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .turkel-cms-header .logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        
+        .turkel-cms-header .logo-text {
+          background: #CE1A28;
+          color: white;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-weight: 700;
+          font-size: 16px;
+          letter-spacing: 0.5px;
+        }
+        
+        .turkel-cms-header .title {
+          color: #1e293b;
+          font-size: 18px;
+          font-weight: 600;
+        }
+        
+        .turkel-cms-header .user-info {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: #64748b;
+          font-size: 14px;
+        }
+        
+        .turkel-cms-header .logout-btn {
+          background: #f1f5f9;
+          border: 1px solid #e2e8f0;
+          color: #475569;
+          padding: 8px 16px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+        
+        .turkel-cms-header .logout-btn:hover {
+          background: #e2e8f0;
+          color: #334155;
+        }
+        
+        /* HIDE DEFAULT DECAP HEADERS */
+        [class*="AppHeader"],
+        [class*="Header"]:not(.turkel-cms-header),
+        header:not(.turkel-cms-header) {
+          display: none !important;
+        }
+        
+        /* CMS MAIN CONTAINER - Website inspired */
+        [data-testid="cms-app"] {
+          margin-top: 70px;
+          height: calc(100vh - 70px);
+          width: 100vw;
+          display: flex;
+          background: #FCFCFC;
+        }
+        
+        /* SIDEBAR - Clean like website navigation */
+        [class*="AppSidebar"],
+        [class*="Sidebar"] {
+          width: 300px;
+          min-width: 300px;
+          background: white;
+          border-right: 1px solid #e2e8f0;
+          padding: 24px 0;
+          overflow-y: auto;
+        }
+        
+        /* Sidebar Navigation - Website header style */
+        [class*="AppSidebar"] a,
+        [class*="Sidebar"] a {
+          color: #374151;
+          padding: 12px 24px;
+          display: block;
+          text-decoration: none;
+          font-size: 15px;
+          font-weight: 500;
+          margin: 2px 16px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          border-left: 3px solid transparent;
+        }
+        
+        [class*="AppSidebar"] a:hover,
+        [class*="Sidebar"] a:hover {
+          background: #f8fafc;
+          color: #CE1A28;
+          border-left-color: #CE1A28;
+        }
+        
+        [class*="AppSidebar"] a.active,
+        [class*="Sidebar"] a.active {
+          background: #fef2f2;
+          color: #CE1A28;
+          border-left-color: #CE1A28;
+        }
+        
+        /* MAIN CONTENT - Website content style */
+        [class*="AppMainContainer"],
+        [class*="MainContainer"] {
+          flex: 1;
+          background: white;
+          margin: 16px;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+          overflow: hidden;
+        }
+        
+        /* Collection Header - Clean like website sections */
+        [class*="CollectionTop"] {
+          background: white;
+          color: #1e293b;
+          padding: 32px;
+          border-bottom: 1px solid #e2e8f0;
+        }
+        
+        [class*="CollectionTop"] h1,
+        [class*="CollectionTop"] h2 {
+          color: #1e293b;
+          margin: 0;
+          font-size: 28px;
+          font-weight: 700;
+          font-family: 'Radio Canada Big', sans-serif;
+        }
+        
+        /* New Entry Button - Website button style */
+        [class*="CollectionTop"] button,
+        [class*="CollectionTop"] a[href*="new"] {
+          background: #CE1A28;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 14px;
+          transition: all 0.2s ease;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+        
+        [class*="CollectionTop"] button:hover,
+        [class*="CollectionTop"] a[href*="new"]:hover {
+          background: #b01624;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.25);
+        }
+        
+        /* ENTRY CARDS - Website fair card style */
+        [class*="EntryListing"] {
+          padding: 32px;
+          background: #FCFCFC;
+        }
+        
+        [class*="EntryCard"] {
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 24px;
+          margin-bottom: 16px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        [class*="EntryCard"]:hover {
+          border-color: #CE1A28;
+          box-shadow: 0 8px 24px rgba(206, 26, 40, 0.1);
+          transform: translateY(-2px);
+        }
+        
+        [class*="EntryCard"] h2,
+        [class*="EntryCard"] h3 {
+          color: #1e293b;
+          margin: 0 0 8px 0;
+          font-size: 18px;
+          font-weight: 600;
+          font-family: 'Radio Canada Big', sans-serif;
+        }
+        
+        [class*="EntryCard"] p {
+          color: #64748b;
+          margin: 0;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        
+        /* FORM EDITOR - Website form style */
+        [class*="EditorContainer"] {
+          background: white;
+          padding: 32px;
+        }
+        
+        /* Form Labels - Website style */
+        [class*="Widget"] label {
+          color: #374151;
+          font-weight: 600;
+          font-size: 14px;
+          margin-bottom: 8px;
+          display: block;
+          font-family: 'Radio Canada Big', sans-serif;
+        }
+        
+        /* Form Inputs - Website input style */
+        [class*="Widget"] input,
+        [class*="Widget"] textarea,
+        [class*="Widget"] select {
+          width: 100%;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          padding: 12px 16px;
+          font-size: 14px;
+          font-family: 'Radio Canada Big', sans-serif;
+          background: white;
+          transition: all 0.2s ease;
+        }
+        
+        [class*="Widget"] input:focus,
+        [class*="Widget"] textarea:focus,
+        [class*="Widget"] select:focus {
+          border-color: #CE1A28;
+          box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1);
+          outline: none;
+        }
+        
+        /* Buttons - Website button style */
+        button[class*="btn"],
+        [class*="Button"] {
+          background: #CE1A28;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-family: 'Radio Canada Big', sans-serif;
+        }
+        
+        button[class*="btn"]:hover,
+        [class*="Button"]:hover {
+          background: #b01624;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.25);
+        }
+        
+        /* Custom Scrollbars - Subtle like website */
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #f8fafc;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: #94a3b8;
+        }
+      `;
+      
+      document.head.appendChild(style);
+      
+      // Add custom header like website
+      addWebsiteStyleHeader();
+    }
+    
+    function addWebsiteStyleHeader() {
+      // Remove any existing headers
+      const existingHeaders = document.querySelectorAll('.turkel-cms-header');
+      existingHeaders.forEach(h => h.remove());
+      
+      // Create website-style header
+      const header = document.createElement('header');
+      header.className = 'turkel-cms-header';
+      header.innerHTML = `
+        <div class="logo">
+          <div class="logo-text">TÜRKEL</div>
+          <div class="title">Content Management System</div>
+        </div>
+        <div class="user-info">
+          <span>${window.netlifyIdentity?.currentUser()?.email || 'Admin'}</span>
+          <button class="logout-btn" onclick="window.netlifyIdentity?.logout()">Çıkış</button>
         </div>
       `;
       
       document.body.insertBefore(header, document.body.firstChild);
     }
     
-    function applyModernStyling() {
-      const style = document.createElement('style');
-      style.textContent = `
-        /* MODERN TÜRKEL CMS STYLING */
-        
-        /* Base Reset */
-        * {
-          box-sizing: border-box;
-        }
-        
-        body {
-          margin: 0 !important;
-          padding: 70px 0 0 0 !important;
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-          background: #f8fafc !important;
-          height: 100vh !important;
-          width: 100vw !important;
-          overflow-x: hidden !important;
-          overflow-y: auto !important;
-        }
-        
-        /* Fix CMS app container positioning */
-        [data-testid="cms-app"] {
-          position: relative !important;
-          top: 0 !important;
-          left: 0 !important;
-        }
-        
-        /* Main CMS Container */
-        [data-testid="cms-app"] {
-          height: calc(100vh - 70px) !important;
-          width: 100vw !important;
-          display: flex !important;
-          background: #f8fafc !important;
-        }
-        
-        /* SIDEBAR - Modern & Clean - Fix collections visibility */
-        [class*="AppSidebar"],
-        [class*="Sidebar"],
-        [class*="SidebarContainer"] {
-          width: 280px !important;
-          min-width: 280px !important;
-          background: white !important;
-          border-right: 1px solid #e2e8f0 !important;
-          box-shadow: 4px 0 12px rgba(0,0,0,0.05) !important;
-          padding: 24px 0 !important;
-          display: block !important;
-          overflow-y: auto !important;
-        }
-        
-        /* Force sidebar content to show */
-        [class*="AppSidebar"] > *,
-        [class*="Sidebar"] > * {
-          display: block !important;
-          width: 100% !important;
-        }
-        
-        /* Collections list container */
-        [class*="CollectionList"],
-        [class*="AppSidebar"] ul,
-        [class*="Sidebar"] ul {
-          list-style: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-          display: block !important;
-        }
-        
-        /* Sidebar Navigation Items - Enhanced visibility */
-        [class*="AppSidebar"] a,
-        [class*="Sidebar"] a,
-        [class*="AppSidebar"] li,
-        [class*="Sidebar"] li {
-          color: #475569 !important;
-          padding: 14px 24px !important;
-          display: block !important;
-          text-decoration: none !important;
-          font-size: 15px !important;
-          font-weight: 500 !important;
-          margin: 3px 12px !important;
-          border-radius: 8px !important;
-          transition: all 0.2s ease !important;
-          border: none !important;
-          cursor: pointer !important;
-        }
-        
-        /* Navigation item content */
-        [class*="AppSidebar"] a span,
-        [class*="Sidebar"] a span {
-          display: inline-block !important;
-          width: 100% !important;
-        }
-        
-        [class*="AppSidebar"] a:hover,
-        [class*="Sidebar"] a:hover {
-          background: #f1f5f9 !important;
-          color: #CE1A28 !important;
-          transform: translateX(4px) !important;
-        }
-        
-        [class*="AppSidebar"] a.active,
-        [class*="Sidebar"] a.active {
-          background: #fef2f2 !important;
-          color: #CE1A28 !important;
-          border-left: 3px solid #CE1A28 !important;
-        }
-        
-        /* MAIN CONTENT AREA - Fix content loading */
-        [class*="AppMainContainer"],
-        [class*="MainContainer"],
-        [class*="CollectionPage"] > div:last-child,
-        main {
-          flex: 1 !important;
-          background: white !important;
-          margin: 16px 16px 16px 0 !important;
-          border-radius: 12px !important;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
-          overflow-y: auto !important;
-          min-height: calc(100vh - 100px) !important;
-          display: block !important;
-        }
-        
-        /* Force content visibility */
-        [class*="CollectionPage"] {
-          display: flex !important;
-          height: 100% !important;
-        }
-        
-        /* Collection files list - Fix visibility */
-        [class*="FilesList"],
-        [class*="EntryListing"],
-        [class*="Files"] {
-          display: block !important;
-          padding: 32px !important;
-          background: #f8fafc !important;
-          min-height: 100% !important;
-          width: 100% !important;
-        }
-        
-        /* Files collection items */
-        [class*="FileCard"],
-        [class*="File"] {
-          background: white !important;
-          border: 1px solid #e2e8f0 !important;
-          border-radius: 8px !important;
-          padding: 20px !important;
-          margin-bottom: 12px !important;
-          cursor: pointer !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        [class*="FileCard"]:hover,
-        [class*="File"]:hover {
-          border-color: #CE1A28 !important;
-          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.1) !important;
-        }
-        
-        /* File titles */
-        [class*="FileCard"] h3,
-        [class*="File"] h3 {
-          color: #1e293b !important;
-          font-size: 16px !important;
-          font-weight: 600 !important;
-          margin: 0 !important;
-        }
-        
-        /* Collection Header - Subtle Design */
-        [class*="CollectionTop"] {
-          background: #f8fafc !important;
-          color: #1e293b !important;
-          padding: 24px 32px !important;
-          border-bottom: 1px solid #e2e8f0 !important;
-          border-radius: 12px 12px 0 0 !important;
-        }
-        
-        [class*="CollectionTop"] h1,
-        [class*="CollectionTop"] h2 {
-          color: #1e293b !important;
-          margin: 0 !important;
-          font-size: 24px !important;
-          font-weight: 600 !important;
-          display: flex !important;
-          align-items: center !important;
-          gap: 8px !important;
-        }
-        
-        /* New Entry Button - Modern */
-        [class*="CollectionTop"] button,
-        [class*="CollectionTop"] a[href*="new"] {
-          background: white !important;
-          color: #CE1A28 !important;
-          border: none !important;
-          padding: 12px 20px !important;
-          border-radius: 8px !important;
-          font-weight: 600 !important;
-          font-size: 14px !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        [class*="CollectionTop"] button:hover,
-        [class*="CollectionTop"] a[href*="new"]:hover {
-          background: #f8f9fa !important;
-          transform: translateY(-1px) !important;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-        }
-        
-        /* ENTRY LIST - Clean & Organized */
-        [class*="EntryListing"] {
-          padding: 32px !important;
-          background: #f8fafc !important;
-          min-height: calc(100vh - 160px) !important;
-        }
-        
-        /* Entry Cards - Modern Design */
-        [class*="EntryCard"] {
-          background: white !important;
-          border: 1px solid #e2e8f0 !important;
-          border-radius: 12px !important;
-          padding: 24px !important;
-          margin-bottom: 16px !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
-          transition: all 0.3s ease !important;
-          cursor: pointer !important;
-          position: relative !important;
-        }
-        
-        [class*="EntryCard"]:hover {
-          border-color: #CE1A28 !important;
-          box-shadow: 0 8px 24px rgba(206, 26, 40, 0.12) !important;
-          transform: translateY(-2px) !important;
-        }
-        
-        [class*="EntryCard"]::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 4px;
-          background: #CE1A28;
-          border-radius: 12px 0 0 12px;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        
-        [class*="EntryCard"]:hover::before {
-          opacity: 1;
-        }
-        
-        /* Entry Card Content */
-        [class*="EntryCard"] h2,
-        [class*="EntryCard"] h3 {
-          color: #1e293b !important;
-          margin: 0 0 8px 0 !important;
-          font-size: 18px !important;
-          font-weight: 600 !important;
-          font-family: 'Inter', sans-serif !important;
-        }
-        
-        [class*="EntryCard"] p {
-          color: #64748b !important;
-          margin: 0 !important;
-          font-size: 14px !important;
-          line-height: 1.5 !important;
-        }
-        
-        /* FORM EDITOR - Clean & Professional */
-        [class*="EditorContainer"] {
-          background: white !important;
-          padding: 32px !important;
-          min-height: calc(100vh - 160px) !important;
-        }
-        
-        /* Form Sections */
-        [class*="Widget"] {
-          margin-bottom: 24px !important;
-        }
-        
-        /* Form Labels - Modern Typography */
-        [class*="Widget"] label {
-          color: #374151 !important;
-          font-weight: 600 !important;
-          font-size: 14px !important;
-          margin-bottom: 8px !important;
-          display: block !important;
-          font-family: 'Inter', sans-serif !important;
-        }
-        
-        /* Form Inputs - Modern Design */
-        [class*="Widget"] input,
-        [class*="Widget"] textarea,
-        [class*="Widget"] select {
-          width: 100% !important;
-          border: 2px solid #e2e8f0 !important;
-          border-radius: 8px !important;
-          padding: 12px 16px !important;
-          font-size: 14px !important;
-          font-family: 'Inter', sans-serif !important;
-          background: white !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        [class*="Widget"] input:focus,
-        [class*="Widget"] textarea:focus,
-        [class*="Widget"] select:focus {
-          border-color: #CE1A28 !important;
-          box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
-          outline: none !important;
-        }
-        
-        /* Textarea Specific */
-        [class*="Widget"] textarea {
-          min-height: 120px !important;
-          resize: vertical !important;
-        }
-        
-        /* Boolean/Checkbox Widgets */
-        [class*="Widget"] input[type="checkbox"] {
-          width: auto !important;
-          margin-right: 8px !important;
-          transform: scale(1.2) !important;
-        }
-        
-        /* Image Upload Widget */
-        [class*="Widget"] [class*="image"] {
-          border: 2px dashed #e2e8f0 !important;
-          border-radius: 12px !important;
-          padding: 24px !important;
-          text-align: center !important;
-          transition: all 0.2s ease !important;
-        }
-        
-        [class*="Widget"] [class*="image"]:hover {
-          border-color: #CE1A28 !important;
-          background: #fef2f2 !important;
-        }
-        
-        /* Action Buttons - Professional */
-        button[class*="btn"],
-        [class*="Button"],
-        [type="submit"] {
-          background: #CE1A28 !important;
-          color: white !important;
-          border: none !important;
-          padding: 12px 24px !important;
-          border-radius: 8px !important;
-          font-weight: 600 !important;
-          font-size: 14px !important;
-          cursor: pointer !important;
-          transition: all 0.2s ease !important;
-          font-family: 'Inter', sans-serif !important;
-        }
-        
-        button[class*="btn"]:hover,
-        [class*="Button"]:hover {
-          background: #b01624 !important;
-          transform: translateY(-1px) !important;
-          box-shadow: 0 4px 12px rgba(206, 26, 40, 0.3) !important;
-        }
-        
-        /* Secondary Buttons */
-        button[class*="btn"][class*="secondary"],
-        [class*="Button"][class*="secondary"] {
-          background: #f1f5f9 !important;
-          color: #475569 !important;
-          border: 1px solid #e2e8f0 !important;
-        }
-        
-        button[class*="btn"][class*="secondary"]:hover {
-          background: #e2e8f0 !important;
-          color: #334155 !important;
-        }
-        
-        /* List Widget - Clean Design */
-        [class*="Widget"] [class*="list"] {
-          border: 1px solid #e2e8f0 !important;
-          border-radius: 12px !important;
-          padding: 16px !important;
-          background: #f8fafc !important;
-        }
-        
-        /* Object Widget - Card Design */
-        [class*="Widget"] [class*="object"] {
-          border: 1px solid #e2e8f0 !important;
-          border-radius: 12px !important;
-          padding: 20px !important;
-          background: white !important;
-          margin-bottom: 16px !important;
-        }
-        
-        /* Success/Error Messages */
-        [class*="toast"],
-        [class*="notification"] {
-          border-radius: 8px !important;
-          font-family: 'Inter', sans-serif !important;
-          font-weight: 500 !important;
-        }
-        
-        /* Loading States */
-        [class*="loading"],
-        [class*="Loading"] {
-          color: #CE1A28 !important;
-        }
-        
-        /* Custom Scrollbars */
-        ::-webkit-scrollbar {
-          width: 8px;
-          height: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-          background: #f1f5f9;
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 4px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
-        }
-        
-        /* HIDE DECAP CMS DEFAULT HEADER - Fix header conflict */
-        [class*="AppHeader"],
-        [class*="Header"],
-        header {
-          display: none !important;
-        }
-        
-        /* Hide default CMS navigation that conflicts */
-        [class*="AppNav"],
-        [class*="Nav"]:not([class*="Collection"]) {
-          display: none !important;
-        }
-        
-        /* Hide conflicting top bars */
-        [style*="background: #CE1A28"][style*="position: fixed"] {
-          display: none !important;
-        }
-        
-        /* Ensure our custom header is always visible */
-        #turkel-modern-header {
-          display: block !important;
-          position: fixed !important;
-          top: 0 !important;
-          z-index: 99999 !important;
-        }
-      `;
-      
-      document.head.appendChild(style);
-    }
-    
-    // Initialize when DOM is ready
+    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('🎯 DOM ready, waiting for authentication...');
+      console.log('🎯 Türkel CMS loading...');
+      
+      // Apply styling when CMS loads
+      setTimeout(() => {
+        if (window.netlifyIdentity?.currentUser()) {
+          applyWebsiteInspiredStyling();
+        }
+      }, 1500);
     });
   </script>
 </body>
