@@ -8,599 +8,270 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js?v=2"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-
-  
-  <!-- Custom header for Türkel branding -->
-  <div id="custom-header" style="background: #CE1A28; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 10000; height: 50px;">
+  <!-- Türkel Admin Header -->
+  <div id="turkel-header" style="background: #CE1A28; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 10000; height: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
     <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="background: white; color: #CE1A28; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 14px;">TÜRKEL</div>
-      <span style="font-weight: 500; font-size: 16px;">Admin Panel</span>
+      <div style="background: white; color: #CE1A28; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 16px;">TÜRKEL</div>
+      <span style="font-weight: 600; font-size: 18px;">Admin Panel</span>
     </div>
-    <div style="font-size: 12px; opacity: 0.9;">
-      <span id="user-email">turkelwebsite@gmail.com</span>
-      <button onclick="window.netlifyIdentity?.logout()" style="margin-left: 12px; background: rgba(255,255,255,0.2); border: none; color: white; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 11px;">Çıkış</button>
+    <div style="font-size: 14px; opacity: 0.95;">
+      <span id="user-email">Admin User</span>
+      <button onclick="window.netlifyIdentity?.logout()" style="margin-left: 16px; background: rgba(255,255,255,0.2); border: none; color: white; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500;">Çıkış</button>
     </div>
   </div>
   
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js?v=4"></script>
+  <!-- CMS Container -->
+  <div id="cms-wrapper" style="margin-top: 50px; height: calc(100vh - 50px); width: 100vw; display: flex;">
+    <!-- CMS will load here -->
+  </div>
+
+  <!-- Include Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- EXTREME CACHE BUSTING AND CONFIG RELOAD -->
+  <!-- Identity and CMS Setup -->
   <script>
-    // Clear all possible caches
+    // Clear caches for fresh start
     if ('caches' in window) {
-      caches.keys().then(names => {
-        names.forEach(name => {
-          caches.delete(name);
-        });
-      });
+      caches.keys().then(names => names.forEach(name => caches.delete(name)));
     }
-    
-    // Force reload localStorage
     localStorage.clear();
     sessionStorage.clear();
-    
-    // Debug and force config reload
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('🎯 Admin panel DOM loaded with cache clearing');
-      console.log('📅 Config should show: Fuar Yılları collection');
-      
-      // Check if new collection is loaded
-      setTimeout(() => {
-        const collections = document.querySelectorAll('[class*="Collection"]');
-        console.log('🔍 Found collections:', collections.length);
-        
-        // Look for Fuar Yılları specifically
-        const fairYearsFound = Array.from(document.querySelectorAll('*')).some(el => 
-          el.textContent && el.textContent.includes('Fuar Yılları')
-        );
-        
-        if (!fairYearsFound) {
-          console.log('❌ Fuar Yılları collection not found, forcing hard refresh...');
-          window.location.href = window.location.href + '?t=' + Date.now();
-        } else {
-          console.log('✅ Fuar Yılları collection found!');
-        }
-      }, 4000);
-    });
-  </script>
-  
-  <script>
+
+    // Netlify Identity Setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
-        console.log("Identity init, user:", user ? user.email : "No user");
-        
-        // Check for invite token in URL
-        const hash = window.location.hash.substring(1);
-        const urlParams = new URLSearchParams(hash);
-        const inviteToken = urlParams.get('invite_token');
-        const recoveryToken = urlParams.get('recovery_token');
-        
-        if (inviteToken) {
-          console.log("🎯 Invite token found:", inviteToken.substring(0, 10) + "...");
-          console.log("🔄 Opening Identity widget for signup...");
-          // Auto-open signup modal for invite
-          window.netlifyIdentity.open('signup');
-        } else if (recoveryToken) {
-          console.log("🔑 Recovery token found:", recoveryToken.substring(0, 10) + "...");
-          console.log("🔄 Opening password reset...");
-          // Auto-open password reset
-          window.netlifyIdentity.open('recovery');
-        } else if (!user) {
-          // Auto-open login widget if no user
-          console.log("No user found, opening login widget");
-          window.netlifyIdentity.open();
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        } else {
+          // Update user email in header
+          document.getElementById('user-email').textContent = user.email;
         }
       });
       
       window.netlifyIdentity.on("login", user => {
-        console.log("Login successful:", user.email);
-        console.log("Email verified:", user.email_verified);
-        console.log("User confirmed:", user.confirmed_at);
-        console.log("User roles:", user.app_metadata?.roles);
-        
-        // Security check: Only allow specific emails or admin role
+        // Security check
         const allowedEmails = [
           'turkelwebsite@gmail.com',
           'admin@turkel.com.tr',
           'sezani991@gmail.com'
-          // Buraya sadece admin olabilecek email'leri ekle
         ];
         
-        const hasAdminRole = user.app_metadata?.roles?.includes('admin');
-        const isAllowedEmail = allowedEmails.includes(user.email);
-        
-        if (!hasAdminRole && !isAllowedEmail) {
-          alert('Bu hesapla admin paneline erişim yetkiniz yok!');
+        if (!allowedEmails.includes(user.email)) {
+          alert('Bu email ile admin paneline erişim yetkiniz yok!');
           window.netlifyIdentity.logout();
           window.location.href = '/';
           return;
         }
         
-        // Close widget but DON'T reload if already on admin page
+        // Update header and close widget
+        document.getElementById('user-email').textContent = user.email;
         window.netlifyIdentity.close();
-        console.log("✅ Login completed, user authorized");
+        console.log("✅ Admin login successful:", user.email);
       });
-      
-      window.netlifyIdentity.on("signup", user => {
-        console.log("Signup completed:", user.email);
-        window.netlifyIdentity.close();
-      });
-      
-      window.netlifyIdentity.on("logout", () => {
-        console.log("User logged out");
-        window.location.href = "/";
-      });
-      
-      window.netlifyIdentity.on("error", err => {
-        console.error("Netlify Identity error:", err);
-        alert("Identity hatası: " + err.message);
-      });
-      
-      // Debug: Check configuration
-      window.netlifyIdentity.on("ready", () => {
-        console.log("Netlify Identity ready");
-        const user = window.netlifyIdentity.currentUser();
-        if (user) {
-          console.log("Current user:", {
-            email: user.email,
-            confirmed: user.confirmed_at,
-            verified: user.email_verified,
-            roles: user.app_metadata?.roles
-          });
-        }
-      });
-    } else {
-      console.error("Netlify Identity not loaded!");
-      alert("Netlify Identity yüklenemedi! Sayfa yenilemeyi deneyin.");
     }
+    
+    // CMS Styling after load
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🎯 Setting up Türkel CMS styling...');
+      
+      setTimeout(() => {
+        // Apply custom styling to CMS
+        const style = document.createElement('style');
+        style.textContent = `
+          /* TÜRKEL CMS CUSTOM STYLING */
+          
+          /* Main CMS App Container */
+          [data-testid="cms-app"] {
+            width: 100% !important;
+            height: 100% !important;
+            display: flex !important;
+            background: #f8f9fa !important;
+          }
+          
+          /* Sidebar Navigation */
+          [class*="AppSidebar"],
+          [class*="Sidebar"] {
+            width: 350px !important;
+            min-width: 350px !important;
+            background: #2c3e50 !important;
+            border-right: 3px solid #CE1A28 !important;
+            color: white !important;
+          }
+          
+          /* Main Content Area */
+          [class*="AppMainContainer"],
+          [class*="MainContainer"] {
+            flex: 1 !important;
+            background: white !important;
+            padding: 0 !important;
+          }
+          
+          /* Collection List Items */
+          [class*="AppSidebar"] a,
+          [class*="Sidebar"] a {
+            color: white !important;
+            padding: 16px 24px !important;
+            display: block !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            transition: all 0.2s ease !important;
+          }
+          
+          [class*="AppSidebar"] a:hover,
+          [class*="Sidebar"] a:hover {
+            background: #34495e !important;
+            padding-left: 32px !important;
+          }
+          
+          /* Collection Headers */
+          [class*="CollectionTop"] {
+            background: #CE1A28 !important;
+            color: white !important;
+            padding: 24px 32px !important;
+          }
+          
+          [class*="CollectionTop"] h1,
+          [class*="CollectionTop"] h2 {
+            color: white !important;
+            margin: 0 !important;
+            font-size: 24px !important;
+            font-weight: 600 !important;
+          }
+          
+          /* New Entry Button */
+          [class*="CollectionTop"] button,
+          [class*="CollectionTop"] a[href*="new"] {
+            background: white !important;
+            color: #CE1A28 !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            font-size: 14px !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+          }
+          
+          /* Entry List Container */
+          [class*="EntryListing"] {
+            padding: 32px !important;
+            background: #f8f9fa !important;
+          }
+          
+          /* Entry Cards */
+          [class*="EntryCard"] {
+            background: white !important;
+            border: 1px solid #e1e5e9 !important;
+            border-radius: 12px !important;
+            padding: 24px !important;
+            margin-bottom: 20px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+            transition: all 0.2s ease !important;
+            cursor: pointer !important;
+          }
+          
+          [class*="EntryCard"]:hover {
+            border-color: #CE1A28 !important;
+            box-shadow: 0 4px 16px rgba(206, 26, 40, 0.15) !important;
+            transform: translateY(-2px) !important;
+          }
+          
+          /* Entry Card Content */
+          [class*="EntryCard"] h2,
+          [class*="EntryCard"] h3 {
+            color: #2c3e50 !important;
+            margin: 0 0 8px 0 !important;
+            font-size: 18px !important;
+            font-weight: 600 !important;
+          }
+          
+          [class*="EntryCard"] p {
+            color: #7f8c8d !important;
+            margin: 0 !important;
+            font-size: 14px !important;
+          }
+          
+          /* Form Editor */
+          [class*="EditorContainer"] {
+            background: white !important;
+            padding: 32px !important;
+          }
+          
+          /* Form Fields */
+          [class*="Widget"] input,
+          [class*="Widget"] textarea,
+          [class*="Widget"] select {
+            border: 2px solid #e1e5e9 !important;
+            border-radius: 8px !important;
+            padding: 12px 16px !important;
+            font-size: 14px !important;
+            transition: border-color 0.2s ease !important;
+          }
+          
+          [class*="Widget"] input:focus,
+          [class*="Widget"] textarea:focus,
+          [class*="Widget"] select:focus {
+            border-color: #CE1A28 !important;
+            box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
+            outline: none !important;
+          }
+          
+          /* Form Labels */
+          [class*="Widget"] label {
+            color: #2c3e50 !important;
+            font-weight: 600 !important;
+            margin-bottom: 8px !important;
+            display: block !important;
+          }
+          
+          /* Buttons */
+          button[class*="btn"],
+          [class*="Button"] {
+            background: #CE1A28 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: background 0.2s ease !important;
+          }
+          
+          button[class*="btn"]:hover,
+          [class*="Button"]:hover {
+            background: #b01624 !important;
+          }
+          
+          /* Custom Scrollbars */
+          ::-webkit-scrollbar {
+            width: 12px;
+          }
+          
+          ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+          }
+          
+          ::-webkit-scrollbar-thumb {
+            background: #CE1A28;
+            border-radius: 6px;
+          }
+          
+          ::-webkit-scrollbar-thumb:hover {
+            background: #b01624;
+          }
+        `;
+        document.head.appendChild(style);
+        
+        console.log('✅ Türkel CMS styling applied');
+      }, 1000);
+    });
   </script>
-  
-  <style>
-    /* EXTREME RESET - Force everything to be wide */
-    * {
-      box-sizing: border-box !important;
-    }
-    
-    html, body {
-      margin: 0 !important;
-      padding: 0 !important;
-      height: 100vh !important;
-      width: 100vw !important;
-      max-width: 100vw !important;
-      overflow-x: hidden !important;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-    }
-    
-    /* FORCE DECAP CMS TO BE FULL WIDTH */
-    div, section, main, article, aside, nav, header, footer {
-      max-width: none !important;
-      width: auto !important;
-    }
-    
-    /* Full screen CMS layout */
-    #root {
-      height: 100vh !important;
-      width: 100vw !important;
-      display: flex !important;
-      flex-direction: column !important;
-    }
-    
-    /* Main CMS container - Force full width */
-    .cms-container,
-    [data-testid="cms-app"],
-    div[class*="App"],
-    div[class*="app"] {
-      height: 100vh !important;
-      width: 100vw !important;
-      max-width: 100vw !important;
-      display: flex !important;
-      flex-direction: row !important;
-      overflow: hidden !important;
-    }
-    
-    /* DECAP CMS SIDEBAR - EXTREME TARGETING */
-    [class*="AppSidebar"],
-    [class*="Sidebar"],
-    [class*="sidebar"],
-    [class*="SidebarContainer"],
-    [class*="CollectionList"],
-    nav[class*="Nav"],
-    aside {
-      width: 450px !important;
-      min-width: 450px !important;
-      max-width: 450px !important;
-      height: 100vh !important;
-      background: #1a1a1a !important;
-      border-right: 2px solid #CE1A28 !important;
-      overflow-y: auto !important;
-      flex-shrink: 0 !important;
-    }
-    
-    /* FORCE SIDEBAR ITEMS TO BE VISIBLE */
-    [class*="AppSidebar"] > *,
-    [class*="Sidebar"] > *,
-    [class*="CollectionList"] > * {
-      width: 100% !important;
-      padding: 12px 20px !important;
-      font-size: 16px !important;
-    }
-    
-    /* MAIN CONTENT - EXTREME WIDTH FORCING */
-    [class*="AppMainContainer"],
-    [class*="MainContainer"],
-    [class*="main"],
-    [class*="Main"],
-    [class*="Content"],
-    main {
-      flex: 1 !important;
-      width: calc(100vw - 450px) !important;
-      min-width: calc(100vw - 450px) !important;
-      max-width: calc(100vw - 450px) !important;
-      height: 100vh !important;
-      overflow-y: auto !important;
-      background: #f8f9fa !important;
-      padding: 0 !important;
-    }
-    
-    /* COLLECTION CONTENT - FULL WIDTH */
-    [class*="CollectionPage"],
-    [class*="CollectionView"],
-    [class*="EntryEditor"] {
-      width: 100% !important;
-      max-width: none !important;
-      padding: 24px !important;
-    }
-    
-    /* Collection list styling */
-    .collection-list {
-      padding: 20px !important;
-    }
-    
-    /* Collection items */
-    .collection-item {
-      margin-bottom: 8px !important;
-      border-radius: 6px !important;
-      transition: all 0.2s ease !important;
-    }
-    
-    .collection-item:hover {
-      background: #2a2a2a !important;
-      transform: translateX(4px) !important;
-    }
-    
-    /* Collection icons and text */
-    .collection-item a {
-      color: #ffffff !important;
-      text-decoration: none !important;
-      padding: 12px 16px !important;
-      display: flex !important;
-      align-items: center !important;
-      font-weight: 500 !important;
-    }
-    
-    /* Header styling */
-    .cms-header,
-    [class*="header"],
-    [class*="Header"] {
-      background: #CE1A28 !important;
-      color: white !important;
-      padding: 16px 24px !important;
-      border-bottom: 1px solid #b01624 !important;
-      min-height: 60px !important;
-    }
-    
-    /* Buttons styling */
-    .btn,
-    button[class*="btn"],
-    [class*="button"] {
-      background: #CE1A28 !important;
-      color: white !important;
-      border: none !important;
-      padding: 8px 16px !important;
-      border-radius: 4px !important;
-      font-weight: 500 !important;
-      cursor: pointer !important;
-      transition: background 0.2s ease !important;
-    }
-    
-    .btn:hover,
-    button[class*="btn"]:hover {
-      background: #b01624 !important;
-    }
-    
-    /* Form styling */
-    .form-group,
-    [class*="form"] input,
-    [class*="form"] textarea,
-    [class*="form"] select {
-      border: 1px solid #ddd !important;
-      border-radius: 4px !important;
-      padding: 8px 12px !important;
-      font-size: 14px !important;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: #CE1A28 !important;
-      box-shadow: 0 0 0 2px rgba(206, 26, 40, 0.1) !important;
-      outline: none !important;
-    }
-    
-    /* Card styling */
-    .card,
-    [class*="card"] {
-      background: white !important;
-      border: 1px solid #e1e5e9 !important;
-      border-radius: 8px !important;
-      padding: 20px !important;
-      margin-bottom: 16px !important;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-    }
-    
-    /* Grid layout for content - Wider cards */
-    .content-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important;
-      gap: 24px !important;
-      padding: 24px !important;
-    }
-    
-    /* Collection list wider spacing */
-    [class*="CollectionList"] {
-      padding: 24px !important;
-      max-width: none !important;
-      width: 100% !important;
-    }
-    
-    /* Entry cards wider */
-    [class*="EntryCard"] {
-      min-width: 500px !important;
-      padding: 24px !important;
-      width: 100% !important;
-    }
-    
-    /* Force wider content areas */
-    [class*="Collection"] {
-      width: 100% !important;
-      max-width: none !important;
-    }
-    
-    /* Collection content container */
-    [class*="CollectionPage"] > div {
-      width: 100% !important;
-      max-width: none !important;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .cms-sidebar {
-        width: 250px !important;
-        min-width: 250px !important;
-      }
-      
-      .content-grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-    
-    /* Fix Netlify Identity modal accessibility issues */
-    .modalContainer[aria-hidden="false"] {
-      aria-hidden: false !important;
-    }
-    
-    .modalContainer[aria-hidden="false"] button:focus {
-      outline: 2px solid #CE1A28 !important;
-      outline-offset: 2px !important;
-    }
-    
-    /* Ensure modal doesn't interfere with screen readers */
-    .modalContainer {
-      position: fixed !important;
-      z-index: 9999 !important;
-    }
-    
-    /* Custom styling for Türkel branding */
-    .netlifyIdentityWidget {
-      --primary-color: #CE1A28;
-      --accent-color: #b01624;
-    }
-    
-    /* Loading and transition effects */
-    .cms-loading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f8f9fa;
-    }
-    
-    .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #CE1A28;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    /* Custom scrollbars */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 4px;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-      background: #CE1A28;
-      border-radius: 4px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-      background: #b01624;
-    }
-    
-    /* Adjust layout for custom header */
-    body {
-      padding-top: 50px !important;
-    }
-    
-    /* CMS specific layout fixes */
-    [class*="App"] {
-      padding-top: 0 !important;
-      height: calc(100vh - 50px) !important;
-    }
-    
-    /* Collection sidebar styling */
-    [class*="CollectionPage"] {
-      display: flex !important;
-      height: 100% !important;
-    }
-    
-    [class*="SidebarContainer"] {
-      background: #1a1a1a !important;
-      border-right: 1px solid #333 !important;
-    }
-    
-    /* Collection list items */
-    [class*="CollectionTopContainer"] {
-      background: #CE1A28 !important;
-      color: white !important;
-    }
-    
-    /* Entry list styling */
-    [class*="EntryListing"] {
-      background: white !important;
-      padding: 20px !important;
-    }
-    
-    /* Entry cards */
-    [class*="EntryCard"] {
-      border: 1px solid #e1e5e9 !important;
-      border-radius: 8px !important;
-      margin-bottom: 12px !important;
-      padding: 16px !important;
-      transition: all 0.2s ease !important;
-    }
-    
-    [class*="EntryCard"]:hover {
-      border-color: #CE1A28 !important;
-      box-shadow: 0 4px 12px rgba(206, 26, 40, 0.1) !important;
-    }
-    
-    /* Form editor styling */
-    [class*="EditorContainer"] {
-      background: white !important;
-      padding: 24px !important;
-    }
-    
-    /* Widget styling */
-    [class*="Widget"] input,
-    [class*="Widget"] textarea,
-    [class*="Widget"] select {
-      border: 1px solid #ddd !important;
-      border-radius: 4px !important;
-      padding: 8px 12px !important;
-    }
-    
-    [class*="Widget"] input:focus,
-    [class*="Widget"] textarea:focus,
-    [class*="Widget"] select:focus {
-      border-color: #CE1A28 !important;
-      box-shadow: 0 0 0 2px rgba(206, 26, 40, 0.1) !important;
-    }
-    
-    /* Navigation improvements */
-    [class*="AppHeader"] {
-      background: #CE1A28 !important;
-      color: white !important;
-    }
-    
-    /* Collection navigation */
-    [class*="CollectionTop"] h1,
-    [class*="CollectionTop"] h2 {
-      color: white !important;
-      margin: 0 !important;
-    }
-    
-    /* EXTREME DECAP CMS OVERRIDES */
-    
-    /* Force all containers to full width */
-    div[class*="css-"] {
-      max-width: none !important;
-      width: 100% !important;
-    }
-    
-    /* App container full width */
-    [data-testid="cms-app"] {
-      width: 100vw !important;
-      max-width: 100vw !important;
-    }
-    
-    /* Collection sidebar specific */
-    [class*="CollectionPage"] > div:first-child {
-      width: 450px !important;
-      min-width: 450px !important;
-      background: #1a1a1a !important;
-    }
-    
-    /* Collection main content */
-    [class*="CollectionPage"] > div:last-child {
-      flex: 1 !important;
-      width: calc(100vw - 450px) !important;
-      background: #f8f9fa !important;
-    }
-    
-    /* Entry list container */
-    [class*="EntryListing"] {
-      width: 100% !important;
-      max-width: none !important;
-      padding: 32px !important;
-    }
-    
-    /* Entry cards full width */
-    [class*="EntryCard"] {
-      width: 100% !important;
-      max-width: none !important;
-      min-width: 600px !important;
-      margin-bottom: 20px !important;
-      padding: 24px !important;
-      border: 2px solid #e1e5e9 !important;
-      border-radius: 12px !important;
-    }
-    
-    /* Collection header */
-    [class*="CollectionTop"] {
-      background: #CE1A28 !important;
-      color: white !important;
-      padding: 24px !important;
-      width: 100% !important;
-    }
-    
-    /* New entry button */
-    [class*="CollectionTop"] button,
-    [class*="CollectionTop"] a {
-      background: white !important;
-      color: #CE1A28 !important;
-      border: none !important;
-      padding: 12px 24px !important;
-      border-radius: 6px !important;
-      font-weight: 600 !important;
-      font-size: 16px !important;
-    }
-  </style>
 </body>
 </html>
