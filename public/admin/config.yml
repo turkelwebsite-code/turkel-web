@@ -25,17 +25,17 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "📋 Fuar Listesi (30+ Fuar Yönetimi)"
+          - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}} • {{fields.basic_info.sector}}"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
             collapsed: false
-            minimize_collapsed: false
+            minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
                 name: "basic_info"
                 widget: "object"
-                collapsed: false
+                collapsed: true
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
@@ -70,17 +70,17 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "📋 Fuar Listesi (30+ Fuar Yönetimi)"
+          - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}} • {{fields.basic_info.sector}}"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
             collapsed: false
-            minimize_collapsed: false
+            minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
                 name: "basic_info"
                 widget: "object"
-                collapsed: false
+                collapsed: true
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
@@ -115,17 +115,17 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "📋 Fuar Listesi (30+ Fuar Yönetimi)"
+          - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}} • {{fields.basic_info.sector}}"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
             collapsed: false
-            minimize_collapsed: false
+            minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
                 name: "basic_info"
                 widget: "object"
-                collapsed: false
+                collapsed: true
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
@@ -160,17 +160,17 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "📋 Fuar Listesi (30+ Fuar Yönetimi)"
+          - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}} • {{fields.basic_info.sector}}"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
             collapsed: false
-            minimize_collapsed: false
+            minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
                 name: "basic_info"
                 widget: "object"
-                collapsed: false
+                collapsed: true
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
@@ -205,17 +205,17 @@ collections:
             name: "is_active"
             widget: "boolean"
             default: true
-          - label: "📋 Fuar Listesi (30+ Fuar Yönetimi)"
+          - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}} • {{fields.basic_info.sector}}"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
             collapsed: false
-            minimize_collapsed: false
+            minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
                 name: "basic_info"
                 widget: "object"
-                collapsed: false
+                collapsed: true
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
