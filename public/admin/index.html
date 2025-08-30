@@ -40,20 +40,47 @@
     localStorage.clear();
     sessionStorage.clear();
 
-    // Netlify Identity Setup
+    // Netlify Identity Setup - Fix infinite loop
     if (window.netlifyIdentity) {
+      let isLoggingIn = false;
+      
       window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        } else {
-          // Update user email in header
+        console.log("Identity init, user:", user ? user.email : "No user");
+        
+        if (user) {
+          // User already logged in
+          console.log("✅ User already authenticated:", user.email);
           document.getElementById('user-email').textContent = user.email;
+          
+          // Security check for existing user
+          const allowedEmails = [
+            'turkelwebsite@gmail.com',
+            'admin@turkel.com.tr',
+            'sezani991@gmail.com'
+          ];
+          
+          if (!allowedEmails.includes(user.email)) {
+            alert('Bu email ile admin paneline erişim yetkiniz yok!');
+            window.netlifyIdentity.logout();
+            window.location.href = '/';
+            return;
+          }
+          
+          // Don't redirect, just ensure CMS loads
+          console.log("✅ Authorized user, CMS should load");
+        } else {
+          // No user, need to login
+          console.log("No user found, need authentication");
+          if (!isLoggingIn) {
+            isLoggingIn = true;
+            window.netlifyIdentity.open();
+          }
         }
       });
       
       window.netlifyIdentity.on("login", user => {
+        console.log("Login event triggered:", user.email);
+        
         // Security check
         const allowedEmails = [
           'turkelwebsite@gmail.com',
@@ -71,7 +98,16 @@
         // Update header and close widget
         document.getElementById('user-email').textContent = user.email;
         window.netlifyIdentity.close();
-        console.log("✅ Admin login successful:", user.email);
+        isLoggingIn = false;
+        
+        console.log("✅ Login successful, CMS should now load");
+        
+        // Don't redirect - let CMS load naturally
+      });
+      
+      window.netlifyIdentity.on("logout", () => {
+        console.log("User logged out");
+        window.location.href = '/';
       });
     }
     
