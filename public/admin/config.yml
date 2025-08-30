@@ -1,9 +1,6 @@
 backend:
   name: git-gateway
   branch: master
-  accept_roles: #optional - accepts all users if left out
-    - admin
-    - editor
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -18,6 +15,8 @@ collections:
     folder: "src/content/fairs"
     create: true
     slug: "{{year}}-{{slug}}"
+    identifier_field: "basic_info.name_tr"
+    summary: "{{basic_info.name_tr}} - {{basic_info.year}}"
     fields:
       - label: "📝 Temel Bilgiler"
         name: "basic_info"
@@ -54,6 +53,8 @@ collections:
     folder: "src/content/timeline"
     create: true
     slug: "{{year}}-{{slug}}"
+    identifier_field: "fair_name"
+    summary: "{{fair_name}} - {{year}}"
     fields:
       - {label: "Fuar Adı", name: "fair_name", widget: "string", hint: "Örnek: LeShow Moskova 2024"}
       - {label: "Yıl", name: "year", widget: "number", value_type: "int", min: 1990, max: 2024}
@@ -70,6 +71,8 @@ collections:
     folder: "src/content/partners"
     create: true
     slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - Sıra: {{order}}"
     fields:
       - {label: "Partner Adı", name: "name", widget: "string", hint: "Partner şirket adı"}
       - {label: "Logo", name: "logo", widget: "image", hint: "Partner logosu (PNG/SVG önerilir)"}
@@ -107,7 +110,13 @@ collections:
     folder: "src/content/slider"
     create: true
     slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{type}} - {{title}}"
     fields:
+      - label: "Slider Başlığı"
+        name: "title"
+        widget: "string"
+        hint: "Slider item başlığı (admin panel için)"
       - label: "Slider Tipi"
         name: "type"
         widget: "select"
