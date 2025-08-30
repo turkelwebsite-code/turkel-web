@@ -38,21 +38,66 @@
         
         console.log("✅ Türkel CMS Login successful:", user.email);
         
-        // Simple debug
-        setTimeout(() => {
+        // Dynamic debug - watch for content changes
+        const observer = new MutationObserver(() => {
           const widgets = document.querySelectorAll('[class*="Widget"]');
           const editors = document.querySelectorAll('[class*="Editor"]');
           const forms = document.querySelectorAll('form');
           
-          console.log('🔍 Widgets found:', widgets.length);
-          console.log('🔍 Editors found:', editors.length);
-          console.log('🔍 Forms found:', forms.length);
-          
-          if (widgets.length === 0) {
-            console.log('❌ No widgets found - CMS not loading properly');
+          if (widgets.length > 0) {
+            console.log('✅ CMS Content loaded!');
+            console.log('🔍 Widgets found:', widgets.length);
+            console.log('🔍 Editors found:', editors.length);
+            console.log('🔍 Forms found:', forms.length);
+            
+            // Apply minimal styling when content loads
+            applyMinimalStyling();
+            
+            // Stop observing once content is loaded
+            observer.disconnect();
           }
-        }, 3000);
+        });
+        
+        // Start observing
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+        
+        // Also check periodically
+        const checkInterval = setInterval(() => {
+          const widgets = document.querySelectorAll('[class*="Widget"]');
+          if (widgets.length > 0) {
+            console.log('✅ Widgets detected via interval check');
+            applyMinimalStyling();
+            clearInterval(checkInterval);
+          }
+        }, 1000);
+        
+        // Stop checking after 30 seconds
+        setTimeout(() => {
+          clearInterval(checkInterval);
+          observer.disconnect();
+        }, 30000);
       });
+    }
+    
+    function applyMinimalStyling() {
+      console.log('🎨 Applying minimal styling...');
+      
+      // Hide preview
+      const previews = document.querySelectorAll('[class*="PreviewPane"], [class*="SplitView"] > div:last-child');
+      previews.forEach(preview => {
+        preview.style.display = 'none';
+      });
+      
+      // Full width editor
+      const splitViews = document.querySelectorAll('[class*="SplitView"] > div:first-child');
+      splitViews.forEach(editor => {
+        editor.style.width = '100%';
+      });
+      
+      console.log('✅ Minimal styling applied');
     }
   </script>
 
