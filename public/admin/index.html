@@ -85,7 +85,7 @@
       flex: 1 !important;
     }
     
-    /* Collection Main - EN ÜST CONTAINER'A BAĞLA */
+    /* Collection Main - İÇERİK GÖRÜNÜRLÜK FIX */
     .css-kg0ufi-CollectionMain.e1sogrfi2,
     [class*="css-"][class*="CollectionMain"] {
       position: absolute !important;
@@ -101,6 +101,17 @@
       overflow-y: auto !important;
       background: white !important;
       z-index: 1 !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Force content visibility */
+    .css-kg0ufi-CollectionMain.e1sogrfi2 > *,
+    [class*="css-"][class*="CollectionMain"] > * {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
     
     /* CMS app container - yan yana layout + responsive */
@@ -178,11 +189,22 @@
     
     /* EXCEL TABLO TASARIMI */
     
-    /* Form container - full width */
+    /* Form container - full width + visibility */
     [class*="EditorContainer"] {
       width: 100% !important;
       max-width: none !important;
       padding: 32px !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      background: white !important;
+      min-height: 500px !important;
+    }
+    
+    /* Force all form elements to show */
+    [class*="EditorContainer"] * {
+      visibility: visible !important;
+      opacity: 1 !important;
     }
     
     /* Yıl ve Aktif - tek satırda */
