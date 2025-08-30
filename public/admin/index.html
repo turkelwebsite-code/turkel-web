@@ -41,17 +41,40 @@
   </script>
 
   <style>
-    /* NOKTA ATIŞI DEĞİŞİKLİKLER */
+    /* KESIN ÇÖZÜM - YAN YANA LAYOUT */
     
-    /* Sidebar specific class - sola yasla, main content ezmesin */
+    /* Body ve HTML kesin düzeltme */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Root container kesin düzeltme */
+    #root {
+      width: 100vw !important;
+      height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    /* Sidebar specific class - KESIN ÇÖZÜM */
     .css-102us41-SidebarContainer-card-card.e1t18l343,
     [class*="css-"][class*="SidebarContainer"] {
       width: 280px !important;
       min-width: 280px !important;
       max-width: 280px !important;
       flex-shrink: 0 !important;
+      flex-grow: 0 !important;
       position: relative !important;
       left: 0 !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+      float: none !important;
+      display: block !important;
     }
     
     /* App Main Container - max-width kaldır, geniş yap */
@@ -62,14 +85,21 @@
       flex: 1 !important;
     }
     
-    /* Main content - sidebar'dan etkilenmesin */
+    /* Main content - KESIN YAN YANA ÇÖZÜM */
     .css-kg0ufi-CollectionMain.e1sogrfi2,
     [class*="css-"][class*="CollectionMain"] {
       max-width: none !important;
-      width: 100% !important;
+      width: calc(100vw - 280px) !important;
+      min-width: calc(100vw - 280px) !important;
       margin-left: 0 !important;
+      margin-right: 0 !important;
       padding: 0 !important;
       flex: 1 !important;
+      flex-shrink: 1 !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+      display: block !important;
+      float: none !important;
     }
     
     /* CMS app container - yan yana layout + responsive */
