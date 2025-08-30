@@ -3,14 +3,53 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { getCollection } from 'astro:content';
 
 const locale = 'tr';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Fair data organized by sectors for 2026
-const fairsData = {
+// Get fair data from CMS for 2026
+try {
+  const fairYearData = await getCollection('fair_years');
+  const year2026Data = fairYearData.find(item => item.id === 'fairs_2026');
+  const cmsFairs = year2026Data?.data?.fairs || [];
+  
+  console.log('🎪 CMS Fairs loaded for 2026:', cmsFairs.length);
+  
+  // Convert CMS data to page format
+  var fairsData = {};
+  cmsFairs.forEach(fair => {
+    const sector = fair.basic_info.sector;
+    if (!fairsData[sector]) {
+      fairsData[sector] = [];
+    }
+    
+    fairsData[sector].push({
+      id: fairsData[sector].length + 1,
+      name: fair.basic_info.name_tr,
+      city: fair.basic_info.location_tr.split(',')[0].trim(),
+      country: fair.basic_info.location_tr.split(',')[1]?.trim() || fair.basic_info.location_tr,
+      date: fair.basic_info.date,
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: "Satış Temsilcisi",
+        title: "Satış Direktörü", 
+        email: "info@turkel.com.tr",
+        phone: "+90 212 284 23 00"
+      },
+      description: `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
+    });
+  });
+  
+  console.log('✅ 2026 Fairs data converted:', Object.keys(fairsData));
+} catch (error) {
+  console.error('❌ CMS data loading failed for 2026, using fallback:', error);
+  
+  // Fallback static data if CMS fails
+  var fairsData = {
   "Moda ve Tekstil": [
     {
       id: 1,
@@ -136,7 +175,8 @@ const fairsData = {
       }
     }
   ]
-};
+  };
+}
 
 // Get all sectors for filtering
 const sectors = Object.keys(fairsData);
