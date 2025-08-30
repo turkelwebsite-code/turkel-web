@@ -81,4 +81,65 @@ const partners = defineCollection({
   }))
 });
 
-export const collections = { home, partners };
+// CMS Collections
+const fairs = defineCollection({
+  type: 'content',
+  schema: z.object({
+    basic_info: z.object({
+      name_tr: z.string(),
+      name_en: z.string(),
+      date: z.string(),
+      location_tr: z.string(),
+      location_en: z.string(),
+      year: z.number(),
+    }),
+    visuals: z.object({
+      logo: z.string(),
+      background_image: z.string(),
+    }),
+    settings: z.object({
+      show_in_slider: z.boolean(),
+      show_in_forms: z.boolean(),
+      is_active: z.boolean(),
+    }),
+  }),
+});
+
+const timeline = defineCollection({
+  type: 'content',
+  schema: z.object({
+    fair_name: z.string(),
+    year: z.number(),
+    city: z.string(),
+    country: z.string(),
+    area: z.string(),
+    participants: z.string(),
+    sector: z.string(),
+    order: z.number(),
+  }),
+});
+
+const settings = defineCollection({
+  type: 'data',
+  schema: z.any(),
+});
+
+const team = defineCollection({
+  type: 'data',
+  schema: z.any(),
+});
+
+const slider = defineCollection({
+  type: 'content',
+  schema: z.any(),
+});
+
+export const collections = { 
+  home, 
+  partners, 
+  fairs, 
+  timeline, 
+  settings, 
+  team, 
+  slider 
+};

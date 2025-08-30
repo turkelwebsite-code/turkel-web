@@ -1,6 +1,5 @@
 ---
+// _redirects file handles the redirect, this is just a fallback
 import { DEFAULT_LOCALE } from "../lib/i18n";
-
-// Redirect to default locale
-return Astro.redirect(`/${DEFAULT_LOCALE}/`);
+return Astro.redirect(`/${DEFAULT_LOCALE}/`, 301);
 ---

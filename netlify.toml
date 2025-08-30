@@ -5,23 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect rules - Order matters!
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
-
-# Ana sayfa Türkçe yönlendirme (en üstte olmalı)
-[[redirects]]
-  from = "/"
-  to = "/tr/"
-  status = 302
-
-# Catch-all for SPA routing (en sonda olmalı)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Redirects handled by public/_redirects file
 
 # Headers for security
 [[headers]]
