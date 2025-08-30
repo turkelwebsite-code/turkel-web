@@ -83,21 +83,59 @@
     }
     
     function applyMinimalStyling() {
-      console.log('🎨 Applying minimal styling...');
+      console.log('🎨 Applying AGGRESSIVE styling...');
       
-      // Hide preview
+      // Hide preview with multiple methods
       const previews = document.querySelectorAll('[class*="PreviewPane"], [class*="SplitView"] > div:last-child');
       previews.forEach(preview => {
         preview.style.display = 'none';
+        preview.style.width = '0px';
+        preview.style.height = '0px';
+        preview.style.overflow = 'hidden';
       });
       
-      // Full width editor
-      const splitViews = document.querySelectorAll('[class*="SplitView"] > div:first-child');
-      splitViews.forEach(editor => {
+      // Force editor containers visible
+      const editors = document.querySelectorAll('[class*="Editor"], [class*="EditorContainer"]');
+      editors.forEach(editor => {
+        editor.style.display = 'block';
+        editor.style.visibility = 'visible';
+        editor.style.opacity = '1';
         editor.style.width = '100%';
+        editor.style.maxWidth = 'none';
+        editor.style.background = 'white';
+        editor.style.minHeight = '600px';
+        editor.style.padding = '20px';
       });
       
-      console.log('✅ Minimal styling applied');
+      // Force all widgets visible
+      const widgets = document.querySelectorAll('[class*="Widget"]');
+      widgets.forEach(widget => {
+        widget.style.display = 'block';
+        widget.style.visibility = 'visible';
+        widget.style.opacity = '1';
+        widget.style.marginBottom = '16px';
+      });
+      
+      // Force form fields visible
+      const fields = document.querySelectorAll('[class*="Widget"] input, [class*="Widget"] textarea, [class*="Widget"] select, [class*="Widget"] label');
+      fields.forEach(field => {
+        field.style.display = 'block';
+        field.style.visibility = 'visible';
+        field.style.opacity = '1';
+      });
+      
+      // Force split view layout
+      const splitViews = document.querySelectorAll('[class*="SplitView"]');
+      splitViews.forEach(split => {
+        split.style.display = 'flex';
+        const firstChild = split.querySelector('div:first-child');
+        if (firstChild) {
+          firstChild.style.width = '100%';
+          firstChild.style.flex = '1';
+        }
+      });
+      
+      console.log('✅ AGGRESSIVE styling applied to', widgets.length, 'widgets');
     }
   </script>
 
