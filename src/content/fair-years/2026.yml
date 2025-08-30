@@ -40,3 +40,16 @@ fairs:
     visuals:
       logo: /images/fuarlar-arkaplan.jpg
       background_image: /images/fuarlar-logo.png
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      name_tr: Test 5
+      name_en: Test 5
+      location_tr: Test 5
+      location_en: Test 5
+      sector: Ev Tekstili ve Dekorasyon
+      date: 11 11 20225
+    visuals:
+      logo: /images/fuarlar-arkaplan.jpg
+      background_image: /images/fuarlar-logo.png
