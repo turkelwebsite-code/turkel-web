@@ -4,15 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Türkel CMS</title>
+  <title>Content Manager</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- Include Decap CMS -->
+  <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
-    // Simple Identity Setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -23,7 +22,11 @@
       });
       
       window.netlifyIdentity.on("login", user => {
-        const allowedEmails = ['turkelwebsite@gmail.com', 'admin@turkel.com.tr', 'sezani991@gmail.com'];
+        const allowedEmails = [
+          'turkelwebsite@gmail.com',
+          'admin@turkel.com.tr', 
+          'sezani991@gmail.com'
+        ];
         
         if (!allowedEmails.includes(user.email)) {
           alert('Bu email ile admin paneline erişim yetkiniz yok!');
@@ -36,48 +39,5 @@
       });
     }
   </script>
-
-  <style>
-    /* MINIMAL CLEAN FIXES - Don't break Decap CMS */
-    
-    /* Fix main container width only */
-    .css-1fehwpo-AppMainContainer,
-    [class*="css-"][class*="AppMainContainer"] {
-      max-width: none !important;
-      width: 100% !important;
-    }
-    
-    /* Fix sidebar width */
-    [class*="css-"][class*="AppSidebar"] {
-      width: 300px !important;
-      min-width: 300px !important;
-    }
-    
-    /* Remove extra scrollbars */
-    body {
-      overflow: hidden !important;
-    }
-    
-    /* Fix content area */
-    [data-testid="cms-app"] {
-      height: 100vh !important;
-      width: 100vw !important;
-    }
-    
-    /* Simple Türkel accent color */
-    [class*="CollectionTop"] {
-      border-left: 4px solid #CE1A28 !important;
-    }
-    
-    /* Clean button styling */
-    button[class*="Button"] {
-      background: #CE1A28 !important;
-      border-radius: 6px !important;
-    }
-    
-    button[class*="Button"]:hover {
-      background: #b01624 !important;
-    }
-  </style>
 </body>
 </html>
