@@ -8,11 +8,28 @@
 <script>
   // Initialize Netlify Identity
   if (window.netlifyIdentity) {
+    // Check for invite token in URL
+    const checkInviteToken = () => {
+      const hash = window.location.hash.substring(1);
+      const urlParams = new URLSearchParams(hash);
+      const inviteToken = urlParams.get('invite_token');
+      
+      if (inviteToken) {
+        console.log("Invite token found:", inviteToken.substring(0, 10) + "...");
+        // Auto-open Identity widget for invite acceptance
+        window.netlifyIdentity.open('signup');
+        return true;
+      }
+      return false;
+    };
+
     // Open widget on login
     window.netlifyIdentity.on("init", user => {
       if (!user) {
-        // Auto-open widget for first-time users
-        console.log("No user found, widget ready for login");
+        // Check for invite token first
+        if (!checkInviteToken()) {
+          console.log("No user found, widget ready for login");
+        }
       } else {
         console.log("User already logged in:", user.email);
       }
