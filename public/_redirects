@@ -1,5 +1,5 @@
 # Instant redirect - no visible message
-/    /tr/    301
+/    /tr/    301!
 
 # Admin panel
 /admin/*    /admin/index.html    200

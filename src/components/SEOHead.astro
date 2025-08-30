@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  locale: string;
+  canonical?: string;
+  image?: string;
+  type?: string;
+}
+
+const { title, description, locale, canonical, image, type = 'website' } = Astro.props;
+
+const site = 'https://turkel-web.netlify.app';
+const canonicalURL = canonical || Astro.url.href;
+const socialImage = image || `${site}/images/turkel-logo-01.svg`;
+
+// Structured data for organization
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Türkel Fuarcılık A.Ş.",
+  "alternateName": "Türkel Fair Organization",
+  "url": site,
+  "logo": `${site}/images/turkel-logo-01.svg`,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+90-212-284-23-00",
+    "contactType": "customer service",
+    "areaServed": "TR",
+    "availableLanguage": ["Turkish", "English"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Huzur Mah. Fatih Cad. 4.Levent Plaza 67/6",
+    "addressLocality": "Sarıyer",
+    "addressRegion": "İstanbul",
+    "postalCode": "34396",
+    "addressCountry": "TR"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/turkel-fuarcilik",
+    "https://www.instagram.com/turkel_fuarcilik"
+  ]
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title}>
+<meta name="description" content={description}>
+<meta name="robots" content="index, follow">
+<meta name="language" content={locale}>
+<meta name="author" content="Türkel Fuarcılık A.Ş.">
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL}>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type}>
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={socialImage}>
+<meta property="og:locale" content={locale === 'tr' ? 'tr_TR' : 'en_US'}>
+<meta property="og:site_name" content="Türkel Fuarcılık">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content={canonicalURL}>
+<meta property="twitter:title" content={title}>
+<meta property="twitter:description" content={description}>
+<meta property="twitter:image" content={socialImage}>
+
+<!-- Additional SEO -->
+<meta name="theme-color" content="#CE1A28">
+<meta name="msapplication-TileColor" content="#CE1A28">
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>

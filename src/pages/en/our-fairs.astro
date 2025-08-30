@@ -153,7 +153,7 @@ const fairsData = {
 const sectors = Object.keys(fairsData);
 ---
 
-<BaseLayout title="Our Fairs - Türkel Fair Organization" description="International fairs organized by Türkel Fair Organization">
+<BaseLayout locale={locale} title="Our Fairs - Türkel Fair Organization" description="International fairs organized by Türkel Fair Organization">
   <Header locale={locale} />
   
   <main class="min-h-screen">
@@ -593,19 +593,21 @@ const sectors = Object.keys(fairsData);
     
     // Filter functionality
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const selectedSector = this.dataset.sector;
+      button.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const selectedSector = target.dataset.sector;
         
         // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
+        target.classList.add('active');
         
         // Show/hide sector groups
         sectorGroups.forEach(group => {
-          if (selectedSector === 'all' || group.dataset.sector === selectedSector) {
-            group.classList.remove('hidden');
+          const groupElement = group as HTMLElement;
+          if (selectedSector === 'all' || groupElement.dataset.sector === selectedSector) {
+            groupElement.classList.remove('hidden');
           } else {
-            group.classList.add('hidden');
+            groupElement.classList.add('hidden');
           }
         });
       });
@@ -619,43 +621,55 @@ const sectors = Object.keys(fairsData);
     
     if (mobileFilterBtn && mobileFilterDropdown) {
       // Toggle dropdown
-      mobileFilterBtn.addEventListener('click', function() {
+      mobileFilterBtn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
         mobileFilterDropdown.classList.toggle('hidden');
-        const arrow = this.querySelector('svg');
-        arrow.style.transform = mobileFilterDropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        const arrow = target.querySelector('svg') as HTMLElement;
+        if (arrow) {
+          arrow.style.transform = mobileFilterDropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
       });
       
       // Filter option selection
       mobileFilterOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const selectedSector = this.dataset.sector;
-          const selectedText = this.textContent;
+        option.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          const selectedSector = target.dataset.sector;
+          const selectedText = target.textContent;
           
           // Update button text
-          mobileFilterText.textContent = selectedText;
+          if (mobileFilterText && selectedText) {
+            mobileFilterText.textContent = selectedText;
+          }
           
           // Close dropdown
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg');
-          arrow.style.transform = 'rotate(0deg)';
+          const arrow = mobileFilterBtn.querySelector('svg') as HTMLElement;
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
           
           // Apply filter
           sectorGroups.forEach(group => {
-            if (selectedSector === 'all' || group.dataset.sector === selectedSector) {
-              group.classList.remove('hidden');
+            const groupElement = group as HTMLElement;
+            if (selectedSector === 'all' || groupElement.dataset.sector === selectedSector) {
+              groupElement.classList.remove('hidden');
             } else {
-              group.classList.add('hidden');
+              groupElement.classList.add('hidden');
             }
           });
         });
       });
       
       // Close dropdown when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!mobileFilterBtn.contains(e.target) && !mobileFilterDropdown.contains(e.target)) {
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!mobileFilterBtn.contains(target) && !mobileFilterDropdown.contains(target)) {
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg');
-          arrow.style.transform = 'rotate(0deg)';
+          const arrow = mobileFilterBtn.querySelector('svg') as HTMLElement;
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
         }
       });
     }
@@ -664,7 +678,7 @@ const sectors = Object.keys(fairsData);
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const img = entry.target;
+          const img = entry.target as HTMLImageElement;
           if (img.dataset.src) {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
@@ -705,26 +719,28 @@ const sectors = Object.keys(fairsData);
     const tooltipGroups = document.querySelectorAll('.group');
     
     tooltipGroups.forEach(group => {
-      const trigger = group.querySelector('h3');
-      const tooltip = group.querySelector('.fixed');
+      const trigger = group.querySelector('h3') as HTMLElement;
+      const tooltip = group.querySelector('.fixed') as HTMLElement;
       
       if (trigger && tooltip) {
-        trigger.addEventListener('mouseenter', (e) => {
+        trigger.addEventListener('mouseenter', () => {
           const rect = trigger.getBoundingClientRect();
           
           // Tooltip'i mouse pozisyonuna yerleştir
-          tooltip.style.left = `${rect.left + (rect.width / 2) - 200}px`;
-          tooltip.style.top = `${rect.top - 80}px`;
-          
-          // Ekran sınırlarını kontrol et
-          if (rect.left + (rect.width / 2) - 200 < 10) {
-            tooltip.style.left = '10px';
-          } else if (rect.left + (rect.width / 2) + 200 > window.innerWidth - 10) {
-            tooltip.style.left = `${window.innerWidth - 410}px`;
-          }
-          
-          if (rect.top - 80 < 10) {
-            tooltip.style.top = `${rect.bottom + 10}px`;
+          if (tooltip) {
+            tooltip.style.left = `${rect.left + (rect.width / 2) - 200}px`;
+            tooltip.style.top = `${rect.top - 80}px`;
+            
+            // Ekran sınırlarını kontrol et
+            if (rect.left + (rect.width / 2) - 200 < 10) {
+              tooltip.style.left = '10px';
+            } else if (rect.left + (rect.width / 2) + 200 > window.innerWidth - 10) {
+              tooltip.style.left = `${window.innerWidth - 410}px`;
+            }
+            
+            if (rect.top - 80 < 10) {
+              tooltip.style.top = `${rect.bottom + 10}px`;
+            }
           }
         });
       }
