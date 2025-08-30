@@ -72,12 +72,47 @@
       flex: 1 !important;
     }
     
-    /* CMS app container - flex layout düzelt */
+    /* CMS app container - yan yana layout + responsive */
     [data-testid="cms-app"] {
       display: flex !important;
       flex-direction: row !important;
       width: 100vw !important;
       height: 100vh !important;
+      overflow: hidden !important;
+    }
+    
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      .css-102us41-SidebarContainer-card-card.e1t18l343,
+      [class*="css-"][class*="SidebarContainer"] {
+        width: 250px !important;
+        min-width: 250px !important;
+      }
+      
+      .css-kg0ufi-CollectionMain.e1sogrfi2,
+      [class*="css-"][class*="CollectionMain"] {
+        width: calc(100% - 250px) !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      [data-testid="cms-app"] {
+        flex-direction: column !important;
+      }
+      
+      .css-102us41-SidebarContainer-card-card.e1t18l343,
+      [class*="css-"][class*="SidebarContainer"] {
+        width: 100% !important;
+        height: 200px !important;
+        min-width: auto !important;
+        overflow-x: auto !important;
+      }
+      
+      .css-kg0ufi-CollectionMain.e1sogrfi2,
+      [class*="css-"][class*="CollectionMain"] {
+        width: 100% !important;
+        height: calc(100vh - 200px) !important;
+      }
     }
     
     /* Header içerikleri genişletme - boxed durmasın */
