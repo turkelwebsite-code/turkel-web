@@ -114,6 +114,36 @@
       opacity: 1 !important;
     }
     
+    /* SPECIFIC EDITOR CLASS FIX */
+    .css-nkr4wf-Editor.e1nx103k3,
+    [class*="css-"][class*="Editor"] {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 600px !important;
+      background: white !important;
+      padding: 32px !important;
+      overflow: visible !important;
+    }
+    
+    /* Force all editor children to show */
+    .css-nkr4wf-Editor.e1nx103k3 *,
+    [class*="css-"][class*="Editor"] * {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Widget containers inside editor */
+    .css-nkr4wf-Editor.e1nx103k3 [class*="Widget"],
+    [class*="css-"][class*="Editor"] [class*="Widget"] {
+      display: block !important;
+      margin-bottom: 20px !important;
+      width: 100% !important;
+    }
+    
     /* CMS app container - yan yana layout + responsive */
     [data-testid="cms-app"] {
       display: flex !important;
