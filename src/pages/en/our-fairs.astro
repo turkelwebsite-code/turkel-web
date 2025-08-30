@@ -624,7 +624,7 @@ const sectors = Object.keys(fairsData);
       mobileFilterBtn.addEventListener('click', (e) => {
         const target = e.currentTarget as HTMLElement;
         mobileFilterDropdown.classList.toggle('hidden');
-        const arrow = target.querySelector('svg') as HTMLElement;
+        const arrow = target.querySelector('svg') as SVGSVGElement;
         if (arrow) {
           arrow.style.transform = mobileFilterDropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
         }
@@ -644,7 +644,7 @@ const sectors = Object.keys(fairsData);
           
           // Close dropdown
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg') as HTMLElement;
+          const arrow = mobileFilterBtn.querySelector('svg') as SVGSVGElement;
           if (arrow) {
             arrow.style.transform = 'rotate(0deg)';
           }
@@ -666,7 +666,7 @@ const sectors = Object.keys(fairsData);
         const target = e.target as HTMLElement;
         if (!mobileFilterBtn.contains(target) && !mobileFilterDropdown.contains(target)) {
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg') as HTMLElement;
+          const arrow = mobileFilterBtn.querySelector('svg') as SVGSVGElement;
           if (arrow) {
             arrow.style.transform = 'rotate(0deg)';
           }

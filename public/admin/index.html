@@ -20,6 +20,18 @@
           });
         }
       });
+      
+      // Debug: Check if Git Gateway is properly configured
+      window.netlifyIdentity.on("ready", () => {
+        console.log("Netlify Identity ready");
+        if (window.netlifyIdentity.currentUser()) {
+          console.log("User logged in:", window.netlifyIdentity.currentUser().email);
+        }
+      });
+      
+      window.netlifyIdentity.on("error", err => {
+        console.error("Netlify Identity error:", err);
+      });
     }
   </script>
 </body>
