@@ -37,7 +37,41 @@
         }
         
         console.log("✅ Türkel CMS Login successful:", user.email);
+        
+        // Force content visibility after login
+        setTimeout(() => {
+          console.log('🔄 Forcing content visibility...');
+          forceContentVisibility();
+        }, 2000);
+        
+        setTimeout(() => {
+          console.log('🔄 Second attempt...');
+          forceContentVisibility();
+        }, 5000);
       });
+    }
+    
+    function forceContentVisibility() {
+      // Force all possible hidden elements to show
+      const hiddenElements = document.querySelectorAll('[style*="display: none"], [style*="visibility: hidden"], [hidden]');
+      hiddenElements.forEach(el => {
+        el.style.display = 'block';
+        el.style.visibility = 'visible';
+        el.removeAttribute('hidden');
+      });
+      
+      // Force editor containers
+      const editors = document.querySelectorAll('[class*="Editor"], [class*="EditorContainer"]');
+      editors.forEach(editor => {
+        editor.style.display = 'block';
+        editor.style.visibility = 'visible';
+        editor.style.opacity = '1';
+        editor.style.width = '100%';
+        editor.style.height = 'auto';
+        editor.style.minHeight = '400px';
+      });
+      
+      console.log('✅ Forced visibility on', hiddenElements.length, 'elements');
     }
   </script>
 
@@ -58,13 +92,36 @@
       max-width: none !important;
     }
     
-    /* EDITOR CONTAINER VİSİBLE */
+    /* EDITOR CONTAINER VİSİBLE - AGGRESSIVE */
     [class*="EditorContainer"],
-    [class*="Editor"] {
+    [class*="Editor"],
+    [class*="css-"][class*="Editor"] {
       display: block !important;
       visibility: visible !important;
+      opacity: 1 !important;
       width: 100% !important;
       max-width: none !important;
+      min-height: 500px !important;
+      background: white !important;
+      padding: 20px !important;
+    }
+    
+    /* FORCE ALL WIDGETS TO SHOW */
+    [class*="Widget"] {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      margin-bottom: 16px !important;
+    }
+    
+    /* FORCE FORM FIELDS */
+    [class*="Widget"] input,
+    [class*="Widget"] textarea,
+    [class*="Widget"] select,
+    [class*="Widget"] label {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
     
     /* CLEAN LIST WIDGET */
