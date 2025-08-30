@@ -134,6 +134,32 @@ const slider = defineCollection({
   schema: z.any(),
 });
 
+const fair_years = defineCollection({
+  type: 'data',
+  schema: z.object({
+    year: z.number(),
+    is_active: z.boolean(),
+    fairs: z.array(z.object({
+      basic_info: z.object({
+        name_tr: z.string(),
+        name_en: z.string(),
+        date: z.string(),
+        location_tr: z.string(),
+        location_en: z.string(),
+        sector: z.string(),
+      }),
+      visuals: z.object({
+        logo: z.string(),
+        background_image: z.string(),
+      }).optional(),
+      settings: z.object({
+        show_in_slider: z.boolean(),
+        show_in_forms: z.boolean(),
+      }).optional(),
+    })),
+  }),
+});
+
 export const collections = { 
   home, 
   partners, 
@@ -141,5 +167,6 @@ export const collections = {
   timeline, 
   settings, 
   team, 
-  slider 
+  slider,
+  fair_years
 };
