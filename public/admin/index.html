@@ -10,6 +10,18 @@
 <body>
 
   
+  <!-- Custom header for Türkel branding -->
+  <div id="custom-header" style="background: #CE1A28; color: white; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 10000; height: 50px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="background: white; color: #CE1A28; padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 14px;">TÜRKEL</div>
+      <span style="font-weight: 500; font-size: 16px;">Admin Panel</span>
+    </div>
+    <div style="font-size: 12px; opacity: 0.9;">
+      <span id="user-email">turkelwebsite@gmail.com</span>
+      <button onclick="window.netlifyIdentity?.logout()" style="margin-left: 12px; background: rgba(255,255,255,0.2); border: none; color: white; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 11px;">Çıkış</button>
+    </div>
+  </div>
+  
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
@@ -105,6 +117,168 @@
   </script>
   
   <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    /* Full screen CMS layout */
+    #root {
+      height: 100vh !important;
+      width: 100vw !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    /* Main CMS container */
+    .cms-container,
+    [data-testid="cms-app"] {
+      height: 100vh !important;
+      width: 100vw !important;
+      display: flex !important;
+      flex-direction: row !important;
+    }
+    
+    /* Sidebar optimization */
+    .cms-sidebar,
+    [class*="sidebar"],
+    [class*="Sidebar"] {
+      width: 280px !important;
+      min-width: 280px !important;
+      max-width: 280px !important;
+      height: 100vh !important;
+      background: #1a1a1a !important;
+      border-right: 1px solid #333 !important;
+      overflow-y: auto !important;
+    }
+    
+    /* Main content area */
+    .cms-main,
+    [class*="main"],
+    [class*="Main"] {
+      flex: 1 !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+      background: #f8f9fa !important;
+      padding: 0 !important;
+    }
+    
+    /* Collection list styling */
+    .collection-list {
+      padding: 20px !important;
+    }
+    
+    /* Collection items */
+    .collection-item {
+      margin-bottom: 8px !important;
+      border-radius: 6px !important;
+      transition: all 0.2s ease !important;
+    }
+    
+    .collection-item:hover {
+      background: #2a2a2a !important;
+      transform: translateX(4px) !important;
+    }
+    
+    /* Collection icons and text */
+    .collection-item a {
+      color: #ffffff !important;
+      text-decoration: none !important;
+      padding: 12px 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      font-weight: 500 !important;
+    }
+    
+    /* Header styling */
+    .cms-header,
+    [class*="header"],
+    [class*="Header"] {
+      background: #CE1A28 !important;
+      color: white !important;
+      padding: 16px 24px !important;
+      border-bottom: 1px solid #b01624 !important;
+      min-height: 60px !important;
+    }
+    
+    /* Buttons styling */
+    .btn,
+    button[class*="btn"],
+    [class*="button"] {
+      background: #CE1A28 !important;
+      color: white !important;
+      border: none !important;
+      padding: 8px 16px !important;
+      border-radius: 4px !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+      transition: background 0.2s ease !important;
+    }
+    
+    .btn:hover,
+    button[class*="btn"]:hover {
+      background: #b01624 !important;
+    }
+    
+    /* Form styling */
+    .form-group,
+    [class*="form"] input,
+    [class*="form"] textarea,
+    [class*="form"] select {
+      border: 1px solid #ddd !important;
+      border-radius: 4px !important;
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #CE1A28 !important;
+      box-shadow: 0 0 0 2px rgba(206, 26, 40, 0.1) !important;
+      outline: none !important;
+    }
+    
+    /* Card styling */
+    .card,
+    [class*="card"] {
+      background: white !important;
+      border: 1px solid #e1e5e9 !important;
+      border-radius: 8px !important;
+      padding: 20px !important;
+      margin-bottom: 16px !important;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* Grid layout for content */
+    .content-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+      gap: 20px !important;
+      padding: 20px !important;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .cms-sidebar {
+        width: 250px !important;
+        min-width: 250px !important;
+      }
+      
+      .content-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    
     /* Fix Netlify Identity modal accessibility issues */
     .modalContainer[aria-hidden="false"] {
       aria-hidden: false !important;
@@ -125,6 +299,132 @@
     .netlifyIdentityWidget {
       --primary-color: #CE1A28;
       --accent-color: #b01624;
+    }
+    
+    /* Loading and transition effects */
+    .cms-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f8f9fa;
+    }
+    
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #CE1A28;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #CE1A28;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b01624;
+    }
+    
+    /* Adjust layout for custom header */
+    body {
+      padding-top: 50px !important;
+    }
+    
+    /* CMS specific layout fixes */
+    [class*="App"] {
+      padding-top: 0 !important;
+      height: calc(100vh - 50px) !important;
+    }
+    
+    /* Collection sidebar styling */
+    [class*="CollectionPage"] {
+      display: flex !important;
+      height: 100% !important;
+    }
+    
+    [class*="SidebarContainer"] {
+      background: #1a1a1a !important;
+      border-right: 1px solid #333 !important;
+    }
+    
+    /* Collection list items */
+    [class*="CollectionTopContainer"] {
+      background: #CE1A28 !important;
+      color: white !important;
+    }
+    
+    /* Entry list styling */
+    [class*="EntryListing"] {
+      background: white !important;
+      padding: 20px !important;
+    }
+    
+    /* Entry cards */
+    [class*="EntryCard"] {
+      border: 1px solid #e1e5e9 !important;
+      border-radius: 8px !important;
+      margin-bottom: 12px !important;
+      padding: 16px !important;
+      transition: all 0.2s ease !important;
+    }
+    
+    [class*="EntryCard"]:hover {
+      border-color: #CE1A28 !important;
+      box-shadow: 0 4px 12px rgba(206, 26, 40, 0.1) !important;
+    }
+    
+    /* Form editor styling */
+    [class*="EditorContainer"] {
+      background: white !important;
+      padding: 24px !important;
+    }
+    
+    /* Widget styling */
+    [class*="Widget"] input,
+    [class*="Widget"] textarea,
+    [class*="Widget"] select {
+      border: 1px solid #ddd !important;
+      border-radius: 4px !important;
+      padding: 8px 12px !important;
+    }
+    
+    [class*="Widget"] input:focus,
+    [class*="Widget"] textarea:focus,
+    [class*="Widget"] select:focus {
+      border-color: #CE1A28 !important;
+      box-shadow: 0 0 0 2px rgba(206, 26, 40, 0.1) !important;
+    }
+    
+    /* Navigation improvements */
+    [class*="AppHeader"] {
+      background: #CE1A28 !important;
+      color: white !important;
+    }
+    
+    /* Collection navigation */
+    [class*="CollectionTop"] h1,
+    [class*="CollectionTop"] h2 {
+      color: white !important;
+      margin: 0 !important;
     }
   </style>
 </body>
