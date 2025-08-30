@@ -12,7 +12,7 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
-    // Minimal Identity setup
+    // Identity setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -38,142 +38,136 @@
         
         console.log("✅ Türkel CMS Login successful:", user.email);
         
-        // Dynamic debug - watch for content changes
-        const observer = new MutationObserver(() => {
-          const widgets = document.querySelectorAll('[class*="Widget"]');
-          const editors = document.querySelectorAll('[class*="Editor"]');
-          const forms = document.querySelectorAll('form');
-          
-          if (widgets.length > 0) {
-            console.log('✅ CMS Content loaded!');
-            console.log('🔍 Widgets found:', widgets.length);
-            console.log('🔍 Editors found:', editors.length);
-            console.log('🔍 Forms found:', forms.length);
-            
-            // Apply minimal styling when content loads
-            applyMinimalStyling();
-            
-            // Stop observing once content is loaded
-            observer.disconnect();
-          }
-        });
-        
-        // Start observing
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true
-        });
-        
-        // Also check periodically
-        const checkInterval = setInterval(() => {
-          const widgets = document.querySelectorAll('[class*="Widget"]');
-          if (widgets.length > 0) {
-            console.log('✅ Widgets detected via interval check');
-            applyMinimalStyling();
-            clearInterval(checkInterval);
-          }
-        }, 1000);
-        
-        // Stop checking after 30 seconds
+        // Apply beautiful preview styling
         setTimeout(() => {
-          clearInterval(checkInterval);
-          observer.disconnect();
-        }, 30000);
+          applyBeautifulPreview();
+        }, 2000);
       });
     }
     
-    function applyMinimalStyling() {
-      console.log('🎨 Applying AGGRESSIVE styling...');
+    function applyBeautifulPreview() {
+      console.log('🎨 Making preview beautiful...');
       
-      // Hide preview with multiple methods
-      const previews = document.querySelectorAll('[class*="PreviewPane"], [class*="SplitView"] > div:last-child');
+      // Style preview panel nicely
+      const previews = document.querySelectorAll('[class*="PreviewPane"]');
       previews.forEach(preview => {
-        preview.style.display = 'none';
-        preview.style.width = '0px';
-        preview.style.height = '0px';
-        preview.style.overflow = 'hidden';
+        preview.style.background = '#f8fafc';
+        preview.style.border = '1px solid #e2e8f0';
+        preview.style.borderRadius = '8px';
+        preview.style.padding = '20px';
+        preview.style.margin = '16px';
       });
       
-      // Force editor containers visible
-      const editors = document.querySelectorAll('[class*="Editor"], [class*="EditorContainer"]');
-      editors.forEach(editor => {
-        editor.style.display = 'block';
-        editor.style.visibility = 'visible';
-        editor.style.opacity = '1';
-        editor.style.width = '100%';
-        editor.style.maxWidth = 'none';
-        editor.style.background = 'white';
-        editor.style.minHeight = '600px';
-        editor.style.padding = '20px';
-      });
-      
-      // Force all widgets visible
-      const widgets = document.querySelectorAll('[class*="Widget"]');
-      widgets.forEach(widget => {
-        widget.style.display = 'block';
-        widget.style.visibility = 'visible';
-        widget.style.opacity = '1';
-        widget.style.marginBottom = '16px';
-      });
-      
-      // Force form fields visible
-      const fields = document.querySelectorAll('[class*="Widget"] input, [class*="Widget"] textarea, [class*="Widget"] select, [class*="Widget"] label');
-      fields.forEach(field => {
-        field.style.display = 'block';
-        field.style.visibility = 'visible';
-        field.style.opacity = '1';
-      });
-      
-      // Force split view layout
+      // Better split view
       const splitViews = document.querySelectorAll('[class*="SplitView"]');
       splitViews.forEach(split => {
-        split.style.display = 'flex';
-        const firstChild = split.querySelector('div:first-child');
-        if (firstChild) {
-          firstChild.style.width = '100%';
-          firstChild.style.flex = '1';
+        split.style.gap = '16px';
+        
+        // Editor side
+        const editor = split.querySelector('div:first-child');
+        if (editor) {
+          editor.style.background = 'white';
+          editor.style.border = '1px solid #e2e8f0';
+          editor.style.borderRadius = '8px';
+          editor.style.padding = '20px';
+        }
+        
+        // Preview side
+        const preview = split.querySelector('div:last-child');
+        if (preview) {
+          preview.style.background = '#f8fafc';
+          preview.style.border = '1px solid #e2e8f0';
+          preview.style.borderRadius = '8px';
+          preview.style.padding = '20px';
         }
       });
       
-      console.log('✅ AGGRESSIVE styling applied to', widgets.length, 'widgets');
+      console.log('✅ Beautiful preview styling applied');
     }
   </script>
 
   <style>
-    /* NOKTA ATIŞI DÜZELTMELER */
+    /* BEAUTIFUL CMS STYLING */
     
-    /* Preview panel'i gizle */
-    [class*="PreviewPane"] {
-      display: none !important;
+    /* Clean overall layout */
+    [data-testid="cms-app"] {
+      background: #f8fafc !important;
+      padding: 16px !important;
     }
     
-    /* Split view'da sadece editor göster */
-    [class*="SplitView"] > div:last-child {
-      display: none !important;
-    }
-    
-    [class*="SplitView"] > div:first-child {
-      width: 100% !important;
-    }
-    
-    /* List widget items collapsed */
-    [class*="Widget"][class*="list"] [class*="ListItem"] {
+    /* Beautiful sidebar */
+    [class*="AppSidebar"] {
+      background: white !important;
       border: 1px solid #e2e8f0 !important;
-      margin-bottom: 4px !important;
-      border-radius: 4px !important;
+      border-radius: 12px !important;
+      margin-right: 16px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
     }
     
-    /* Object widget'ları collapsed */
-    [class*="Widget"][class*="object"] {
+    /* Beautiful main content */
+    [class*="AppMainContainer"] {
+      background: white !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 12px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+      overflow: hidden !important;
+    }
+    
+    /* Beautiful collection header */
+    [class*="CollectionTop"] {
+      background: linear-gradient(135deg, #CE1A28 0%, #b01624 100%) !important;
+      color: white !important;
+      padding: 24px !important;
+    }
+    
+    [class*="CollectionTop"] h1,
+    [class*="CollectionTop"] h2 {
+      color: white !important;
+      margin: 0 !important;
+    }
+    
+    /* Beautiful buttons */
+    [class*="CollectionTop"] button,
+    [class*="CollectionTop"] a {
+      background: white !important;
+      color: #CE1A28 !important;
+      border: none !important;
+      padding: 12px 20px !important;
+      border-radius: 6px !important;
+      font-weight: 600 !important;
+    }
+    
+    /* Beautiful list items */
+    [class*="Widget"][class*="list"] [class*="ListItem"] {
+      background: white !important;
       border: 1px solid #e2e8f0 !important;
       border-radius: 6px !important;
-      margin-bottom: 12px !important;
+      margin-bottom: 8px !important;
+      padding: 16px !important;
+      transition: all 0.2s ease !important;
     }
     
-    /* Collapsed state styling */
-    [class*="Widget"][class*="collapsed"] {
-      background: #f8f9fa !important;
+    [class*="Widget"][class*="list"] [class*="ListItem"]:hover {
+      border-color: #CE1A28 !important;
+      box-shadow: 0 4px 12px rgba(206, 26, 40, 0.1) !important;
+    }
+    
+    /* Beautiful form fields */
+    [class*="Widget"] input,
+    [class*="Widget"] textarea,
+    [class*="Widget"] select {
+      border: 1px solid #d1d5db !important;
+      border-radius: 6px !important;
       padding: 8px 12px !important;
+      transition: border-color 0.2s ease !important;
+    }
+    
+    [class*="Widget"] input:focus,
+    [class*="Widget"] textarea:focus,
+    [class*="Widget"] select:focus {
+      border-color: #CE1A28 !important;
+      box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
+      outline: none !important;
     }
   </style>
 </body>
