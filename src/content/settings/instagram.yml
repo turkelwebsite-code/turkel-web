@@ -1,0 +1,7 @@
+access_token: ""
+user_id: ""
+post_count: 8
+cache_duration: 3600
+
+fallback_images:
+  - image: "/images/instagram-post.jpg"

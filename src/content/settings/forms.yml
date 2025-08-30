@@ -1,0 +1,10 @@
+active_year: 2025
+admin_email: "info@turkel.com.tr"
+
+success_messages:
+  tr: "Mesajınız başarıyla gönderildi!"
+  en: "Your message has been sent successfully!"
+
+error_messages:
+  tr: "Bir hata oluştu, lütfen tekrar deneyin."
+  en: "An error occurred, please try again."

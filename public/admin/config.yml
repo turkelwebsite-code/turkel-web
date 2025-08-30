@@ -1,0 +1,189 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: 'tr'
+display_url: https://turkel-web.netlify.app
+
+collections:
+  # FUARLAR - Ana Sistem
+  - name: "fairs"
+    label: "🎪 Fuarlar"
+    folder: "src/content/fairs"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - label: "📝 Temel Bilgiler"
+        name: "basic_info"
+        widget: "object"
+        collapsed: false
+        fields:
+          - {label: "Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moscow"}
+          - {label: "Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+          - {label: "Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Eylül 2025"}
+          - {label: "Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
+          - {label: "Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
+          - {label: "Yıl", name: "year", widget: "number", value_type: "int", min: 2020, max: 2030}
+      
+      - label: "🖼️ Görseller"
+        name: "visuals"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
+          - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Kart arka plan görseli"}
+      
+      - label: "⚙️ Ayarlar"
+        name: "settings"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
+          - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+          - {label: "Aktif", name: "is_active", widget: "boolean", default: true, hint: "Bu fuar aktif mi?"}
+
+  # KRONOLOJI - Geçmiş Fuarlar
+  - name: "timeline"
+    label: "📅 Kronoloji"
+    folder: "src/content/timeline"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - {label: "Fuar Adı", name: "fair_name", widget: "string", hint: "Örnek: LeShow Moskova 2024"}
+      - {label: "Yıl", name: "year", widget: "number", value_type: "int", min: 1990, max: 2024}
+      - {label: "Şehir", name: "city", widget: "string", hint: "Örnek: Moskova"}
+      - {label: "Ülke", name: "country", widget: "string", hint: "Örnek: Rusya"}
+      - {label: "Alan", name: "area", widget: "string", hint: "Örnek: 15,000 m²"}
+      - {label: "Katılımcı Sayısı", name: "participants", widget: "string", hint: "Örnek: 450"}
+      - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Deri ve Kürk"}
+      - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, hint: "Gösterim sırası (1 en üstte)"}
+
+  # PARTNERLER
+  - name: "partners"
+    label: "🤝 Partnerler"
+    folder: "src/content/partners"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Partner Adı", name: "name", widget: "string", hint: "Partner şirket adı"}
+      - {label: "Logo", name: "logo", widget: "image", hint: "Partner logosu (PNG/SVG önerilir)"}
+      - {label: "Website", name: "website", widget: "string", required: false, hint: "Partner website linki (opsiyonel)"}
+      - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Gösterim sırası"}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true, hint: "Partner gösterilsin mi?"}
+
+  # EKİBİMİZ İÇERİĞİ
+  - name: "team_content"
+    label: "👥 Ekibimiz"
+    files:
+      - label: "Ekip Sayfası İçeriği"
+        name: "team_page"
+        file: "src/content/team/content.yml"
+        fields:
+          - label: "Sayfa Başlıkları"
+            name: "titles"
+            widget: "object"
+            fields:
+              - {label: "Başlık (Türkçe)", name: "tr", widget: "string", default: "Profesyonel Ekibimiz"}
+              - {label: "Başlık (İngilizce)", name: "en", widget: "string", default: "Our Professional Team"}
+          
+          - label: "Sayfa İçeriği"
+            name: "content"
+            widget: "object"
+            fields:
+              - {label: "İçerik (Türkçe)", name: "tr", widget: "markdown", hint: "Mevcut sayfa içeriğini buraya kopyala"}
+              - {label: "İçerik (İngilizce)", name: "en", widget: "markdown", hint: "İngilizce sayfa içeriği"}
+          
+          - {label: "Ekip Sayısı", name: "team_count", widget: "string", default: "76 kişilik", hint: "Örnek: 76 kişilik"}
+
+  # SLIDER YÖNETİMİ
+  - name: "hero_slider"
+    label: "🎠 Ana Sayfa Slider"
+    folder: "src/content/slider"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Slider Tipi"
+        name: "type"
+        widget: "select"
+        options: 
+          - {label: "Fuar Bazlı (Otomatik)", value: "fair"}
+          - {label: "Özel İçerik", value: "custom"}
+        default: "fair"
+      
+      - label: "Fuar Seçimi (Sadece Fuar Bazlı İçin)"
+        name: "fair_reference"
+        widget: "relation"
+        collection: "fairs"
+        search_fields: ["basic_info.name_tr", "basic_info.name_en"]
+        value_field: "{{slug}}"
+        display_fields: ["basic_info.name_tr", "basic_info.year"]
+        required: false
+        condition:
+          field: type
+          value: fair
+      
+      - label: "Özel İçerik (Sadece Özel İçerik İçin)"
+        name: "custom_content"
+        widget: "object"
+        required: false
+        condition:
+          field: type
+          value: custom
+        fields:
+          - label: "Başlık"
+            name: "title"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "string"}
+              - {label: "İngilizce", name: "en", widget: "string"}
+          - label: "Açıklama"
+            name: "description"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "text"}
+              - {label: "İngilizce", name: "en", widget: "text"}
+          - {label: "Görsel", name: "image", widget: "image"}
+          - {label: "Buton Linki", name: "cta_link", widget: "string", required: false}
+      
+      - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+
+  # SİTE AYARLARI
+  - name: "settings"
+    label: "⚙️ Site Ayarları"
+    files:
+      - label: "Form Ayarları"
+        name: "forms"
+        file: "src/content/settings/forms.yml"
+        fields:
+          - {label: "Aktif Fuar Yılı", name: "active_year", widget: "number", value_type: "int", default: 2025, hint: "Hangi yıl fuarları form dropdown'ında gösterilsin?"}
+          - {label: "Admin Email", name: "admin_email", widget: "string", default: "info@turkel.com.tr", hint: "Form gönderimlerinin gideceği email"}
+          - label: "Başarı Mesajları"
+            name: "success_messages"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "string", default: "Mesajınız başarıyla gönderildi!"}
+              - {label: "İngilizce", name: "en", widget: "string", default: "Your message has been sent successfully!"}
+          - label: "Hata Mesajları"
+            name: "error_messages"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "string", default: "Bir hata oluştu, lütfen tekrar deneyin."}
+              - {label: "İngilizce", name: "en", widget: "string", default: "An error occurred, please try again."}
+      
+      - label: "Instagram Ayarları"
+        name: "instagram"
+        file: "src/content/settings/instagram.yml"
+        fields:
+          - {label: "Access Token", name: "access_token", widget: "string", hint: "Instagram Business API token"}
+          - {label: "User ID", name: "user_id", widget: "string", hint: "Instagram Business hesap ID"}
+          - {label: "Gösterilecek Post Sayısı", name: "post_count", widget: "number", value_type: "int", default: 8, min: 4, max: 12}
+          - {label: "Cache Süresi (Saniye)", name: "cache_duration", widget: "number", value_type: "int", default: 3600, hint: "1 saat = 3600 saniye"}
+          - label: "Yedek Görseller"
+            name: "fallback_images"
+            widget: "list"
+            field: {label: "Görsel", name: "image", widget: "image"}
+            hint: "Instagram API çalışmadığında gösterilecek görseller"
