@@ -134,7 +134,7 @@ const slider = defineCollection({
   schema: z.any(),
 });
 
-const fair_years = defineCollection({
+const fairYears = defineCollection({
   type: 'data',
   schema: z.object({
     year: z.number(),
@@ -168,5 +168,5 @@ export const collections = {
   settings, 
   team, 
   slider,
-  fair_years
+  'fair-years': fairYears
 };

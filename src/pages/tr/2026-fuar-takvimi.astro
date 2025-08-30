@@ -14,7 +14,7 @@ const footerContent = FOOTER_CONTENT[locale];
 try {
   console.log('🔍 DEBUG: Starting CMS data load for 2026...');
   
-  const fairYearData = await getCollection('fair_years');
+  const fairYearData = await getCollection('fair-years');
   console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
   console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
   
