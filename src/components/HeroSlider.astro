@@ -1,0 +1,347 @@
+---
+import { type Locale } from '../lib/i18n';
+import HeroCard from './HeroCard.astro';
+import { ChevronLeft, ChevronRight } from 'lucide-astro';
+
+interface Props {
+  locale: Locale;
+  heroData: {
+    title: string;
+    subtitle?: string;
+    yearBadge?: string;
+    slides: Array<{
+      backgroundImage: string;
+      card: {
+        title: string;
+        dateText?: string;
+        location?: string;
+        description?: string;
+        fairName: string;
+        fairLogo?: string;
+        fairWebsite?: string;
+        buttons?: Array<{ text: string; url: string }>;
+      };
+    }>;
+  };
+}
+
+const { locale, heroData } = Astro.props;
+---
+
+<section class="hero-slider relative h-[70vh] sm:h-[70vh] lg:h-[75vh] flex items-center overflow-hidden mt-6 sm:mt-8 lg:mt-10 -mx-5 sm:-mx-8 lg:-mx-10">
+  <!-- Slider Container -->
+  <div class="slider-container w-full h-full absolute inset-0">
+    {heroData.slides.map((slide, index) => (
+      <div 
+        class={`slide absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+        data-slide={index}
+      >
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <img 
+            src={slide.backgroundImage}
+            alt={slide.card.fairName}
+            class="w-full h-full object-cover object-center slider-bg-image"
+            style="object-position: center center; min-width: 100vw; min-height: 100%;"
+            loading={index === 0 ? "eager" : "lazy"}
+            width="1920"
+            height="1080"
+          />
+        </div>
+        
+        <!-- Overlay for desktop -->
+        <div class="absolute inset-0 bg-black/10 hidden sm:block"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Content -->
+  <div class="absolute left-1/2 transform -translate-x-1/2 sm:left-8 sm:transform-none lg:left-[420px] top-1/2 -translate-y-1/2 z-10">
+    <!-- Hero Card -->
+    <div class="max-w-xs sm:max-w-sm lg:max-w-md">
+      <div id="hero-card-container">
+        <HeroCard locale={locale} card={heroData.slides[0].card} />
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <div class="absolute inset-y-0 left-2 sm:left-3 lg:left-4 flex items-center z-20">
+    <button 
+      id="prev-slide"
+      class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      style="background-color: #1C1C1C; opacity: 0.8;"
+      aria-label={locale === 'tr' ? 'Önceki slide' : 'Previous slide'}
+    >
+      <ChevronLeft size={16} class="sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+    </button>
+  </div>
+  
+  <div class="absolute inset-y-0 right-2 sm:right-3 lg:right-4 flex items-center z-20">
+    <button 
+      id="next-slide"
+      class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      style="background-color: #1C1C1C; opacity: 0.8;"
+      aria-label={locale === 'tr' ? 'Sonraki slide' : 'Next slide'}
+    >
+      <ChevronRight size={16} class="sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+    </button>
+  </div>
+
+  <!-- Slide Indicators -->
+  <div class="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-1/2 transform -translate-x-1/2 z-20">
+    <div class="flex space-x-1.5 sm:space-x-2">
+      {heroData.slides.map((_, index) => (
+        <button 
+          class={`w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full transition-all duration-300 slide-indicator ${index === 0 ? 'bg-white' : 'bg-white/40'}`}
+          data-slide-index={index}
+          aria-label={`${locale === 'tr' ? 'Slide' : 'Slide'} ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+
+  <!-- Slides Data for JavaScript -->
+  <script type="application/json" id="slides-data" set:html={JSON.stringify(heroData.slides.map(slide => ({ card: slide.card })))}></script>
+</section>
+
+<script>
+  interface SlideData {
+    card: {
+      title: string;
+      dateText: string;
+      location: string;
+      description: string;
+      fairName: string;
+    };
+  }
+
+  // Mobile Debug - HeroSlider
+  console.log('🎬 HeroSlider Debug Started');
+  
+  // Get slides data from the component props
+  const slidesDataElement = document.getElementById('slides-data');
+  const slidesData: SlideData[] = slidesDataElement ? JSON.parse(slidesDataElement.textContent || '[]') : [];
+
+  let currentSlide = 0;
+  const totalSlides = slidesData.length;
+
+  // Get DOM elements
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.slide-indicator');
+  const prevButton = document.getElementById('prev-slide');
+  const nextButton = document.getElementById('next-slide');
+  const heroCardContainer = document.getElementById('hero-card-container');
+
+  console.log('🎬 HeroSlider Elements:', {
+    slides: slides.length,
+    indicators: indicators.length,
+    prevButton: !!prevButton,
+    nextButton: !!nextButton,
+    heroCardContainer: !!heroCardContainer,
+    totalSlides
+  });
+
+  // Debug hero card container position
+  if (heroCardContainer) {
+    const containerRect = heroCardContainer.getBoundingClientRect();
+    console.log('📦 Hero Card Container Position:', {
+      top: containerRect.top,
+      left: containerRect.left,
+      width: containerRect.width,
+      height: containerRect.height,
+      isVisible: containerRect.width > 0 && containerRect.height > 0
+    });
+    
+    const containerStyles = window.getComputedStyle(heroCardContainer);
+    console.log('🎨 Hero Card Container Styles:', {
+      display: containerStyles.display,
+      position: containerStyles.position,
+      zIndex: containerStyles.zIndex,
+      transform: containerStyles.transform
+    });
+  }
+
+  function updateSlide(newSlideIndex: number) {
+    // Hide current slide
+    slides[currentSlide]?.classList.remove('opacity-100');
+    slides[currentSlide]?.classList.add('opacity-0');
+    indicators[currentSlide]?.classList.remove('bg-white');
+    indicators[currentSlide]?.classList.add('bg-white/40');
+
+    // Update current slide index
+    currentSlide = newSlideIndex;
+
+    // Show new slide
+    slides[currentSlide]?.classList.remove('opacity-0');
+    slides[currentSlide]?.classList.add('opacity-100');
+    indicators[currentSlide]?.classList.remove('bg-white/40');
+    indicators[currentSlide]?.classList.add('bg-white');
+
+    // Update hero card content
+    updateHeroCard(currentSlide);
+  }
+
+  function updateHeroCard(slideIndex: number) {
+    if (!heroCardContainer) return;
+    
+    const slideData = slidesData[slideIndex];
+    if (!slideData) return;
+
+    // Update hero card content with fade effect
+    heroCardContainer.style.opacity = '0';
+    
+    setTimeout(() => {
+      const fairNameElement = heroCardContainer.querySelector('.inline-block.px-4.py-2');
+      const titleElement = heroCardContainer.querySelector('h2');
+      const dateElement = heroCardContainer.querySelector('.flex.items-center.gap-3:first-of-type span');
+      const locationElement = heroCardContainer.querySelector('.flex.items-center.gap-3:last-of-type span');
+      const descriptionElement = heroCardContainer.querySelector('p.text-text-secondary');
+
+      if (fairNameElement) fairNameElement.textContent = slideData.card.fairName;
+      if (titleElement) titleElement.textContent = slideData.card.title;
+      if (dateElement) dateElement.textContent = slideData.card.dateText;
+      if (locationElement) locationElement.textContent = slideData.card.location;
+      if (descriptionElement) descriptionElement.textContent = slideData.card.description;
+
+      heroCardContainer.style.opacity = '1';
+    }, 300);
+  }
+
+  function nextSlide() {
+    const newIndex = (currentSlide + 1) % totalSlides;
+    updateSlide(newIndex);
+  }
+
+  function prevSlide() {
+    const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlide(newIndex);
+  }
+
+  // Event listeners
+  nextButton?.addEventListener('click', nextSlide);
+  prevButton?.addEventListener('click', prevSlide);
+
+  // Indicator click events
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => updateSlide(index));
+  });
+
+  // Auto-play slider (optional)
+  let autoplayInterval = setInterval(nextSlide, 5000);
+
+  // Pause autoplay on hover
+  const sliderContainer = document.querySelector('.hero-slider');
+  sliderContainer?.addEventListener('mouseenter', () => {
+    clearInterval(autoplayInterval);
+  });
+
+  sliderContainer?.addEventListener('mouseleave', () => {
+    autoplayInterval = setInterval(nextSlide, 5000);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+</script>
+
+<style>
+  .hero-slider {
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+    border-radius: 10px;
+  }
+  
+  .slide {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .slide-indicator {
+    cursor: pointer;
+  }
+  
+  .slide-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  #hero-card-container {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Desktop hero slider - normal width with border radius */
+  @media (min-width: 640px) {
+    .hero-slider {
+      width: auto !important;
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+      border-radius: 10px !important;
+    }
+  }
+  
+  /* Mobile responsive background image positioning */
+  @media (max-width: 640px) {
+    .hero-slider {
+      height: 70vh !important;
+      width: 100vw !important;
+      margin-left: calc(-50vw + 50%) !important;
+      margin-right: calc(-50vw + 50%) !important;
+    }
+    
+    .hero-slider .slider-container {
+      height: 70vh !important;
+      width: 100vw !important;
+    }
+    
+    .hero-slider .slide {
+      height: 70vh !important;
+      width: 100vw !important;
+    }
+    
+    .hero-slider .slider-bg-image {
+      object-fit: cover !important;
+      object-position: center center !important;
+      width: 100vw !important;
+      height: 100% !important;
+      min-width: 100vw !important;
+      min-height: 70vh !important;
+      max-width: none !important;
+      max-height: none !important;
+    }
+    
+    .hero-slider .slide > div {
+      height: 70vh !important;
+      width: 100vw !important;
+    }
+  }
+  
+  /* Desktop styles - normal container width */
+  @media (min-width: 641px) {
+    .hero-slider .slider-bg-image {
+      object-fit: cover !important;
+      object-position: center center !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Performance optimizations */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

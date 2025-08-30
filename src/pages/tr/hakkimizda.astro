@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
+import VisitorFormModal from '../../components/VisitorFormModal.astro';
+import ParticipantFormModal from '../../components/ParticipantFormModal.astro';
+
+const locale = 'tr';
+const currentPath = '/tr/hakkimizda/';
+
+// About page content
+const aboutContent = {
+  title: "Hakkımızda",
+  subtitle: "Türkel Fuarcılık A.Ş.",
+  description: "1993 yılından bu yana T.C. Ticaret Bakanlığı tarafından resmi olarak yetkilendirilmiş ve belgeli Yurt Dışı Organizatör ve Yurt Dışı Ticari Organizatörü olarak faaliyet göstermektedir. Türkiye yurt dışında seçkin, tanınmış uluslararası sektörel ticari fuarlar düzenleyen şirketimiz.",
+  
+  sections: [
+    {
+      title: "Vizyonumuz",
+      content: "Uluslararası ticaret sektöründe düzenlediğimiz organizasyonlarla, müşteri ihtiyaçlarını ön planda tutarak en kaliteli hizmeti sağlamak ve önci bir şirket olmak."
+    },
+    {
+      title: "Misyonumuz", 
+      content: "Türkiye'deki pazar payımızı sürekli artırırken, yerli ve yabancı müşteri çevrımızı dengeli bir şekilde geliştirmek. Her yıl ölçümlenebilir müşteri memnuniyetini yükseltmek. Sektörün gelişimine yön veren, kaliteli ve güvenilir hizmet anlayışıyla sektörde lider konumunu korumak ve sürdürmek (teknoloji) ve yan unsurları etkin şekilde kullanarak organizasyonlar düzenleyerek uluslararası alanda fark yaratmak."
+    }
+  ],
+  
+  highlights: [
+    "LeShow Moskova / Uluslararası Deri ve Dış Giyim Moda Fuarları",
+    "HomeDeco Kazakistan Ev Tekstil ve Dekorasyon Fuar ve Organizasyonları"
+  ],
+  
+  experience: "gibi prestijli organizasyonlarla sektöründe öncü konumunu sürdürmektedir.",
+  
+  companyInfo: {
+    description: "Türkel Fuarcılık A.Ş., ayrıca 4 kıtaya yayılan geniş faaliyet alanıyla 50'den fazla ülkede; deri ve kürk, hazır giyim, ev tekstili, dekorasyon, mobilya, yapı, sanayi, enerji, aydınlatma, makine, mermer, plastik, otomotiv, yat ve su sporları gibi çok sayıda sektörde düzenlenen uluslararası ticari fuarlarda Türk Milli Katılımcı Grubu ve Milli Pavyon organizasyonları gerçekleştirmektedir.",
+    
+    services: "Şirketimiz, hem kendi markalı uluslararası fuarlarını organize ederek hem de seçkin Türk üretici ve ihracatçı markalarının dünya çapındaki prestijli fuarlara katılımını sağlayarak, Türkiye'nin küresel ticaret potansiyeline katkıda bulunmaktadır onur ve gurur duymaktadır."
+  }
+};
+
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+---
+
+<BaseLayout
+  title="Hakkımızda - Türkel Fuarcılık"
+  description="Türkel Fuarcılık A.Ş. 1993 yılından bu yana T.C. Ticaret Bakanlığı tarafından resmi olarak yetkilendirilmiş uluslararası fuar organizatörü"
+  locale={locale}
+>
+  <!-- Header -->
+  <Header locale={locale} />
+
+  <main class="min-h-screen">
+    <!-- Breadcrumb Section -->
+    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
+        <div class="container mx-auto px-4 lg:px-8">
+          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Hakkımızda</span>
+          </nav>
+          
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+            Hakkımızda
+          </h1>
+        </div>
+      </div>
+      
+              <!-- Bottom Border Line -->
+        <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="py-8 lg:py-12">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <div class="container mx-auto px-4 lg:px-8 py-6 lg:py-8">
+          <div class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- İlk Paragraf -->
+            <div class="text-lg text-gray-700 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+              <p class="mb-6">
+                1993 yılından bu yana T.C. Ticaret Bakanlığı tarafından resmi olarak yetkilendirilmiş ve belgeli Yurt Dışı Organizatör ve Yurt Dışı Ticari Organizatörü olarak faaliyet göstermektedir. Türkiye yurt dışında seçkin, tanınmış uluslararası sektörel ticari fuarlar düzenleyen şirketimiz.
+              </p>
+              
+              <p class="mb-8">
+                Türkel Fuarcılık A.Ş., ayrıca 4 kıtaya yayılan geniş faaliyet alanıyla 50'den fazla ülkede; deri ve kürk, hazır giyim, ev tekstili, dekorasyon, mobilya, yapı, sanayi, enerji, aydınlatma, makine, mermer, plastik, otomotiv, yat ve su sporları gibi çok sayıda sektörde düzenlenen uluslararası ticari fuarlarda Türk Milli Katılımcı Grubu ve Milli Pavyon organizasyonları gerçekleştirmektedir.
+              </p>
+            </div>
+
+            <!-- Prestijli Organizasyonlar -->
+            <div class="flex flex-col lg:flex-row gap-4 lg:gap-6 mb-6">
+              <!-- LeShow Moskova Button -->
+              <div class="flex-1 relative overflow-hidden rounded-lg border-2" style="background-color: #FCFCFC; border-color: #CE1A28;">
+                <div class="p-6 lg:p-8 text-center relative">
+                  <!-- Overlay Corners -->
+                  <div class="absolute top-0 left-0 w-8 h-8 bg-white opacity-20 rounded-br-full"></div>
+                  <div class="absolute top-0 right-0 w-8 h-8 bg-white opacity-20 rounded-bl-full"></div>
+                  <div class="absolute bottom-0 left-0 w-8 h-8 bg-white opacity-20 rounded-tr-full"></div>
+                  <div class="absolute bottom-0 right-0 w-8 h-8 bg-white opacity-20 rounded-tl-full"></div>
+                  
+                  <h3 class="text-lg lg:text-xl font-bold text-gray-900 mb-2 relative z-10" style="font-family: 'Radio Canada Big', sans-serif;">
+                    LeShow Moskova
+                  </h3>
+                  <p class="text-gray-700 relative z-10" style="font-family: 'Radio Canada Big', sans-serif;">
+                    Uluslararası Deri ve Dış Giyim Moda Fuarları
+                  </p>
+                </div>
+              </div>
+              
+              <!-- HomeDeco Kazakistan Button -->
+              <div class="flex-1 relative overflow-hidden rounded-lg border-2" style="background-color: #FCFCFC; border-color: #CE1A28;">
+                <div class="p-6 lg:p-8 text-center relative">
+                  <!-- Overlay Corners -->
+                  <div class="absolute top-0 left-0 w-8 h-8 bg-white opacity-20 rounded-br-full"></div>
+                  <div class="absolute top-0 right-0 w-8 h-8 bg-white opacity-20 rounded-bl-full"></div>
+                  <div class="absolute bottom-0 left-0 w-8 h-8 bg-white opacity-20 rounded-tr-full"></div>
+                  <div class="absolute bottom-0 right-0 w-8 h-8 bg-white opacity-20 rounded-tl-full"></div>
+                  
+                  <h3 class="text-lg lg:text-xl font-bold text-gray-900 mb-2 relative z-10" style="font-family: 'Radio Canada Big', sans-serif;">
+                    HomeDeco Kazakistan
+                  </h3>
+                  <p class="text-gray-700 relative z-10" style="font-family: 'Radio Canada Big', sans-serif;">
+                    Ev Tekstil ve Dekorasyon Fuar ve Organizasyonları
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <p class="text-center text-lg text-gray-700 italic mb-8" style="font-family: 'Radio Canada Big', sans-serif;">
+              gibi prestijli organizasyonlarla sektöründe öncü konumunu sürdürmektedir.
+            </p>
+
+            <!-- Son Paragraf -->
+            <div class="text-lg text-gray-700 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+              <p>
+                Şirketimiz, hem kendi markalı uluslararası fuarlarını organize ederek hem de seçkin Türk üretici ve ihracatçı markalarının dünya çapındaki prestijli fuarlara katılımını sağlayarak, Türkiye'nin küresel ticaret potansiyeline katkıda bulunmaktadır onur ve gurur duymaktadır.
+              </p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center pt-8">
+              <div class="flex flex-row gap-3 mb-6 max-w-md mx-auto">
+                <button 
+                  onclick="openVisitorModal()"
+                  class="bg-[#CE1A28] text-white px-4 py-3 rounded-lg font-medium hover:bg-[#B01620] transition-colors flex-1 text-sm"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Ziyaretçi Formu
+                </button>
+                <button 
+                  onclick="openParticipantModal()"
+                  class="border-2 border-[#CE1A28] text-[#CE1A28] px-4 py-3 rounded-lg font-medium hover:bg-[#CE1A28] hover:text-white transition-colors flex-1 text-sm"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Katılımcı Formu
+                </button>
+              </div>
+              
+              <h2 class="text-lg lg:text-xl text-gray-900 font-normal" style="font-family: 'Radio Canada Big', sans-serif;">
+                Türk fuarcılık sektörünün önde gelen ve deneyimli bir profesyonel uluslararası fuar ve ticari etkinlik organizatörü
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <Footer locale={locale} content={footerContent} />
+
+  <!-- Modals -->
+  <VisitorFormModal locale={locale} />
+  <ParticipantFormModal locale={locale} />
+</BaseLayout>
+
+<style>
+  /* Custom styles for about page */
+  .hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  }
+  
+  /* Smooth animations */
+  section {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+</style>

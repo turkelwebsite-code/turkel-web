@@ -1,0 +1,205 @@
+# Cursor Rules — Kurumsal Fuar Sitesi (Astro + Tailwind + i18n + SEO)
+
+## Goals
+- Build a bilingual (Turkish/English) corporate fairs website.
+- Use **Astro 4+** with **TailwindCSS**, fully responsive, mobile-first.
+- Must be SEO-friendly: sitemap, robots, hreflang, meta/OG/LD+JSON.
+- High performance: Lighthouse ≥95 (Perf/SEO/Acc/Best Practices).
+- Static-first (SSG), easy to extend later with Decap CMS.
+- Deployable to  Netlify.
+
+---
+
+## Tech Stack
+- **Framework:** Astro (SSG by default, no SSR unless required).
+- **Styling:** TailwindCSS (JIT), CSS variables for theme tokens.
+- **Images:** `@astrojs/image` (Sharp), `<Image />` with responsive sizes.
+- **Fonts:** Self-host via `@fontsource` or static files (display: swap).
+- **Icons:** Inline SVG or Lucide (tree-shaked).
+- **Forms:** No heavy libs; newsletter form posts to `/api/newsletter`.
+- **Lint/Format:** ESLint, Prettier, Stylelint; TypeScript strict.
+
+---
+
+## Project Structure
+/src
+/components
+Header.astro
+Footer.astro
+LangSwitch.astro
+HeroCard.astro
+MetricItem.astro
+PartnersMarquee.astro
+FairSupport.astro
+InstaGrid.astro
+NewsletterForm.astro
+/layouts
+BaseLayout.astro
+/pages
+/tr/index.astro
+/en/index.astro
+/api/newsletter.ts
+/content
+/home
+tr.json
+en.json
+/partners
+partners.json
+/lib
+i18n.ts
+seo.ts
+constants.ts
+/styles
+globals.css
+
+---
+
+## i18n Rules
+- Routes: `/tr/*` and `/en/*`. Root `/` → redirect to default (`/tr/`).
+- Use `hreflang` tags, canonical links.
+- Shared assets (logos/images) are not duplicated.
+- Language switcher must preserve current path.
+
+**Redirect snippet (root):**
+```astro
+---
+// src/pages/index.astro
+import { DEFAULT_LOCALE } from "../lib/i18n";
+Astro.response.status = 302;
+Astro.response.headers.set("Location", `/${DEFAULT_LOCALE}/`);
+---
+export const LOCALES = ["tr","en"] as const;
+export const DEFAULT_LOCALE = "tr";
+export function withLocale(path: string, locale: string) {
+  const clean = path.startsWith("/") ? path.slice(1) : path;
+  return `/${locale}/${clean}`;
+}
+
+Content Collections
+
+Define homepage schema in src/content/config.ts:
+
+import { defineCollection, z } from "astro:content";
+
+const home = defineCollection({
+  type: "data",
+  schema: z.object({
+    hero: z.object({
+      title: z.string(),
+      subtitle: z.string().optional(),
+      ctaText: z.string().optional(),
+      ctaUrl: z.string().url().optional(),
+      yearBadge: z.string().optional(),
+      card: z.object({
+        title: z.string(),
+        dateText: z.string().optional(),
+        buttons: z.array(z.object({ text: z.string(), url: z.string() })).max(2)
+      })
+    }),
+    metrics: z.array(z.object({ value: z.string(), label: z.string() })).length(3),
+    about: z.object({ title: z.string(), html: z.string() }),
+    partners: z.array(z.object({ name: z.string(), logo: z.string().url() })),
+    fairSupport: z.object({ title: z.string(), html: z.string() }),
+    instagram: z.array(z.object({ image: z.string().url(), link: z.string().url().optional() })).max(8),
+    newsletter: z.object({ title: z.string(), placeholder: z.string(), cta: z.string() })
+  })
+});
+
+export const collections = { home };
+
+Populate:
+	•	src/content/home/tr.json
+	•	src/content/home/en.json
+
+⸻
+
+SEO
+	•	Install @astrojs/sitemap, generate /sitemap.xml.
+	•	Add /robots.txt.
+	•	Each page sets title, description, og:image, twitter:card.
+	•	Add JSON-LD for Organization + WebSite.
+
+⸻
+
+Performance Rules
+	•	HTML budget: <35 KB, CSS <60 KB, JS <30 KB.
+	•	Fonts: preload WOFF2, use display: swap.
+	•	Use <Image format="webp" widths=[480,768,1200,1600] loading=lazy decoding=async>.
+	•	No layout shift (CLS < 0.02).
+	•	Only hydrate interactive components (client:load/idle/visible).
+
+⸻
+
+Accessibility
+	•	WCAG contrast ≥ 4.5:1.
+	•	Semantic landmarks: <header>, <main>, <footer>.
+	•	All interactive elements keyboard accessible.
+	•	Images: meaningful alt, decorative images alt="".
+
+
+// src/pages/api/newsletter.ts
+import type { APIRoute } from "astro";
+export const prerender = false;
+export const POST: APIRoute = async ({ request }) => {
+  const { email } = await request.json().catch(() => ({}));
+  if (!email || !/.+@.+\..+/.test(email)) {
+    return new Response("Invalid email", { status: 400 });
+  }
+  // Forward to provider (e.g. Mailchimp)
+  return new Response("OK", { status: 200 });
+};
+
+Deploy
+	•	Vercel: use @astrojs/vercel.
+	•	Netlify: use @astrojs/netlify.
+	•	Add environment for analytics/newsletter provider.
+	•	Auto build on push; ensure sitemap rebuild.
+
+⸻
+
+Quality Gates
+	•	CI checks: astro check, tsc, lint.
+	•	Lighthouse CI: Perf ≥95, SEO ≥100, Acc ≥95.
+	•	Run a11y checks (aria roles, focus trap, alt text).
+
+    Netlify Forms — Rules (Contact & Application Forms)
+	•	Forms must be present as static HTML in the page output so Netlify can detect them during build time. Required form attributes: data-netlify="true" (or netlify) and a hidden form-name input.  ￼
+	•	Basic form template (you can use the same or separate form names per language):
+
+    <form name="contact" method="POST" data-netlify="true" action="/thank-you">
+  <input type="hidden" name="form-name" value="contact" />
+  <!-- Fields -->
+  <button type="submit">Submit</button>
+</form>
+
+•	The action attribute is optional (to redirect to a thank-you page); works without JS.  ￼
+
+	•	AJAX submission is allowed — the form must post to /, and the request body must be URL-encoded, including the form-name field:
+
+  const data = Object.fromEntries(new FormData(form).entries());
+fetch("/", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: new URLSearchParams(data).toString()
+});
+
+  AJAX-compatible forms must include form-name, use URL-encoded data, and post to /.  ￼
+
+	•	Spam protection: Use a honeypot field (hidden input) and optional reCAPTCHA v2:
+
+    <form ... data-netlify-recaptcha="true">
+  <input type="hidden" name="form-name" value="contact" />
+  <!-- Fields -->
+  <div data-netlify-recaptcha="true"></div>
+</form>
+
+	•	File uploads: Use enctype="multipart/form-data" and accept attribute. Note Netlify’s free tier permits a maximum ~8 MB form body size and 10 MB total uploaded files per site/month; exceeding this pauses the site.  ￼
+	•	Notifications & automation: Form submissions appear in Netlify’s Forms admin panel. You can configure email alerts, Slack, or webhooks.  ￼
+	•	Free plan usage limits:
+	•	100 submissions/month per site. If the limit is reached, the site automatically upgrades to Level 1 (1000 submissions/month) and sends notifications; billing only occurs if billing method is attached.  ￼
+	•	To avoid surprises, implement fallback messaging or alternate form handling when limits are exceeded.  ￼
+	•	i18n handling: You may use a single form name with an additional hidden locale field (tr / en), or define separate form names per locale (contact-tr, contact-en) for separate listings in Netlify panel. Both are acceptable.  ￼
+	•	Best practices:
+	•	Use required and pattern validation on required fields.
+	•	Provide inline success/error messaging (aria-live for accessibility).
+	•	If file uploads or form volume might exceed limits, integrate with third-party storage (e.g., Airtable, CRM) via webhooks. 

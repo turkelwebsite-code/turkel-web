@@ -1,0 +1,128 @@
+---
+import { LOCALES, type Locale } from '../lib/i18n';
+import { getTargetUrl } from '../lib/url-mapping';
+
+interface Props {
+  currentLocale: Locale;
+  currentPath: string;
+}
+
+const { currentLocale, currentPath } = Astro.props;
+
+const languages = {
+  tr: { name: 'Türkçe', flag: '🇹🇷' },
+  en: { name: 'English', flag: '🇺🇸' }
+} as const;
+---
+
+<div class="language-switcher relative inline-block">
+  <button 
+    id="lang-switch-button"
+    class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-text-primary hover:text-primary transition-colors border border-gray-border rounded-md bg-white"
+    aria-label="Change language"
+    aria-expanded="false"
+  >
+    <span class="text-lg">{languages[currentLocale].flag}</span>
+    <span class="hidden sm:inline">{languages[currentLocale].name}</span>
+    <span class="sm:hidden">{currentLocale.toUpperCase()}</span>
+    <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div 
+    id="lang-switch-menu"
+    class="absolute top-full left-0 mt-1 w-full min-w-max bg-white border border-gray-border rounded-md shadow-lg z-50 hidden"
+  >
+    {LOCALES.filter(locale => locale !== currentLocale).map((locale) => (
+      <a 
+        href={getTargetUrl(currentLocale, locale, currentPath)}
+        class="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-50 transition-colors first:rounded-t-md last:rounded-b-md"
+        hreflang={locale}
+      >
+        <span class="text-lg">{languages[locale].flag}</span>
+        <span>{languages[locale].name}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Language switcher dropdown functionality
+  const button = document.getElementById('lang-switch-button');
+  const menu = document.getElementById('lang-switch-menu');
+  const chevron = button?.querySelector('svg');
+  
+  if (button && menu) {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !menu.classList.contains('hidden');
+      
+      if (isOpen) {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        chevron?.classList.remove('rotate-180');
+      } else {
+        menu.classList.remove('hidden');
+        button.setAttribute('aria-expanded', 'true');
+        chevron?.classList.add('rotate-180');
+      }
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        chevron?.classList.remove('rotate-180');
+      }
+    });
+    
+    // Close dropdown on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        menu.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+        chevron?.classList.remove('rotate-180');
+        button.focus();
+      }
+    });
+    
+    // Handle keyboard navigation
+    menu.addEventListener('keydown', (e) => {
+      const links = Array.from(menu.querySelectorAll('a'));
+      const currentIndex = links.findIndex(link => link === document.activeElement);
+      
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          const nextIndex = currentIndex < links.length - 1 ? currentIndex + 1 : 0;
+          (links[nextIndex] as HTMLElement).focus();
+          break;
+          
+        case 'ArrowUp':
+          e.preventDefault();
+          const prevIndex = currentIndex > 0 ? currentIndex - 1 : links.length - 1;
+          (links[prevIndex] as HTMLElement).focus();
+          break;
+          
+        case 'Enter':
+        case ' ':
+          e.preventDefault();
+          (document.activeElement as HTMLAnchorElement)?.click();
+          break;
+      }
+    });
+  }
+</script>
+
+<style>
+  .language-switcher svg {
+    transition: transform 0.2s ease;
+  }
+  
+  .language-switcher button[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+</style>

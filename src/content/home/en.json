@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "With hundreds of business partners in 15 different sectors, our fair experiences and our wide network spanning 4 continents, we offer powerful fair organizations on a global scale",
+    "subtitle": "INTERNATIONAL HOME TEXTILE AND DECORATION FAIR",
+    "yearBadge": "2025",
+    "slides": [
+      {
+        "backgroundImage": "/images/homedeco-slider.png",
+        "card": {
+          "title": "18th HOMEDECO KAZAKHSTAN",
+          "dateText": "February 16-18, 2026",
+          "location": "ALMATY / KAZAKHSTAN",
+          "description": "International Homedeco Kazakhstan will take place at Atakent Exhibition Center in Almaty between February 16-18, showcasing the latest trends in the industry",
+          "fairName": "HOMEDECO KAZAKHSTAN",
+          "fairLogo": "/images/homedeco-logo.png",
+          "fairWebsite": "https://homedeco.kz"
+        }
+      },
+      {
+        "backgroundImage": "/images/hero-bg-2.jpg",
+        "card": {
+          "title": "12th TEXTILE MOSCOW",
+          "dateText": "March 25-27, 2026",
+          "location": "MOSCOW / RUSSIA",
+          "description": "Moscow Textile Fair brings together leading brands in the industry as Russia's largest textile and fashion event",
+          "fairName": "TEXTILE MOSCOW",
+          "fairLogo": "/images/tekstil-moscow-logo.png",
+          "fairWebsite": "https://tekstil-moscow.ru"
+        }
+      },
+      {
+        "backgroundImage": "/images/hero-bg-3.jpg",
+        "card": {
+          "title": "8th FASHION WEEK ISTANBUL",
+          "dateText": "May 15-18, 2026",
+          "location": "ISTANBUL / TURKEY",
+          "description": "Istanbul Fashion Week hosts world-class designers as Turkey's most prestigious fashion event",
+          "fairName": "FASHION WEEK ISTANBUL",
+          "fairLogo": "/images/fashion-week-istanbul-logo.png",
+          "fairWebsite": "https://fashionweek.istanbul"
+        }
+      }
+    ]
+  },
+  "metrics": [
+    { "value": "450+", "label": "Fairs" },
+    { "value": "200+", "label": "Partners" },
+    { "value": "50+", "label": "Locations" }
+  ],
+  "about": {
+    "title": "Achieve global success with Türkel Fair Organization",
+    "html": "Türkel Fuarcılık A.Ş., a leading and experienced professional international fair and commercial event organizer in the Turkish fair industry, provides distinguished services in accordance with international standards to Turkish and foreign customers in fair participation planning, organization management, promotion and marketing and communication with its experienced, innovative and dedicated professional management and sales team of 76 people working in Istanbul Headquarters and Moscow/RF and Almaty/Kazakhstan field offices.<br><br>In addition, Türkel Fuarcılık A.Ş. also provides privileged service support to its international commercial sectoral fair participant customers in the areas of fair stand design and installation and technical services, logistics and transportation, international travel, transportation and accommodation.",
+    "ctaText": "Learn More"
+  },
+  "partners": [
+    { "name": "Partner 1", "logo": "/images/partner01.png" },
+    { "name": "Partner 2", "logo": "/images/partner02.png" },
+    { "name": "Partner 3", "logo": "/images/partner03.png" },
+    { "name": "Partner 4", "logo": "/images/partner04.png" },
+    { "name": "Partner 5", "logo": "/images/partner05.png" },
+    { "name": "Partner 6", "logo": "/images/partner06.png" }
+  ],
+  "fairSupport": {
+    "title": "EXPAND TO THE WORLD WITH FAIR SUPPORT",
+    "description": "Make your brand more visible in global markets thanks to government supports that facilitate your participation in international fairs. You focus on growing your business, we will be with you in all steps of the fair participation process.",
+    "governmentText": "The participation of our companies in international fairs related to goods trade and the promotional expenses of organizers are supported by the General Directorate of Exports of the Ministry of Commerce of the Republic of Turkey within the scope of \"Decision No. 2017/4 on Supporting Fair Participants Abroad\". In this framework, individual participation of our companies in sectoral international fairs determined and announced by the Ministry, as well as national participation in fairs organized by authorized organizers and participation in prestigious fairs leading in their sector are supported in certain items and varying amounts.",
+    "kosgebText": "In accordance with the Kosgeb Law, multi-faceted development and support programs are implemented for small and medium-sized enterprises defined by the Regulation on SME definition and classification published in the Official Gazette dated 18.11.2005 and numbered 25997.",
+    "html": "Advantages of participating in fairs with government support"
+  },
+  "instagram": [
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" }
+  ],
+  "newsletter": {
+    "title": "Subscribe to Our Newsletter",
+    "placeholder": "Your Email Address",
+    "cta": "subscribe"
+  },
+  "footer": {
+    "description": "Leading professional international fair organizer in Turkish fair industry with 30 years experience and global network.",
+    "sections": {
+      "contact": "CONTACT",
+      "calendar": "FAIR CALENDAR",
+      "links": "USEFUL LINKS", 
+      "fairs": "OUR FAIRS"
+    },
+    "links": {
+      "calendar": [
+        "2026 Fair Calendar",
+        "2025 Fair Calendar",
+        "2024 Fair Calendar",
+        "2023 Fair Calendar",
+        "2022 Fair Calendar"
+      ],
+            "useful": [
+        "Ministry of Trade Support",
+        "KOSGEB Support",
+        "Fair Participation Planning",
+        "Organization Management",
+        "Promotion and Marketing"
+      ],
+      "fairs": [
+        "www.leshowistanbul.com",
+        "www.leshow.ru", 
+        "www.homedecofair.com"
+      ]
+    },
+    "copyright": "©2025 Türkel Fair Organization - All Rights Reserved"
+  }
+}

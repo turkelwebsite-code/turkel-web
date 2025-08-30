@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
+
+const locale = 'tr';
+
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+
+// Gallery data - mixed order for variety
+const galleryImages = [
+  // LeShow Moscow images
+  { id: 1, src: '/images/galery/leshow-1.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 1' },
+  { id: 31, src: '/images/galery/homedeco-1.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 1' },
+  { id: 2, src: '/images/galery/leshow-2.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 2' },
+  { id: 32, src: '/images/galery/homedeco-2.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 2' },
+  { id: 3, src: '/images/galery/leshow-3.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 3' },
+  { id: 33, src: '/images/galery/homedeco-3.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 3' },
+  { id: 4, src: '/images/galery/leshow-4.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 4' },
+  { id: 34, src: '/images/galery/homedeco-4.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 4' },
+  { id: 5, src: '/images/galery/leshow-5.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 5' },
+  { id: 35, src: '/images/galery/homedeco-5.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 5' },
+  { id: 6, src: '/images/galery/leshow-6.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 6' },
+  { id: 36, src: '/images/galery/homedeco-6.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 6' },
+  { id: 7, src: '/images/galery/leshow-7.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 7' },
+  { id: 37, src: '/images/galery/homedeco-7.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 7' },
+  { id: 8, src: '/images/galery/leshow-8.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 8' },
+  { id: 38, src: '/images/galery/homedeco-8.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 8' },
+  { id: 9, src: '/images/galery/leshow-9.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 9' },
+  { id: 39, src: '/images/galery/homedeco-9.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 9' },
+  { id: 10, src: '/images/galery/leshow-10.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 10' },
+  { id: 40, src: '/images/galery/homedeco-10.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 10' },
+  { id: 11, src: '/images/galery/leshow-11.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 11' },
+  { id: 41, src: '/images/galery/homedeco-11.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 11' },
+  { id: 12, src: '/images/galery/leshow-12.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 12' },
+  { id: 42, src: '/images/galery/homedeco-12.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 12' },
+  { id: 13, src: '/images/galery/leshow-13.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 13' },
+  { id: 43, src: '/images/galery/homedeco-13.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 13' },
+  { id: 14, src: '/images/galery/leshow-14.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 14' },
+  { id: 44, src: '/images/galery/homedeco-14.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 14' },
+  { id: 15, src: '/images/galery/leshow-15.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 15' },
+  { id: 45, src: '/images/galery/homedeco-15.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 15' },
+  { id: 16, src: '/images/galery/leshow-16.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 16' },
+  { id: 46, src: '/images/galery/homedeco-16.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 16' },
+  { id: 17, src: '/images/galery/leshow-17.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 17' },
+  { id: 47, src: '/images/galery/homedeco-17.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 17' },
+  { id: 18, src: '/images/galery/leshow-18.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 18' },
+  { id: 48, src: '/images/galery/homedeco-18.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 18' },
+  { id: 19, src: '/images/galery/leshow-19.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 19' },
+  { id: 49, src: '/images/galery/homedeco-19.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 19' },
+  { id: 20, src: '/images/galery/leshow-20.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 20' },
+  { id: 50, src: '/images/galery/homedeco-20.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 20' },
+  { id: 21, src: '/images/galery/leshow-21.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 21' },
+  { id: 51, src: '/images/galery/homedeco-21.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 21' },
+  { id: 22, src: '/images/galery/leshow-22.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 22' },
+  { id: 52, src: '/images/galery/homedeco-22.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 22' },
+  { id: 23, src: '/images/galery/leshow-23.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 23' },
+  { id: 53, src: '/images/galery/homedeco-23.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 23' },
+  { id: 24, src: '/images/galery/leshow-24.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 24' },
+  { id: 54, src: '/images/galery/homedeco-24.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 24' },
+  { id: 25, src: '/images/galery/leshow-25.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 25' },
+  { id: 55, src: '/images/galery/homedeco-25.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 25' },
+  { id: 26, src: '/images/galery/leshow-26.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 26' },
+  { id: 56, src: '/images/galery/homedeco-26.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 26' },
+  { id: 27, src: '/images/galery/leshow-27.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 27' },
+  { id: 57, src: '/images/galery/homedeco-27.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 27' },
+  { id: 28, src: '/images/galery/leshow-28.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 28' },
+  { id: 58, src: '/images/galery/homedeco-28.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 28' },
+  { id: 29, src: '/images/galery/leshow-29.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 29' },
+  { id: 59, src: '/images/galery/homedeco-29.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 29' },
+  { id: 30, src: '/images/galery/leshow-30.jpg', category: 'leshow', alt: 'LeShow Moscow Fuarı 30' },
+  { id: 60, src: '/images/galery/homedeco-30.jpg', category: 'homedeco', alt: 'HomeDeco Kazakhstan Fuarı 30' }
+];
+
+// Shuffle array for mixed display
+const shuffleArray = (array: any[]) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const shuffledImages = shuffleArray(galleryImages);
+---
+
+<BaseLayout locale={locale} title="Galeri - Türkel Fuarcılık" description="Türkel Fuarcılık fuar galerisi - LeShow Moscow ve HomeDeco Kazakhstan fuarlarından kareler">
+  <Header locale={locale} />
+  
+  <main class="min-h-screen">
+    <!-- Breadcrumb Section -->
+    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
+        <div class="container mx-auto px-4 lg:px-8">
+          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Galeri</span>
+          </nav>
+          
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+            GALERİ
+          </h1>
+        </div>
+      </div>
+      
+      <!-- Bottom Border Line -->
+      <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-12 lg:py-16 relative overflow-hidden">
+      <div class="mx-auto relative" style="max-width: calc(100% - 20px);">
+        
+        <!-- Section Description -->
+        <div class="text-center mb-12 lg:mb-16">
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+            Düzenlediğimiz uluslararası fuarlardan özel kareler
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button 
+            class="filter-btn active px-6 py-3 rounded-full border-2 border-[#CE1A28] bg-[#CE1A28] text-white font-medium transition-all duration-300 hover:bg-[#B01525] hover:border-[#B01525]" 
+            data-filter="all"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            Tümü
+          </button>
+          <button 
+            class="filter-btn px-6 py-3 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] bg-transparent font-medium transition-all duration-300 hover:bg-[#CE1A28] hover:text-white" 
+            data-filter="leshow"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            LeShow Moscow
+          </button>
+          <button 
+            class="filter-btn px-6 py-3 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] bg-transparent font-medium transition-all duration-300 hover:bg-[#CE1A28] hover:text-white" 
+            data-filter="homedeco"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            HomeDeco Kazakhstan
+          </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+          {shuffledImages.map((image) => (
+            <div 
+              class={`gallery-item ${image.category} opacity-0 transform translate-y-8 transition-all duration-700`}
+              data-category={image.category}
+            >
+              <div class="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  class="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <Footer locale={locale} content={footerContent} />
+</BaseLayout>
+
+<style>
+  .gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .filter-btn.active {
+    background-color: #CE1A28 !important;
+    color: white !important;
+  }
+  
+  .gallery-item.hidden {
+    display: none;
+  }
+  
+  /* Staggered animation for gallery items */
+  .gallery-item:nth-child(1) { transition-delay: 0.1s; }
+  .gallery-item:nth-child(2) { transition-delay: 0.2s; }
+  .gallery-item:nth-child(3) { transition-delay: 0.3s; }
+  .gallery-item:nth-child(4) { transition-delay: 0.4s; }
+  .gallery-item:nth-child(5) { transition-delay: 0.5s; }
+  .gallery-item:nth-child(6) { transition-delay: 0.6s; }
+  .gallery-item:nth-child(7) { transition-delay: 0.7s; }
+  .gallery-item:nth-child(8) { transition-delay: 0.8s; }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .gallery-item img {
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .gallery-item img {
+      height: 250px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const filterValue = target.dataset.filter;
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        target.classList.add('active');
+        
+        // Filter gallery items
+        galleryItems.forEach((item, index) => {
+          const itemElement = item as HTMLElement;
+          const category = itemElement.dataset.category;
+          
+          if (filterValue === 'all' || category === filterValue) {
+            itemElement.classList.remove('hidden');
+            // Staggered animation
+            setTimeout(() => {
+              itemElement.classList.add('visible');
+            }, index * 100);
+          } else {
+            itemElement.classList.add('hidden');
+            itemElement.classList.remove('visible');
+          }
+        });
+      });
+    });
+    
+
+    
+    // Initial animation for gallery items
+    const galleryObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            const target = entry.target as HTMLElement;
+            target.classList.add('visible');
+          }, index * 100);
+        }
+      });
+    }, {
+      rootMargin: '20px 0px',
+      threshold: 0.1
+    });
+    
+    galleryItems.forEach(item => {
+      galleryObserver.observe(item);
+    });
+
+  });
+
+</script>

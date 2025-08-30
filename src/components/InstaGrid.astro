@@ -1,0 +1,333 @@
+---
+import { Play } from 'lucide-astro';
+
+interface InstagramItem {
+  image: string;
+  link?: string;
+}
+
+interface Props {
+  items: InstagramItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="instagram-grid py-16 bg-white">
+  <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 20px auto;">
+    
+    <!-- Two Instagram Accounts Side by Side -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+      
+      <!-- Left Side - Homedeco Kazakhstan -->
+      <div class="instagram-section">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Homedeco Kazakhstan</h3>
+          <p class="text-gray-600">@homedecokazakhstan</p>
+        </div>
+        
+        <!-- Mobile Slider (2 visible) / Desktop Grid (3 visible) -->
+        <div class="relative">
+          <!-- Mobile Slider Container -->
+          <div class="md:hidden overflow-hidden">
+            <div class="flex transition-transform duration-300 ease-in-out" id="homedeco-slider">
+              {items.slice(0, 4).map((item, index) => (
+                <div class="flex-shrink-0 w-1/2 px-1">
+                  <div 
+                    class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
+                    style={`animation-delay: ${index * 0.1}s`}
+                  >
+                    <img 
+                      src={item.image}
+                      alt={`Homedeco Kazakhstan post ${index + 1}`}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      width="200"
+                      height="200"
+                    />
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                      {index === 1 && (
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                            <Play size={16} class="text-primary ml-1" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <!-- Link overlay -->
+                    {item.link && (
+                      <a 
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="absolute inset-0 z-10"
+                        aria-label={`View Homedeco Kazakhstan post ${index + 1}`}
+                      >
+                        <span class="sr-only">View post</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Desktop Grid -->
+          <div class="hidden md:grid grid-cols-3 gap-3">
+            {items.slice(0, 3).map((item, index) => (
+              <div 
+                class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+              <img 
+                src={item.image}
+                alt={`Homedeco Kazakhstan post ${index + 1}`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                width="200"
+                height="200"
+              />
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                {index === 1 && (
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                      <Play size={16} class="text-primary ml-1" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              <!-- Link overlay -->
+              {item.link && (
+                <a 
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="absolute inset-0 z-10"
+                  aria-label={`View Homedeco Kazakhstan post ${index + 1}`}
+                >
+                  <span class="sr-only">View post</span>
+                </a>
+              )}
+            </div>
+          ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side - Leshow Moskova -->
+      <div class="instagram-section">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Leshow Moskova</h3>
+          <p class="text-gray-600">@leshowmoscow</p>
+        </div>
+        
+        <!-- Mobile Slider (2 visible) / Desktop Grid (3 visible) -->
+        <div class="relative">
+          <!-- Mobile Slider Container -->
+          <div class="md:hidden overflow-hidden">
+            <div class="flex transition-transform duration-300 ease-in-out" id="leshow-slider">
+              {items.slice(3, 7).map((item, index) => (
+                <div class="flex-shrink-0 w-1/2 px-1">
+                  <div 
+                    class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
+                    style={`animation-delay: ${(index + 3) * 0.1}s`}
+                  >
+                    <img 
+                      src={item.image}
+                      alt={`Leshow Moskova post ${index + 1}`}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      width="200"
+                      height="200"
+                    />
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                      {index === 2 && (
+                        <div class="absolute inset-0 flex items-center justify-center">
+                          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                            <Play size={16} class="text-primary ml-1" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <!-- Link overlay -->
+                    {item.link && (
+                      <a 
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="absolute inset-0 z-10"
+                        aria-label={`View Leshow Moskova post ${index + 1}`}
+                      >
+                        <span class="sr-only">View post</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <!-- Desktop Grid -->
+          <div class="hidden md:grid grid-cols-3 gap-3">
+            {items.slice(3, 6).map((item, index) => (
+              <div 
+                class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
+                style={`animation-delay: ${(index + 3) * 0.1}s`}
+              >
+              <img 
+                src={item.image}
+                alt={`Leshow Moskova post ${index + 1}`}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                width="200"
+                height="200"
+              />
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                {index === 2 && (
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                      <Play size={16} class="text-primary ml-1" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              <!-- Link overlay -->
+              {item.link && (
+                <a 
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="absolute inset-0 z-10"
+                  aria-label={`View Leshow Moskova post ${index + 1}`}
+                >
+                  <span class="sr-only">View post</span>
+                </a>
+              )}
+            </div>
+          ))}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram-item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .instagram-item.animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .instagram-section h3 {
+    font-family: 'Radio Canada Big', sans-serif;
+  }
+</style>
+
+<script>
+  // Intersection Observer for Instagram grid animations
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+  
+  // Instagram Slider functionality for mobile
+  function initInstagramSliders() {
+    const sliders = ['homedeco-slider', 'leshow-slider'];
+    
+    sliders.forEach(sliderId => {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+      
+      let currentIndex = 0;
+      const totalSlides = slider.children.length;
+      const slidesToShow = 2; // Show 2 slides at once on mobile
+      const maxIndex = totalSlides - slidesToShow;
+      
+      // Auto-slide every 3 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
+        const translateX = -(currentIndex * 50); // 50% per slide (since we show 2)
+        slider.style.transform = `translateX(${translateX}%)`;
+      }, 3000);
+      
+      // Touch/swipe support
+      let startX = 0;
+      let isDragging = false;
+      
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+      
+      slider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+      });
+      
+      slider.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        
+        if (Math.abs(diffX) > 50) { // Minimum swipe distance
+          if (diffX > 0 && currentIndex < maxIndex) {
+            // Swipe left - next slide
+            currentIndex++;
+          } else if (diffX < 0 && currentIndex > 0) {
+            // Swipe right - previous slide
+            currentIndex--;
+          }
+          
+          const translateX = -(currentIndex * 50);
+          slider.style.transform = `translateX(${translateX}%)`;
+        }
+      });
+    });
+  }
+  
+  // Initialize everything
+  document.addEventListener('DOMContentLoaded', () => {
+    // Observe all Instagram items for animations
+    const instaItems = document.querySelectorAll('.instagram-item');
+    instaItems.forEach((item) => {
+      observer.observe(item);
+    });
+    
+    // Initialize sliders for mobile
+    initInstagramSliders();
+  });
+</script>

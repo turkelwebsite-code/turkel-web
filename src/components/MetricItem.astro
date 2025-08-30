@@ -1,0 +1,74 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  index?: number;
+}
+
+const { value, label, index = 0 } = Astro.props;
+---
+
+<div 
+  class="metric-item text-center group"
+  style={`animation-delay: ${index * 0.2}s`}
+>
+  <div class="mb-4">
+    <span class="text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary group-hover:text-primary transition-colors duration-300">
+      {value}
+    </span>
+  </div>
+  <div class="text-text-primary font-medium text-sm lg:text-base tracking-wide">
+    {label}
+  </div>
+</div>
+
+<style>
+  .metric-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Intersection Observer will trigger these animations */
+  .metric-item:not(.animate) {
+    animation: none;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .metric-item.animate {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+</style>
+
+<script>
+  // Intersection Observer for animation
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all metric items
+  document.addEventListener('DOMContentLoaded', () => {
+    const metricItems = document.querySelectorAll('.metric-item');
+    metricItems.forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>

@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
+import VisitorFormModal from '../../components/VisitorFormModal.astro';
+import ParticipantFormModal from '../../components/ParticipantFormModal.astro';
+
+const locale = 'tr';
+
+// SEO and page metadata
+const title = 'Turizm Hizmetleri | Türkel Fuarcılık';
+const description = 'TF Seyahat Acentası olarak müşterilerimize kapsamlı turizm hizmetleri sunuyoruz. Grup ve münferit otel rezervasyonları, transfer hizmetleri, vize işlemleri ve daha fazlası.';
+
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  locale={locale}
+  canonical="/tr/turizm"
+>
+  <!-- Header -->
+  <Header locale={locale} />
+
+  <!-- Main Content -->
+  <main class="min-h-screen">
+
+    <!-- Breadcrumb Section -->
+    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
+        <div class="container mx-auto px-4 lg:px-8">
+          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Turizm</span>
+          </nav>
+          
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+            Turizm Hizmetleri
+          </h1>
+        </div>
+      </div>
+      
+      <!-- Bottom Border Line -->
+      <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
+    </section>
+
+    <!-- Hero Banner Section -->
+    <section class="relative py-8 lg:py-12 overflow-hidden">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <!-- Hero Background Image -->
+        <div class="relative h-[250px] sm:h-[300px] lg:h-[400px] rounded-lg overflow-hidden mb-4 lg:mb-8">
+          <img 
+            src="/images/turizm-banner.png" 
+            alt="Turizm Hizmetleri"
+            class="w-full h-full object-cover"
+            style="object-position: center 60%;"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <!-- Fallback gradient background -->
+          <div class="hidden w-full h-full bg-gradient-to-r from-blue-100 to-blue-200"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-8 lg:py-12">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <div class="container mx-auto px-4 lg:px-8">
+          
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+              TF Seyahat Acentası
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+              Türkel Fuarcılık A.Ş. bünyesinde 1998 yılında kurulan TF Seyahat Acentası, TÜRSAB üyesi A grubu seyahat acentesi olarak müşterilerimize kapsamlı turizm hizmetleri sunmaktadır.
+            </p>
+          </div>
+
+          <!-- Main Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
+            
+            <!-- Left Content -->
+            <div class="space-y-8">
+              
+              <!-- About TF Travel -->
+              <div class="bg-gray-50 rounded-lg p-6 lg:p-8">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Hakkımızda
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Türkel Fuarcılık bünyesinde faaliyet gösteren TF Seyahat Acentası, fuar organizasyonlarında katılımcı firmalara ulaşım ve konaklama hizmetleri sağlamaktadır.
+                </p>
+                <p class="text-gray-700 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Kuruluşundan bu yana birçok şirketin kurumsal seyahat ihtiyaçlarına toplam çözümler üretmiş, uzun vadeli iş ortaklıkları kurmuş, profesyonel, özel ve yaratıcı hizmetler geliştirmiştir.
+                </p>
+              </div>
+
+              <!-- Experience -->
+              <div class="bg-[#CE1A28] rounded-lg p-6 lg:p-8 text-white">
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Deneyimimiz
+                </h3>
+                <p class="leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Müşterilerine verdiği önem ve sunduğu yüksek kalite sayesinde Türkiye'deki birçok saygın şirketin tercih olmayı başarmıştır.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Right Content -->
+            <div class="space-y-8">
+              
+              <!-- Services List -->
+              <div class="bg-white rounded-lg p-6 lg:p-8 border-2 border-[#CE1A28]">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Hizmetlerimiz
+                </h3>
+                
+                <ul class="space-y-4">
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Grup ve münferit otel rezervasyonları</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Grup ve münferit uçak biletleri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Transfer hizmetleri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Vize araçlık hizmetleri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Kapılarına ve yerli rehberlik (Türkçe veya tercih edilen dilde)</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Rusya Türkiye'den eşlik edecek rehberlik hizmetleri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Şehir içi ulaşım çözümleri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Çevre gezileri</span>
+                  </li>
+                  <li class="flex items-start text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                    <span>Eğlence & etkinlik organizasyonları</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Mission -->
+              <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-6 lg:p-8 border border-gray-200">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Misyonumuz
+                </h3>
+                <p class="text-gray-700 leading-relaxed text-lg" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Müşteri odaklı hizmet anlayışımızla, en kişisel çözümleri en uygun maliyetlerle sunarak iş ortaklarımızın tüm seyahat ihtiyaçlarını eksiksiz karşılamak.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="text-center">
+            <div class="bg-gray-50 rounded-lg p-8 lg:p-12 mb-8">
+              <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                Turizm Hizmetlerimiz Hakkında Bilgi Alın
+              </h3>
+              <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+                Seyahat ihtiyaçlarınız için uzman ekibimizle iletişime geçin. Size özel turizm çözümleri sunalım.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <button 
+                  onclick="openVisitorModal()"
+                  class="bg-[#CE1A28] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#B01620] transition-colors flex-1"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Ziyaretçi Formu
+                </button>
+                <button 
+                  onclick="openParticipantModal()"
+                  class="border-2 border-[#CE1A28] text-[#CE1A28] px-6 py-3 rounded-lg font-medium hover:bg-[#CE1A28] hover:text-white transition-colors flex-1"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Katılımcı Formu
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <Footer locale={locale} content={footerContent} />
+
+  <!-- Modals -->
+  <VisitorFormModal locale={locale} />
+  <ParticipantFormModal locale={locale} />
+</BaseLayout>
+
+<style>
+  /* Smooth animations */
+  section {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Service list hover effects */
+  ul li {
+    transition: all 0.3s ease;
+  }
+  
+  ul li:hover {
+    transform: translateX(8px);
+  }
+  
+  ul li:hover .bg-\[#CE1A28\] {
+    transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Mobile spacing adjustments */
+    section.py-8 {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+    
+    /* Hero banner mobile spacing */
+    .relative.py-8 {
+      padding-top: 1rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    /* Content section mobile spacing */
+    .py-8.lg\:py-12 {
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
+    }
+    
+    /* Mobile hero adjustments */
+    .hero-section .absolute.inset-0 h1 {
+      font-size: 2rem !important;
+      line-height: 2.5rem !important;
+    }
+    
+    .hero-section .absolute.inset-0 p {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+  }
+</style>

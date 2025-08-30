@@ -1,0 +1,762 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { SITE_CONFIG } from '../../lib/constants';
+
+const locale = 'tr';
+
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+
+// Kronoloji verileri - Son 10 yıl
+const chronologyData = {
+  2024: [
+    {
+      name: "LeShow Moskova 2024",
+      city: "Moskova",
+      country: "Rusya",
+      area: "15,000",
+      participants: "450",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2024",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "12,000",
+      participants: "320",
+      sector: "Ev Tekstili"
+    },
+    {
+      name: "Furniture İstanbul 2024",
+      city: "İstanbul",
+      country: "Türkiye",
+      area: "25,000",
+      participants: "680",
+      sector: "Mobilya"
+    },
+    {
+      name: "Textile Expo Dubai 2024",
+      city: "Dubai",
+      country: "BAE",
+      area: "18,000",
+      participants: "520",
+      sector: "Tekstil"
+    },
+    {
+      name: "Fashion Week Milano 2024",
+      city: "Milano",
+      country: "İtalya",
+      area: "22,000",
+      participants: "780",
+      sector: "Moda"
+    },
+    {
+      name: "Construction Fair Berlin 2024",
+      city: "Berlin",
+      country: "Almanya",
+      area: "35,000",
+      participants: "920",
+      sector: "İnşaat"
+    },
+    {
+      name: "Food Expo Paris 2024",
+      city: "Paris",
+      country: "Fransa",
+      area: "28,000",
+      participants: "650",
+      sector: "Gıda"
+    },
+    {
+      name: "Tech Summit London 2024",
+      city: "Londra",
+      country: "İngiltere",
+      area: "16,000",
+      participants: "480",
+      sector: "Teknoloji"
+    },
+    {
+      name: "Auto Show Frankfurt 2024",
+      city: "Frankfurt",
+      country: "Almanya",
+      area: "45,000",
+      participants: "1200",
+      sector: "Otomotiv"
+    },
+    {
+      name: "Energy Fair Amsterdam 2024",
+      city: "Amsterdam",
+      country: "Hollanda",
+      area: "20,000",
+      participants: "580",
+      sector: "Enerji"
+    },
+    {
+      name: "Healthcare Expo Vienna 2024",
+      city: "Viyana",
+      country: "Avusturya",
+      area: "14,000",
+      participants: "420",
+      sector: "Sağlık"
+    },
+    {
+      name: "Beauty Fair Barcelona 2024",
+      city: "Barcelona",
+      country: "İspanya",
+      area: "12,500",
+      participants: "380",
+      sector: "Kozmetik"
+    },
+    {
+      name: "Sports Expo Munich 2024",
+      city: "Münih",
+      country: "Almanya",
+      area: "19,000",
+      participants: "560",
+      sector: "Spor"
+    },
+    {
+      name: "Agriculture Fair Warsaw 2024",
+      city: "Varşova",
+      country: "Polonya",
+      area: "24,000",
+      participants: "720",
+      sector: "Tarım"
+    },
+    {
+      name: "Jewelry Show Geneva 2024",
+      city: "Cenevre",
+      country: "İsviçre",
+      area: "8,000",
+      participants: "250",
+      sector: "Mücevher"
+    },
+    {
+      name: "Electronics Fair Tokyo 2024",
+      city: "Tokyo",
+      country: "Japonya",
+      area: "32,000",
+      participants: "850",
+      sector: "Elektronik"
+    },
+    {
+      name: "Chemical Expo Rotterdam 2024",
+      city: "Rotterdam",
+      country: "Hollanda",
+      area: "26,000",
+      participants: "680",
+      sector: "Kimya"
+    },
+    {
+      name: "Packaging Fair Düsseldorf 2024",
+      city: "Düsseldorf",
+      country: "Almanya",
+      area: "21,000",
+      participants: "620",
+      sector: "Ambalaj"
+    },
+    {
+      name: "Maritime Expo Hamburg 2024",
+      city: "Hamburg",
+      country: "Almanya",
+      area: "17,000",
+      participants: "490",
+      sector: "Denizcilik"
+    },
+    {
+      name: "Renewable Energy Fair Copenhagen 2024",
+      city: "Kopenhag",
+      country: "Danimarka",
+      area: "15,500",
+      participants: "460",
+      sector: "Yenilenebilir Enerji"
+    },
+    {
+      name: "Logistics Expo Brussels 2024",
+      city: "Brüksel",
+      country: "Belçika",
+      area: "23,000",
+      participants: "670",
+      sector: "Lojistik"
+    },
+    {
+      name: "Mining Fair Johannesburg 2024",
+      city: "Johannesburg",
+      country: "Güney Afrika",
+      area: "29,000",
+      participants: "780",
+      sector: "Madencilik"
+    },
+    {
+      name: "Plastics Expo Chicago 2024",
+      city: "Chicago",
+      country: "ABD",
+      area: "31,000",
+      participants: "820",
+      sector: "Plastik"
+    },
+    {
+      name: "Security Fair Las Vegas 2024",
+      city: "Las Vegas",
+      country: "ABD",
+      area: "18,500",
+      participants: "540",
+      sector: "Güvenlik"
+    },
+    {
+      name: "Lighting Expo Stockholm 2024",
+      city: "Stockholm",
+      country: "İsveç",
+      area: "13,000",
+      participants: "390",
+      sector: "Aydınlatma"
+    },
+    {
+      name: "Furniture Design Fair Helsinki 2024",
+      city: "Helsinki",
+      country: "Finlandiya",
+      area: "16,500",
+      participants: "480",
+      sector: "Mobilya Tasarım"
+    },
+    {
+      name: "Wine Expo Bordeaux 2024",
+      city: "Bordeaux",
+      country: "Fransa",
+      area: "11,000",
+      participants: "320",
+      sector: "Şarap"
+    },
+    {
+      name: "Textile Machinery Fair Milan 2024",
+      city: "Milano",
+      country: "İtalya",
+      area: "27,000",
+      participants: "750",
+      sector: "Tekstil Makineleri"
+    },
+    {
+      name: "Green Technology Fair Oslo 2024",
+      city: "Oslo",
+      country: "Norveç",
+      area: "14,500",
+      participants: "430",
+      sector: "Yeşil Teknoloji"
+    },
+    {
+      name: "Digital Innovation Summit Zurich 2024",
+      city: "Zürih",
+      country: "İsviçre",
+      area: "12,000",
+      participants: "360",
+      sector: "Dijital İnovasyon"
+    }
+  ],
+  2023: [
+    {
+      name: "LeShow Moskova 2023",
+      city: "Moskova",
+      country: "Rusya",
+      area: "14,500",
+      participants: "420",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2023",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "11,500",
+      participants: "300",
+      sector: "Ev Tekstili"
+    },
+    {
+      name: "Textile Expo Dubai 2023",
+      city: "Dubai",
+      country: "BAE",
+      area: "18,000",
+      participants: "520",
+      sector: "Tekstil"
+    }
+  ],
+  2022: [
+    {
+      name: "LeShow Moskova 2022",
+      city: "Moskova",
+      country: "Rusya",
+      area: "13,800",
+      participants: "380",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2022",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "10,800",
+      participants: "280",
+      sector: "Ev Tekstili"
+    }
+  ],
+  2021: [
+    {
+      name: "Digital LeShow 2021",
+      city: "Online",
+      country: "Dijital",
+      area: "Dijital",
+      participants: "850",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Virtual 2021",
+      city: "Online",
+      country: "Dijital",
+      area: "Dijital",
+      participants: "650",
+      sector: "Ev Tekstili"
+    }
+  ],
+  2020: [
+    {
+      name: "LeShow Moskova 2020",
+      city: "Moskova",
+      country: "Rusya",
+      area: "12,000",
+      participants: "320",
+      sector: "Deri ve Kürk"
+    }
+  ],
+  2019: [
+    {
+      name: "LeShow Moskova 2019",
+      city: "Moskova",
+      country: "Rusya",
+      area: "16,000",
+      participants: "480",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2019",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "13,500",
+      participants: "350",
+      sector: "Ev Tekstili"
+    },
+    {
+      name: "Furniture İstanbul 2019",
+      city: "İstanbul",
+      country: "Türkiye",
+      area: "28,000",
+      participants: "750",
+      sector: "Mobilya"
+    }
+  ],
+  2018: [
+    {
+      name: "LeShow Moskova 2018",
+      city: "Moskova",
+      country: "Rusya",
+      area: "15,500",
+      participants: "460",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2018",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "12,800",
+      participants: "330",
+      sector: "Ev Tekstili"
+    }
+  ],
+  2017: [
+    {
+      name: "LeShow Moskova 2017",
+      city: "Moskova",
+      country: "Rusya",
+      area: "14,800",
+      participants: "440",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2017",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "11,200",
+      participants: "290",
+      sector: "Ev Tekstili"
+    }
+  ],
+  2016: [
+    {
+      name: "LeShow Moskova 2016",
+      city: "Moskova",
+      country: "Rusya",
+      area: "14,200",
+      participants: "420",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2016",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "10,500",
+      participants: "270",
+      sector: "Ev Tekstili"
+    }
+  ],
+  2015: [
+    {
+      name: "LeShow Moskova 2015",
+      city: "Moskova",
+      country: "Rusya",
+      area: "13,500",
+      participants: "400",
+      sector: "Deri ve Kürk"
+    },
+    {
+      name: "HomeDeco Kazakistan 2015",
+      city: "Almatı",
+      country: "Kazakistan",
+      area: "9,800",
+      participants: "250",
+      sector: "Ev Tekstili"
+    }
+  ]
+};
+---
+
+<BaseLayout title="Kronoloji - Türkel Fuarcılık" description="Türkel Fuarcılık'ın son 10 yıllık fuar organizasyonları kronolojisi">
+  <Header locale={locale} />
+  
+  <main class="min-h-screen">
+    <!-- Breadcrumb Section -->
+    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
+        <div class="container mx-auto px-4 lg:px-8">
+          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Kronoloji</span>
+          </nav>
+          
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+            Kronoloji
+          </h1>
+        </div>
+      </div>
+      
+      <!-- Bottom Border Line -->
+      <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-8 lg:py-12">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <div class="container mx-auto px-4 lg:px-8">
+          
+          <!-- Timeline Container -->
+          <div class="relative">
+            <!-- Timeline Line (Desktop and Mobile) -->
+            <div class="absolute left-1/2 transform -translate-x-0.5 w-1 bg-gray-200 h-full block"></div>
+            
+            <!-- Timeline Items -->
+            <div class="space-y-16 lg:space-y-24">
+              {Object.entries(chronologyData).reverse().map(([year, fairs], index) => {
+                // Debug: Yıl numarasına göre pozisyon belirleme
+                const yearNum = parseInt(year);
+                const isLeft = yearNum % 2 === 0; // Çift yıllar (2024, 2022, 2020...) sol tarafta
+                console.log(`Year: ${year}, YearNum: ${yearNum}, IsLeft: ${isLeft}`);
+                return (
+                <div class="relative">
+                  <!-- Year Circle -->
+                  <div class="flex items-center justify-center lg:justify-start">
+                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year === '2024' || year === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
+                         data-year={year}
+                         style="font-family: 'Radio Canada Big', sans-serif;">
+                      {year}
+                    </div>
+                  </div>
+                  
+                  <!-- Fair Details (2024 and 2023 visible by default, others hidden) -->
+                  <div class={`timeline-content mt-4 lg:mt-0 ${year === '2024' || year === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
+                    <div class={`timeline-item-container w-full lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right lg:ml-0 timeline-left' : 'lg:pl-8 lg:text-left lg:ml-1/2 timeline-right'}`}>
+                      <div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow relative" style="z-index: 1;">
+                        <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 bg-white pb-4 pt-6 border-b border-gray-100 px-6" style="font-family: 'Radio Canada Big', sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+                          {year} Fuarları
+                        </h3>
+                        
+                        <div class="max-h-80 overflow-y-auto">
+                          <div class="space-y-4 px-6 pb-6">
+                          {fairs.map((fair) => (
+                            <div class="border-l-4 border-[#CE1A28] pl-4 py-2">
+                              <h4 class="font-semibold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                                {fair.name}
+                              </h4>
+                              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
+                                <div><span class="font-medium">Şehir:</span> {fair.city}</div>
+                                <div><span class="font-medium">Ülke:</span> {fair.country}</div>
+                                <div><span class="font-medium">Alan:</span> {fair.area} m²</div>
+                                <div><span class="font-medium">Katılımcı:</span> {fair.participants}</div>
+                                <div class="sm:col-span-2"><span class="font-medium">Sektör:</span> {fair.sector}</div>
+                              </div>
+                            </div>
+                          ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          <!-- Alt Başlık -->
+          <div class="text-center mt-12">
+            <h2 class="text-lg lg:text-xl text-gray-900 font-normal" style="font-family: 'Radio Canada Big', sans-serif;">
+              30 yıllık deneyimimizle düzenlediğimiz fuarların kronolojik geçmişi
+            </h2>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale={locale} content={footerContent} />
+
+  <!-- Timeline JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile responsive inline style temizleme
+      function fixMobileStyles() {
+        if (window.innerWidth <= 1024) {
+          const containers = document.querySelectorAll('.timeline-item-container');
+          containers.forEach(container => {
+            // Inline style'ları tamamen kaldır
+            container.removeAttribute('style');
+            container.style.cssText = '';
+            
+            // Zorla mobile CSS uygula
+            container.style.setProperty('margin-left', '0', 'important');
+            container.style.setProperty('margin-right', '0', 'important');
+            container.style.setProperty('width', '100%', 'important');
+            container.style.setProperty('display', 'flex', 'important');
+            container.style.setProperty('justify-content', 'center', 'important');
+          });
+        }
+      }
+      
+      // Sayfa yüklendiğinde ve resize'da çalıştır
+      fixMobileStyles();
+      window.addEventListener('resize', fixMobileStyles);
+      
+      const timelineYears = document.querySelectorAll('.timeline-year');
+      
+      timelineYears.forEach(yearElement => {
+        yearElement.addEventListener('click', function() {
+          const year = this.dataset.year;
+          const content = document.getElementById(`content-${year}`);
+          
+          // Hide all other contents
+          document.querySelectorAll('.timeline-content').forEach(el => {
+            if (el.id !== `content-${year}`) {
+              el.classList.add('hidden');
+            }
+          });
+          
+          // Toggle current content
+          content.classList.toggle('hidden');
+          
+          // Update year button style
+          timelineYears.forEach(el => {
+            el.classList.remove('bg-[#B01520]');
+            el.classList.add('bg-[#CE1A28]');
+          });
+          
+          if (!content.classList.contains('hidden')) {
+            this.classList.remove('bg-[#CE1A28]');
+            this.classList.add('bg-[#B01520]');
+          }
+          
+          // Mobile style'ları tekrar uygula
+          setTimeout(fixMobileStyles, 10);
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .timeline-year {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-year:hover {
+      transform: scale(1.05);
+    }
+    
+    .timeline-content {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Desktop Responsive - Zigzag Layout */
+    @media (min-width: 1025px) {
+      .timeline-right {
+        margin-left: 50% !important;
+      }
+      
+      .timeline-left {
+        margin-left: 0 !important;
+      }
+    }
+    
+    /* Mobile Responsive - Radikal CSS Override */
+    @media (max-width: 1024px) {
+      /* Tüm timeline item'ları zorla sıfırla */
+      .timeline-item-container,
+      .timeline-item-container[style],
+      .timeline-item-container[style*="margin"],
+      .timeline-item-container[style*="margin-left"] {
+        margin: 0 auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 0 !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        position: static !important;
+        
+        /* Tüm card'lar için aynı davranış */
+        width: 100% !important;
+        max-width: 100% !important;
+        
+        /* Flexbox ortalama */
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      
+      /* Yıl dairelerini card'lardan uzaklaştır */
+      .timeline-year {
+        margin-bottom: 24px !important;
+      }
+      
+      /* Timeline content'i de sıfırla */
+      .timeline-content,
+      .timeline-content[style] {
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        display: block !important;
+      }
+      
+      /* Card container - doğru HTML yapısına göre ve tam ortalı */
+      .timeline-item-container {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: none !important;
+        margin: 0 !important;
+        padding: 0 20px !important;
+        transform: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        left: auto !important;
+        right: auto !important;
+        position: relative !important;
+      }
+      
+      /* Card içi - bg-white class'ına sahip div */
+      .timeline-item-container > .bg-white {
+        border-radius: 8px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        width: 90% !important;
+        max-width: 450px !important;
+        min-width: 350px !important;
+        min-height: 350px !important;
+        max-height: 450px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+      }
+      
+      /* Header - h3 elementi */
+      .timeline-item-container h3 {
+        padding: 20px 24px 16px 24px !important;
+        margin: 0 !important;
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+        flex-shrink: 0 !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        background: white !important;
+        display: block !important;
+      }
+      
+      /* Scroll container - max-h-80 class'ı */
+      .timeline-item-container .max-h-80 {
+        max-height: 300px !important;
+        overflow-y: auto !important;
+        flex: 1 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+      
+      /* Content area - space-y-4 class'ı */
+      .timeline-item-container .space-y-4 {
+        padding: 16px 24px 24px 24px !important;
+        margin: 0 !important;
+        text-align: left !important;
+        display: block !important;
+      }
+      
+      /* Fuar item'ları - border-l-4 class'ına sahip div'ler */
+      .timeline-item-container .border-l-4 {
+        margin-bottom: 16px !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        border-left: 4px solid #CE1A28 !important;
+        padding-left: 16px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+      }
+      
+      /* Fuar başlıkları - h4 elementi */
+      .timeline-item-container h4 {
+        font-weight: 600 !important;
+        color: #111827 !important;
+        margin-bottom: 8px !important;
+        display: block !important;
+        font-size: 1rem !important;
+      }
+      
+      /* Fuar detay grid'i */
+      .timeline-item-container .grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        font-size: 0.875rem !important;
+        color: #6b7280 !important;
+      }
+    }
+  </style>
+</BaseLayout>

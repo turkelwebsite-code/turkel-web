@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
+import VisitorFormModal from '../../components/VisitorFormModal.astro';
+import ParticipantFormModal from '../../components/ParticipantFormModal.astro';
+
+const locale = 'tr';
+
+// SEO and page metadata
+const title = 'Nakliye Hizmetleri | Türkel Fuarcılık';
+const description = 'Firmamızın kuruluşundan bu yana sözleşmeli firmalarımız için sunmuş olduğu ek hizmetlerimizdendir. Lojistik partnerlerimizle beraber sistemli ve sorunsuz nakliye hizmetleri.';
+
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  locale={locale}
+  canonical="/tr/nakliye"
+>
+  <!-- Header -->
+  <Header locale={locale} />
+
+  <!-- Main Content -->
+  <main class="min-h-screen">
+
+    <!-- Breadcrumb Section -->
+    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
+        <div class="container mx-auto px-4 lg:px-8">
+          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Nakliye</span>
+          </nav>
+          
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+            Nakliye Hizmetleri
+          </h1>
+        </div>
+      </div>
+      
+      <!-- Bottom Border Line -->
+      <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
+    </section>
+
+    <!-- Hero Banner Section -->
+    <section class="relative py-8 lg:py-12 overflow-hidden">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <!-- Hero Background Image -->
+        <div class="relative h-[250px] sm:h-[300px] lg:h-[400px] rounded-lg overflow-hidden mb-4 lg:mb-8">
+          <img 
+            src="/images/nakliye-banner.png" 
+            alt="Nakliye Hizmetleri"
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <!-- Fallback gradient background -->
+          <div class="hidden w-full h-full bg-gradient-to-r from-gray-100 to-gray-200"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-8 lg:py-12">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <div class="container mx-auto px-4 lg:px-8">
+          
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+              Lojistik Hizmetlerimiz
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+              30 yıllık deneyimimizle, fuarcılık sektöründe güvenilir nakliye çözümleri sunuyoruz.
+            </p>
+          </div>
+
+          <!-- Main Content -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
+            
+            <!-- Left Content -->
+            <div class="space-y-8">
+              
+              <!-- Service Overview -->
+              <div class="bg-gray-50 rounded-lg p-6 lg:p-8">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Hizmet Kapsamımız
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Firmamızın kuruluşundan bu yana sözleşmeli firmalarımız için sunmuş olduğu ek hizmetlerimizdendir. Bu hizmetler lojistik partnerlerimizle beraber sistemli ve sorunsuz bir şekilde yürütülmektedir.
+                </p>
+                <p class="text-gray-700 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Yurtdışı fuar taşımaları, ayrıntılı bir planlama, titiz bir operasyon çalışması, dikkatli bir zamanlama gerektiren, lojistik hizmet sağlayıcı firma ile katılımcı firmalar arasında her aşamadaki koordinasyonun büyük önem kazandığı taşımalardır.
+                </p>
+              </div>
+
+              <!-- Process Flow -->
+              <div class="bg-[#CE1A28] rounded-lg p-6 lg:p-8 text-white">
+                <h3 class="text-xl lg:text-2xl font-bold mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Süreç Akışı
+                </h3>
+                <p class="leading-relaxed mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Lojistik hizmetleri, firmaların malzemelerini belirlenen depo adresine teslim etmeleriyle başlayıp sergileme sonrasında stantlarından alınıp Türkiye'ye getirilmesi ve depodan firmalara teslimi ile son bulmaktadır.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Right Content -->
+            <div class="space-y-8">
+              
+              <!-- Mission Statement -->
+              <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-6 lg:p-8 border border-gray-200">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Misyonumuz
+                </h3>
+                <p class="text-gray-700 leading-relaxed text-lg" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Departman olarak misyonumuz sergi ürünlerinin zamanında ve hasarsız olarak fuarda sergilenmesidir.
+                </p>
+              </div>
+
+              <!-- Custom Solutions -->
+              <div class="bg-white rounded-lg p-6 lg:p-8 border-2 border-[#CE1A28]">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Özelleştirilmiş Çözümler
+                </h3>
+                <p class="text-gray-700 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Her ülkede farklılık göstermekle beraber her firmanın da ihtiyaçları farklı olmakta ve partnerlerimizle beraber çözümcül yaklaşım sunulmaktadır.
+                </p>
+                
+                <!-- Features List -->
+                <ul class="mt-6 space-y-3">
+                  <li class="flex items-center text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3"></div>
+                    Ayrıntılı planlama ve koordinasyon
+                  </li>
+                  <li class="flex items-center text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3"></div>
+                    Titiz operasyon çalışması
+                  </li>
+                  <li class="flex items-center text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3"></div>
+                    Dikkatli zamanlama
+                  </li>
+                  <li class="flex items-center text-gray-700" style="font-family: 'Radio Canada Big', sans-serif;">
+                    <div class="w-2 h-2 bg-[#CE1A28] rounded-full mr-3"></div>
+                    Hasarsız teslimat garantisi
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="text-center">
+            <div class="bg-gray-50 rounded-lg p-8 lg:p-12 mb-8">
+              <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+                Nakliye Hizmetlerimiz Hakkında Bilgi Alın
+              </h3>
+              <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+                Lojistik ihtiyaçlarınız için uzman ekibimizle iletişime geçin. Size özel çözümler sunalım.
+              </p>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                <button 
+                  onclick="openVisitorModal()"
+                  class="bg-[#CE1A28] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#B01620] transition-colors flex-1"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Ziyaretçi Formu
+                </button>
+                <button 
+                  onclick="openParticipantModal()"
+                  class="border-2 border-[#CE1A28] text-[#CE1A28] px-6 py-3 rounded-lg font-medium hover:bg-[#CE1A28] hover:text-white transition-colors flex-1"
+                  style="font-family: 'Radio Canada Big', sans-serif;"
+                >
+                  Katılımcı Formu
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <Footer locale={locale} content={footerContent} />
+
+  <!-- Modals -->
+  <VisitorFormModal locale={locale} />
+  <ParticipantFormModal locale={locale} />
+</BaseLayout>
+
+<style>
+  /* Hero section specific styles */
+  .hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  }
+  
+  /* Smooth animations */
+  section {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Feature list hover effects */
+  ul li {
+    transition: all 0.3s ease;
+  }
+  
+  ul li:hover {
+    transform: translateX(8px);
+  }
+  
+  ul li:hover .bg-\[#CE1A28\] {
+    transform: scale(1.2);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Mobile spacing adjustments */
+    section.py-8 {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
+    
+    /* Hero banner mobile spacing */
+    .relative.py-8 {
+      padding-top: 1rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    /* Content section mobile spacing */
+    .py-8.lg\:py-12 {
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
+    }
+    
+    /* Mobile hero adjustments */
+    .hero-section .absolute.inset-0 h1 {
+      font-size: 2rem !important;
+      line-height: 2.5rem !important;
+    }
+    
+    .hero-section .absolute.inset-0 p {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important;
+    }
+  }
+</style>

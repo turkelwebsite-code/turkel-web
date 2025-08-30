@@ -1,0 +1,461 @@
+---
+import { type Locale } from '../lib/i18n';
+import { Calendar, MapPin, ExternalLink, Menu, X } from 'lucide-astro';
+
+interface Props {
+  locale: Locale;
+  card: {
+    title: string;
+    dateText?: string;
+    location?: string;
+    description?: string;
+    fairName?: string;
+    fairLogo?: string;
+    fairWebsite?: string;
+    buttons?: Array<{ text: string; url: string }>;
+  };
+}
+
+const { locale, card } = Astro.props;
+---
+
+<div class="hero-card bg-[#1B1C1B] rounded-[15px] sm:rounded-[20px] shadow-lg relative z-10 overflow-hidden w-[280px] h-[400px] sm:w-[350px] sm:h-[500px] lg:w-[484px] lg:h-[688px]" id="hero-card">
+  
+  <!-- Main Content View -->
+  <div class="card-content main-view absolute inset-0">
+    <!-- Red accent bar with year (moved to left) -->
+    <div class="absolute top-6 sm:top-8 lg:top-12 left-4 sm:left-6 lg:left-8">
+      <div class="w-[30px] sm:w-[36px] lg:w-[42px] h-[2px] sm:h-[2.5px] lg:h-[3px] bg-[#CE1A28] rounded-full"></div>
+      <div class="text-white text-[10px] sm:text-[11px] lg:text-[12px] font-medium mt-1 sm:mt-1.5 lg:mt-2 text-left">2025</div>
+    </div>
+    
+    <!-- Hamburger Menu Button (right top) -->
+    <button 
+      class="absolute top-6 sm:top-8 lg:top-12 right-4 sm:right-6 lg:right-8 w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 flex flex-col justify-center items-center gap-0.5 sm:gap-0.5 lg:gap-1 hover:opacity-80 transition-opacity"
+      id="detail-toggle"
+      aria-label={locale === 'tr' ? 'Detayları göster' : 'Show details'}
+    >
+      <div class="w-3 sm:w-4 lg:w-5 h-0.5 bg-white"></div>
+      <div class="w-3 sm:w-4 lg:w-5 h-0.5 bg-white"></div>
+      <div class="w-3 sm:w-4 lg:w-5 h-0.5 bg-white"></div>
+    </button>
+    
+    <!-- Fair Title (Centered) -->
+    <div class="pt-[50px] sm:pt-[65px] lg:pt-[82px] px-[15px] sm:px-[20px] lg:px-[30px]">
+      <h2 class="text-white font-semibold text-[14px] sm:text-[17px] lg:text-[20px] leading-tight uppercase text-center mb-3 sm:mb-4 lg:mb-6">
+        {card.title}
+      </h2>
+    </div>
+
+    <!-- Logo -->
+    {card.fairLogo && (
+      <div class="px-[25px] sm:px-[35px] lg:px-[50px] mb-3 sm:mb-4 lg:mb-6 text-center">
+        <img 
+          src={card.fairLogo}
+          alt={card.fairName || 'Fair Logo'}
+          class="h-8 sm:h-10 lg:h-12 w-auto mx-auto"
+        />
+      </div>
+    )}
+
+    <!-- Date and Location Buttons (Moved between logo and description) -->
+    <div class="px-[15px] sm:px-[25px] lg:px-[50px] mb-2 sm:mb-3 lg:mb-4">
+      <div class="grid grid-cols-2 gap-1.5 sm:gap-2.5 lg:gap-3">
+        {card.dateText && (
+          <button class="bg-[#CE1A28] text-white px-1.5 sm:px-3 lg:px-4 py-1 sm:py-2.5 lg:py-3 rounded text-sm font-medium hover:bg-[#B01625] transition-colors">
+            <div class="flex items-center justify-center gap-0.5 sm:gap-1.5 lg:gap-2">
+              <Calendar size={10} class="sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
+              <span class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.dateText}</span>
+            </div>
+          </button>
+        )}
+        
+        {card.location && (
+          <button class="bg-[#CE1A28] text-white px-1.5 sm:px-3 lg:px-4 py-1 sm:py-2.5 lg:py-3 rounded text-sm font-medium hover:bg-[#B01625] transition-colors">
+            <div class="flex items-center justify-center gap-0.5 sm:gap-1.5 lg:gap-2">
+              <MapPin size={10} class="sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
+              <span class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.location}</span>
+            </div>
+          </button>
+        )}
+      </div>
+    </div>
+
+    <!-- Description -->
+    {card.description && (
+      <div class="px-[15px] sm:px-[20px] lg:px-[29px] mb-4 sm:mb-6 lg:mb-8">
+        <p class="text-white text-[12px] sm:text-[15px] lg:text-[18px] leading-[16px] sm:leading-[20px] lg:leading-[24px] text-center font-normal">
+          {card.description}
+        </p>
+      </div>
+    )}
+
+    <!-- Fair Name with Border (Bottom) - Clickable -->
+    <div class="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-[15px] sm:left-[25px] lg:left-[49px] right-[15px] sm:right-[25px] lg:right-[49px]">
+      <a 
+        href={card.fairWebsite || '#'}
+        target={card.fairWebsite ? "_blank" : "_self"}
+        rel={card.fairWebsite ? "noopener noreferrer" : undefined}
+        class="block border border-[#CE1A28] rounded-[100px] px-3 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4 text-center hover:bg-[#CE1A28]/10 transition-colors duration-300 cursor-pointer"
+        aria-label={locale === 'tr' ? 'Fuarın web sitesine git' : 'Go to fair website'}
+      >
+        <span class="text-white font-normal text-[12px] sm:text-[16px] lg:text-[20px] leading-[14px] sm:leading-[15px] lg:leading-[16px] uppercase">
+          {card.fairName || 'HOMEDECO KAZAKİSTAN'}
+        </span>
+        {card.fairWebsite && (
+          <ExternalLink size={16} class="text-[#CE1A28] inline-block ml-3 w-4 h-4 align-middle" />
+        )}
+      </a>
+    </div>
+  </div>
+
+  <!-- Detail Content View -->
+  <div class="card-content detail-view absolute inset-0">
+    <!-- Close Button -->
+    <button 
+      class="absolute top-6 sm:top-8 lg:top-12 right-4 sm:right-6 lg:right-8 w-6 sm:w-7 lg:w-8 h-6 sm:h-7 lg:h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
+      id="detail-close"
+      aria-label={locale === 'tr' ? 'Kapat' : 'Close'}
+    >
+      <X size={16} class="text-white sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+    </button>
+    
+    <!-- Fair Venue Name -->
+    <div class="pt-[40px] sm:pt-[50px] lg:pt-[60px] px-[15px] sm:px-[20px] lg:px-[30px] mb-4 sm:mb-5 lg:mb-6">
+      <h3 class="text-white font-semibold text-[14px] sm:text-[16px] lg:text-[18px] text-center uppercase">
+        FUAR ALANI
+      </h3>
+      <p class="text-white/70 text-[11px] sm:text-[12px] lg:text-sm text-center mt-1 sm:mt-1.5 lg:mt-2">
+        KTSDS "Atakent", Almaty, pavilion 09,10
+      </p>
+    </div>
+
+    <!-- Fair Images Grid (3 yan yana) -->
+    <div class="px-[15px] sm:px-[20px] lg:px-[30px] mb-4 sm:mb-5 lg:mb-6">
+      <div class="grid grid-cols-3 gap-2 sm:gap-2.5 lg:gap-3">
+        <div class="aspect-square">
+          <img 
+            src="/images/instagram-post.jpg" 
+            alt="Instagram Post" 
+            class="w-full h-full object-cover rounded-[4px] sm:rounded-[5px] lg:rounded-[6px]"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-square">
+          <img 
+            src="/images/instagram-post.jpg" 
+            alt="Instagram Post" 
+            class="w-full h-full object-cover rounded-[4px] sm:rounded-[5px] lg:rounded-[6px]"
+            loading="lazy"
+          />
+        </div>
+        <div class="aspect-square">
+          <img 
+            src="/images/instagram-post.jpg" 
+            alt="Instagram Post" 
+            class="w-full h-full object-cover rounded-[4px] sm:rounded-[5px] lg:rounded-[6px]"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="px-[15px] sm:px-[20px] lg:px-[30px] mb-4 sm:mb-5 lg:mb-6">
+      <h3 class="text-white font-semibold text-[14px] sm:text-[16px] lg:text-[18px] text-center uppercase">
+        LOKASYON
+      </h3>
+    </div>
+
+    <!-- Google Maps -->
+    <div class="px-[15px] sm:px-[20px] lg:px-[30px] mb-6 sm:mb-7 lg:mb-8">
+      <div class="rounded-[6px] sm:rounded-[8px] lg:rounded-lg h-[120px] sm:h-[160px] lg:h-48 overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.5739536742!2d76.90288781544!3d43.22475328484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836f1b5b5b5b5b%3A0x104a5a5a5a5a5a5a!2sAtakent%20Exhibition%20Center!5e0!3m2!1sen!2str!4v1640000000000!5m2!1sen!2str"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Atakent Exhibition Center Location"
+        ></iframe>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+  // Use a more specific approach to avoid conflicts
+  function initHeroCardInteractions() {
+    console.log('🔧 Initializing HeroCard interactions...');
+    
+    const heroCard = document.getElementById('hero-card');
+    if (!heroCard) {
+      console.error('❌ Hero card not found!');
+      return;
+    }
+    console.log('✅ Hero card found:', heroCard);
+
+    // Mobile responsive debug
+    console.log('📱 MOBILE DEBUG - Hero Card Visibility:');
+    console.log('  - Hero card display:', window.getComputedStyle(heroCard).display);
+    console.log('  - Hero card visibility:', window.getComputedStyle(heroCard).visibility);
+    console.log('  - Hero card width:', window.getComputedStyle(heroCard).width);
+    console.log('  - Hero card height:', window.getComputedStyle(heroCard).height);
+    console.log('  - Hero card position:', window.getComputedStyle(heroCard).position);
+    console.log('  - Hero card z-index:', window.getComputedStyle(heroCard).zIndex);
+    
+    // Check if hero card is actually visible in viewport
+    const rect = heroCard.getBoundingClientRect();
+    console.log('📐 Hero card position in viewport:', {
+      top: rect.top,
+      left: rect.left,
+      right: rect.right,
+      bottom: rect.bottom,
+      width: rect.width,
+      height: rect.height,
+      isVisible: rect.width > 0 && rect.height > 0
+    });
+
+    const detailToggle = heroCard.querySelector('#detail-toggle');
+    const detailClose = heroCard.querySelector('#detail-close');
+    const mainView = heroCard.querySelector('.main-view') as HTMLElement;
+    const detailView = heroCard.querySelector('.detail-view') as HTMLElement;
+    
+    console.log('🔍 Elements found:');
+    console.log('  - detailToggle:', detailToggle);
+    console.log('  - detailClose:', detailClose);
+    console.log('  - mainView:', mainView);
+    console.log('  - detailView:', detailView);
+
+    function showDetailView() {
+      console.log('🔄 showDetailView() called');
+      
+      if (mainView && detailView) {
+        console.log('🔄 MOBILE RESPONSIVE: Display kontrolü');
+        
+        // Mobile responsive için güçlü CSS
+        mainView.style.display = 'none';
+        detailView.style.display = 'block';
+        detailView.style.position = 'absolute';
+        detailView.style.top = '0';
+        detailView.style.left = '0';
+        detailView.style.right = '0';
+        detailView.style.bottom = '0';
+        detailView.style.width = '100%';
+        detailView.style.height = '100%';
+        detailView.style.zIndex = '10';
+        detailView.style.backgroundColor = '#1B1C1B';
+        
+        console.log('✅ Detail view mobile responsive oldu!');
+        console.log('📱 Detail view styles:', {
+          display: detailView.style.display,
+          position: detailView.style.position,
+          width: detailView.style.width,
+          height: detailView.style.height,
+          zIndex: detailView.style.zIndex
+        });
+      } else {
+        console.error('❌ mainView or detailView is null!');
+        console.log('🔍 Debug info:', { mainView, detailView, heroCard });
+      }
+    }
+
+    function showMainView() {
+      console.log('🔄 showMainView() called');
+      if (mainView && detailView) {
+        console.log('🔄 BASIT ÇÖZÜM: Ana görünüme dön');
+        
+        // Çok basit çözüm - sadece display
+        mainView.style.display = 'block';
+        detailView.style.display = 'none';
+        
+        console.log('✅ Main view görünür oldu!');
+      } else {
+        console.error('❌ mainView or detailView is null in showMainView!');
+      }
+    }
+
+    // Event listeners
+    if (detailToggle) {
+      console.log('✅ Adding click listener to detailToggle');
+      detailToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('🖱️ Detail toggle clicked!');
+        showDetailView();
+      });
+    } else {
+      console.error('❌ detailToggle not found!');
+    }
+    
+    if (detailClose) {
+      console.log('✅ Adding click listener to detailClose');
+      detailClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('🖱️ Detail close clicked!');
+        showMainView();
+      });
+    } else {
+      console.error('❌ detailClose not found!');
+    }
+  }
+
+  // Debug: Check HeroCard images
+  function debugHeroCardImages() {
+    console.log('🔍 DEBUG: HeroCard Images Check...');
+    
+    // Check all images in hero card
+    const heroCard = document.querySelector('.hero-card');
+    if (heroCard) {
+      const images = heroCard.querySelectorAll('img');
+      console.log(`📷 Found ${images.length} images in hero card:`);
+      images.forEach((img, index) => {
+        console.log(`${index + 1}. ${img.src} - ${img.complete ? 'loaded' : 'loading'} - ${img.naturalWidth}x${img.naturalHeight}`);
+        
+        // Add error handler
+        img.onerror = () => {
+          console.error(`❌ Hero card image failed to load: ${img.src}`);
+        };
+        
+        img.onload = () => {
+          console.log(`✅ Hero card image loaded: ${img.src}`);
+        };
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initHeroCardInteractions();
+      debugHeroCardImages();
+    });
+  } else {
+    initHeroCardInteractions();
+    debugHeroCardImages();
+  }
+</script>
+
+<style>
+  .hero-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-content {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .main-view {
+    display: block;
+    z-index: 2;
+  }
+  
+  .detail-view {
+    display: none;
+    z-index: 3;
+    background-color: #1B1C1B;
+  }
+
+  /* Ensure text is visible in detail view */
+  .detail-view h3,
+  .detail-view p,
+  .detail-view span,
+  .detail-view button {
+    color: white !important;
+  }
+  
+  /* Make sure images are visible */
+  .detail-view img {
+    display: block;
+  }
+  
+  @media (max-width: 1024px) {
+    .hero-card {
+      margin-top: 2rem;
+      width: 350px !important;
+      max-width: 90vw !important;
+      height: 500px !important;
+      min-height: 500px !important;
+    }
+    
+    /* Override Tailwind classes */
+    #hero-card {
+      width: 350px !important;
+      max-width: 90vw !important;
+      height: 500px !important;
+    }
+    
+    .detail-view {
+      overflow-y: auto;
+      height: 100% !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+    }
+    
+    .detail-view .rounded-lg,
+    .detail-view [class*="rounded-"] {
+      border-radius: 6px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .hero-card {
+      width: 260px !important;
+      max-width: 75vw !important;
+      height: 380px !important;
+      min-height: 380px !important;
+    }
+    
+    /* Override Tailwind classes for mobile */
+    #hero-card {
+      width: 260px !important;
+      max-width: 75vw !important;
+      height: 380px !important;
+    }
+    
+    /* Mobile button styling */
+    .hero-card button {
+      padding: 2px 6px !important;
+      font-size: 7px !important;
+      border-radius: 3px !important;
+    }
+    
+    .hero-card button span {
+      font-size: 7px !important;
+      line-height: 1.2 !important;
+    }
+    
+    .detail-view {
+      padding-bottom: 1rem;
+      overflow-y: auto;
+    }
+    
+    .main-view,
+    .detail-view {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+</style>

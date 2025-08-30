@@ -1,0 +1,9 @@
+Cache cleared at: 2024-12-28 20:41:00
+About section should show:
+- Left side: Content with metrics
+- Right side: Red card with "30 yıllık sektör deneyimi"
+
+If you don't see the red card, please:
+1. Hard refresh (Ctrl+F5 or Cmd+Shift+R)
+2. Clear browser cache
+3. Check browser console for errors

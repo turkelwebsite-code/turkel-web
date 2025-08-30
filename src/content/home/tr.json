@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "15 farklı sektörde yüzlerce iş ortağıyla, şimdiye kadar gerçekleştirdiğimiz fuar deneyimlerimiz ve 4 kıtaya yayılan geniş ağımızla küresel ölçekte güçlü fuar organizasyonları sunuyoruz",
+    "subtitle": "ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI",
+    "yearBadge": "2025",
+    "slides": [
+      {
+        "backgroundImage": "/images/homedeco-slider.png",
+        "card": {
+          "title": "18. HOMEDECO KAZAKİSTAN",
+          "dateText": "16-18 şubat 2026",
+          "location": "ALMATI / KAZAKİSTAN", 
+          "description": "Uluslararası Homedeco Kazakistan, 16-18 Şubat tarihleri arasında Almatı'daki Atakent Fuar Merkezi'nde, sektördeki en son trendleri sergilemek üzere gerçekleşecek",
+          "fairName": "HOMEDECO KAZAKİSTAN",
+          "fairLogo": "/images/homedeco-logo.png",
+          "fairWebsite": "https://homedeco.kz"
+        }
+      },
+      {
+        "backgroundImage": "/images/hero-bg-2.jpg",
+        "card": {
+          "title": "12. TEKSTİL MOSCOW",
+          "dateText": "25-27 mart 2026",
+          "location": "MOSKOVA / RUSYA",
+          "description": "Moskova Tekstil Fuarı, Rusya'nın en büyük tekstil ve moda etkinliği olarak sektörün önde gelen markalarını bir araya getiriyor",
+          "fairName": "TEKSTİL MOSCOW",
+          "fairLogo": "/images/tekstil-moscow-logo.png",
+          "fairWebsite": "https://tekstil-moscow.ru"
+        }
+      },
+      {
+        "backgroundImage": "/images/hero-bg-3.jpg",
+        "card": {
+          "title": "8. FASHION WEEK İSTANBUL",
+          "dateText": "15-18 mayıs 2026",
+          "location": "İSTANBUL / TÜRKİYE",
+          "description": "İstanbul Fashion Week, Türkiye'nin en prestijli moda etkinliği olarak dünya çapında tasarımcıları ağırlıyor",
+          "fairName": "FASHION WEEK İSTANBUL",
+          "fairLogo": "/images/fashion-week-istanbul-logo.png",
+          "fairWebsite": "https://fashionweek.istanbul"
+        }
+      }
+    ]
+  },
+  "metrics": [
+    { "value": "450+", "label": "Fuar" },
+    { "value": "200+", "label": "Partner" },
+    { "value": "50+", "label": "Lokasyon" }
+  ],
+  "about": {
+    "title": "Türkel Fuarcılık ile küresel başarıya ulaşın",
+    "html": "Türk fuarcılık sektörünün önde gelen ve deneyimli bir profesyonel uluslararası fuar ve ticari etkinlik organizatörü olan Türkel Fuarcılık A.Ş. İstanbul Merkez ile Moskova/RF ve Almatı/Kazakistan saha ofislerinde görevli deneyimli, yenilikçi ve özverili 76 kişilik profesyonel yönetici ve satış ekibi kadrosuyla fuar katılım planlaması, organizasyon yönetimi, tanıtım ve pazarlama ile iletişim konularında Türk ve yabancı müşterilerine uluslararası standartlara uygun seçkin hizmetler sunmaktadır.<br><br>Ayrıca, Türkel Fuarcılık A.Ş. uluslararası ticari sektörel fuar katılımcısı müşterilerine; fuar standı tasarımı ve kurulumu ile teknik hizmetler, lojistik ve nakliye, uluslararası seyahat, ulaşım ve konaklama alanlarında da ayrıcalıklı hizmet desteği sağlamaktadır.",
+    "ctaText": "Daha Fazla"
+  },
+  "partners": [
+    { "name": "Partner 1", "logo": "/images/partner01.png" },
+    { "name": "Partner 2", "logo": "/images/partner02.png" },
+    { "name": "Partner 3", "logo": "/images/partner03.png" },
+    { "name": "Partner 4", "logo": "/images/partner04.png" },
+    { "name": "Partner 5", "logo": "/images/partner05.png" },
+    { "name": "Partner 6", "logo": "/images/partner06.png" }
+  ],
+  "fairSupport": {
+    "title": "FUAR DESTEKLERİ İLE DÜNYAYA AÇILIN",
+    "description": "Uluslararası fuarlara katılımınızı kolaylaştıran devlet destekleri sayesinde markanızı küresel pazarlarda daha görünür hale getirin. Siz işinizi büyütmeye odaklanın, biz fuar katılım sürecinde tüm adımlarda yanınızda olalım.",
+    "governmentText": "T.C Ticaret Bakanlığı İhracat Genel Müdürlüğü'nce, mal ticaretine ilişkin uluslararası fuarlara firmalarımızın katılımları ve organizatörlerin tanıtım harcamaları, \"Yurt Dışında Gerçekleştirilen Fuar Katılımcılarının Desteklenmesine İlişkin 2017/4 sayılı Karar\" kapsamında desteklenmektedir. Bu çerçevede, Bakanlıkça belirlenip ilan edilen sektörel nitelikteki uluslararası fuarlara firmalarımızın bireysel katılımı, bunun yanı sıra yetkilendirilen organizatörlerce düzenlenen fuarlara milli katılım ve sektöründe önde gelen prestijli fuarlara katılım belirli kalemlerde ve değişen tutarlarda desteklenmektedir.",
+    "kosgebText": "Kosgeb Kanunu uyarınca. 18.11.2005 tarih ve 25997 sayılı Resmi Gazete'de yayınlanan KOBİ tanımı ve sınıflandırması hakkındaki Yönetmenlik ile tanımlanan küçük ve orta ölçekli işletmelere çok yönlü geliştirme ve destekleme programları uygulanmaktadır.",
+    "html": "Devlet destekleri ile fuarlara katılım avantajları"
+  },
+  "instagram": [
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
+    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" }
+  ],
+  "newsletter": {
+    "title": "Bültenimize Abone Olun",
+    "placeholder": "Mail Adresiniz",
+    "cta": "abone ol"
+  },
+  "footer": {
+    "description": "30 yıllık sektör deneyimimiz ve 4 kıtaya yayılan geniş ağımızla, 15 farklı sektörde yüzlerce iş ortağıyla birlikte küresel ölçekte güçlü fuar organizasyonları sunuyoruz.",
+    "sections": {
+      "contact": "İLETİŞİM",
+      "calendar": "FUAR TAKVİMİ", 
+      "links": "FAYDALI LİNKLER",
+      "fairs": "FUARLARIMIZ"
+    },
+    "links": {
+      "calendar": [
+        "2026 Fuar Takvimi",
+        "2025 Fuar Takvimi",
+        "2024 Fuar Takvimi",
+        "2023 Fuar Takvimi",
+        "2022 Fuar Takvimi"
+      ],
+            "useful": [
+        "T.C. Ticaret Bakanlığı Destekleri",
+        "KOSGEB Destekleri",
+        "Fuar Katılım Planlaması",
+        "Organizasyon Yönetimi",
+        "Tanıtım ve Pazarlama"
+      ],
+      "fairs": [
+        "www.leshowistanbul.com",
+        "www.leshow.ru",
+        "www.homedecofair.com"
+      ]
+    },
+    "copyright": "©2025 Türkel Fuarcılık - Tüm Hakları Saklıdır"
+  }
+}

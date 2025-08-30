@@ -1,0 +1,268 @@
+---
+import { SITE_CONFIG } from '../lib/constants';
+import { type Locale } from '../lib/i18n';
+import { Facebook, Youtube, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-astro';
+
+interface Props {
+  locale: Locale;
+  content: {
+    description: string;
+    sections: {
+      contact: string;
+      calendar: string;
+      links: string;
+      fairs: string;
+    };
+    links: {
+      calendar: string[];
+      useful: string[];
+      fairs: string[];
+    };
+    copyright: string;
+  };
+}
+
+const { locale, content } = Astro.props;
+---
+
+  <footer class="bg-transparent text-white py-5">
+    <!-- Map Section Background -->
+    <div class="mx-auto relative footer-container" style="max-width: calc(100% - 20px); height: auto; min-height: 1000px; background-color: #1B1C1B; border-radius: 10px; margin: 10px auto 0px auto; padding-bottom: 120px;">
+      <style>
+        @media (min-width: 640px) {
+          .footer-container {
+            max-width: calc(100% - 20px) !important;
+            height: 900px !important;
+            margin: 20px auto 0px auto !important;
+            min-height: 800px !important;
+            padding-bottom: 80px !important;
+          }
+        }
+      </style>
+    
+    <!-- Main Footer Content Container - Hidden on mobile -->
+    <div class="hidden sm:block absolute top-[50px] sm:top-[100px] left-1/2 transform -translate-x-1/2 w-[calc(100%-20px)] sm:w-[min(1655px,calc(100%-120px))] h-auto sm:h-[220px] bg-white rounded-[10px] sm:rounded-[15px] px-4 sm:px-14 py-6 sm:py-8 lg:py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 h-full">
+        
+        <!-- Left Section: Newsletter -->
+        <div class="lg:col-span-4 mb-4 lg:mb-0">
+          <h2 class="text-[#0C222C] font-medium text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[42px] leading-[22px] sm:leading-[30px] lg:leading-[40px] xl:leading-[50px] mb-2 sm:mb-3 lg:mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+            {locale === 'tr' ? 'Bültenimize Abone Olun' : 'Subscribe to Our Newsletter'}
+          </h2>
+          <p class="text-[#0C222C] text-xs sm:text-sm lg:text-base leading-[16px] sm:leading-[18px] lg:leading-[15px] mb-3 sm:mb-4 lg:mb-0" style="font-family: 'Radio Canada Big', sans-serif;">
+            {content.description}
+          </p>
+        </div>
+        
+        <!-- Right Section: Newsletter Form -->
+        <div class="lg:col-span-8 flex items-center justify-center lg:justify-end">
+          <div class="flex flex-col sm:flex-row w-full max-w-[676px]">
+            <!-- Email Input -->
+            <div class="flex-1 bg-[#FBEAEC] rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none px-4 sm:px-6 lg:px-12 py-4 sm:py-5 lg:py-6 transition-all duration-300 hover:bg-[#F5D5D8] focus-within:bg-[#F5D5D8]">
+              <input 
+                type="email" 
+                placeholder={locale === 'tr' ? 'Mail Adresiniz' : 'Your Email Address'}
+                class="w-full text-[#717171] text-sm sm:text-base lg:text-base placeholder-[#717171] uppercase focus:text-[#555555] transition-all duration-300 focus:bg-[#F8F0F1]"
+                style="font-family: 'Radio Canada Big', sans-serif; 
+                       background: transparent !important; 
+                       border: none !important; 
+                       outline: none !important; 
+                       box-shadow: none !important;
+                       -webkit-appearance: none !important;
+                       -moz-appearance: none !important;"
+              />
+            </div>
+            <!-- Subscribe Button -->
+            <button class="bg-[#CE1A28] text-white px-3 sm:px-4 lg:px-7 py-3 sm:py-4 lg:py-5 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-xs sm:text-[13px] lg:text-[15px] uppercase font-normal border border-white border-opacity-20" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'abone ol' : 'subscribe'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Container for all sections -->
+    <div class="absolute top-[40px] sm:top-[240px] lg:top-[320px] xl:top-[360px] left-1/2 transform -translate-x-1/2 w-[calc(100%-20px)] sm:w-[min(1655px,calc(100%-120px))]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-8">
+        
+        <!-- Left Column: Logo & Description -->
+        <div class="sm:col-span-2 lg:col-span-3">
+          <!-- Logo Section -->
+          <div class="mb-6 sm:mb-8 text-center sm:text-left">
+            <img 
+              src="/images/turkel-logo-white.svg" 
+              alt="Türkel Fuarcılık" 
+              class="w-[200px] sm:w-[240px] lg:w-[271px] h-auto opacity-100 mx-auto sm:mx-0"
+            />
+          </div>
+
+          <!-- Company Description -->
+          <div class="max-w-full sm:w-[361px]">
+            <p class="text-white text-sm leading-[24px] sm:leading-[26px] font-normal text-center sm:text-left" style="font-family: 'Radio Canada Big', sans-serif; font-weight: 400;">
+              {content.description}
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="sm:col-span-2 lg:col-span-3">
+          <h3 class="text-white font-bold text-lg sm:text-xl leading-[14px] uppercase mb-6 sm:mb-11 text-center sm:text-left" style="font-family: 'Radio Canada Big', sans-serif;">
+            {content.sections.contact}
+          </h3>
+          
+          <!-- Contact Info with Icons -->
+          <div class="space-y-4 sm:space-y-6">
+            <!-- Address -->
+            <div class="flex items-start justify-center sm:justify-start">
+              <MapPin size={15} class="text-white mr-1 sm:mr-3 mt-1 flex-shrink-0" />
+              <p class="text-white opacity-80 text-sm sm:text-base leading-[16px] sm:leading-[20px] text-center sm:text-left max-w-[200px] sm:max-w-none" style="font-family: 'Radio Canada Big', sans-serif;">
+                {SITE_CONFIG.contact.address[locale]}
+              </p>
+            </div>
+            
+            <!-- Phone -->
+            <div class="flex items-center justify-center sm:justify-start">
+              <Phone size={14} class="text-white mr-3 flex-shrink-0" />
+              <p class="text-white opacity-80 text-sm sm:text-base leading-[20px] sm:leading-[22px]" style="font-family: 'Radio Canada Big', sans-serif;">
+                {SITE_CONFIG.contact.phone}
+              </p>
+            </div>
+            
+            <!-- Email -->
+            <div class="flex items-center justify-center sm:justify-start">
+              <Mail size={16} class="text-white mr-3 flex-shrink-0" />
+              <p class="text-white opacity-80 text-sm sm:text-base leading-[20px] sm:leading-[22px]" style="font-family: 'Radio Canada Big', sans-serif;">
+                {SITE_CONFIG.contact.email}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuar Takvimi Section -->
+        <div class="sm:col-span-1 lg:col-span-2">
+          <h3 class="text-white font-bold text-lg sm:text-xl leading-[14px] uppercase mb-6 sm:mb-9 text-center sm:text-left" style="font-family: 'Radio Canada Big', sans-serif;">
+            {content.sections.calendar}
+          </h3>
+          <div class="space-y-0 text-center sm:text-left">
+            {content.links.calendar.map((link) => (
+              <a 
+                href={`/${locale}/${
+                  locale === 'tr' 
+                    ? link.toLowerCase().replace(' fuar takvimi', '-fuar-takvimi').replace(' ', '') 
+                    : link.toLowerCase().replace(' fair calendar', '-fair-calendar').replace(' ', '')
+                }/`}
+                class="block text-white opacity-80 text-sm sm:text-base leading-[30px] sm:leading-[40px] hover:opacity-100 hover:text-[#CE1A28] transition-colors"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Faydalı Linkler Section - Hidden on mobile -->
+        <div class="hidden sm:block sm:col-span-1 lg:col-span-2">
+          <h3 class="text-white font-bold text-lg sm:text-xl leading-[14px] uppercase mb-6 sm:mb-11 text-center sm:text-left" style="font-family: 'Radio Canada Big', sans-serif;">
+            {content.sections.links}
+          </h3>
+          <div class="space-y-0 text-center sm:text-left">
+            <a href="https://www.ticaret.gov.tr/yurtdisi-teskilati" target="_blank" class="block text-white opacity-80 text-sm sm:text-base leading-[30px] sm:leading-[40px] hover:opacity-100 hover:text-[#CE1A28] transition-colors" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'Müşavirlikler' : 'Consultancies'}
+            </a>
+            <a href="https://www.mfa.gov.tr/yurtdisi-teskilati.tr.mfa" target="_blank" class="block text-white opacity-80 text-sm sm:text-base leading-[30px] sm:leading-[40px] hover:opacity-100 hover:text-[#CE1A28] transition-colors" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'Büyükelçilikler' : 'Embassies'}
+            </a>
+            <a href="https://www.ticaret.gov.tr/" target="_blank" class="block text-white opacity-80 text-sm sm:text-base leading-[30px] sm:leading-[40px] hover:opacity-100 hover:text-[#CE1A28] transition-colors" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'T.C. Ticaret Bakanlığı' : 'Ministry of Trade'}
+            </a>
+          </div>
+        </div>
+
+        <!-- Fuarlarımız Section -->
+        <div class="sm:col-span-2 lg:col-span-2">
+          <h3 class="text-white font-bold text-lg sm:text-xl leading-[14px] uppercase mb-6 sm:mb-11 text-center sm:text-left" style="font-family: 'Radio Canada Big', sans-serif;">
+            {content.sections.fairs}
+          </h3>
+          <div class="space-y-0 text-center sm:text-left">
+            {content.links.fairs.map((link) => (
+              <a 
+                href={`https://${link}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-white opacity-80 text-sm sm:text-base leading-[30px] sm:leading-[40px] hover:opacity-100 transition-opacity" 
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Social Media & Copyright -->
+    <div class="absolute bottom-[50px] sm:bottom-[50px] left-1/2 transform -translate-x-1/2 w-[calc(100%-20px)] sm:w-[min(1655px,calc(100%-120px))]">
+      
+      <!-- Separator Lines with Social Media Icons in between -->
+      <div class="relative flex items-center mb-6 sm:mb-8">
+        <!-- Left Line -->
+        <div class="flex-1 h-[1px] bg-white opacity-20 mr-4 sm:mr-8"></div>
+        
+        <!-- Social Media Icons -->
+        <div class="flex space-x-2 sm:space-x-3 px-2 sm:px-4">
+          <!-- Facebook -->
+          <a 
+            href={SITE_CONFIG.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-[32px] h-[32px] sm:w-[39px] sm:h-[39px] border border-white rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook size={12} class="sm:w-[15px] sm:h-[15px] text-white" />
+          </a>
+          <!-- Instagram -->
+          <a 
+            href={SITE_CONFIG.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-[32px] h-[32px] sm:w-[39px] sm:h-[39px] border border-white rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram size={16} class="sm:w-[20px] sm:h-[20px] text-white" />
+          </a>
+          <!-- YouTube -->
+          <a 
+            href={SITE_CONFIG.social.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-[32px] h-[32px] sm:w-[39px] sm:h-[39px] border border-white rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+            aria-label="YouTube"
+          >
+            <Youtube size={14} class="sm:w-[16px] sm:h-[16px] text-white" />
+          </a>
+          <!-- LinkedIn -->
+          <a 
+            href={SITE_CONFIG.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-[32px] h-[32px] sm:w-[39px] sm:h-[39px] border border-white rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={14} class="sm:w-[16px] sm:h-[16px] text-white" />
+          </a>
+        </div>
+        
+        <!-- Right Line -->
+        <div class="flex-1 h-[1px] bg-white opacity-20 ml-4 sm:ml-8"></div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="flex justify-center items-center px-4">
+        <p class="text-white text-sm sm:text-base leading-[18px] sm:leading-[21px] uppercase text-center" style="font-family: 'Radio Canada Big', sans-serif;">
+          {content.copyright}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,501 @@
+---
+import { X } from 'lucide-astro';
+
+interface Props {
+  locale: 'tr' | 'en';
+}
+
+const { locale } = Astro.props;
+
+// Fair options - 30 different fairs
+const fairOptions = [
+  { value: 'homedeco-kazakhstan', label: locale === 'tr' ? 'Homedeco Kazakistan' : 'Homedeco Kazakhstan' },
+  { value: 'leshow-moscow', label: locale === 'tr' ? 'Leshow Moskova' : 'Leshow Moscow' },
+  { value: 'leshow-istanbul', label: locale === 'tr' ? 'Leshow İstanbul' : 'Leshow Istanbul' },
+  { value: 'buildexpo-almaty', label: locale === 'tr' ? 'BuildExpo Almatı' : 'BuildExpo Almaty' },
+  { value: 'foodexpo-tashkent', label: locale === 'tr' ? 'FoodExpo Taşkent' : 'FoodExpo Tashkent' },
+  { value: 'texexpo-baku', label: locale === 'tr' ? 'TexExpo Bakü' : 'TexExpo Baku' },
+  { value: 'medexpo-tbilisi', label: locale === 'tr' ? 'MedExpo Tiflis' : 'MedExpo Tbilisi' },
+  { value: 'autoexpo-kiev', label: locale === 'tr' ? 'AutoExpo Kiev' : 'AutoExpo Kiev' },
+  { value: 'beautyexpo-minsk', label: locale === 'tr' ? 'BeautyExpo Minsk' : 'BeautyExpo Minsk' },
+  { value: 'techexpo-warsaw', label: locale === 'tr' ? 'TechExpo Varşova' : 'TechExpo Warsaw' },
+  { value: 'agriexpo-prague', label: locale === 'tr' ? 'AgriExpo Prag' : 'AgriExpo Prague' },
+  { value: 'energyexpo-budapest', label: locale === 'tr' ? 'EnergyExpo Budapeşte' : 'EnergyExpo Budapest' },
+  { value: 'fashionexpo-sofia', label: locale === 'tr' ? 'FashionExpo Sofya' : 'FashionExpo Sofia' },
+  { value: 'homeexpo-bucharest', label: locale === 'tr' ? 'HomeExpo Bükreş' : 'HomeExpo Bucharest' },
+  { value: 'sportexpo-belgrade', label: locale === 'tr' ? 'SportExpo Belgrad' : 'SportExpo Belgrade' },
+  { value: 'giftexpo-zagreb', label: locale === 'tr' ? 'GiftExpo Zagreb' : 'GiftExpo Zagreb' },
+  { value: 'jewelryexpo-ljubljana', label: locale === 'tr' ? 'JewelryExpo Ljubljana' : 'JewelryExpo Ljubljana' },
+  { value: 'packexpo-skopje', label: locale === 'tr' ? 'PackExpo Üsküp' : 'PackExpo Skopje' },
+  { value: 'plasticexpo-sarajevo', label: locale === 'tr' ? 'PlasticExpo Saraybosna' : 'PlasticExpo Sarajevo' },
+  { value: 'metalexpo-podgorica', label: locale === 'tr' ? 'MetalExpo Podgorica' : 'MetalExpo Podgorica' },
+  { value: 'woodexpo-tirana', label: locale === 'tr' ? 'WoodExpo Tiran' : 'WoodExpo Tirana' },
+  { value: 'chemexpo-chisinau', label: locale === 'tr' ? 'ChemExpo Kişinev' : 'ChemExpo Chisinau' },
+  { value: 'printexpo-yerevan', label: locale === 'tr' ? 'PrintExpo Erivan' : 'PrintExpo Yerevan' },
+  { value: 'securityexpo-astana', label: locale === 'tr' ? 'SecurityExpo Astana' : 'SecurityExpo Astana' },
+  { value: 'tourismexpo-bishkek', label: locale === 'tr' ? 'TourismExpo Bişkek' : 'TourismExpo Bishkek' },
+  { value: 'educationexpo-dushanbe', label: locale === 'tr' ? 'EducationExpo Duşanbe' : 'EducationExpo Dushanbe' },
+  { value: 'healthexpo-ashgabat', label: locale === 'tr' ? 'HealthExpo Aşkabat' : 'HealthExpo Ashgabat' },
+  { value: 'itexpo-riga', label: locale === 'tr' ? 'ITExpo Riga' : 'ITExpo Riga' },
+  { value: 'greenexpo-vilnius', label: locale === 'tr' ? 'GreenExpo Vilnius' : 'GreenExpo Vilnius' },
+  { value: 'marineexpo-tallinn', label: locale === 'tr' ? 'MarineExpo Tallinn' : 'MarineExpo Tallinn' },
+  { value: 'other', label: locale === 'tr' ? 'Diğer' : 'Other' }
+];
+---
+
+<!-- Modal Backdrop -->
+<div id="visitor-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <!-- Modal Container -->
+  <div class="bg-white rounded-[15px] w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+    
+    <!-- Modal Header -->
+    <div class="sticky top-0 bg-white rounded-t-[15px] border-b border-gray-100 px-8 py-6 flex items-center justify-between z-10 shadow-sm">
+      <div>
+        <h2 class="text-2xl font-bold text-[#16243D] mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+          {locale === 'tr' ? 'Ziyaretçi Formu' : 'Visitor Form'}
+        </h2>
+        <p class="text-gray-600 text-sm" style="font-family: 'Radio Canada Big', sans-serif;">
+          {locale === 'tr' ? 'Fuar bilgilerinizi paylaşın, size ulaşalım' : 'Share your fair information, let us reach you'}
+        </p>
+      </div>
+      <button 
+        id="close-visitor-modal" 
+        class="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        aria-label={locale === 'tr' ? 'Kapat' : 'Close'}
+      >
+        <X size={24} class="text-gray-500" />
+      </button>
+    </div>
+
+    <!-- Modal Content -->
+    <div class="px-8 py-6">
+      <form id="visitor-form" class="space-y-6">
+        
+        <!-- Fair Information Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-[#16243D] border-b border-gray-200 pb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+            {locale === 'tr' ? 'Fuar Bilgileri' : 'Fair Information'}
+          </h3>
+          
+          <!-- Fair Selection -->
+          <div>
+            <label for="fair-select" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'İlgilendiğiniz Fuar' : 'Fair of Interest'} *
+            </label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="fair-search" 
+                placeholder={locale === 'tr' ? 'Fuar ara veya seç...' : 'Search or select a fair...'}
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+                autocomplete="off"
+              />
+              <input type="hidden" id="fair-select" name="fair" required />
+              <div id="fair-dropdown" class="absolute z-20 w-full bg-white border border-gray-300 rounded-lg mt-1 max-h-60 hidden shadow-lg custom-scrollbar">
+                <div class="overflow-y-auto max-h-60 rounded-lg">
+                  {fairOptions.map(option => (
+                    <div 
+                      class="px-4 py-2 hover:bg-gray-100 cursor-pointer fair-option" 
+                      data-value={option.value}
+                      style="font-family: 'Radio Canada Big', sans-serif;"
+                    >
+                      {option.label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-[#16243D] border-b border-gray-200 pb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+            {locale === 'tr' ? 'Kişisel Bilgiler' : 'Personal Information'}
+          </h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- First Name -->
+            <div>
+              <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Ad' : 'First Name'} *
+              </label>
+              <input 
+                type="text" 
+                id="first-name" 
+                name="firstName" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div>
+              <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Soyad' : 'Last Name'} *
+              </label>
+              <input 
+                type="text" 
+                id="last-name" 
+                name="lastName" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Title -->
+            <div>
+              <label for="title" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Ünvan' : 'Title'}
+              </label>
+              <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Telefon' : 'Phone'} *
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- City -->
+            <div>
+              <label for="city" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Şehir' : 'City'} *
+              </label>
+              <input 
+                type="text" 
+                id="city" 
+                name="city" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'E-posta' : 'Email'} *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Information Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-[#16243D] border-b border-gray-200 pb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+            {locale === 'tr' ? 'Kurumsal Bilgiler' : 'Company Information'}
+          </h3>
+          
+          <!-- Company Name -->
+          <div>
+            <label for="company-name" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+              {locale === 'tr' ? 'Firma Adı' : 'Company Name'} *
+            </label>
+            <input 
+              type="text" 
+              id="company-name" 
+              name="companyName" 
+              required 
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+              style="font-family: 'Radio Canada Big', sans-serif;"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Business Area -->
+            <div>
+              <label for="business-area" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Faaliyet Alanı' : 'Business Area'} *
+              </label>
+              <input 
+                type="text" 
+                id="business-area" 
+                name="businessArea" 
+                required 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+
+            <!-- Website -->
+            <div>
+              <label for="website" class="block text-sm font-medium text-gray-700 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
+                {locale === 'tr' ? 'Website' : 'Website'}
+              </label>
+              <input 
+                type="url" 
+                id="website" 
+                name="website" 
+                placeholder="https://"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CE1A28] focus:border-transparent transition-all"
+                style="font-family: 'Radio Canada Big', sans-serif;"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200">
+          <button 
+            type="button" 
+            id="cancel-visitor-form"
+            class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            {locale === 'tr' ? 'İptal' : 'Cancel'}
+          </button>
+          <button 
+            type="submit" 
+            class="flex-1 px-6 py-3 bg-[#CE1A28] text-white rounded-lg hover:bg-[#b91c1c] transition-colors font-medium"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            {locale === 'tr' ? 'Gönder' : 'Submit'}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('visitor-modal');
+    const closeBtn = document.getElementById('close-visitor-modal');
+    const cancelBtn = document.getElementById('cancel-visitor-form');
+    const form = document.getElementById('visitor-form');
+    const fairSearch = document.getElementById('fair-search');
+    const fairSelect = document.getElementById('fair-select');
+    const fairDropdown = document.getElementById('fair-dropdown');
+    const fairOptions = document.querySelectorAll('.fair-option');
+
+    // Open modal function
+    window.openVisitorModal = () => {
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    // Close modal function
+    const closeModal = () => {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+        if (form) form.reset();
+        if (fairSearch) fairSearch.value = '';
+        if (fairSelect) fairSelect.value = '';
+        if (fairDropdown) fairDropdown.classList.add('hidden');
+      }
+    };
+
+    // Fair search functionality
+    if (fairSearch && fairDropdown && fairOptions.length > 0) {
+      // Show dropdown on focus
+      fairSearch.addEventListener('focus', () => {
+        fairDropdown.classList.remove('hidden');
+      });
+
+      // Filter options on input
+      fairSearch.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        fairOptions.forEach(option => {
+          const text = option.textContent.toLowerCase();
+          if (text.includes(searchTerm)) {
+            option.style.display = 'block';
+          } else {
+            option.style.display = 'none';
+          }
+        });
+        fairDropdown.classList.remove('hidden');
+      });
+
+      // Handle option selection
+      fairOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const value = option.getAttribute('data-value');
+          const text = option.textContent;
+          fairSearch.value = text;
+          fairSelect.value = value;
+          fairDropdown.classList.add('hidden');
+        });
+      });
+
+      // Hide dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!fairSearch.contains(e.target) && !fairDropdown.contains(e.target)) {
+          fairDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    // Event listeners
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+    
+    // Close on backdrop click
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Form submission
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        try {
+          // Here you would typically send the data to your backend
+          console.log('Visitor form data:', data);
+          
+          // Show success message
+          alert(document.documentElement.lang === 'tr' 
+            ? 'Formunuz başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.' 
+            : 'Your form has been submitted successfully. We will contact you shortly.'
+          );
+          
+          closeModal();
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert(document.documentElement.lang === 'tr' 
+            ? 'Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.' 
+            : 'An error occurred while submitting the form. Please try again.'
+          );
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Custom Scrollbar for Fair Dropdown */
+  .custom-scrollbar {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .custom-scrollbar > div {
+    padding-right: 8px;
+    margin-right: -8px;
+  }
+  
+  .custom-scrollbar > div::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar > div::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar > div::-webkit-scrollbar-thumb {
+    background: #CE1A28;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  
+  .custom-scrollbar > div::-webkit-scrollbar-thumb:hover {
+    background: #B01620;
+  }
+  
+  /* Firefox scrollbar */
+  .custom-scrollbar > div {
+    scrollbar-width: thin;
+    scrollbar-color: #CE1A28 transparent;
+  }
+  
+  /* Smooth dropdown animation */
+  #fair-dropdown {
+    transition: all 0.3s ease;
+    transform-origin: top;
+  }
+  
+  #fair-dropdown.hidden {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  
+  #fair-dropdown:not(.hidden) {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  /* Dropdown item hover effects */
+  .fair-option {
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .fair-option:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .fair-option:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .fair-option:hover {
+    background-color: #fef2f2 !important;
+    color: #CE1A28 !important;
+    transition: all 0.2s ease;
+    margin-right: 0 !important;
+    padding-right: 16px !important;
+    z-index: 2;
+  }
+  
+  .fair-option:first-child:hover {
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    background-color: #fef2f2 !important;
+  }
+</style>
