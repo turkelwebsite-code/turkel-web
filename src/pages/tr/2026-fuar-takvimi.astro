@@ -10,13 +10,21 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Get fair data from CMS for 2026
+// Get fair data from CMS for 2026 - ENHANCED DEBUG
 try {
-  const fairYearData = await getCollection('fair_years');
-  const year2026Data = fairYearData.find(item => item.id === 'fairs_2026');
-  const cmsFairs = year2026Data?.data?.fairs || [];
+  console.log('🔍 DEBUG: Starting CMS data load for 2026...');
   
+  const fairYearData = await getCollection('fair_years');
+  console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
+  console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
+  
+  const year2026Data = fairYearData.find(item => item.id === 'fairs_2026');
+  console.log('🔍 DEBUG: 2026 data found:', !!year2026Data);
+  console.log('🔍 DEBUG: 2026 data content:', year2026Data?.data);
+  
+  const cmsFairs = year2026Data?.data?.fairs || [];
   console.log('🎪 CMS Fairs loaded for 2026:', cmsFairs.length);
+  console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
   
   // Convert CMS data to page format
   var fairsData = {};
