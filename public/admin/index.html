@@ -61,20 +61,20 @@
       flex-direction: column !important;
     }
     
-    /* Sidebar specific class - KESIN ÇÖZÜM */
+    /* Sidebar - ÜST SOL HIZALAMA */
     .css-102us41-SidebarContainer-card-card.e1t18l343,
     [class*="css-"][class*="SidebarContainer"] {
-      width: 280px !important;
-      min-width: 280px !important;
-      max-width: 280px !important;
-      flex-shrink: 0 !important;
-      flex-grow: 0 !important;
-      position: relative !important;
+      position: absolute !important;
+      top: 0 !important;
       left: 0 !important;
+      width: 280px !important;
       height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      z-index: 2 !important;
+      background: white !important;
+      border-right: 1px solid #e2e8f0 !important;
       overflow-y: auto !important;
-      float: none !important;
-      display: block !important;
     }
     
     /* App Main Container - max-width kaldır, geniş yap */
@@ -153,6 +153,20 @@
       max-width: none !important;
       width: 100% !important;
       padding: 24px 32px !important;
+    }
+    
+    /* Sidebar koleksiyonlar - üst sol hizalama */
+    [class*="AppSidebar"] {
+      padding-top: 0 !important;
+      padding-left: 0 !important;
+      margin-top: 0 !important;
+    }
+    
+    /* Koleksiyonlar listesi - üstten başlasın */
+    [class*="AppSidebar"] > *:first-child,
+    [class*="SidebarContainer"] > *:first-child {
+      margin-top: 0 !important;
+      padding-top: 16px !important;
     }
     
     /* Content area genişletme */
