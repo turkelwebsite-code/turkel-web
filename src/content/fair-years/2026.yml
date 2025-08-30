@@ -27,3 +27,16 @@ fairs:
     visuals:
       logo: /images/fuarlar-arkaplan.jpg
       background_image: /images/fuarlar-logo.png
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      name_tr: TEst 2
+      name_en: "test 2 "
+      date: 11 Mart 2025
+      location_tr: etewe
+      location_en: werwer
+      sector: Ev Tekstili ve Dekorasyon
+    visuals:
+      logo: /images/fuarlar-arkaplan.jpg
+      background_image: /images/fuarlar-logo.png
