@@ -5,11 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- NUCLEAR CACHE BUSTING -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    // Clear all caches immediately
+    if ('caches' in window) {
+      caches.keys().then(names => {
+        names.forEach(name => {
+          console.log('Clearing cache:', name);
+          caches.delete(name);
+        });
+      });
+    }
+    localStorage.clear();
+    sessionStorage.clear();
+    console.log('🧹 All caches cleared');
+  </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js?v=999"></script>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js?v=999&t=1"></script>
   
   <script>
     if (window.netlifyIdentity) {
@@ -41,6 +59,7 @@
   </script>
 
   <style>
+    /* CACHE BUSTING CSS - VERSION 999 */
     /* KESIN ÇÖZÜM - YAN YANA LAYOUT */
     
     /* Body ve HTML kesin düzeltme */
