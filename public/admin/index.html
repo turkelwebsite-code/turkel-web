@@ -55,5 +55,43 @@
       });
     }
   </script>
+
+  <style>
+    /* NOKTA ATIŞI DÜZELTMELER */
+    
+    /* Preview panel'i gizle */
+    [class*="PreviewPane"] {
+      display: none !important;
+    }
+    
+    /* Split view'da sadece editor göster */
+    [class*="SplitView"] > div:last-child {
+      display: none !important;
+    }
+    
+    [class*="SplitView"] > div:first-child {
+      width: 100% !important;
+    }
+    
+    /* List widget items collapsed */
+    [class*="Widget"][class*="list"] [class*="ListItem"] {
+      border: 1px solid #e2e8f0 !important;
+      margin-bottom: 4px !important;
+      border-radius: 4px !important;
+    }
+    
+    /* Object widget'ları collapsed */
+    [class*="Widget"][class*="object"] {
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 6px !important;
+      margin-bottom: 12px !important;
+    }
+    
+    /* Collapsed state styling */
+    [class*="Widget"][class*="collapsed"] {
+      background: #f8f9fa !important;
+      padding: 8px 12px !important;
+    }
+  </style>
 </body>
 </html>
