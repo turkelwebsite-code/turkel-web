@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Türkel CMS</title>
+  <title>Türkel CMS - Admin Panel</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -12,7 +12,7 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
-    // Identity Setup
+    // Simple, clean Identity setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -23,7 +23,11 @@
       });
       
       window.netlifyIdentity.on("login", user => {
-        const allowedEmails = ['turkelwebsite@gmail.com', 'admin@turkel.com.tr', 'sezani991@gmail.com'];
+        const allowedEmails = [
+          'turkelwebsite@gmail.com',
+          'admin@turkel.com.tr', 
+          'sezani991@gmail.com'
+        ];
         
         if (!allowedEmails.includes(user.email)) {
           alert('Bu email ile admin paneline erişim yetkiniz yok!');
@@ -32,83 +36,9 @@
           return;
         }
         
-        console.log("✅ Login successful:", user.email);
-        
-        // Try multiple times to override styling
-        setTimeout(() => extremeStyleOverride(), 1000);
-        setTimeout(() => extremeStyleOverride(), 2000);
-        setTimeout(() => extremeStyleOverride(), 3000);
-        setTimeout(() => extremeStyleOverride(), 5000);
+        console.log("✅ Türkel CMS Login successful:", user.email);
       });
     }
-    
-    function extremeStyleOverride() {
-      console.log('💪 EXTREME style override attempt...');
-      
-      // Method 1: Direct DOM manipulation
-      const preview = document.querySelector('[class*="PreviewPane"], [class*="preview"], [class*="Preview"]');
-      if (preview) {
-        preview.style.display = 'none';
-        preview.style.width = '0px';
-        preview.style.height = '0px';
-        preview.remove();
-        console.log('✅ Preview removed via DOM');
-      }
-      
-      // Method 2: Force CSS with inline styles
-      const editor = document.querySelector('[class*="EditorContainer"], [class*="Editor"]');
-      if (editor) {
-        editor.style.width = '100%';
-        editor.style.maxWidth = 'none';
-        editor.style.padding = '20px';
-        editor.style.background = 'white';
-        console.log('✅ Editor forced to full width');
-      }
-      
-      // Method 3: Force list styling
-      const listWidgets = document.querySelectorAll('[class*="Widget"][class*="list"]');
-      listWidgets.forEach(widget => {
-        widget.style.border = '2px solid #333';
-        widget.style.borderRadius = '8px';
-        widget.style.overflow = 'hidden';
-        widget.style.background = 'white';
-        widget.style.margin = '20px 0';
-        
-        // Style list items
-        const items = widget.querySelectorAll('[class*="ListItem"]');
-        items.forEach((item, index) => {
-          item.style.borderBottom = '1px solid #e2e8f0';
-          item.style.padding = '15px 20px';
-          item.style.background = index % 2 === 0 ? 'white' : '#f8f9fa';
-          item.style.display = 'block';
-        });
-        
-        // Style add button
-        const addBtn = widget.querySelector('button');
-        if (addBtn) {
-          addBtn.style.background = '#28a745';
-          addBtn.style.color = 'white';
-          addBtn.style.border = 'none';
-          addBtn.style.padding = '12px 24px';
-          addBtn.style.borderRadius = '6px';
-          addBtn.style.width = 'calc(100% - 40px)';
-          addBtn.style.margin = '15px 20px';
-          addBtn.style.fontWeight = 'bold';
-        }
-      });
-      
-      console.log('✅ EXTREME styling applied via DOM manipulation');
-    }
-    
-    // Also try on DOM mutations
-    const observer = new MutationObserver(() => {
-      extremeStyleOverride();
-    });
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      observer.observe(document.body, { childList: true, subtree: true });
-      setTimeout(() => extremeStyleOverride(), 1000);
-    });
   </script>
 </body>
 </html>
