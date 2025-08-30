@@ -24,13 +24,30 @@
       // Debug: Check if Git Gateway is properly configured
       window.netlifyIdentity.on("ready", () => {
         console.log("Netlify Identity ready");
-        if (window.netlifyIdentity.currentUser()) {
-          console.log("User logged in:", window.netlifyIdentity.currentUser().email);
+        const user = window.netlifyIdentity.currentUser();
+        if (user) {
+          console.log("User logged in:", user.email);
+          console.log("Email confirmed:", user.email_verified);
+          console.log("User metadata:", user.user_metadata);
+        } else {
+          console.log("No user logged in");
+        }
+      });
+      
+      window.netlifyIdentity.on("login", user => {
+        console.log("Login successful:", user.email);
+        console.log("Email verified:", user.email_verified);
+        if (!user.email_verified) {
+          console.warn("Email not verified! Check Netlify admin panel.");
+          alert("Email doğrulanmamış! Netlify admin panel'den 'Confirm user' yapın.");
         }
       });
       
       window.netlifyIdentity.on("error", err => {
         console.error("Netlify Identity error:", err);
+        if (err.message && err.message.includes("Email not confirmed")) {
+          alert("Email doğrulanmamış! Netlify admin panel'den kullanıcıyı confirm edin.");
+        }
       });
     }
   </script>
