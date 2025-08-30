@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Türkel CMS - Admin Panel</title>
+  <title>Türkel CMS</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
@@ -12,7 +12,7 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
-    // Simple, clean Identity setup
+    // Minimal Identity setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
@@ -38,117 +38,22 @@
         
         console.log("✅ Türkel CMS Login successful:", user.email);
         
-        // Force content visibility after login
+        // Simple debug
         setTimeout(() => {
-          console.log('🔄 Forcing content visibility...');
-          forceContentVisibility();
-        }, 2000);
-        
-        setTimeout(() => {
-          console.log('🔄 Second attempt...');
-          forceContentVisibility();
-        }, 5000);
+          const widgets = document.querySelectorAll('[class*="Widget"]');
+          const editors = document.querySelectorAll('[class*="Editor"]');
+          const forms = document.querySelectorAll('form');
+          
+          console.log('🔍 Widgets found:', widgets.length);
+          console.log('🔍 Editors found:', editors.length);
+          console.log('🔍 Forms found:', forms.length);
+          
+          if (widgets.length === 0) {
+            console.log('❌ No widgets found - CMS not loading properly');
+          }
+        }, 3000);
       });
-    }
-    
-    function forceContentVisibility() {
-      // Force all possible hidden elements to show
-      const hiddenElements = document.querySelectorAll('[style*="display: none"], [style*="visibility: hidden"], [hidden]');
-      hiddenElements.forEach(el => {
-        el.style.display = 'block';
-        el.style.visibility = 'visible';
-        el.removeAttribute('hidden');
-      });
-      
-      // Force editor containers
-      const editors = document.querySelectorAll('[class*="Editor"], [class*="EditorContainer"]');
-      editors.forEach(editor => {
-        editor.style.display = 'block';
-        editor.style.visibility = 'visible';
-        editor.style.opacity = '1';
-        editor.style.width = '100%';
-        editor.style.height = 'auto';
-        editor.style.minHeight = '400px';
-      });
-      
-      console.log('✅ Forced visibility on', hiddenElements.length, 'elements');
     }
   </script>
-
-  <style>
-    /* SADECE PREVIEW PANEL'İ GİZLE - EDITOR'U DEĞİL */
-    [class*="PreviewPane"]:not([class*="Editor"]),
-    [class*="SplitView"] > div:last-child {
-      display: none !important;
-    }
-    
-    /* EDITOR FULL WIDTH - PREVIEW OLMADAN */
-    [class*="SplitView"] {
-      display: block !important;
-    }
-    
-    [class*="SplitView"] > div:first-child {
-      width: 100% !important;
-      max-width: none !important;
-    }
-    
-    /* EDITOR CONTAINER VİSİBLE - AGGRESSIVE */
-    [class*="EditorContainer"],
-    [class*="Editor"],
-    [class*="css-"][class*="Editor"] {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      width: 100% !important;
-      max-width: none !important;
-      min-height: 500px !important;
-      background: white !important;
-      padding: 20px !important;
-    }
-    
-    /* FORCE ALL WIDGETS TO SHOW */
-    [class*="Widget"] {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      margin-bottom: 16px !important;
-    }
-    
-    /* FORCE FORM FIELDS */
-    [class*="Widget"] input,
-    [class*="Widget"] textarea,
-    [class*="Widget"] select,
-    [class*="Widget"] label {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    
-    /* CLEAN LIST WIDGET */
-    [class*="Widget"][class*="list"] {
-      border: 1px solid #e2e8f0 !important;
-      border-radius: 8px !important;
-      margin: 16px 0 !important;
-    }
-    
-    /* LIST HEADER */
-    [class*="Widget"][class*="list"] > label {
-      background: #f8f9fa !important;
-      padding: 12px 16px !important;
-      font-weight: 600 !important;
-      border-bottom: 1px solid #e2e8f0 !important;
-    }
-    
-    /* LIST ITEMS - COLLAPSED */
-    [class*="Widget"][class*="list"] [class*="ListItem"] {
-      border-bottom: 1px solid #f1f5f9 !important;
-      padding: 12px 16px !important;
-      background: white !important;
-    }
-    
-    [class*="Widget"][class*="list"] [class*="ListItem"]:hover {
-      background: #f8f9fa !important;
-    }
-  </style>
 </body>
 </html>
