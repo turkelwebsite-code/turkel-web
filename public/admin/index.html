@@ -22,12 +22,18 @@
         const hash = window.location.hash.substring(1);
         const urlParams = new URLSearchParams(hash);
         const inviteToken = urlParams.get('invite_token');
+        const recoveryToken = urlParams.get('recovery_token');
         
         if (inviteToken) {
           console.log("🎯 Invite token found:", inviteToken.substring(0, 10) + "...");
           console.log("🔄 Opening Identity widget for signup...");
           // Auto-open signup modal for invite
           window.netlifyIdentity.open('signup');
+        } else if (recoveryToken) {
+          console.log("🔑 Recovery token found:", recoveryToken.substring(0, 10) + "...");
+          console.log("🔄 Opening password reset...");
+          // Auto-open password reset
+          window.netlifyIdentity.open('recovery');
         } else if (!user) {
           // Auto-open login widget if no user
           console.log("No user found, opening login widget");
@@ -97,5 +103,29 @@
       alert("Netlify Identity yüklenemedi! Sayfa yenilemeyi deneyin.");
     }
   </script>
+  
+  <style>
+    /* Fix Netlify Identity modal accessibility issues */
+    .modalContainer[aria-hidden="false"] {
+      aria-hidden: false !important;
+    }
+    
+    .modalContainer[aria-hidden="false"] button:focus {
+      outline: 2px solid #CE1A28 !important;
+      outline-offset: 2px !important;
+    }
+    
+    /* Ensure modal doesn't interfere with screen readers */
+    .modalContainer {
+      position: fixed !important;
+      z-index: 9999 !important;
+    }
+    
+    /* Custom styling for Türkel branding */
+    .netlifyIdentityWidget {
+      --primary-color: #CE1A28;
+      --accent-color: #b01624;
+    }
+  </style>
 </body>
 </html>
