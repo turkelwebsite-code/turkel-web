@@ -189,6 +189,16 @@ try {
 
 // Get all sectors for filtering
 const sectors = Object.keys(fairsData);
+
+// Client-side debug data
+const debugInfo = {
+  totalFairs: Object.values(fairsData).flat().length,
+  sectors: Object.keys(fairsData),
+  fairsPerSector: Object.entries(fairsData).map(([sector, fairs]) => ({
+    sector,
+    count: fairs.length
+  }))
+};
 ---
 
 <BaseLayout title="2026 Fuar Takvimi - Türkel Fuarcılık" description="2026 yılında organize edeceğimiz uluslararası fuarların detaylı takvimi" locale={locale}>
@@ -643,4 +653,18 @@ const sectors = Object.keys(fairsData);
       }
     });
   });
+  
+  // CLIENT-SIDE DEBUG - Browser console'da görünür
+  const debugInfo = ${JSON.stringify(debugInfo)};
+  const fairsData = ${JSON.stringify(fairsData)};
+  
+  console.log('🎯 2026 FUAR TAKVİMİ DEBUG:');
+  console.log('📊 Debug Info:', debugInfo);
+  console.log('🎪 Total Fairs:', debugInfo.totalFairs);
+  console.log('🏷️ Sectors:', debugInfo.sectors);
+  console.log('📋 Fairs per sector:', debugInfo.fairsPerSector);
+  
+  console.log('🔍 FairsData Check:', fairsData);
+  console.log('🔍 FairsData Keys:', Object.keys(fairsData));
+  console.log('🔍 FairsData Values Length:', Object.values(fairsData).length);
 </script>
