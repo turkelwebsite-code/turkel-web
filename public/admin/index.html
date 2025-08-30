@@ -40,6 +40,24 @@
         console.log("Login successful:", user.email);
         console.log("Email verified:", user.email_verified);
         console.log("User confirmed:", user.confirmed_at);
+        console.log("User roles:", user.app_metadata?.roles);
+        
+        // Security check: Only allow specific emails or admin role
+        const allowedEmails = [
+          'turkelwebsite@gmail.com',
+          'admin@turkel.com.tr'
+          // Buraya sadece admin olabilecek email'leri ekle
+        ];
+        
+        const hasAdminRole = user.app_metadata?.roles?.includes('admin');
+        const isAllowedEmail = allowedEmails.includes(user.email);
+        
+        if (!hasAdminRole && !isAllowedEmail) {
+          alert('Bu hesapla admin paneline erişim yetkiniz yok!');
+          window.netlifyIdentity.logout();
+          window.location.href = '/';
+          return;
+        }
         
         // Close widget and reload page
         window.netlifyIdentity.close();
