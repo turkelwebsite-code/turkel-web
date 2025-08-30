@@ -10,18 +10,33 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <script>
-    // Clear all caches immediately
+    // Smart cache clearing - preserve Identity data
     if ('caches' in window) {
       caches.keys().then(names => {
         names.forEach(name => {
-          console.log('Clearing cache:', name);
-          caches.delete(name);
+          // Don't clear Identity-related caches
+          if (!name.includes('netlify-identity') && !name.includes('gotrue')) {
+            console.log('Clearing cache:', name);
+            caches.delete(name);
+          }
         });
       });
     }
-    localStorage.clear();
-    sessionStorage.clear();
-    console.log('🧹 All caches cleared');
+    
+    // Clear only CMS-related storage, preserve Identity
+    Object.keys(localStorage).forEach(key => {
+      if (!key.includes('netlify') && !key.includes('gotrue')) {
+        localStorage.removeItem(key);
+      }
+    });
+    
+    Object.keys(sessionStorage).forEach(key => {
+      if (!key.includes('netlify') && !key.includes('gotrue')) {
+        sessionStorage.removeItem(key);
+      }
+    });
+    
+    console.log('🧹 CMS caches cleared, Identity preserved');
   </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js?v=999"></script>
 </head>
@@ -30,16 +45,27 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js?v=999&t=1"></script>
   
   <script>
+    // Enhanced Identity setup with cache fix
     if (window.netlifyIdentity) {
+      let loginAttempted = false;
+      
       window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
+        console.log("Identity init, user:", user ? user.email : "No user");
+        
+        if (user) {
+          // User already logged in
+          console.log("✅ User already authenticated:", user.email);
+        } else if (!loginAttempted) {
+          // Need to login
+          loginAttempted = true;
+          console.log("Opening login widget...");
+          window.netlifyIdentity.open();
         }
       });
       
       window.netlifyIdentity.on("login", user => {
+        console.log("Login event:", user.email);
+        
         const allowedEmails = [
           'turkelwebsite@gmail.com',
           'admin@turkel.com.tr', 
@@ -53,7 +79,22 @@
           return;
         }
         
-        console.log("✅ Login successful:", user.email);
+        // Close widget and let CMS load
+        window.netlifyIdentity.close();
+        loginAttempted = false;
+        console.log("✅ Login successful, CMS should load:", user.email);
+        
+        // Don't redirect - let CMS load naturally
+      });
+      
+      window.netlifyIdentity.on("logout", () => {
+        console.log("User logged out");
+        window.location.href = '/';
+      });
+      
+      window.netlifyIdentity.on("error", err => {
+        console.error("Identity error:", err);
+        loginAttempted = false;
       });
     }
   </script>
