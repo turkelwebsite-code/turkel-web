@@ -37,13 +37,21 @@ export const URL_MAPPING = {
 } as const;
 
 export function getTargetUrl(currentLocale: 'tr' | 'en', targetLocale: 'tr' | 'en', currentPath: string): string {
-  // Remove current locale from path
-  const pathWithoutLocale = currentPath.replace(`/${currentLocale}`, '') || '/';
+  // Remove current locale from path and .html extension
+  let pathWithoutLocale = currentPath.replace(`/${currentLocale}`, '') || '/';
+  pathWithoutLocale = pathWithoutLocale.replace('.html', '');
+  
+  // Add trailing slash if not present and not root
+  if (pathWithoutLocale !== '/' && !pathWithoutLocale.endsWith('/')) {
+    pathWithoutLocale += '/';
+  }
   
   // Get mapped path for target locale
   const mapping = URL_MAPPING[currentLocale];
   const mappedPath = mapping[pathWithoutLocale as keyof typeof mapping] || pathWithoutLocale;
   
+  const finalUrl = `/${targetLocale}${mappedPath}`;
+  
   // Return target URL
-  return `/${targetLocale}${mappedPath}`;
+  return finalUrl;
 }
