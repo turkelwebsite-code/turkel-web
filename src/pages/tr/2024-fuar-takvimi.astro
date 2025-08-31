@@ -3,14 +3,63 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { getCollection } from 'astro:content';
 
 const locale = 'tr';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Fair data organized by sectors for 2025
-const fairsData = {
+// Get fair data from CMS - 2024
+try {
+  console.log('🔍 DEBUG: Starting CMS data load for 2024...');
+  
+  const fairYearData = await getCollection('fair-years');
+  console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
+  console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
+  
+  const year2024Data = fairYearData.find(item => item.id === '2024');
+  console.log('🔍 DEBUG: 2024 data found:', !!year2024Data);
+  console.log('🔍 DEBUG: 2024 data content:', year2024Data?.data);
+  
+  const cmsFairs = year2024Data?.data?.fairs || [];
+  console.log('🎪 CMS Fairs loaded for 2024:', cmsFairs.length);
+  console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
+  
+  // Convert CMS data to page format
+  var fairsData: Record<string, any[]> = {};
+  cmsFairs.forEach((fair: any) => {
+    const sector = fair.basic_info.sector;
+    if (!fairsData[sector]) {
+      fairsData[sector] = [];
+    }
+    
+    const fairItem = {
+      id: fairsData[sector].length + 1,
+      name: fair.basic_info.name_tr,
+      city: fair.basic_info.location_tr.split(',')[0].trim(),
+      country: fair.basic_info.location_tr.split(',')[1]?.trim() || fair.basic_info.location_tr,
+      date: fair.basic_info.date_tr || fair.basic_info.date || '',
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: fair.representative?.name || "Satış Temsilcisi",
+        title: fair.representative?.title || "Satış Direktörü", 
+        email: fair.representative?.email || "info@turkel.com.tr",
+        phone: fair.representative?.phone || "+90 212 284 23 00"
+      },
+      description: fair.basic_info.description_tr || `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
+    };
+    
+    fairsData[sector].push(fairItem);
+  });
+  
+  console.log('✅ 2024 Fairs data converted:', Object.keys(fairsData));
+} catch (error) {
+  console.error('❌ CMS data loading failed for 2024, using fallback:', error);
+  
+  // Fallback static data if CMS fails
+  var fairsData: Record<string, any[]> = {
   "Moda ve Tekstil": [
     {
       id: 1,
