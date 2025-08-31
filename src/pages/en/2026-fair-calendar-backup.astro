@@ -29,29 +29,10 @@ try {
   console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
   console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
   
-  // Sector translation mapping
-  const sectorTranslations: Record<string, string> = {
-    "Moda ve Tekstil": "Fashion & Textile",
-    "Ev Tekstili ve Dekorasyon": "Home Textile & Decoration", 
-    "Mobilya ve Aydınlatma": "Furniture & Lighting",
-    "Gıda ve İçecek": "Food & Beverage",
-    "Teknoloji": "Technology",
-    "İnşaat": "Construction",
-    "Otomotiv": "Automotive",
-    "Sağlık": "Healthcare",
-    "Güzellik ve Kozmetik": "Beauty & Cosmetics",
-    "Spor ve Fitness": "Sports & Fitness",
-    "Eğitim": "Education",
-    "Turizm": "Tourism",
-    "Enerji": "Energy",
-    "Çevre": "Environment",
-    "Diğer": "Other"
-  };
-
   // Convert CMS data to page format
   var fairsData: Record<string, any[]> = {};
   cmsFairs.forEach((fair: any) => {
-    const sector = sectorTranslations[fair.basic_info.sector] || fair.basic_info.sector;
+    const sector = fair.basic_info.sector;
     if (!fairsData[sector]) {
       fairsData[sector] = [];
     }
@@ -66,7 +47,7 @@ try {
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
       representative: {
         name: fair.representative?.name || "Sales Representative",
-        title: fair.representative?.title_en || fair.representative?.title || "Sales Director", 
+        title: fair.representative?.title || "Sales Director", 
         email: fair.representative?.email || "info@turkel.com.tr",
         phone: fair.representative?.phone || "+90 212 284 23 00"
       },
@@ -228,7 +209,7 @@ const debugInfo = {
 };
 ---
 
-<BaseLayout title="2026 Fair Calendar - Türkel Fair Organization" description="Detailed calendar of international fairs we will organize in 2026" locale={locale}>
+<BaseLayout title="2026 Fuar Takvimi - Türkel Fuarcılık" description="2026 yılında organize edeceğimiz uluslararası fuarların detaylı takvimi" locale={locale}>
   <Header locale={locale} />
   
   <main class="pt-8 pb-16">
@@ -240,18 +221,18 @@ const debugInfo = {
           <div class="text-center mb-12">
             <div class="flex items-center justify-center mb-4">
               <h2 class="text-2xl lg:text-3xl font-bold text-gray-900" style="font-family: 'Radio Canada Big', sans-serif;">
-                2026 Fair Calendar
+                2026 Fuar Takvimi
               </h2>
             </div>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
-              In 2026, we will connect Turkish companies with global markets through prestigious fairs organized worldwide.
+              2026 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
             </p>
           </div>
 
           <!-- Sector Filter Buttons -->
           <div class="flex flex-wrap justify-center gap-4 mb-12">
             <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
-              All Sectors
+              Tüm Sektörler
             </button>
             {sectors.map((sector) => (
               <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
@@ -322,7 +303,7 @@ const debugInfo = {
 
                       <!-- Representative Info -->
                       <div class="border-t border-gray-200 pt-4">
-                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Representative:</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Temsilci Bilgileri:</h4>
                         <div class="space-y-1">
                           <p class="text-sm text-gray-700">
                             <span class="font-medium">{fair.representative.name}</span>

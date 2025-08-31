@@ -159,6 +159,8 @@ const fairYears = defineCollection({
       representative: z.object({
         name: z.string().optional(),
         title: z.string().optional(),
+        title_tr: z.string().optional(),
+        title_en: z.string().optional(),
         email: z.string().optional(),
         phone: z.string().optional(),
       }).optional(),
