@@ -69,12 +69,11 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", required: false, options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", required: false, options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "🏢 Eski Unvan", name: "title", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
+                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -147,12 +146,11 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", required: false, options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", required: false, options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "🏢 Eski Unvan", name: "title", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
+                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -225,12 +223,11 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", required: false, options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", required: false, options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "🏢 Eski Unvan", name: "title", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
+                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -303,12 +300,11 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", required: false, options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", required: false, options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "🏢 Eski Unvan", name: "title", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
+                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -381,12 +377,11 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", required: false, options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", required: false, options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "🏢 Eski Unvan", name: "title", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
+                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"

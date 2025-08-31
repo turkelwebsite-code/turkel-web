@@ -1,5 +1,6 @@
 ---
 import { X } from 'lucide-astro';
+import { getFairOptions } from '../utils/fair-options';
 
 interface Props {
   locale: 'tr' | 'en';
@@ -7,8 +8,11 @@ interface Props {
 
 const { locale } = Astro.props;
 
-// Fair options - 30 different fairs
-const fairOptions = [
+// Get fair options from CMS
+const fairOptions = await getFairOptions(locale);
+
+// Legacy static options (kept as fallback)
+const legacyFairOptions = [
   { value: 'homedeco-kazakhstan', label: locale === 'tr' ? 'Homedeco Kazakistan' : 'Homedeco Kazakhstan' },
   { value: 'leshow-moscow', label: locale === 'tr' ? 'Leshow Moskova' : 'Leshow Moscow' },
   { value: 'leshow-istanbul', label: locale === 'tr' ? 'Leshow İstanbul' : 'Leshow Istanbul' },
