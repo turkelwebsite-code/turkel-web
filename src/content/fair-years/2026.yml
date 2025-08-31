@@ -2,28 +2,20 @@ year: 2026
 is_active: true
 fairs:
   - settings:
-      show_in_slider: true
+      show_in_slider: false
       show_in_forms: true
-    slider_content:
-      mini_images:
-        - /images/homedeco-detail1.png
-        - /images/homedeco-detail2.png
-        - /images/homedeco-detail3.png
-      website_url: www.turkel.com.tr
-      background_image: /images/homedeco-slider.png
-      maps_embed: https://g.co/kgs/FUfQX5R
     basic_info:
-      name_tr: Homedeco Slider Test
-      name_en: Homedeco Slider Test
-      date: ""
-      location_tr: kazakistan
-      location_en: kazakshtan
-      sector: Ev Tekstili ve Dekorasyon
+      name_tr: BOOT DUSSELDORF
+      name_en: BOOT DUSSELDORF
+      date: 17-01 January 2026
+      location_tr: DÜSSELDORF, ALMANYA
+      sector: Moda ve Tekstil
+      location_en: DÜSSELDORF, ALMANYA
     visuals:
       logo: /images/fuarlar-logo.png
-      background_image: /images/instagram-post.jpg
+      background_image: /images/fuarlar-arkaplan.jpg
     representative:
-      name: Arzue
-      title: Satış Temsilcisi
-      email: arzu@turkel.com.tr
-      phone: +90 216 123 45 68
+      name: Mertcan Sezan
+      email: sezan1991@gmail.com
+      phone: "05057062191"
+      title: test
