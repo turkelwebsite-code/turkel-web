@@ -22,7 +22,9 @@ fairs:
       name: Ahmet Hilmi ÇORUK
       title: Satış Direktörü
       email: ahmethilmi@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -43,7 +45,9 @@ fairs:
       name: Arzu GÜNAL
       title: Satış Direktörü
       email: arzug@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -64,7 +68,9 @@ fairs:
       name: Seval ARSLAN
       title: Satış Direktörü
       email: seval@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -85,7 +91,9 @@ fairs:
       name: Seval ARSLAN
       title: Satış Direktörü
       email: seval@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -104,9 +112,11 @@ fairs:
       background_image: /images/fair-bg-tophair.jpg
     representative:
       name: Seval ARSLAN
-      title: Satış Direktörü
+      title: ""
       email: seval@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -125,9 +135,11 @@ fairs:
       background_image: /images/fair-bg-mee.png
     representative:
       name: Pınar YALÇIN
-      title: Satış Direktörü
+      title: ""
       email: pinar@turkel.com.tr
       phone: +90 216 123 45 68
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -146,9 +158,11 @@ fairs:
       background_image: /images/fair-bg-wiretube.png
     representative:
       name: Ahmet Hilmi ÇORUK
-      title: Satış Direktörü
+      title: ""
       email: ahmethilmi@turkel.com.tr
       phone: +90 216 123 45 68
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -167,9 +181,11 @@ fairs:
       background_image: /images/fair-bg-securika.png
     representative:
       name: Neşe ŞENYURT
-      title: Satış Yöneticisi
+      title: ""
       email: nese@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -188,9 +204,11 @@ fairs:
       background_image: /images/fair-bg-equıplast.png
     representative:
       name: Ahmet Hilmi ÇORUK
-      title: Satış Direktörü
+      title: ""
       email: ahmethilmi@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -209,9 +227,11 @@ fairs:
       background_image: /images/fair-bg-kazan.png
     representative:
       name: Pınar YALÇIN
-      title: Satış Direktörü
+      title: ""
       email: pinar@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -232,7 +252,9 @@ fairs:
       name: Pınar YALÇIN
       title: Satış Direktörü
       email: pinar@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -251,6 +273,8 @@ fairs:
       background_image: /images/fair-bg-rosmould.png
     representative:
       name: Ahmet Hilmi ÇORUK
-      title: Satış Direktörü
+      title: ""
       email: ahmethilmi@turkel.com.tr
-      phone: +90 216 123 45 68
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
