@@ -24,6 +24,36 @@ const { yearData } = Astro.props;
 const locale = 'en';
 const footerContent = FOOTER_CONTENT[locale];
 
+// Date formatting function
+function formatDateRange(startDate: string | Date, endDate: string | Date, locale: 'tr' | 'en' = 'en'): string {
+  if (!startDate || !endDate) return '';
+  
+  const start = startDate instanceof Date ? startDate : new Date(startDate);
+  const end = endDate instanceof Date ? endDate : new Date(endDate);
+  
+  const turkishMonths = ['OCAK', 'ŞUBAT', 'MART', 'NİSAN', 'MAYIS', 'HAZİRAN', 
+                       'TEMMUZ', 'AĞUSTOS', 'EYLÜL', 'EKİM', 'KASIM', 'ARALIK'];
+  const englishMonths = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+                        'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+  
+  const months = locale === 'tr' ? turkishMonths : englishMonths;
+  const month = months[start.getMonth()];
+  const year = start.getFullYear();
+  
+  if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
+    // Same month: "17-25 JANUARY 2026"
+    return `${start.getDate()}-${end.getDate()} ${month} ${year}`;
+  } else {
+    // Different months: "30 JANUARY - 2 FEBRUARY 2026"
+    const endMonth = months[end.getMonth()];
+    if (start.getFullYear() === end.getFullYear()) {
+      return `${start.getDate()} ${month} - ${end.getDate()} ${endMonth} ${year}`;
+    } else {
+      return `${start.getDate()} ${month} ${start.getFullYear()} - ${end.getDate()} ${endMonth} ${end.getFullYear()}`;
+    }
+  }
+}
+
 // Get dynamic content
 const currentYear = yearData.year;
 const pageTitle = yearData.page_content?.title_en || `${currentYear} Fair Calendar`;
@@ -112,10 +142,17 @@ cmsFairs.forEach((fair: any) => {
     }
   }
 
+  // Generate date display from start_date and end_date
+  const displayDate = fair.basic_info?.start_date && fair.basic_info?.end_date 
+    ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en')
+    : fair.basic_info?.date_en || '';
+
   fairsData[sector].push({
     id: fair.basic_info.name_tr.toLowerCase().replace(/\s+/g, '-'),
     name: fair.basic_info.name_en || fair.basic_info.name_tr,
-    date: fair.basic_info.date_en || fair.basic_info.date_tr || '',
+    date: displayDate,
+    startDate: fair.basic_info?.start_date || null, // For sorting
+    endDate: fair.basic_info?.end_date || null, // For sorting
     location: fair.basic_info.location_en || fair.basic_info.location_tr,
     description: fair.basic_info.description_en || fair.basic_info.description_tr || '',
     backgroundImage: fair.visuals?.background_image || '/images/fuarlar-arkaplan.jpg',
@@ -172,7 +209,7 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
           <div class="fairs-container">
             {Object.entries(fairsData).map(([sector, fairs]) => 
               fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector}>
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector} data-order={fair.order} data-start-date={fair.startDate} data-end-date={fair.endDate}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -419,6 +456,7 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
+      const cardElement = card as HTMLElement;
       const nameElement = card.querySelector('h3');
       const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
       
@@ -426,8 +464,10 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
         element: card,
         name: nameElement?.textContent?.trim() || '',
         date: dateElement?.textContent?.trim() || '',
-        order: parseInt(card.dataset.order) || 999,
-        sector: card.dataset.sector || ''
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999,
+        sector: cardElement.getAttribute('data-sector') || '',
+        startDate: cardElement.getAttribute('data-start-date') || null,
+        endDate: cardElement.getAttribute('data-end-date') || null
       });
     });
     
