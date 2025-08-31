@@ -1,0 +1,61 @@
+sectors:
+  - name: "Moda ve Tekstil"
+    description: "Tekstil, konfeksiyon, moda ve aksesuar sektörü"
+    is_active: true
+    order: 1
+  - name: "Ev Tekstili ve Dekorasyon"
+    description: "Ev tekstili, dekorasyon ve iç mekan ürünleri"
+    is_active: true
+    order: 2
+  - name: "Mobilya ve Aydınlatma"
+    description: "Mobilya, aydınlatma ve ev eşyaları"
+    is_active: true
+    order: 3
+  - name: "Gıda ve İçecek"
+    description: "Gıda, içecek ve gastronomi sektörü"
+    is_active: true
+    order: 4
+  - name: "Teknoloji"
+    description: "Teknoloji, elektronik ve dijital çözümler"
+    is_active: true
+    order: 5
+  - name: "İnşaat"
+    description: "İnşaat, yapı malzemeleri ve altyapı"
+    is_active: true
+    order: 6
+  - name: "Otomotiv"
+    description: "Otomotiv, ulaşım ve lojistik sektörü"
+    is_active: true
+    order: 7
+  - name: "Sağlık"
+    description: "Sağlık, tıbbi cihazlar ve farmasötik"
+    is_active: true
+    order: 8
+  - name: "Güzellik ve Kozmetik"
+    description: "Güzellik, kozmetik ve kişisel bakım"
+    is_active: true
+    order: 9
+  - name: "Spor ve Fitness"
+    description: "Spor, fitness ve rekreasyon"
+    is_active: true
+    order: 10
+  - name: "Eğitim"
+    description: "Eğitim, öğretim ve kültür"
+    is_active: true
+    order: 11
+  - name: "Turizm"
+    description: "Turizm, otelcilik ve seyahat"
+    is_active: true
+    order: 12
+  - name: "Enerji"
+    description: "Enerji, yenilenebilir enerji ve çevre"
+    is_active: true
+    order: 13
+  - name: "Çevre"
+    description: "Çevre, sürdürülebilirlik ve geri dönüşüm"
+    is_active: true
+    order: 14
+  - name: "Diğer"
+    description: "Diğer sektörler"
+    is_active: true
+    order: 15

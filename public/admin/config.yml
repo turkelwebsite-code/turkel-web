@@ -42,10 +42,10 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Fuar tarihi - otomatik formatlanır (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
@@ -114,10 +114,10 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Fuar tarihi - otomatik formatlanır (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
@@ -186,10 +186,10 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Fuar tarihi - otomatik formatlanır (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
@@ -258,10 +258,10 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Fuar tarihi - otomatik formatlanır (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
@@ -330,10 +330,10 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Fuar tarihi - otomatik formatlanır (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
@@ -491,6 +491,24 @@ collections:
           - {label: "Web Sitesi", name: "website", widget: "string", required: false}
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1}
       - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+
+  # SEKTÖR YÖNETİMİ
+  - name: "sector_management"
+    label: "🏷️ Sektör Yönetimi"
+    files:
+      - label: "Sektör Listesi"
+        name: "sectors"
+        file: "src/content/settings/sectors.yml"
+        fields:
+          - label: "Aktif Sektörler"
+            name: "sectors"
+            widget: "list"
+            summary: "🏷️ {{fields.name}}"
+            fields:
+              - {label: "Sektör Adı", name: "name", widget: "string", hint: "Örnek: Moda ve Tekstil"}
+              - {label: "Açıklama", name: "description", widget: "text", required: false, hint: "Sektör hakkında kısa açıklama"}
+              - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+              - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1}
 
   # SİTE AYARLARI
   - name: "settings"
