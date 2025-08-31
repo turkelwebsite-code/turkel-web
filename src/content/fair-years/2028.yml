@@ -1,15 +1,34 @@
-cms_button_label: "2028 Fuarları"
-year: 2028
-page_slug: 2028-fuar-takvimi
-page_slug_en: 2028-fair-calendar
-is_active: false
+cms_button_label: 2022 Fuarları
+year: 2022
+page_slug: 2022-fuar-takvimi
+page_slug_en: 2022-fair-calendar
+is_active: true
 display_status: Aktif Fuarlar
-menu_order: 0
+menu_order: 5
 page_content:
-  title_tr: 2028 Fuar Takvimi
-  title_en: 2028 Fair Calendar
-  menu_title_tr: 2028 Fuar Takvimi
-  menu_title_en: 2028 Fair Calendar
-  description_tr: 2028 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
-  description_en: In 2028, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide.
-fairs: []
+  title_tr: 2022 Fuar Takvimi
+  title_en: 2022 Fair Calendar
+  menu_title_tr: 2022 Fuar Takvimi
+  menu_title_en: 2022 Fair Calendar
+  description_tr: 2022 yılında dünya çapında organize edeceğimiz prestijli
+    fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+  description_en: In 2022, we bring Turkish companies together with global markets
+    at prestigious fairs we organize worldwide.
+fairs:
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      name_tr: CIFF-COPENHAGEN FASHION FAIR
+      name_en: CIFF-COPENHAGEN FASHION FAIR
+      date_tr: 2-4 ŞUBAT 2022
+      date_en: 2-4 FEBRUARY 2022
+      location_tr: KOPENHAG, DANİMARKA
+      location_en: COPENHAGEN, DENMARK
+      sector: Moda ve Tekstil
+    visuals:
+      logo: /images/fair-logo-ciff.jpg
+      background_image: /images/fair-bg-ciff.jpeg
