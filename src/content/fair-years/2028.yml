@@ -1,8 +1,8 @@
-cms_button_label: Edit 1 Fuarları
+cms_button_label: Pasif
 year: 2052
 page_slug: 2052-fuar-takvimi
 page_slug_en: 2052-fair-calendar
-is_active: true
+is_active: false
 display_status: Aktif Fuarlar
 menu_order: 5
 page_content:
