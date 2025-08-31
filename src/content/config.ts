@@ -157,10 +157,10 @@ const fairYears = defineCollection({
         background_image: z.string(),
       }).optional(),
       representative: z.object({
-        name: z.string(),
-        title: z.string(),
-        email: z.string(),
-        phone: z.string(),
+        name: z.string().optional(),
+        title: z.string().optional(),
+        email: z.string().optional(),
+        phone: z.string().optional(),
       }).optional(),
       settings: z.object({
         show_in_slider: z.boolean(),

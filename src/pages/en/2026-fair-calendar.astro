@@ -3,183 +3,217 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { getCollection } from 'astro:content';
 
 const locale = 'en';
 
-// Footer content
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Fair data organized by sectors
-const fairsData = {
-  "Fashion & Textile": [
+// Get fair data from CMS for 2026 - ENHANCED DEBUG
+try {
+  console.log('🔍 DEBUG: Starting CMS data load for 2026...');
+  
+  const fairYearData = await getCollection('fair-years');
+  console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
+  console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
+  
+  // File-based collection uses filename as ID
+  const year2026Data = fairYearData.find(item => item.id === '2026');
+  console.log('🔍 DEBUG: 2026 data found:', !!year2026Data);
+  console.log('🔍 DEBUG: 2026 data content:', year2026Data?.data);
+  
+  const cmsFairs = year2026Data?.data?.fairs || [];
+  console.log('🎪 CMS Fairs loaded for 2026:', cmsFairs.length);
+  console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
+  console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
+  console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
+  
+  // Convert CMS data to page format
+  var fairsData: Record<string, any[]> = {};
+  cmsFairs.forEach((fair: any) => {
+    const sector = fair.basic_info.sector;
+    if (!fairsData[sector]) {
+      fairsData[sector] = [];
+    }
+    
+    const fairItem = {
+      id: fairsData[sector].length + 1,
+      name: fair.basic_info.name_en || fair.basic_info.name_tr,
+      city: fair.basic_info.location_en?.split(',')[0].trim() || fair.basic_info.location_tr?.split(',')[0].trim(),
+      country: fair.basic_info.location_en?.split(',')[1]?.trim() || fair.basic_info.location_tr?.split(',')[1]?.trim() || fair.basic_info.location_en || fair.basic_info.location_tr,
+      date: fair.basic_info.date_en || fair.basic_info.date || '',
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: fair.representative?.name || "Sales Representative",
+        title: fair.representative?.title || "Sales Director", 
+        email: fair.representative?.email || "info@turkel.com.tr",
+        phone: fair.representative?.phone || "+90 212 284 23 00"
+      },
+      description: fair.basic_info.description_en || `${fair.basic_info.name_en || fair.basic_info.name_tr} fair will take place on ${fair.basic_info.date} in ${fair.basic_info.location_en || fair.basic_info.location_tr}.`
+    };
+    
+    console.log('🔍 DEBUG: Processing fair:', fair.basic_info.name_tr);
+    console.log('🔍 DEBUG: Representative from CMS:', fair.representative);
+    console.log('🔍 DEBUG: Final representative data:', fairItem.representative);
+    
+    fairsData[sector].push(fairItem);
+  });
+  
+  console.log('✅ 2026 Fairs data converted:', Object.keys(fairsData));
+} catch (error) {
+  console.error('❌ CMS data loading failed for 2026, using fallback:', error);
+  
+  // Fallback static data if CMS fails
+  var fairsData: Record<string, any[]> = {
+  "Moda ve Tekstil": [
     {
       id: 1,
-      name: "LeShow Moscow",
-      city: "Moscow",
-      country: "Russia",
-      date: "March 15-18, 2025",
-      image: "/images/leshow-bg.jpg",
-      logo: "/images/leshow-logo.png",
+      name: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı 2026",
+      city: "Moskova",
+      country: "Rusya",
+      date: "15-18 Mart 2026",
       representative: {
         name: "Seval Arslan",
-        title: "Sales Director",
+        title: "Satış Direktörü",
         email: "seval@turkel.com.tr",
         phone: "+90 216 123 45 68"
-      },
-      description: "Russia's largest fashion and textile fair"
+      }
     },
     {
       id: 2,
-      name: "Fashion Week Istanbul",
-      city: "Istanbul",
-      country: "Turkey",
-      date: "June 20-23, 2025",
-      image: "/images/fashion-bg.jpg",
-      logo: "/images/fashion-logo.png",
+      name: "Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı 2026",
+      city: "İstanbul",
+      country: "Türkiye",
+      date: "20-23 Haziran 2026",
       representative: {
         name: "Hazal Özkap",
-        title: "Sales Manager",
+        title: "Satış Sorumlusu",
         email: "hazal@turkel.com.tr",
         phone: "+90 216 123 45 69"
-      },
-      description: "Turkey's prestigious fashion fair"
+      }
+    },
+    {
+      id: 7,
+      name: "Texworld Paris - Avrupa Tekstil ve Kumaş Teknolojileri Fuarı 2026",
+      city: "Paris",
+      country: "Fransa",
+      date: "3-5 Şubat 2026",
+      representative: {
+        name: "Coşkun Bobuş",
+        title: "Operasyon Müdürü",
+        email: "coskun@turkel.com.tr",
+        phone: "+90 216 123 45 84"
+      }
     }
   ],
-  "Home Textile & Decoration": [
+  "Ev Tekstili ve Dekorasyon": [
     {
       id: 3,
-      name: "HomeDeco Kazakhstan",
-      city: "Almaty",
-      country: "Kazakhstan",
-      date: "April 22-25, 2025",
-      image: "/images/homedeco-bg.jpg",
-      logo: "/images/homedeco-logo.png",
+      name: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı 2026",
+      city: "Almatı",
+      country: "Kazakistan",
+      date: "22-25 Nisan 2026",
       representative: {
         name: "Arzu Günal",
-        title: "Sales Director",
+        title: "Satış Direktörü",
         email: "arzu@turkel.com.tr",
         phone: "+90 216 123 45 71"
-      },
-      description: "Central Asia's largest home decoration fair"
+      }
     },
     {
       id: 4,
-      name: "Home & Decor Expo",
-      city: "Baku",
-      country: "Azerbaijan",
-      date: "September 10-13, 2025",
-      image: "/images/homedecor-bg.jpg",
-      logo: "/images/homedecor-logo.png",
+      name: "Heimtextil Frankfurt - Dünya Ev Tekstili ve İç Dekorasyon Fuarı 2026",
+      city: "Frankfurt",
+      country: "Almanya",
+      date: "14-17 Ocak 2026",
       representative: {
-        name: "Sinem Altınay",
-        title: "Department Assistant",
-        email: "sinemaltinay@turkel.com.tr",
-        phone: "+90 216 123 45 72"
-      },
-      description: "Caucasus region's home textile fair"
+        name: "Nur Kaya",
+        title: "Finansman Müdürü",
+        email: "nur@turkel.com.tr",
+        phone: "+90 216 123 45 86"
+      }
     }
   ],
-  "Furniture & Lighting": [
+  "Mobilya ve Aydınlatma": [
     {
       id: 5,
-      name: "Furniture Istanbul",
-      city: "Istanbul",
-      country: "Turkey",
-      date: "May 10-13, 2025",
-      image: "/images/furniture-bg.jpg",
-      logo: "/images/furniture-logo.png",
+      name: "Salone del Mobile Milano - Dünya Mobilya Tasarım ve İnovasyon Fuarı 2026",
+      city: "Milano",
+      country: "İtalya",
+      date: "22-27 Nisan 2026",
       representative: {
-        name: "Pınar Yalçın",
-        title: "Sales Director",
-        email: "pinar@turkel.com.tr",
-        phone: "+90 216 123 45 73"
-      },
-      description: "Turkey's largest furniture fair"
+        name: "Özge Taşkıran",
+        title: "Finansman Sorumlusu",
+        email: "ozgetaskiran@turkel.com.tr",
+        phone: "+90 216 123 45 87"
+      }
     },
     {
       id: 6,
-      name: "Light & Building Expo",
-      city: "Tashkent",
-      country: "Uzbekistan",
-      date: "November 5-8, 2025",
-      image: "/images/lighting-bg.jpg",
-      logo: "/images/lighting-logo.png",
+      name: "Furniture İstanbul - Türkiye Mobilya ve Dekorasyon Endüstrisi Fuarı 2026",
+      city: "İstanbul",
+      country: "Türkiye",
+      date: "10-13 Mayıs 2026",
       representative: {
-        name: "Özün Savaş Bakır",
-        title: "Sales Manager",
-        email: "ozun@turkel.com.tr",
-        phone: "+90 216 123 45 74"
-      },
-      description: "Central Asia lighting and electrical fair"
+        name: "Mehmet Kaya",
+        title: "Satış Direktörü",
+        email: "mehmet@turkel.com.tr",
+        phone: "+90 216 123 45 73"
+      }
     }
   ],
-  "Industrial & Technical": [
-    {
-      id: 7,
-      name: "Plastic & Mold Expo",
-      city: "Almaty",
-      country: "Kazakhstan",
-      date: "August 15-18, 2025",
-      image: "/images/plastic-bg.jpg",
-      logo: "/images/plastic-logo.png",
-      representative: {
-        name: "Ahmet Hilmi Çoruk",
-        title: "Sales Director",
-        email: "ahmethilmi@turkel.com.tr",
-        phone: "+90 216 123 45 76"
-      },
-      description: "Plastic and mold industry fair"
-    },
+  "Teknoloji ve Elektronik": [
     {
       id: 8,
-      name: "Security Systems Fair",
-      city: "Moscow",
-      country: "Russia",
-      date: "October 12-15, 2025",
-      image: "/images/security-bg.jpg",
-      logo: "/images/security-logo.png",
+      name: "CES Las Vegas - Uluslararası Tüketici Elektroniği ve Teknoloji İnovasyonu Fuarı 2026",
+      city: "Las Vegas",
+      country: "ABD",
+      date: "7-10 Ocak 2026",
       representative: {
-        name: "Gül Baykara",
-        title: "Sales Manager",
-        email: "gul@turkel.com.tr",
-        phone: "+90 216 123 45 79"
-      },
-      description: "Security systems and technologies fair"
+        name: "Uğur Yonar",
+        title: "Finans ve Muhasebe Görevlisi",
+        email: "yonar@turkel.com.tr",
+        phone: "+90 216 123 45 90"
+      }
+    },
+    {
+      id: 9,
+      name: "IFA Berlin - Avrupa Elektronik ve Ev Aletleri Teknolojileri Fuarı 2026",
+      city: "Berlin",
+      country: "Almanya",
+      date: "6-10 Eylül 2026",
+      representative: {
+        name: "Neval Dakul",
+        title: "Muhasebe Müdürü",
+        email: "neval@turkel.com.tr",
+        phone: "+90 216 123 45 88"
+      }
     }
   ]
-};
+  };
+}
 
 // Get all sectors for filtering
 const sectors = Object.keys(fairsData);
+
+// Client-side debug data
+const debugInfo = {
+  totalFairs: Object.values(fairsData).flat().length,
+  sectors: Object.keys(fairsData),
+  fairsPerSector: Object.entries(fairsData).map(([sector, fairs]) => ({
+    sector,
+    count: fairs.length
+  }))
+};
 ---
 
-<BaseLayout title="Our Fairs - Türkel Fair Organization" description="International fairs organized by Türkel Fair Organization">
+<BaseLayout title="2026 Fair Calendar - Türkel Fair Organization" description="Detailed calendar of international fairs we will organize in 2026" locale={locale}>
   <Header locale={locale} />
   
-  <main class="min-h-screen">
-    <!-- Breadcrumb Section -->
-    <section class="py-6 lg:py-8 relative" style="background-color: #FCFCFC;">
-      <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
-        <div class="container mx-auto px-4 lg:px-8">
-          <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
-            <a href="/en/" class="hover:text-[#CE1A28] transition-colors">Home</a>
-            <span>/</span>
-            <span class="text-gray-900 font-medium">Our Fairs</span>
-          </nav>
-          
-          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 text-center" style="font-family: 'Radio Canada Big', sans-serif;">
-            Our Fairs
-          </h1>
-        </div>
-      </div>
-      
-      <!-- Bottom Border Line -->
-      <div class="absolute bottom-0 left-0 w-full h-0.5" style="background-color: #CE1A28;"></div>
-    </section>
-
-    <!-- Fairs Section -->
-    <section class="py-8 lg:py-12">
+  <main class="pt-8 pb-16">
+    <section class="py-16">
       <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
         <div class="container mx-auto px-4 lg:px-8">
           
@@ -195,26 +229,16 @@ const sectors = Object.keys(fairsData);
             </p>
           </div>
 
-          <!-- Sector Filter -->
-          <div class="mb-8">
-            <div class="flex flex-wrap justify-center gap-3">
-              <button 
-                class="filter-btn active px-6 py-2 rounded-full border border-[#CE1A28] bg-[#CE1A28] text-white font-medium transition-all duration-300 hover:bg-[#B01520]" 
-                data-sector="all"
-                style="font-family: 'Radio Canada Big', sans-serif;"
-              >
-                All
+          <!-- Sector Filter Buttons -->
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
+              All Sectors
+            </button>
+            {sectors.map((sector) => (
+              <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
+                {sector}
               </button>
-              {sectors.map((sector) => (
-                <button 
-                  class="filter-btn px-6 py-2 rounded-full border border-[#CE1A28] text-[#CE1A28] bg-white font-medium transition-all duration-300 hover:bg-[#CE1A28] hover:text-white" 
-                  data-sector={sector}
-                  style="font-family: 'Radio Canada Big', sans-serif;"
-                >
-                  {sector}
-                </button>
-              ))}
-            </div>
+            ))}
           </div>
 
           <!-- Fairs Grid -->
@@ -226,17 +250,18 @@ const sectors = Object.keys(fairsData);
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
-                        src="/images/fuarlar-arkaplan.jpg" 
+                        src={fair.image || "/images/fuarlar-arkaplan.jpg"} 
                         alt={fair.name}
-                        class="w-full h-full object-cover opacity-80"
+                        class="w-full h-full object-cover object-center opacity-80"
+                        style="min-width: 100%; min-height: 100%;"
                       />
                       <!-- Fair Logo Overlay -->
                       <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="bg-white bg-opacity-95 rounded-xl p-6 shadow-lg">
+                        <div class="bg-white bg-opacity-95 rounded-xl p-4 shadow-lg max-w-[230px]">
                           <img 
-                            src="/images/fuarlar-logo.png" 
+                            src={fair.logo || "/images/fuarlar-logo.png"} 
                             alt={`${fair.name} Logo`}
-                            class="h-48 w-auto max-w-[360px] object-contain"
+                            class="h-32 w-auto max-w-[260px] object-contain mx-auto"
                             style="filter: hue-rotate(0deg);"
                           />
                         </div>
@@ -245,18 +270,19 @@ const sectors = Object.keys(fairsData);
 
                     <!-- Fair Details -->
                     <div class="p-6">
-                      <!-- Fair Name -->
-                      <div class="relative group">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
+                      <!-- Fair Name and Description -->
+                      <div class="mb-3">
+                        <h3 class="text-xl font-bold text-gray-900" style="font-family: 'Radio Canada Big', sans-serif;">
                           {fair.name}
                         </h3>
-                        <!-- Independent Tooltip -->
-                        <div class="fixed opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none bg-gray-900 text-white px-4 py-3 rounded-lg shadow-xl border border-gray-700" style="z-index: 99999; max-width: 400px; min-width: 250px; white-space: normal; word-wrap: break-word; line-height: 1.5; font-size: 14px; top: auto; left: auto;">
-                          {fair.name}
-                        </div>
+                        <!-- Fair Description - Hiç boşluk yok -->
+                        {fair.description && (
+                          <p class="text-sm text-gray-600 font-medium leading-tight -mt-1" style="font-family: 'Radio Canada Big', sans-serif;">
+                            {fair.description}
+                          </p>
+                        )}
                       </div>
                       
-
 
                       <!-- Fair Info -->
                       <div class="space-y-2 mb-4">
@@ -340,7 +366,7 @@ const sectors = Object.keys(fairsData);
 
   /* Standard card dimensions - sabit yükseklik */
   .fair-card {
-    height: 520px !important; /* Temsilci bilgileri için yükseklik artırıldı */
+    height: 520px !important;
     min-height: 520px !important;
     max-height: 520px !important;
     display: flex !important;
@@ -348,11 +374,11 @@ const sectors = Object.keys(fairsData);
     margin-bottom: 2rem !important;
   }
 
-  /* Card image section - biraz daraltıldı */
+  /* Card image section - 200px */
   .fair-card .h-64 {
-    height: 220px !important; /* 256px'den 220px'e düşürüldü */
-    min-height: 220px !important;
-    max-height: 220px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
     flex-shrink: 0 !important;
   }
 
@@ -364,18 +390,12 @@ const sectors = Object.keys(fairsData);
     padding: 1.5rem !important;
   }
 
-  /* Fair name - sabit yükseklik, maksimum 2 satır */
+  /* Fair name - esnek yükseklik */
   .fair-card h3 {
     font-size: 1.125rem !important;
     line-height: 1.4 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-    margin-bottom: 0.75rem !important;
     word-wrap: break-word !important;
     hyphens: auto !important;
-    height: 3.15rem !important; /* Sabit yükseklik - 2 satır için */
   }
 
   /* Simple CSS-only tooltip */
@@ -387,30 +407,28 @@ const sectors = Object.keys(fairsData);
     visibility: visible !important;
   }
 
-
-
   /* Fair info section - sabit yükseklik */
   .fair-card .space-y-2 {
     flex-shrink: 0 !important;
     margin-bottom: 1rem !important;
-    height: 3rem !important; /* Sabit yükseklik - lokasyon ve tarih için */
+    height: 3rem !important;
   }
 
   /* Representative section - alt kısımda sabit yükseklik */
   .fair-card .border-t {
     margin-top: auto !important;
     padding-top: 1rem !important;
-    padding-bottom: 1rem !important; /* Alt boşluk ekle */
+    padding-bottom: 1rem !important;
     flex-shrink: 0 !important;
-    min-height: 140px !important; /* Temsilci bilgileri için yeterli alan */
+    min-height: 140px !important;
   }
 
   /* Email ve telefon hizalama düzeltmesi - alt alta */
   .fair-card .border-t .space-y-2 {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.25rem !important; /* Daha az boşluk */
-    margin-top: 0.5rem !important; /* Üsten daha az boşluk */
+    gap: 0.25rem !important;
+    margin-top: 0.5rem !important;
   }
 
   .fair-card .border-t .flex.items-center {
@@ -438,7 +456,7 @@ const sectors = Object.keys(fairsData);
     
     /* Mobile card dimensions - sabit yükseklik */
     .fair-card {
-      height: 480px !important; /* Son içerik tam gözüksün diye artırıldı */
+      height: 440px !important;
       min-height: 480px !important;
       max-height: 480px !important;
       margin-bottom: 1.5rem !important;
@@ -446,14 +464,14 @@ const sectors = Object.keys(fairsData);
 
     /* Mobile image section - biraz daraltıldı */
     .fair-card .h-64 {
-      height: 180px !important; /* 200px'den 180px'e düşürüldü */
+      height: 180px !important;
       min-height: 180px !important;
       max-height: 180px !important;
     }
 
     /* Mobile representative section */
     .fair-card .border-t {
-      min-height: 120px !important; /* Mobile için temsilci alanı */
+      min-height: 120px !important;
     }
     
     /* Mobile'da logo daha küçük */
@@ -462,17 +480,15 @@ const sectors = Object.keys(fairsData);
       max-width: 150px !important;
     }
 
-    /* Mobile content adjustments - sabit yükseklik */
+    /* Mobile content adjustments - esnek yükseklik */
     .fair-card h3 {
       font-size: 1rem !important;
       line-height: 1.3 !important;
-      -webkit-line-clamp: 2 !important;
-      height: 2.6rem !important; /* Mobile için 2 satır sabit yükseklik */
     }
 
     /* Mobile fair info section */
     .fair-card .space-y-2 {
-      height: 2.5rem !important; /* Mobile için daha kompakt */
+      height: 2.5rem !important;
     }
 
     /* Mobile tooltip */
@@ -502,13 +518,6 @@ const sectors = Object.keys(fairsData);
   /* Logo overlay styling */
   .fair-card .absolute {
     backdrop-filter: blur(2px);
-  }
-
-  /* Text overflow handling */
-  .text-ellipsis-multiline {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   /* Lazy loading styles */
@@ -647,4 +656,23 @@ const sectors = Object.keys(fairsData);
       }
     });
   });
+</script>
+
+<!-- SIMPLE CLIENT DEBUG -->
+<script>
+  // Simple debug without template literals
+  console.log('🎯 2026 FUAR TAKVİMİ - CMS TEST');
+  console.log('📊 Page loaded successfully');
+  
+  // Check if fair cards are rendered
+  setTimeout(() => {
+    const fairCards = document.querySelectorAll('.fair-card');
+    console.log('🎪 Fair cards found on page:', fairCards.length);
+    
+    if (fairCards.length === 0) {
+      console.log('❌ No fair cards found - CMS data issue');
+    } else {
+      console.log('✅ Fair cards rendered successfully');
+    }
+  }, 1000);
 </script>
