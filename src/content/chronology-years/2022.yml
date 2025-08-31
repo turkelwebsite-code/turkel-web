@@ -1,0 +1,20 @@
+cms_button_label: "2022 Kronoloji"
+year: 2022
+is_active: true
+fairs:
+  - name: "LeShow Moskova 2022"
+    city: "Moskova"
+    country: "Rusya"
+    sector: "Moda ve Tekstil"
+    area: "14,000 m²"
+    participants: "380"
+    description: "Rusya'nın moda ve tekstil fuarı"
+    order: 1
+  - name: "Plastic Expo Almatı 2022"
+    city: "Almatı"
+    country: "Kazakistan"
+    sector: "Plastik ve Kalıp"
+    area: "5,000 m²"
+    participants: "120"
+    description: "Plastik sanayi fuarı"
+    order: 2

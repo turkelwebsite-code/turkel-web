@@ -1,0 +1,28 @@
+cms_button_label: "2023 Kronoloji"
+year: 2023
+is_active: true
+fairs:
+  - name: "Fashion Week İstanbul 2023"
+    city: "İstanbul"
+    country: "Türkiye"
+    sector: "Moda ve Tekstil"
+    area: "12,000 m²"
+    participants: "320"
+    description: "Türkiye'nin prestijli moda fuarı"
+    order: 1
+  - name: "HomeDeco Almatı 2023"
+    city: "Almatı"
+    country: "Kazakistan"
+    sector: "Ev Tekstili ve Dekorasyon"
+    area: "8,000 m²"
+    participants: "180"
+    description: "Orta Asya'nın ev dekorasyonu fuarı"
+    order: 2
+  - name: "Security Expo Moskova 2023"
+    city: "Moskova"
+    country: "Rusya"
+    sector: "Güvenlik Sistemleri"
+    area: "6,000 m²"
+    participants: "150"
+    description: "Güvenlik teknolojileri fuarı"
+    order: 3

@@ -11,21 +11,22 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Load chronology data from new chronology-years collection
+// Load chronology data from CMS chronology-years collection
 var chronologyData: Record<number, any[]> = {};
 
 try {
   const chronologyYears = await getCollection('chronology-years');
+  console.log('📜 CHRONOLOGY DEBUG: Chronology years collection loaded:', chronologyYears.length);
 
   // Load from chronology-years collection
   chronologyYears.forEach(yearCollection => {
     const year = yearCollection.data.year;
     if (yearCollection.data.is_active && yearCollection.data.fairs) {
       chronologyData[year] = yearCollection.data.fairs.sort((a, b) => a.order - b.order);
+      console.log(`📜 CHRONOLOGY DEBUG: Loaded ${year} with ${yearCollection.data.fairs.length} fairs from CMS`);
     }
   });
 
-  console.log('📜 CHRONOLOGY DEBUG: Chronology years collection loaded');
   console.log('📜 CHRONOLOGY DEBUG: Years from CMS:', Object.keys(chronologyData));
 } catch (error) {
   console.log('📜 CHRONOLOGY DEBUG: chronology-years collection not found, using fallback');
@@ -72,8 +73,14 @@ allFairYears.forEach(yearCollection => {
 console.log('📜 CHRONOLOGY DEBUG: Auto-populated from fairs');
 console.log('📜 CHRONOLOGY DEBUG: Final years with data:', Object.keys(chronologyData));
 
-// Merge with static data where CMS data doesn't exist
-const staticChronologyData = {
+// Remove static data - use only CMS data
+console.log('📜 CHRONOLOGY DEBUG: Using only CMS data, no static fallback');
+
+// Final chronology data (CMS only)
+const finalChronologyData = chronologyData;
+
+// Legacy static data (removed - now using CMS only)
+const removedStaticChronologyData = {
   2024: [
     {
       name: "LeShow Moskova 2024",
@@ -488,25 +495,17 @@ const staticChronologyData = {
   ]
 };
 
-// Merge CMS data with static fallback
-Object.keys(staticChronologyData).forEach(year => {
-  const yearNum = parseInt(year);
-  if (!chronologyData[yearNum]) {
-    chronologyData[yearNum] = staticChronologyData[yearNum];
-  }
-});
-
-// Sort years in descending order (newest first) and limit to 10 years
+// Sort years in descending order (newest first) and limit to 12 years (CMS only)
 const currentYear = new Date().getFullYear();
-const sortedYears = Object.keys(chronologyData)
+const sortedYears = Object.keys(finalChronologyData)
   .map(year => parseInt(year))
   .filter(year => year <= currentYear) // Only past and current years
   .sort((a, b) => b - a)
-  .slice(0, 10); // Limit to 10 years
+  .slice(0, 12); // Limit to 12 years
 
 console.log('📜 CHRONOLOGY DEBUG: Final chronology years (last 10):', sortedYears);
 console.log('📜 CHRONOLOGY DEBUG: Total entries per year:', 
-  sortedYears.map(year => `${year}: ${chronologyData[year]?.length || 0}`));
+  sortedYears.map(year => `${year}: ${finalChronologyData[year]?.length || 0}`));
 ---
 
 <BaseLayout title="Kronoloji - Türkel Fuarcılık" description="Türkel Fuarcılık'ın son 10 yıllık fuar organizasyonları kronolojisi">
@@ -546,7 +545,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
             <!-- Timeline Items -->
             <div class="space-y-16 lg:space-y-24">
               {sortedYears.map((year, index) => {
-                const fairs = chronologyData[year];
+                const fairs = finalChronologyData[year];
                 // Debug: Yıl numarasına göre pozisyon belirleme
                 const yearNum = year;
                 const isLeft = yearNum % 2 === 0; // Çift yıllar (2024, 2022, 2020...) sol tarafta
