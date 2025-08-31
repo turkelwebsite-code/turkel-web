@@ -147,14 +147,30 @@ const fairYears = defineCollection({
         location_tr: z.string(),
         location_en: z.string(),
         sector: z.string(),
+        description_tr: z.string().optional(),
+        description_en: z.string().optional(),
       }),
       visuals: z.object({
         logo: z.string(),
         background_image: z.string(),
       }).optional(),
+      representative: z.object({
+        name: z.string(),
+        title: z.string(),
+        email: z.string(),
+        phone: z.string(),
+      }).optional(),
       settings: z.object({
         show_in_slider: z.boolean(),
         show_in_forms: z.boolean(),
+      }).optional(),
+      slider_content: z.object({
+        website_url: z.string().optional(),
+        maps_embed: z.string().optional(),
+        background_image: z.string().optional(),
+        mini_images: z.array(z.object({
+          image: z.string()
+        })).optional(),
       }).optional(),
     })),
   }),
