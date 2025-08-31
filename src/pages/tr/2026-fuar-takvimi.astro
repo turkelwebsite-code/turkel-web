@@ -727,11 +727,12 @@ const debugInfo = {
     const fairsContainer = document.querySelector('.fairs-container');
     
     // Store original fair data for sorting
-    const fairsData = {};
+    const fairsData: Record<string, any[]> = {};
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
-      const sector = card.closest('.sector-group')?.dataset.sector || 'other';
+      const cardElement = card as HTMLElement;
+      const sector = card.closest('.sector-group')?.getAttribute('data-sector') || 'other';
       if (!fairsData[sector]) fairsData[sector] = [];
       
       const nameElement = card.querySelector('h3');
@@ -741,7 +742,7 @@ const debugInfo = {
         element: card,
         name: nameElement?.textContent?.trim() || '',
         date: dateElement?.textContent?.trim() || '',
-        order: parseInt(card.dataset.order) || 999
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999
       });
     });
     
@@ -751,8 +752,8 @@ const debugInfo = {
       
       // Get ALL cards from ALL sectors for global sorting
       const allCards: any[] = [];
-      Object.keys(fairsData).forEach(sector => {
-        fairsData[sector].forEach(fair => allCards.push(fair));
+      Object.keys(fairsData).forEach((sector: string) => {
+        fairsData[sector].forEach((fair: any) => allCards.push(fair));
       });
       
       console.log('🔄 SORTING: Total cards to sort:', allCards.length);
@@ -847,7 +848,7 @@ const debugInfo = {
     // Sort button functionality
     sortButtons.forEach(button => {
       button.addEventListener('click', function(this: HTMLButtonElement) {
-        const sortType = this.dataset.sort;
+        const sortType = this.getAttribute('data-sort') || 'order';
         
         // Update active button
         sortButtons.forEach(btn => {
