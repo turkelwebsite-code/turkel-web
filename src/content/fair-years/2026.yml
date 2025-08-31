@@ -5,17 +5,17 @@ fairs:
       show_in_slider: false
       show_in_forms: true
     basic_info:
-      name_tr: BOOT DUSSELDORF
-      name_en: BOOT DUSSELDORF
-      date: 17-01 January 2026
+      name_tr: BOOT DUSSELDORF ULUSLARARASI TEKNE VE SU SPORLARI FUARI
+      name_en: BOOT DUSSELDORF INTERNATIONAL BOAT AND WATER SPORTS FAIR
+      date: 17-25.01.2026
+      location_en: DUSSELDORF, GERMANY
       location_tr: DÜSSELDORF, ALMANYA
-      sector: Moda ve Tekstil
-      location_en: DÜSSELDORF, ALMANYA
+      sector: Diğer
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-boot.jpg
+      background_image: /images/fair-bg-boot.png
     representative:
-      name: Mertcan Sezan
-      email: sezan1991@gmail.com
-      phone: "05057062191"
-      title: test
+      name: Ahmet Hilmi ÇORUK
+      title: Satış Direktörü
+      email: ahmethilmi@turkel.com.tr
+      phone: +90 216 123 45 68
