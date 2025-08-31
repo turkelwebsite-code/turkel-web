@@ -2,11 +2,11 @@ cms_button_label: "2024 Kronoloji"
 year: 2024
 is_active: true
 fairs:
-  - name: "LeShow Moskova 2024"
-    city: "Moskova"
-    country: "Rusya"
-    sector: "Deri ve Kürk"
-    area: "15,000 m²"
+  - name: LeShow Moskova 2024
+    city: Moskova
+    country: Rusya
+    sector: Deri ve Kürk
+    area: 15,000 m²
     participants: "450"
-    description: "Rusya'nın en büyük deri ve kürk fuarı"
+    description: Rusya'nın en büyük deri ve kürk fuarı
     order: 1

@@ -1,0 +1,12 @@
+cms_button_label: "2020"
+year: 2020
+is_active: true
+fairs:
+  - order: 1
+    name: tet
+    city: tet
+    country: test
+    sector: test
+    area: "100"
+    participants: "100"
+    description: test

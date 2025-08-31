@@ -1,0 +1,11 @@
+cms_button_label: "2019"
+year: 2019
+is_active: true
+fairs:
+  - order: 1
+    name: test
+    city: test
+    country: test
+    sector: test
+    area: "123123"
+    participants: "123"
