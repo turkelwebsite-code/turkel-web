@@ -7,6 +7,9 @@ public_folder: "/images"
 
 locale: 'tr'
 display_url: https://turkel-web.netlify.app
+show_preview_links: false
+editor:
+  preview: false
 
 collections:
   # FUARLAR - Yıl Bazlı Yönetim
