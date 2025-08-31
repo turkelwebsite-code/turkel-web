@@ -71,11 +71,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 İsim", name: "name", widget: "string"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
                   - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
                   - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
-                  - {label: "📧 E-posta", name: "email", widget: "string"}
-                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Boş bırakılabilir"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false}
               - label: "⚙️ Ayarlar"
                 name: "settings"
@@ -156,8 +166,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "⚙️ Ayarlar"
                 name: "settings"
@@ -266,8 +289,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
@@ -361,8 +397,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
@@ -447,8 +496,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
@@ -533,8 +595,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
@@ -619,8 +694,21 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
-                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - label: "👤 Ekip Üyesi Seç"
+                    name: "team_member"
+                    widget: "relation"
+                    collection: "team_members"
+                    search_fields: ["name"]
+                    value_field: "name"
+                    display_fields: ["name", "title.tr"]
+                    filter: {field: "is_fair_representative", value: true}
+                    required: false
+                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
+                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
