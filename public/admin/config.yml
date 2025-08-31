@@ -42,6 +42,8 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+                  - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
+                  - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
                   - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
@@ -114,6 +116,8 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+                  - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
+                  - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
                   - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
@@ -186,6 +190,8 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+                  - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
+                  - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
                   - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
@@ -258,6 +264,8 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+                  - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
+                  - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
                   - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
@@ -330,6 +338,8 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
+                  - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
+                  - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
                   - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}

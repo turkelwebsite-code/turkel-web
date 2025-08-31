@@ -50,7 +50,7 @@ try {
         email: fair.representative?.email || "info@turkel.com.tr",
         phone: fair.representative?.phone || "+90 212 284 23 00"
       },
-      description: `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
+      description: fair.basic_info.description_tr || `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
     });
   });
   
@@ -204,6 +204,12 @@ const sectors = Object.keys(fairsData);
                         <h3 class="text-xl font-bold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
                           {fair.name}
                         </h3>
+                        <!-- Fair Description -->
+                        {fair.description && (
+                          <p class="text-sm text-gray-600 mb-3 font-medium leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                            {fair.description}
+                          </p>
+                        )}
                         <!-- Independent Tooltip -->
                         <div class="fixed opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none bg-gray-900 text-white px-4 py-3 rounded-lg shadow-xl border border-gray-700" style="z-index: 99999; max-width: 400px; min-width: 250px; white-space: normal; word-wrap: break-word; line-height: 1.5; font-size: 14px; top: auto; left: auto;">
                           {fair.name}
