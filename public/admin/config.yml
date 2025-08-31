@@ -16,10 +16,9 @@ collections:
   - name: "fair_years"
     label: "🎪 Fuarlar"
     files:
-      - label: "{{cms_button_label}}"
+      - label: "2028 Fuarları"
         name: "fairs_2028"
         file: "src/content/fair-years/2028.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2028 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2028}
@@ -213,10 +212,9 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
-      - label: "{{cms_button_label}}"
+      - label: "2026 Fuarları"
         name: "fairs_2026"
         file: "src/content/fair-years/2026.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2026 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2026}
@@ -322,10 +320,9 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{cms_button_label}}"
+      - label: "2025 Fuarları"
         name: "fairs_2025"
         file: "src/content/fair-years/2025.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2025 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2025}
@@ -431,10 +428,9 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{cms_button_label}}"
+      - label: "2024 Fuarları"
         name: "fairs_2024"
         file: "src/content/fair-years/2024.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2024 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2024}
@@ -540,10 +536,9 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{cms_button_label}}"
+      - label: "2023 Fuarları"
         name: "fairs_2023"
         file: "src/content/fair-years/2023.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2023 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2023}
@@ -649,10 +644,9 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{cms_button_label}}"
+      - label: "2022 Fuarları"
         name: "fairs_2022"
         file: "src/content/fair-years/2022.yml"
-        summary: "{{cms_button_label}} ({{year}} - {{fairs.length}} fuar)"
         fields:
           - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2022 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2022}
