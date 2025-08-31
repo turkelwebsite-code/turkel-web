@@ -23,9 +23,11 @@ fairs:
       description_tr: ULUSLARARASI TEKNE VE SU SPORLARI FUARI
       sector: Diğer
       location_tr: DÜSSELDORF, ALMANYA
+      start_date: 2026-01-17
       description_en: " INTERNATIONAL BOAT AND WATER SPORTS FAIR"
       date: ""
       date_tr: 17-25 OCAK 2026
+      end_date: 2026-01-25
       name_tr: "BOOT DUSSELDORF "
       location_en: DUSSELDORF, GERMANY
       date_en: 17-25 JANUARY 2026
@@ -50,8 +52,10 @@ fairs:
       description_tr: ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
       sector: Ev Tekstili ve Dekorasyon
       location_tr: ALMATI, KAZAKİSTAN
+      start_date: 2026-02-16
       description_en: INTERNATIONAL HOME TEXTILES AND DECORATION FAIR
       date_tr: 16 - 18 ŞUBAT 2026
+      end_date: 2026-02-18
       name_tr: 18. HOMEDECO KAZAKİSTAN
       location_en: ALMATY, KAZAKHSTAN
       date_en: 16 - 18 FEBRUARY 2026
@@ -76,8 +80,10 @@ fairs:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
       location_tr: MOSKOVA, RUSYA
+      start_date: 2026-03-27
       description_en: WEDDING DRESS, EVENING DRESS, GROOM'S SUIT AND WEDDING DRESS FABRIC FAIR
       date_tr: 27 - 28 MART 2026
+      end_date: 2026-03-28
       name_tr: WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       date_en: 27 - 28 MARCH 2026
@@ -102,8 +108,10 @@ fairs:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
       location_tr: DÜSSELDORF, ALMANYA
+      start_date: 2026-03-20
       description_en: COSMETICS, BEAUTY, WELLNESS & SPA AND HAIR PRODUCTS FAIR
       date_tr: 20 - 22 MART 2026
+      end_date: 2026-03-22
       name_tr: BEAUTY DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       date_en: 20 - 22 MARCH 2026
@@ -128,8 +136,10 @@ fairs:
       description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
       location_tr: DÜSSELDORF, ALMANYA
+      start_date: 2026-03-21
       description_en: INTERNATIONAL HAIR PRODUCTS FAIR
       date_tr: 21 - 22 MART 2026
+      end_date: 2026-03-22
       name_tr: TOP HAIR
       location_en: DUSSELDORF, GERMANY
       date_en: 21 - 22 MARCH 2026
@@ -154,8 +164,10 @@ fairs:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Enerji
       location_tr: DUBAİ, BAE
+      start_date: 2026-04-07
       description_en: INTERNATIONAL ELECTRICITY, ENERGY AND LIGHTING FAIR
       date_tr: 7 - 9 NİSAN 2026
+      end_date: 2026-04-09
       name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
       date_en: 7 - 9 APRIL 2026
@@ -180,8 +192,10 @@ fairs:
       description_tr: ULUSLARARASI BORU VE TEL FUARI
       sector: İnşaat
       location_tr: DÜSSELDORF, ALMANYA
+      start_date: 2026-04-15
       description_en: INTERNATIONAL PIPE AND WIRE FAIR
       date_tr: 15 - 17 NİSAN 2026
+      end_date: 2026-04-17
       name_tr: WIRE & TUBE
       location_en: DUSSELDORF, GERMANY
       date_en: 15 - 17 APRIL 2026
@@ -206,8 +220,10 @@ fairs:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: İnşaat
       location_tr: MOSKOVA, RUSYA
+      start_date: 2025-04-22
       description_en: INTERNATIONAL SECURITY AND FIRE PROTECTION FAIR
       date_tr: 22 - 24 NİSAN 2026
+      end_date: 2026-04-24
       name_tr: SECURIKA MOSCOW
       location_en: MOSCOW, RUSSIA
       date_en: 22 - 24 APRIL 2026
@@ -232,8 +248,10 @@ fairs:
       description_tr: ULUSLARARASI PLASTİK VE KAUÇUK FUARI
       sector: İnşaat
       location_tr: BARSELONA, İSPANYA
+      start_date: 2026-06-02
       description_en: INTERNATIONAL PLASTIC AND RUBBER FAIR
       date_tr: "2 - 5 HAZİRAN 2026\t"
+      end_date: 2026-06-05
       name_tr: EQUIP PLAST 2026
       location_en: BARCELONA, SPAIN
       date_en: "2 - 5 JUNE 2026\t"
@@ -257,8 +275,10 @@ fairs:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
       location_tr: KAZAN, TATARİSTAN
+      start_date: 2025-05-14
       description_en: INTERNATIONAL TRADE FAIR
       date_tr: 14 - 16 MAYIS 2025
+      end_date: 2025-05-16
       name_tr: KAZAN FORUM & RUSYA HELAL EXPO
       location_en: KAZAN, TATARSTAN
       date_en: 14 - 16 MAY 2025
@@ -283,8 +303,10 @@ fairs:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Enerji
       location_tr: MOSKOVA, RUSYA
+      start_date: 2026-06-08
       description_en: INTERNATIONAL ELECTRICITY, ENERGY LIGHTING AND BUILDING AUTOMATION FAIR
       date_tr: 8 - 10 HAZİRAN 2026
+      end_date: 2026-06-10
       name_tr: ELECTRO
       location_en: MOSCOW, RUSSIA
       date_en: 8 - 10 JUNE 2026
@@ -309,8 +331,10 @@ fairs:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Enerji
       location_tr: MOSKOVA, RUSYA
+      start_date: 2026-06-16
       description_en: INTERNATIONAL MOLD AND PLASTIC FAIR
       date_tr: 16 - 19 HAZİRAN 2026
+      end_date: 2026-06-19
       name_tr: ROSMOULD / ROSPLAST
       location_en: MOSCOW, RUSSIA
       date_en: 16 - 19 JUNE 2026
