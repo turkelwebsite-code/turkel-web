@@ -16,9 +16,95 @@ collections:
   - name: "fair_years"
     label: "🎪 Fuarlar"
     files:
+      - label: "2028 Fuarları"
+        name: "fairs_2028"
+        file: "src/content/fair-years/2028.yml"
+        fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2028 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2028}
+          - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2028-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
+          - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2028-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: false}
+          - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
+          - {label: "🔢 Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 0}
+          - label: "📝 Sayfa İçeriği"
+            name: "page_content"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Sayfa Başlığı (TR)", name: "title_tr", widget: "string", default: "2028 Fuar Takvimi"}
+              - {label: "Sayfa Başlığı (EN)", name: "title_en", widget: "string", default: "2028 Fair Calendar"}
+              - {label: "Menü Başlığı (TR)", name: "menu_title_tr", widget: "string", default: "2028 Fuar Takvimi"}
+              - {label: "Menü Başlığı (EN)", name: "menu_title_en", widget: "string", default: "2028 Fair Calendar"}
+              - {label: "Açıklama (TR)", name: "description_tr", widget: "text", default: "2028 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz."}
+              - {label: "Açıklama (EN)", name: "description_en", widget: "text", default: "In 2028, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide."}
+          - label: "🎪 Fuar Listesi"
+            name: "fairs"
+            widget: "list"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - label: "📋 Temel Bilgiler"
+                name: "basic_info"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string", hint: "Türkçe fuar adı"}
+                  - {label: "Fuar Adı (EN)", name: "name_en", widget: "string", hint: "İngilizce fuar adı"}
+                  - {label: "📅 Tarih (TR)", name: "date_tr", widget: "string", hint: "Örnek: 17-25 OCAK 2028", required: false}
+                  - {label: "📅 Tarih (EN)", name: "date_en", widget: "string", hint: "Örnek: 17-25 JANUARY 2028", required: false}
+                  - {label: "📍 Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
+                  - {label: "📍 Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
+                  - {label: "🏭 Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true}
+                  - {label: "📝 Açıklama (TR)", name: "description_tr", widget: "text", required: false}
+                  - {label: "📝 Açıklama (EN)", name: "description_en", widget: "text", required: false}
+              - label: "🎨 Görseller"
+                name: "visuals"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "🖼️ Logo", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 350x200px | Format: JPG/PNG"}
+                  - {label: "🌅 Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 570x380px | Format: JPG/PNG"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 İsim", name: "name", widget: "string"}
+                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
+                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
+                  - {label: "📧 E-posta", name: "email", widget: "string"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Boş bırakılabilir"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false}
+              - label: "⚙️ Ayarlar"
+                name: "settings"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "🎬 Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+                  - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
+                  - label: "🎬 Slider İçeriği"
+                    name: "slider_content"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "settings.show_in_slider", value: true}
+                    fields:
+                      - {label: "🌐 Site Linki", name: "website_url", widget: "string", required: false}
+                      - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false}
+                      - {label: "🌅 Slider Arka Plan", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px"}
+                      - label: "🖼️ Mini Görseller"
+                        name: "mini_images"
+                        widget: "list"
+                        required: false
+                        max: 3
+                        min: 0
+                        field: {label: "Görsel", name: "image", widget: "image"}
+                        hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
+
       - label: "➕ Yeni Yıl Ekle"
         name: "create_new_year"
-        file: "src/content/fair-years/2028.yml"
+        file: "src/content/fair-years/2029.yml"
         fields:
           - {label: "📅 Yıl", name: "year", widget: "number", value_type: "int", default: 2028, hint: "Fuar yılı"}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2028-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"], hint: "Türkçe URL için slug"}
@@ -107,10 +193,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
-      - label: "{{fields.year}} Fuarları"
+      - label: "2027 Fuarları"
         name: "fairs_2026"
         file: "src/content/fair-years/2026.yml"
         fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2027 Fuarları", hint: "CMS'te görünen buton ismi"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2026}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2026-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2026-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -201,10 +288,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{fields.year}} Fuarları"
+      - label: "2025 Fuarları"
         name: "fairs_2025"
         file: "src/content/fair-years/2025.yml"
         fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2025 Fuarları", hint: "CMS'te görünen buton ismi"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2025}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2025-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2025-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -295,10 +383,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{fields.year}} Fuarları"
+      - label: "2024 Fuarları"
         name: "fairs_2024"
         file: "src/content/fair-years/2024.yml"
         fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2024 Fuarları", hint: "CMS'te görünen buton ismi"}
           - label: "Yıl"
             name: "year"
             widget: "number"
@@ -380,10 +469,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{fields.year}} Fuarları"
+      - label: "2023 Fuarları"
         name: "fairs_2023"
         file: "src/content/fair-years/2023.yml"
         fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2023 Fuarları", hint: "CMS'te görünen buton ismi"}
           - label: "Yıl"
             name: "year"
             widget: "number"
@@ -465,10 +555,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "{{fields.year}} Fuarları"
+      - label: "2022 Fuarları"
         name: "fairs_2022"
         file: "src/content/fair-years/2022.yml"
         fields:
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2022 Fuarları", hint: "CMS'te görünen buton ismi"}
           - label: "Yıl"
             name: "year"
             widget: "number"

@@ -1,0 +1,15 @@
+cms_button_label: "➕ Yeni Yıl Ekle"
+year: 2029
+page_slug: 2029-fuar-takvimi
+page_slug_en: 2029-fair-calendar
+is_active: false
+display_status: Aktif Fuarlar
+menu_order: 0
+page_content:
+  title_tr: 2029 Fuar Takvimi
+  title_en: 2029 Fair Calendar
+  menu_title_tr: 2029 Fuar Takvimi
+  menu_title_en: 2029 Fair Calendar
+  description_tr: 2029 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+  description_en: In 2029, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide.
+fairs: []
