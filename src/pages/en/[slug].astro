@@ -35,30 +35,10 @@ console.log('🎯 DYNAMIC SLUG EN: Page title:', pageTitle);
 
 const cmsFairs = yearData.fairs || [];
 
-// Sector translations
-const sectorTranslations: Record<string, string> = {
-  'Moda ve Tekstil': 'Fashion & Textile',
-  'Ev Tekstili ve Dekorasyon': 'Home Textile & Decoration',
-  'Mobilya': 'Furniture',
-  'Güzellik ve Kozmetik': 'Beauty & Cosmetics',
-  'Enerji': 'Energy',
-  'İnşaat': 'Construction',
-  'Deri ve Kürk': 'Leather & Fur',
-  'Güvenlik': 'Security',
-  'Teknoloji': 'Technology',
-  'Gıda': 'Food',
-  'Otomotiv': 'Automotive',
-  'Sağlık': 'Health',
-  'Eğitim': 'Education',
-  'Spor': 'Sports',
-  'Turizm': 'Tourism',
-  'Diğer': 'Other'
-};
-
 // Convert CMS data to page format
 var fairsData: Record<string, any[]> = {};
 cmsFairs.forEach((fair: any) => {
-  const sector = sectorTranslations[fair.basic_info.sector] || fair.basic_info.sector;
+  const sector = fair.basic_info.sector;
   if (!fairsData[sector]) {
     fairsData[sector] = [];
   }
@@ -74,18 +54,18 @@ cmsFairs.forEach((fair: any) => {
   if (fair.representative) {
     representativeData = {
       name: fair.representative.name || '',
-      title: fair.representative.title_en || fair.representative.title_tr || '',
+      title: fair.representative.title_tr || '',
       email: fair.representative.email || '',
       phone: fair.representative.custom_phone || fair.representative.phone || ''
     };
   }
 
   fairsData[sector].push({
-    id: (fair.basic_info.name_en || fair.basic_info.name_tr).toLowerCase().replace(/\s+/g, '-'),
-    name: fair.basic_info.name_en || fair.basic_info.name_tr,
-    date: fair.basic_info.date_en || fair.basic_info.date || '',
-    location: fair.basic_info.location_en || fair.basic_info.location_tr,
-    description: fair.basic_info.description_en || '',
+    id: fair.basic_info.name_tr.toLowerCase().replace(/\s+/g, '-'),
+    name: fair.basic_info.name_tr,
+    date: fair.basic_info.date_tr || fair.basic_info.date || '',
+    location: fair.basic_info.location_tr,
+    description: fair.basic_info.description_tr || '',
     backgroundImage: fair.visuals?.background_image || '/images/fuarlar-arkaplan.jpg',
     logo: fair.visuals?.logo || '/images/fuarlar-logo.png',
     representative: representativeData,
@@ -120,7 +100,7 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
           <!-- Sector Filter Buttons -->
           <div class="flex flex-wrap justify-center gap-4 mb-12">
             <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
-              All
+              Tümü
             </button>
             {sectors.map(sector => (
               <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
@@ -131,10 +111,9 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
 
           <!-- Fairs Grid -->
           <div class="fairs-container">
-            {Object.entries(fairsData).map(([sector, fairs]) => (
-              <div class="sector-group" data-sector={sector}>
-                {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+            {Object.entries(fairsData).map(([sector, fairs]) => 
+              fairs.map((fair) => (
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -189,7 +168,7 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
 
                       <!-- Representative Info -->
                       <div class="border-t border-gray-200 pt-3" style="max-height: 140px !important; overflow: hidden !important;">
-                        <p class="text-xs text-gray-500 mb-2 font-semibold">Representative:</p>
+                        <p class="text-xs text-gray-500 mb-2 font-semibold">Temsilci Bilgileri:</p>
                         <div class="space-y-1">
                           <div class="flex items-center text-sm">
                             <svg class="w-3 h-3 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
@@ -226,9 +205,8 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ))}
+                ))
+            )}
           </div>
         </div>
       </div>
@@ -339,7 +317,7 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
   // Sector filtering functionality
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const sectorGroups = document.querySelectorAll('.sector-group');
+    const fairCards = document.querySelectorAll('.fair-card');
     
     // Filter functionality
     filterButtons.forEach(button => {
@@ -350,13 +328,13 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
         filterButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
         
-        // Show/hide sector groups
-        sectorGroups.forEach(group => {
-          const groupElement = group as HTMLElement;
-          if (selectedSector === 'all' || groupElement.dataset.sector === selectedSector) {
-            groupElement.style.display = 'block';
+        // Show/hide cards based on sector
+        fairCards.forEach(card => {
+          const cardElement = card as HTMLElement;
+          if (selectedSector === 'all' || cardElement.dataset.sector === selectedSector) {
+            cardElement.style.display = 'block';
           } else {
-            groupElement.style.display = 'none';
+            cardElement.style.display = 'none';
           }
         });
       });

@@ -111,10 +111,9 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
 
           <!-- Fairs Grid -->
           <div class="fairs-container">
-            {Object.entries(fairsData).map(([sector, fairs]) => (
-              <div class="sector-group" data-sector={sector}>
-                {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+            {Object.entries(fairsData).map(([sector, fairs]) => 
+              fairs.map((fair) => (
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -206,9 +205,8 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ))}
+                ))
+            )}
           </div>
         </div>
       </div>
@@ -319,7 +317,7 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
   // Sector filtering functionality
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const sectorGroups = document.querySelectorAll('.sector-group');
+    const fairCards = document.querySelectorAll('.fair-card');
     
     // Filter functionality
     filterButtons.forEach(button => {
@@ -330,13 +328,13 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
         filterButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
         
-        // Show/hide sector groups
-        sectorGroups.forEach(group => {
-          const groupElement = group as HTMLElement;
-          if (selectedSector === 'all' || groupElement.dataset.sector === selectedSector) {
-            groupElement.style.display = 'block';
+        // Show/hide cards based on sector
+        fairCards.forEach(card => {
+          const cardElement = card as HTMLElement;
+          if (selectedSector === 'all' || cardElement.dataset.sector === selectedSector) {
+            cardElement.style.display = 'block';
           } else {
-            groupElement.style.display = 'none';
+            cardElement.style.display = 'none';
           }
         });
       });
