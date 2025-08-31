@@ -119,6 +119,22 @@ const timeline = defineCollection({
   }),
 });
 
+const chronology = defineCollection({
+  type: 'content',
+  schema: z.object({
+    year: z.number(),
+    fair_name: z.string(),
+    city: z.string(),
+    country: z.string(),
+    area: z.string().optional(),
+    participants: z.string().optional(),
+    sector: z.string(),
+    description: z.string().optional(),
+    is_active: z.boolean(),
+    order: z.number(),
+  }),
+});
+
 const settings = defineCollection({
   type: 'data',
   schema: z.any(),
@@ -159,6 +175,13 @@ const fairYears = defineCollection({
   schema: z.object({
     year: z.number(),
     is_active: z.boolean(),
+    display_status: z.string().optional(),
+    page_content: z.object({
+      title_tr: z.string().optional(),
+      title_en: z.string().optional(),
+      description_tr: z.string().optional(),
+      description_en: z.string().optional(),
+    }).optional(),
     fairs: z.array(z.object({
       basic_info: z.object({
         name_tr: z.string(),
@@ -206,6 +229,7 @@ export const collections = {
   partners, 
   fairs, 
   timeline, 
+  chronology,
   settings, 
   team, 
   'team-members': teamMembers,
