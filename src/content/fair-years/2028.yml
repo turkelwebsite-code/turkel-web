@@ -1,18 +1,18 @@
-cms_button_label: 2022 Fuarları
-year: 2022
-page_slug: 2022-fuar-takvimi
-page_slug_en: 2022-fair-calendar
+cms_button_label: 2052 Fuarları
+year: 2052
+page_slug: 2052-fuar-takvimi
+page_slug_en: 2052-fair-calendar
 is_active: true
 display_status: Aktif Fuarlar
 menu_order: 5
 page_content:
-  title_tr: 2022 Fuar Takvimi
-  title_en: 2022 Fair Calendar
-  menu_title_tr: 2022 Fuar Takvimi
-  menu_title_en: 2022 Fair Calendar
-  description_tr: 2022 yılında dünya çapında organize edeceğimiz prestijli
+  title_tr: 2052 Fuar Takvimi
+  title_en: 2052 Fair Calendar
+  menu_title_tr: 2052 Fuar Takvimi
+  menu_title_en: 2052 Fair Calendar
+  description_tr: 2052 yılında dünya çapında organize edeceğimiz prestijli
     fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
-  description_en: In 2022, we bring Turkish companies together with global markets
+  description_en: In 2052, we bring Turkish companies together with global markets
     at prestigious fairs we organize worldwide.
 fairs:
   - representative:
