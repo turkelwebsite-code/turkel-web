@@ -16,8 +16,8 @@ collections:
   - name: "fair_years"
     label: "🎪 Fuarlar"
     files:
-      - label: "➕ 2028 Yılı Oluştur"
-        name: "create_2028"
+      - label: "➕ Yeni Yıl Ekle"
+        name: "create_new_year"
         file: "src/content/fair-years/2028.yml"
         fields:
           - {label: "📅 Yıl", name: "year", widget: "number", value_type: "int", default: 2028, hint: "Fuar yılı"}
