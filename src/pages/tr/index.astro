@@ -37,7 +37,7 @@ fairYearData.forEach((yearData: any) => {
         backgroundImage: fair.slider_content?.background_image || fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
         card: {
           title: fair.basic_info?.name_tr || '',
-          dateText: fair.basic_info?.date || '',
+          dateText: fair.basic_info?.date_tr || fair.basic_info?.date || '',
           location: fair.basic_info?.location_tr || '',
           description: `${fair.basic_info?.name_tr} fuarı ${fair.basic_info?.date} tarihlerinde ${fair.basic_info?.location_tr}'de gerçekleşecek.`,
           fairName: fair.basic_info?.name_tr || '',

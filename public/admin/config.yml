@@ -44,7 +44,9 @@ collections:
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
                   - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
                   - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (Türkçe)", name: "date_tr", widget: "string", hint: "Türkçe tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (İngilizce)", name: "date_en", widget: "string", hint: "English date range (Example: January 17-25, 2026, March 15-18, 2025)"}
+                  - {label: "📅 Tarih (Eski Format)", name: "date", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
@@ -118,7 +120,9 @@ collections:
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
                   - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
                   - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (Türkçe)", name: "date_tr", widget: "string", hint: "Türkçe tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (İngilizce)", name: "date_en", widget: "string", hint: "English date range (Example: January 17-25, 2026, March 15-18, 2025)"}
+                  - {label: "📅 Tarih (Eski Format)", name: "date", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
@@ -192,7 +196,9 @@ collections:
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
                   - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
                   - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (Türkçe)", name: "date_tr", widget: "string", hint: "Türkçe tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (İngilizce)", name: "date_en", widget: "string", hint: "English date range (Example: January 17-25, 2026, March 15-18, 2025)"}
+                  - {label: "📅 Tarih (Eski Format)", name: "date", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
@@ -266,7 +272,9 @@ collections:
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
                   - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
                   - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (Türkçe)", name: "date_tr", widget: "string", hint: "Türkçe tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (İngilizce)", name: "date_en", widget: "string", hint: "English date range (Example: January 17-25, 2026, March 15-18, 2025)"}
+                  - {label: "📅 Tarih (Eski Format)", name: "date", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
@@ -340,7 +348,9 @@ collections:
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
                   - {label: "📝 Fuar Açıklaması (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Fuar hakkında kısa açıklama"}
                   - {label: "📝 Fuar Açıklaması (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Brief description about the fair"}
-                  - {label: "📅 Fuar Tarihi", name: "date", widget: "string", hint: "Fuar tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (Türkçe)", name: "date_tr", widget: "string", hint: "Türkçe tarih aralığı (Örnek: 17-25 OCAK 2026, 15-18 Mart 2025)"}
+                  - {label: "📅 Fuar Tarihi (İngilizce)", name: "date_en", widget: "string", hint: "English date range (Example: January 17-25, 2026, March 15-18, 2025)"}
+                  - {label: "📅 Tarih (Eski Format)", name: "date", widget: "string", required: false, hint: "Geriye uyumluluk için - yeni fuarlarda kullanmayın"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true, hint: "Sektör seçin. Listede yoksa yeni sektör yazabilirsiniz"}
