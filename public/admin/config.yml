@@ -14,7 +14,7 @@ editor:
 collections:
   # FUARLAR - Yıl Bazlı Yönetim (FOLDER COLLECTION - Dinamik Summary)
   - name: "fair_years"
-    label: "🎪 Fuarlar"
+    label: "Fuarlar"
     folder: "src/content/fair-years"
     create: true
     slug: "{{year}}"
@@ -122,7 +122,7 @@ collections:
 
   # EKİP ÜYELERİ
   - name: "team-members"
-    label: "👤 Ekip Üyeleri"
+    label: "Ekip Üyeleri"
     folder: "src/content/team-members"
     create: true
     slug: "{{slug}}"
@@ -150,7 +150,7 @@ collections:
 
   # PARTNERLER
   - name: "partners"
-    label: "🤝 Partnerler"
+    label: "Partnerler"
     folder: "src/content/partners"
     create: true
     slug: "{{slug}}"
@@ -165,7 +165,7 @@ collections:
 
   # KRONOLOJİ YÖNETİMİ
   - name: "chronology_years"
-    label: "📜 Kronoloji"
+    label: "Kronoloji"
     files:
       - label: "2024 Kronoloji"
         name: "chronology_2024"
@@ -176,7 +176,7 @@ collections:
 
   # SİTE AYARLARI
   - name: "settings"
-    label: "⚙️ Site Ayarları"
+    label: "Site Ayarları"
     files:
       - label: "Genel Ayarlar"
         name: "general"
@@ -187,7 +187,7 @@ collections:
 
   # ANA SAYFA SLIDER
   - name: "slider"
-    label: "🎬 Ana Sayfa Slider Ayarları"
+    label: "Ana Sayfa Slider Ayarları"
     files:
       - label: "Slider İçerikleri"
         name: "content"
@@ -197,7 +197,7 @@ collections:
 
   # SEKTÖR YÖNETİMİ
   - name: "sector_management"
-    label: "🏭 Sektör Yönetimi"
+    label: "Sektör Yönetimi"
     files:
       - label: "Sektör Listesi"
         name: "sectors"
