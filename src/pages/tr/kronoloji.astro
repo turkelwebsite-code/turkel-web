@@ -12,9 +12,10 @@ const locale = 'tr';
 const footerContent = FOOTER_CONTENT[locale];
 
 // Load chronology data from new chronology-years collection
+var chronologyData: Record<number, any[]> = {};
+
 try {
   const chronologyYears = await getCollection('chronology-years');
-  const chronologyData: Record<number, any[]> = {};
 
   // Load from chronology-years collection
   chronologyYears.forEach(yearCollection => {
@@ -28,7 +29,7 @@ try {
   console.log('📜 CHRONOLOGY DEBUG: Years from CMS:', Object.keys(chronologyData));
 } catch (error) {
   console.log('📜 CHRONOLOGY DEBUG: chronology-years collection not found, using fallback');
-  var chronologyData: Record<number, any[]> = {};
+  chronologyData = {};
 }
 
 // Auto-populate from fairs with show_in_chronology flag
