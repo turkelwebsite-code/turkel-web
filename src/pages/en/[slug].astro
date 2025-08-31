@@ -283,10 +283,11 @@ console.log('✅', currentYear, 'EN Fairs data converted:', sectors);
 
         // Show/hide cards based on sector
         fairCards.forEach(card => {
-          if (selectedSector === 'all' || card.getAttribute('data-sector') === selectedSector) {
-            card.style.display = 'block';
+          const cardElement = card as HTMLElement;
+          if (selectedSector === 'all' || cardElement.getAttribute('data-sector') === selectedSector) {
+            cardElement.style.display = 'block';
           } else {
-            card.style.display = 'none';
+            cardElement.style.display = 'none';
           }
         });
       });
