@@ -127,6 +127,10 @@ collections:
               - {label: "Açıklama (TR)", name: "description_tr", widget: "text", default: "2026 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz."}
               - {label: "Açıklama (EN)", name: "description_en", widget: "text", default: "In 2026, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide."}
           - label: "🎪 Fuar Listesi"
+            name: "fairs"
+            widget: "list"
+            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
