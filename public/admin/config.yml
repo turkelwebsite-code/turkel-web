@@ -54,10 +54,8 @@ collections:
             fields:
               - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string", hint: "Türkçe fuar adı"}
               - {label: "Fuar Adı (EN)", name: "name_en", widget: "string", hint: "İngilizce fuar adı"}
-              - {label: "Başlangıç Tarihi", name: "start_date", widget: "date", format: "YYYY-MM-DD", hint: "Fuar başlangıç tarihi"}
-              - {label: "Bitiş Tarihi", name: "end_date", widget: "date", format: "YYYY-MM-DD", hint: "Fuar bitiş tarihi"}
-              - {label: "Tarih (TR) - Otomatik", name: "date_tr", widget: "string", hint: "Otomatik: 17-25 OCAK 2026 formatında", required: false}
-              - {label: "Tarih (EN) - Otomatik", name: "date_en", widget: "string", hint: "Otomatik: 17-25 JANUARY 2026 formatında", required: false}
+              - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, hint: "Fuar başlangıç tarihi"}
+              - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, hint: "Fuar bitiş tarihi"}
               - {label: "Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
               - {label: "Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
               - {label: "Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true}

@@ -144,7 +144,7 @@ try {
     // Generate date display from start_date and end_date
     const displayDate = fair.basic_info.start_date && fair.basic_info.end_date 
       ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'tr')
-      : fair.basic_info.date_tr || fair.basic_info.date || '';
+      : fair.basic_info.date_tr || '';
 
     const fairItem = {
       id: fairsData[sector].length + 1,

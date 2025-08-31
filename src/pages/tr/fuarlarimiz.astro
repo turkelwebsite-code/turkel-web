@@ -10,6 +10,36 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
+// Date formatting function
+function formatDateRange(startDate: string, endDate: string, locale: 'tr' | 'en' = 'tr'): string {
+  if (!startDate || !endDate) return '';
+  
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  
+  const turkishMonths = ['OCAK', 'ŞUBAT', 'MART', 'NİSAN', 'MAYIS', 'HAZİRAN', 
+                       'TEMMUZ', 'AĞUSTOS', 'EYLÜL', 'EKİM', 'KASIM', 'ARALIK'];
+  const englishMonths = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+                        'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+  
+  const months = locale === 'tr' ? turkishMonths : englishMonths;
+  const month = months[start.getMonth()];
+  const year = start.getFullYear();
+  
+  if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
+    // Same month: "17-25 OCAK 2026"
+    return `${start.getDate()}-${end.getDate()} ${month} ${year}`;
+  } else {
+    // Different months: "30 OCAK - 2 ŞUBAT 2026"
+    const endMonth = months[end.getMonth()];
+    if (start.getFullYear() === end.getFullYear()) {
+      return `${start.getDate()} ${month} - ${end.getDate()} ${endMonth} ${year}`;
+    } else {
+      return `${start.getDate()} ${month} ${start.getFullYear()} - ${end.getDate()} ${endMonth} ${end.getFullYear()}`;
+    }
+  }
+}
+
 // Load CMS fair years data
 const fairYearsCollection = await getCollection('fair-years');
 console.log('🎪 FAIR YEARS: Loading CMS fair years for cards...');
@@ -29,13 +59,20 @@ fairYearsCollection.forEach(yearData => {
       allFairsData[sector] = [];
     }
     
+    // Generate date display from start_date and end_date
+    const displayDate = fair.basic_info?.start_date && fair.basic_info?.end_date 
+      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'tr')
+      : fair.basic_info?.date_tr || '';
+
     // Convert CMS fair to display format
     const fairCard = {
       id: `${yearData.data.year}_${fair.basic_info?.name_tr}`,
       name: fair.basic_info?.name_tr || 'Fuar Adı',
       city: fair.basic_info?.location_tr?.split(',')[0]?.trim() || '',
       country: fair.basic_info?.location_tr?.split(',')[1]?.trim() || '',
-      date: fair.basic_info?.date_tr || fair.basic_info?.date || '',
+      date: displayDate,
+      startDate: fair.basic_info?.start_date || '', // For sorting
+      endDate: fair.basic_info?.end_date || '', // For sorting
       image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
       representative: {
@@ -771,27 +808,53 @@ const sectors = Object.keys(finalFairsData);
         case 'date':
           console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
           allCards.sort((a: any, b: any) => {
-            // Turkish month names to numbers
-            const turkishMonths: Record<string, string> = {
-              'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
-              'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
-              'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
-            };
+            // Use start_date for sorting if available, otherwise parse display date
+            let dateA: Date, dateB: Date;
             
-            function parseDate(dateStr: string): Date {
-              // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
-              const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+            if (a.startDate && a.startDate !== '') {
+              dateA = new Date(a.startDate);
+              console.log(`📅 Using startDate for ${a.name}: ${a.startDate} → ${dateA.toISOString()}`);
+            } else {
+              // Fallback to parsing display date
+              const turkishMonths: Record<string, string> = {
+                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
+              };
+              
+              const match = a.date.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
                 const day = match[1];
                 const month = turkishMonths[match[2]] || '01';
                 const year = match[3];
-                return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+                dateA = new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+              } else {
+                dateA = new Date(2099, 11, 31);
               }
-              return new Date(2099, 11, 31); // Far future date for unparseable dates
             }
             
-            const dateA = parseDate(a.date);
-            const dateB = parseDate(b.date);
+            if (b.startDate && b.startDate !== '') {
+              dateB = new Date(b.startDate);
+              console.log(`📅 Using startDate for ${b.name}: ${b.startDate} → ${dateB.toISOString()}`);
+            } else {
+              // Fallback to parsing display date
+              const turkishMonths: Record<string, string> = {
+                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
+              };
+              
+              const match = b.date.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+              if (match) {
+                const day = match[1];
+                const month = turkishMonths[match[2]] || '01';
+                const year = match[3];
+                dateB = new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+              } else {
+                dateB = new Date(2099, 11, 31);
+              }
+            }
+            
             console.log(`📅 Comparing: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
             return dateA.getTime() - dateB.getTime();
           });
