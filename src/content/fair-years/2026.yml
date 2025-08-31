@@ -5,17 +5,19 @@ fairs:
       show_in_slider: false
       show_in_forms: true
     basic_info:
-      name_tr: BOOT DUSSELDORF ULUSLARARASI TEKNE VE SU SPORLARI FUARI
-      name_en: BOOT DUSSELDORF INTERNATIONAL BOAT AND WATER SPORTS FAIR
+      name_tr: "BOOT DUSSELDORF "
+      name_en: BOOT DUSSELDORF
       date: 17-25.01.2026
       location_en: DUSSELDORF, GERMANY
       location_tr: DÜSSELDORF, ALMANYA
       sector: Diğer
+      description_tr: ULUSLARARASI TEKNE VE SU SPORLARI FUARI
+      description_en: " INTERNATIONAL BOAT AND WATER SPORTS FAIR"
     visuals:
       logo: /images/fair-logo-boot.jpg
       background_image: /images/fair-bg-boot.png
     representative:
-      name: Ahmet Hilmi ÇORUK
-      title: Satış Direktörü
+      name: Ahmet Hilmi ÇORUKK
+      title: Satış DirektörüÜ
       email: ahmethilmi@turkel.com.tr
       phone: +90 216 123 45 68
