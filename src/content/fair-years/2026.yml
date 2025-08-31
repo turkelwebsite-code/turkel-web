@@ -5,19 +5,241 @@ fairs:
       show_in_slider: false
       show_in_forms: true
     basic_info:
-      name_tr: "BOOT DUSSELDORF "
-      name_en: BOOT DUSSELDORF
-      date: 17-25.01.2026
-      location_en: DUSSELDORF, GERMANY
-      location_tr: DÜSSELDORF, ALMANYA
-      sector: Diğer
       description_tr: ULUSLARARASI TEKNE VE SU SPORLARI FUARI
+      sector: Diğer
+      location_tr: DÜSSELDORF, ALMANYA
       description_en: " INTERNATIONAL BOAT AND WATER SPORTS FAIR"
+      date: ""
+      date_tr: 17-25 OCAK 2026
+      name_tr: "BOOT DUSSELDORF "
+      location_en: DUSSELDORF, GERMANY
+      date_en: 17-25 JANUARY 2026
+      name_en: BOOT DUSSELDORF
     visuals:
       logo: /images/fair-logo-boot.jpg
       background_image: /images/fair-bg-boot.png
     representative:
-      name: Ahmet Hilmi ÇORUKK
-      title: Satış DirektörüÜ
+      name: Ahmet Hilmi ÇORUK
+      title: Satış Direktörü
       email: ahmethilmi@turkel.com.tr
       phone: +90 216 123 45 68
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
+      sector: Ev Tekstili ve Dekorasyon
+      location_tr: ALMATI, KAZAKİSTAN
+      description_en: INTERNATIONAL HOME TEXTILES AND DECORATION FAIR
+      date_tr: 16 - 18 ŞUBAT 2026
+      name_tr: 18. HOMEDECO KAZAKİSTAN
+      location_en: ALMATY, KAZAKHSTAN
+      date_en: 16 - 18 FEBRUARY 2026
+      name_en: 18. HOMEDECO KAZAKHSTAN
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+    representative:
+      name: Arzu GÜNAL
+      title: Satış Direktörü
+      email: arzug@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
+      sector: Moda ve Tekstil
+      location_tr: MOSKOVA, RUSYA
+      description_en: WEDDING DRESS, EVENING DRESS, GROOM'S SUIT AND WEDDING DRESS FABRIC FAIR
+      date_tr: 27 - 28 MART 2026
+      name_tr: WEDDING FASHION MOSCOW
+      location_en: MOSCOW, RUSSIA
+      date_en: 27 - 28 MARCH 2026
+      name_en: WEDDING FASHION MOSCOW
+    visuals:
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/fair-bg-wedding.png
+    representative:
+      name: Seval ARSLAN
+      title: Satış Direktörü
+      email: seval@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
+      sector: Güzellik ve Kozmetik
+      location_tr: DÜSSELDORF, ALMANYA
+      description_en: COSMETICS, BEAUTY, WELLNESS & SPA AND HAIR PRODUCTS FAIR
+      date_tr: 20 - 22 MART 2026
+      name_tr: BEAUTY DUSSELDORF
+      location_en: DUSSELDORF, GERMANY
+      date_en: 20 - 22 MARCH 2026
+      name_en: BEAUTY DUSSELDORF
+    visuals:
+      logo: /images/fair-logo-beauty.png
+      background_image: /images/fair-bg-beauty.png
+    representative:
+      name: Seval ARSLAN
+      title: Satış Direktörü
+      email: seval@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
+      sector: Güzellik ve Kozmetik
+      location_tr: DÜSSELDORF, ALMANYA
+      description_en: INTERNATIONAL HAIR PRODUCTS FAIR
+      date_tr: 21 - 22 MART 2026
+      name_tr: TOP HAIR
+      location_en: DUSSELDORF, GERMANY
+      date_en: 21 - 22 MARCH 2026
+      name_en: TOP HAIR
+    visuals:
+      logo: /images/fair-logo-tophair.png
+      background_image: /images/fair-bg-tophair.jpg
+    representative:
+      name: Seval ARSLAN
+      title: Satış Direktörü
+      email: seval@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
+      sector: Enerji
+      location_tr: DUBAİ, BAE
+      description_en: INTERNATIONAL ELECTRICITY, ENERGY AND LIGHTING FAIR
+      date_tr: 7 - 9 NİSAN 2026
+      name_tr: MIDDLE EAST ENERGY
+      location_en: DUBAI, UAE
+      date_en: 7 - 9 APRIL 2026
+      name_en: MIDDLE EAST ENERGY
+    visuals:
+      logo: /images/fair-logo-mee.jpg
+      background_image: /images/fair-bg-mee.png
+    representative:
+      name: Pınar YALÇIN
+      title: Satış Direktörü
+      email: pinar@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI BORU VE TEL FUARI
+      sector: İnşaat
+      location_tr: DÜSSELDORF, ALMANYA
+      description_en: INTERNATIONAL PIPE AND WIRE FAIR
+      date_tr: 15 - 17 NİSAN 2026
+      name_tr: WIRE & TUBE
+      location_en: DUSSELDORF, GERMANY
+      date_en: 15 - 17 APRIL 2026
+      name_en: WIRE & TUBE
+    visuals:
+      logo: /images/fair-logo-wiretube.png
+      background_image: /images/fair-bg-wiretube.png
+    representative:
+      name: Ahmet Hilmi ÇORUK
+      title: Satış Direktörü
+      email: ahmethilmi@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
+      sector: İnşaat
+      location_tr: MOSKOVA, RUSYA
+      description_en: INTERNATIONAL SECURITY AND FIRE PROTECTION FAIR
+      date_tr: 22 - 24 NİSAN 2026
+      name_tr: SECURIKA MOSCOW
+      location_en: MOSCOW, RUSSIA
+      date_en: 22 - 24 APRIL 2026
+      name_en: SECURIKA MOSCOW
+    visuals:
+      logo: /images/fair-logo-securika.png
+      background_image: /images/fair-bg-securika.png
+    representative:
+      name: Neşe ŞENYURT
+      title: Satış Yöneticisi
+      email: nese@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI PLASTİK VE KAUÇUK FUARI
+      sector: İnşaat
+      location_tr: BARSELONA, İSPANYA
+      description_en: INTERNATIONAL PLASTIC AND RUBBER FAIR
+      date_tr: "2 - 5 HAZİRAN 2026\t"
+      name_tr: EQUIP PLAST 2026
+      location_en: BARCELONA, SPAIN
+      date_en: "2 - 5 JUNE 2026\t"
+      name_en: EQUIP PLAST 2026
+    visuals:
+      logo: /images/fair-logo-equıp.jpg
+      background_image: /images/fair-bg-equıplast.png
+    representative:
+      name: Ahmet Hilmi ÇORUK
+      title: Satış Direktörü
+      email: ahmethilmi@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI TİCARET FUARI
+      sector: Diğer
+      location_tr: KAZAN, TATARİSTAN
+      description_en: INTERNATIONAL TRADE FAIR
+      date_tr: 14 - 16 MAYIS 2025
+      name_tr: KAZAN FORUM & RUSYA HELAL EXPO
+      location_en: KAZAN, TATARSTAN
+      date_en: 14 - 16 MAY 2025
+      name_en: KAZAN FORUM & RUSYA HELAL EXPO
+    visuals:
+      logo: /images/fair-logo-kazan.jpg
+      background_image: /images/fair-bg-kazan.png
+    representative:
+      name: Pınar YALÇIN
+      title: Satış Direktörü
+      email: pinar@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
+      sector: Enerji
+      location_tr: MOSKOVA, RUSYA
+      description_en: INTERNATIONAL ELECTRICITY, ENERGY LIGHTING AND BUILDING AUTOMATION FAIR
+      date_tr: 8 - 10 HAZİRAN 2026
+      name_tr: ELECTRO
+      location_en: MOSCOW, RUSSIA
+      date_en: 8 - 10 JUNE 2026
+      name_en: ELECTRO
+    visuals:
+      logo: /images/fair-logo-electro.png
+      background_image: /images/fair-bg-electro.png
+    representative:
+      name: Pınar YALÇIN
+      title: Satış Direktörü
+      email: pinar@turkel.com.tr
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+    basic_info:
+      description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
+      sector: Enerji
+      location_tr: MOSKOVA, RUSYA
+      description_en: INTERNATIONAL MOLD AND PLASTIC FAIR
+      date_tr: 16 - 19 HAZİRAN 2026
+      name_tr: ROSMOULD / ROSPLAST
+      location_en: MOSCOW, RUSSIA
+      date_en: 16 - 19 JUNE 2026
+      name_en: ROSMOULD / ROSPLAST
+    visuals:
+      logo: /images/fair-logo-rosmould.png
+      background_image: /images/fair-bg-rosmould.png
+    representative:
+      name: Ahmet Hilmi ÇORUK
+      title: Satış Direktörü
+      email: ahmethilmi@turkel.com.tr
