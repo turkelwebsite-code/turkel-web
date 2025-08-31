@@ -1,36 +1,14 @@
 year: 2028
-page_slug: 2027-fuar-takvimi
-page_slug_en: 2027-fair-calendar
-is_active: true
+page_slug: 2028-fuar-takvimi
+page_slug_en: 2028-fair-calendar
+is_active: false
 display_status: Aktif Fuarlar
-menu_order: 3
+menu_order: 0
 page_content:
-  title_tr: 2027 Fuar Takvimi
-  title_en: 2027 Fair Calendar
-  menu_title_tr: 2027 Fuar Takvimi
-  menu_title_en: 2027 Fair Calendar
-  description_tr: 2027 yılında dünya çapında organize edeceğimiz prestijli
-    fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
-  description_en: In 2027, we bring Turkish companies together with global markets
-    at prestigious fairs we organize worldwide.
-fairs:
-  - representative:
-      hide_phone: true
-      team_member: ahmet-hilmi-coruk
-    settings:
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI MOBİLYA VE DEKORASYON FUARI
-      sector: Moda ve Tekstil
-      location_tr: KÖLN, ALMANYA
-      description_en: ULUSLARARASI MOBİLYA VE DEKORASYON FUARI
-      date_tr: 14 - 18 Ocak 2024
-      name_tr: IMM COLOGNE
-      location_en: KOLN, GERMANY
-      date_en: 14 - 18 January 2024
-      name_en: IMM COLOGNE
-    visuals:
-      logo: /images/fair-logo-boot.jpg
-      background_image: /images/fair-bg-rosmould.png
+  title_tr: 2028 Fuar Takvimi
+  title_en: 2028 Fair Calendar
+  menu_title_tr: 2028 Fuar Takvimi
+  menu_title_en: 2028 Fair Calendar
+  description_tr: 2028 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+  description_en: In 2028, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide.
+fairs: []

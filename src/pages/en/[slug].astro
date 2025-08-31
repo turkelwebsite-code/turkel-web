@@ -278,10 +278,20 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
     font-size: 0.9rem !important;
   }
 
-  /* Representative title - kırmızı renk */
-  .fair-card .border-t .text-sm {
+  /* Representative title - kırmızı renk (sadece title) */
+  .fair-card .border-t .text-sm:not(a) {
     color: #CE1A28 !important;
     font-weight: 500 !important;
+  }
+
+  /* Mail ve telefon linkler normal renk */
+  .fair-card .border-t a.text-sm {
+    color: #6B7280 !important;
+    font-weight: normal !important;
+  }
+
+  .fair-card .border-t a.text-sm:hover {
+    color: #CE1A28 !important;
   }
 
   /* Fair info section - sabit yükseklik */

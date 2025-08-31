@@ -107,7 +107,7 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
-      - label: "2026 Fuarları"
+      - label: "{{fields.year}} Fuarları"
         name: "fairs_2026"
         file: "src/content/fair-years/2026.yml"
         fields:
@@ -201,7 +201,7 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2025 Fuarları"
+      - label: "{{fields.year}} Fuarları"
         name: "fairs_2025"
         file: "src/content/fair-years/2025.yml"
         fields:
@@ -295,7 +295,7 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2024 Fuarları"
+      - label: "{{fields.year}} Fuarları"
         name: "fairs_2024"
         file: "src/content/fair-years/2024.yml"
         fields:
@@ -380,7 +380,7 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2023 Fuarları"
+      - label: "{{fields.year}} Fuarları"
         name: "fairs_2023"
         file: "src/content/fair-years/2023.yml"
         fields:
@@ -465,7 +465,7 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2022 Fuarları"
+      - label: "{{fields.year}} Fuarları"
         name: "fairs_2022"
         file: "src/content/fair-years/2022.yml"
         fields:
