@@ -184,8 +184,8 @@ fairs:
       title: ""
       email: nese@turkel.com.tr
       phone: ""
-      title_tr: Satış Direktörü
-      title_en: Sales Director
+      title_tr: Satış Temsilcisi
+      title_en: Sales Representative
   - settings:
       show_in_slider: false
       show_in_forms: true
