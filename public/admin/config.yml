@@ -212,11 +212,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
-      - label: "2027 Fuarları"
+      - label: "2026 Fuarları"
         name: "fairs_2026"
         file: "src/content/fair-years/2026.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2027 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2026 Fuarları", hint: "CMS'te görünen buton ismi"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2026}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2026-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2026-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
