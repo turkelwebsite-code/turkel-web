@@ -12,6 +12,35 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <script>
+    // Team member database for auto-fill
+    const TEAM_MEMBERS = {
+      'Seval ARSLAN': {
+        email: 'seval@turkel.com.tr',
+        title_tr: 'Satış Direktörü',
+        title_en: 'Sales Director'
+      },
+      'Ahmet Hilmi ÇORUK': {
+        email: 'ahmethilmi@turkel.com.tr',
+        title_tr: 'Satış Direktörü',
+        title_en: 'Sales Director'
+      },
+      'Pınar YALÇIN': {
+        email: 'pinar@turkel.com.tr',
+        title_tr: 'Satış Direktörü',
+        title_en: 'Sales Director'
+      },
+      'Arzu GÜNAL': {
+        email: 'arzug@turkel.com.tr',
+        title_tr: 'Satış Direktörü',
+        title_en: 'Sales Director'
+      },
+      'Neşe ŞENYURT': {
+        email: 'nese@turkel.com.tr',
+        title_tr: 'Satış Temsilcisi',
+        title_en: 'Sales Representative'
+      }
+    };
+
     // Identity setup
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
@@ -38,9 +67,10 @@
         
         console.log("✅ Türkel CMS Login successful:", user.email);
         
-        // Apply simple CMS styling
+        // Apply simple CMS styling and setup auto-fill
         setTimeout(() => {
           applySimpleCMSStyling();
+          setupTeamMemberAutoFill();
         }, 1000);
       });
     }
@@ -57,6 +87,80 @@
       }
       
       console.log('✅ Minimal styling uygulandı');
+    }
+
+    function setupTeamMemberAutoFill() {
+      console.log('🎯 Setting up team member auto-fill...');
+      
+      // Wait for form to load
+      setTimeout(() => {
+        const observer = new MutationObserver(() => {
+          // Look for team member select fields
+          const teamMemberSelects = document.querySelectorAll('select[id*="team_member"], input[id*="team_member"]');
+          
+          teamMemberSelects.forEach(select => {
+            if (!select.hasAttribute('data-autofill-setup')) {
+              select.setAttribute('data-autofill-setup', 'true');
+              
+              select.addEventListener('change', function(e) {
+                const selectedMember = e.target.value;
+                console.log('🎯 Team member selected:', selectedMember);
+                
+                if (selectedMember && TEAM_MEMBERS[selectedMember]) {
+                  const memberData = TEAM_MEMBERS[selectedMember];
+                  
+                  setTimeout(() => {
+                    // Find parent form container
+                    const formContainer = e.target.closest('[class*="Widget"]') || e.target.closest('form');
+                    
+                    if (formContainer) {
+                      // Auto-fill name
+                      const nameField = formContainer.querySelector('input[id*="name"]:not([id*="team_member"])');
+                      if (nameField) {
+                        nameField.value = selectedMember;
+                        nameField.dispatchEvent(new Event('input', { bubbles: true }));
+                        nameField.dispatchEvent(new Event('change', { bubbles: true }));
+                      }
+                      
+                      // Auto-fill email
+                      const emailField = formContainer.querySelector('input[id*="email"]');
+                      if (emailField) {
+                        emailField.value = memberData.email;
+                        emailField.dispatchEvent(new Event('input', { bubbles: true }));
+                        emailField.dispatchEvent(new Event('change', { bubbles: true }));
+                      }
+                      
+                      // Auto-fill TR title
+                      const titleTrField = formContainer.querySelector('select[id*="title_tr"]');
+                      if (titleTrField) {
+                        titleTrField.value = memberData.title_tr;
+                        titleTrField.dispatchEvent(new Event('change', { bubbles: true }));
+                      }
+                      
+                      // Auto-fill EN title
+                      const titleEnField = formContainer.querySelector('select[id*="title_en"]');
+                      if (titleEnField) {
+                        titleEnField.value = memberData.title_en;
+                        titleEnField.dispatchEvent(new Event('change', { bubbles: true }));
+                      }
+                      
+                      console.log('✅ Auto-filled data for:', selectedMember);
+                    }
+                  }, 100);
+                }
+              });
+            }
+          });
+        });
+        
+        // Start observing
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+        
+        console.log('✅ Team member auto-fill setup complete');
+      }, 2000);
     }
   </script>
 
