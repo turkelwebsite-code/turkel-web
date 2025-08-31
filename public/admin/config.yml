@@ -16,11 +16,11 @@ collections:
   - name: "fair_years"
     label: "🎪 Fuarlar"
     files:
-      - label: "2028 Fuarları"
+      - label: "📅 Fuar Yılı (2028)"
         name: "fairs_2028"
         file: "src/content/fair-years/2028.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2028 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2028 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2028}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2028-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2028-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -212,11 +212,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
-      - label: "2026 Fuarları"
+      - label: "📅 Fuar Yılı (2026)"
         name: "fairs_2026"
         file: "src/content/fair-years/2026.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2026 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2026 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2026}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2026-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2026-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -320,11 +320,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2025 Fuarları"
+      - label: "📅 Fuar Yılı (2025)"
         name: "fairs_2025"
         file: "src/content/fair-years/2025.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2025 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2025 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2025}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2025-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2025-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -428,11 +428,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2024 Fuarları"
+      - label: "📅 Fuar Yılı (2024)"
         name: "fairs_2024"
         file: "src/content/fair-years/2024.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2024 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2024 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2024}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2024-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2024-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -536,11 +536,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2023 Fuarları"
+      - label: "📅 Fuar Yılı (2023)"
         name: "fairs_2023"
         file: "src/content/fair-years/2023.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2023 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2023 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2023}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2023-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2023-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
@@ -644,11 +644,11 @@ collections:
                     field: {label: "Görsel", name: "image", widget: "image"}
                     hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
-      - label: "2022 Fuarları"
+      - label: "📅 Fuar Yılı (2022)"
         name: "fairs_2022"
         file: "src/content/fair-years/2022.yml"
         fields:
-          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2022 Fuarları", hint: "CMS'te görünen buton ismi"}
+          - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", default: "2022 Fuarları", hint: "Bu isim sidebar'da gözükecek - değiştirebilirsiniz"}
           - {label: "📅 Yıl", name: "year", widget: "number", default: 2022}
           - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2022-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
           - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2022-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
