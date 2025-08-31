@@ -461,9 +461,27 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
           break;
         case 'date':
           sortedFairs.sort((a, b) => {
-            // Simple date comparison - you might need to enhance this based on your date format
-            const dateA = new Date(a.date.replace(/(\d{1,2})-(\d{1,2}) (\w+) (\d{4})/, '$2 $3 $4'));
-            const dateB = new Date(b.date.replace(/(\d{1,2})-(\d{1,2}) (\w+) (\d{4})/, '$2 $3 $4'));
+            // Turkish month names to numbers
+            const turkishMonths = {
+              'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+              'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+              'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
+            };
+            
+            function parseDate(dateStr) {
+              // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
+              const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+              if (match) {
+                const day = match[1];
+                const month = turkishMonths[match[2]] || '01';
+                const year = match[3];
+                return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+              }
+              return new Date(2099, 11, 31); // Far future date for unparseable dates
+            }
+            
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
             return dateA - dateB;
           });
           break;

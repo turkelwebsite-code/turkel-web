@@ -375,6 +375,18 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     border-color: #CE1A28;
   }
 
+  /* Sort button styles */
+  .sort-btn.active {
+    background-color: #CE1A28;
+    color: white;
+    border-color: #CE1A28;
+  }
+  
+  .sort-btn:not(.active):hover {
+    border-color: #CE1A28;
+    color: #CE1A28;
+  }
+
   /* Mobile responsive */
   @media (max-width: 767px) {
     .fairs-container {
@@ -395,10 +407,96 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
 </style>
 
 <script>
-  // Sector filtering functionality
+  // Sector filtering and sorting functionality
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const sortButtons = document.querySelectorAll('.sort-btn');
     const fairCards = document.querySelectorAll('.fair-card');
+    const fairsContainer = document.querySelector('.fairs-container');
+    
+    // Store original fair data for sorting
+    const fairsData = [];
+    
+    // Parse fair data from DOM
+    fairCards.forEach(card => {
+      const nameElement = card.querySelector('h3');
+      const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
+      
+      fairsData.push({
+        element: card,
+        name: nameElement?.textContent?.trim() || '',
+        date: dateElement?.textContent?.trim() || '',
+        order: parseInt(card.dataset.order) || 999,
+        sector: card.dataset.sector || ''
+      });
+    });
+    
+    // Sorting functionality
+    function sortFairs(sortType) {
+      const sortedFairs = [...fairsData];
+      
+      switch(sortType) {
+        case 'name':
+          sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'en'));
+          break;
+        case 'date':
+          sortedFairs.sort((a, b) => {
+            // English month names to numbers
+            const englishMonths = {
+              'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
+              'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
+              'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
+            };
+            
+            function parseDate(dateStr) {
+              // Handle formats like "17-25 JANUARY 2026" or "16 - 18 FEBRUARY 2026"
+              const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+              if (match) {
+                const day = match[1];
+                const month = englishMonths[match[2]] || '01';
+                const year = match[3];
+                return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+              }
+              return new Date(2099, 11, 31); // Far future date for unparseable dates
+            }
+            
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            return dateA - dateB;
+          });
+          break;
+        case 'order':
+        default:
+          sortedFairs.sort((a, b) => a.order - b.order);
+          break;
+      }
+      
+      // Reorder DOM elements
+      sortedFairs.forEach(fair => {
+        fairsContainer.appendChild(fair.element);
+      });
+    }
+    
+    // Sort button functionality
+    sortButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const sortType = this.dataset.sort;
+        
+        // Update active button
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        this.classList.add('active');
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        
+        // Apply sorting
+        sortFairs(sortType);
+      });
+    });
     
     // Filter functionality
     filterButtons.forEach(button => {

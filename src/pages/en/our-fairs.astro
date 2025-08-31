@@ -713,9 +713,27 @@ const sectors = Object.keys(finalFairsData);
             break;
           case 'date':
             sortedFairs.sort((a, b) => {
-              // Simple date comparison for English dates
-              const dateA = new Date(a.date);
-              const dateB = new Date(b.date);
+              // English month names to numbers
+              const englishMonths = {
+                'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
+                'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
+                'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
+              };
+              
+              function parseDate(dateStr) {
+                // Handle formats like "17-25 JANUARY 2026" or "16 - 18 FEBRUARY 2026"
+                const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+                if (match) {
+                  const day = match[1];
+                  const month = englishMonths[match[2]] || '01';
+                  const year = match[3];
+                  return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+                }
+                return new Date(2099, 11, 31); // Far future date for unparseable dates
+              }
+              
+              const dateA = parseDate(a.date);
+              const dateB = parseDate(b.date);
               return dateA - dateB;
             });
             break;
