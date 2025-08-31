@@ -506,6 +506,120 @@ collections:
       - {label: "🎯 Fuar Temsilcisi", name: "is_fair_representative", widget: "boolean", default: false, hint: "Bu kişi fuar temsilcisi olarak seçilebilsin mi?"}
 
 
+  # KRONOLOJİ YÖNETİMİ - Fuarlardan Otomatik
+  - name: "chronology_years"
+    label: "📜 Kronoloji"
+    files:
+      - label: "2024 Kronoloji"
+        name: "chronology_2024"
+        file: "src/content/chronology-years/2024.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2024}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - label: "🎪 Kronoloji Fuarları"
+            name: "fairs"
+            widget: "list"
+            summary: "📜 {{fields.name}} • {{fields.city}}, {{fields.country}} • {{fields.sector}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - {label: "🎪 Fuar Adı", name: "name", widget: "string", hint: "Fuarlardan otomatik çekilir"}
+              - {label: "🏙️ Şehir", name: "city", widget: "string", hint: "Fuarlardan otomatik çekilir"}
+              - {label: "🌍 Ülke", name: "country", widget: "string", hint: "Fuarlardan otomatik çekilir"}
+              - {label: "🏷️ Sektör", name: "sector", widget: "string", hint: "Fuarlardan otomatik çekilir"}
+              - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+              - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+              - {label: "📝 Açıklama", name: "description", widget: "text", required: false, hint: "Ek bilgiler"}
+              - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+      
+      - label: "2023 Kronoloji"
+        name: "chronology_2023"
+        file: "src/content/chronology-years/2023.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2023}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - label: "🎪 Kronoloji Fuarları"
+            name: "fairs"
+            widget: "list"
+            summary: "📜 {{fields.name}} • {{fields.city}}, {{fields.country}} • {{fields.sector}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - {label: "🎪 Fuar Adı", name: "name", widget: "string"}
+              - {label: "🏙️ Şehir", name: "city", widget: "string"}
+              - {label: "🌍 Ülke", name: "country", widget: "string"}
+              - {label: "🏷️ Sektör", name: "sector", widget: "string"}
+              - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false}
+              - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false}
+              - {label: "📝 Açıklama", name: "description", widget: "text", required: false}
+              - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+
+      - label: "2022 Kronoloji"
+        name: "chronology_2022"
+        file: "src/content/chronology-years/2022.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2022}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - label: "🎪 Kronoloji Fuarları"
+            name: "fairs"
+            widget: "list"
+            summary: "📜 {{fields.name}} • {{fields.city}}, {{fields.country}} • {{fields.sector}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - {label: "🎪 Fuar Adı", name: "name", widget: "string"}
+              - {label: "🏙️ Şehir", name: "city", widget: "string"}
+              - {label: "🌍 Ülke", name: "country", widget: "string"}
+              - {label: "🏷️ Sektör", name: "sector", widget: "string"}
+              - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false}
+              - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false}
+              - {label: "📝 Açıklama", name: "description", widget: "text", required: false}
+              - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+
+      - label: "2021 Kronoloji"
+        name: "chronology_2021"
+        file: "src/content/chronology-years/2021.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2021}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - label: "🎪 Kronoloji Fuarları"
+            name: "fairs"
+            widget: "list"
+            summary: "📜 {{fields.name}} • {{fields.city}}, {{fields.country}} • {{fields.sector}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - {label: "🎪 Fuar Adı", name: "name", widget: "string"}
+              - {label: "🏙️ Şehir", name: "city", widget: "string"}
+              - {label: "🌍 Ülke", name: "country", widget: "string"}
+              - {label: "🏷️ Sektör", name: "sector", widget: "string"}
+              - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false}
+              - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false}
+              - {label: "📝 Açıklama", name: "description", widget: "text", required: false}
+              - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+
+      - label: "2020 Kronoloji"
+        name: "chronology_2020"
+        file: "src/content/chronology-years/2020.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2020}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - label: "🎪 Kronoloji Fuarları"
+            name: "fairs"
+            widget: "list"
+            summary: "📜 {{fields.name}} • {{fields.city}}, {{fields.country}} • {{fields.sector}}"
+            collapsed: true
+            minimize_collapsed: true
+            fields:
+              - {label: "🎪 Fuar Adı", name: "name", widget: "string"}
+              - {label: "🏙️ Şehir", name: "city", widget: "string"}
+              - {label: "🌍 Ülke", name: "country", widget: "string"}
+              - {label: "🏷️ Sektör", name: "sector", widget: "string"}
+              - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false}
+              - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false}
+              - {label: "📝 Açıklama", name: "description", widget: "text", required: false}
+              - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+
   # SLIDER YÖNETİMİ - Otomatik CMS Entegrasyonu
   - name: "slider_settings"
     label: "🎠 Ana Sayfa Slider Ayarları"

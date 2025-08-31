@@ -11,10 +11,23 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Load chronology data from fairs (show_in_chronology = true)
-const allFairYears = await getCollection('fair-years');
+// Load chronology data from new chronology-years collection
+const chronologyYears = await getCollection('chronology-years');
 const chronologyData: Record<number, any[]> = {};
 
+// Load from chronology-years collection
+chronologyYears.forEach(yearCollection => {
+  const year = yearCollection.data.year;
+  if (yearCollection.data.is_active && yearCollection.data.fairs) {
+    chronologyData[year] = yearCollection.data.fairs.sort((a, b) => a.order - b.order);
+  }
+});
+
+console.log('📜 CHRONOLOGY DEBUG: Chronology years collection loaded');
+console.log('📜 CHRONOLOGY DEBUG: Years from CMS:', Object.keys(chronologyData));
+
+// Auto-populate from fairs with show_in_chronology flag
+const allFairYears = await getCollection('fair-years');
 allFairYears.forEach(yearCollection => {
   const year = yearCollection.data.year;
   const fairs = yearCollection.data.fairs || [];
@@ -30,21 +43,28 @@ allFairYears.forEach(yearCollection => {
       const city = locationParts[0] || fair.basic_info.location_tr || '';
       const country = locationParts[1] || '';
       
-      chronologyData[year].push({
-        name: fair.basic_info.name_tr,
-        city: city,
-        country: country,
-        area: fair.chronology_info?.area || '',
-        participants: fair.chronology_info?.participants || '',
-        sector: fair.basic_info.sector || '',
-        description: fair.chronology_info?.description || ''
-      });
+      // Check if this fair already exists in chronology CMS
+      const existsInCMS = chronologyData[year].some(existing => 
+        existing.name === fair.basic_info.name_tr
+      );
+      
+      if (!existsInCMS) {
+        chronologyData[year].push({
+          name: fair.basic_info.name_tr,
+          city: city,
+          country: country,
+          area: fair.chronology_info?.area || '',
+          participants: fair.chronology_info?.participants || '',
+          sector: fair.basic_info.sector || '',
+          description: fair.chronology_info?.description || ''
+        });
+      }
     }
   });
 });
 
-console.log('📜 CHRONOLOGY DEBUG: Fairs with chronology flag found');
-console.log('📜 CHRONOLOGY DEBUG: Chronology years from fairs:', Object.keys(chronologyData));
+console.log('📜 CHRONOLOGY DEBUG: Auto-populated from fairs');
+console.log('📜 CHRONOLOGY DEBUG: Final years with data:', Object.keys(chronologyData));
 
 // Merge with static data where CMS data doesn't exist
 const staticChronologyData = {
@@ -470,14 +490,17 @@ Object.keys(staticChronologyData).forEach(year => {
   }
 });
 
-// Sort years in descending order (newest first)
+// Sort years in descending order (newest first) and limit to 10 years
+const currentYear = new Date().getFullYear();
 const sortedYears = Object.keys(chronologyData)
   .map(year => parseInt(year))
-  .sort((a, b) => b - a);
+  .filter(year => year <= currentYear) // Only past and current years
+  .sort((a, b) => b - a)
+  .slice(0, 10); // Limit to 10 years
 
-console.log('📜 CHRONOLOGY DEBUG: Final chronology years:', sortedYears);
+console.log('📜 CHRONOLOGY DEBUG: Final chronology years (last 10):', sortedYears);
 console.log('📜 CHRONOLOGY DEBUG: Total entries per year:', 
-  sortedYears.map(year => `${year}: ${chronologyData[year].length}`));
+  sortedYears.map(year => `${year}: ${chronologyData[year]?.length || 0}`));
 ---
 
 <BaseLayout title="Kronoloji - Türkel Fuarcılık" description="Türkel Fuarcılık'ın son 10 yıllık fuar organizasyonları kronolojisi">

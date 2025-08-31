@@ -121,6 +121,24 @@ const timeline = defineCollection({
 
 
 
+const chronologyYears = defineCollection({
+  type: 'data',
+  schema: z.object({
+    year: z.number(),
+    is_active: z.boolean(),
+    fairs: z.array(z.object({
+      name: z.string(),
+      city: z.string(),
+      country: z.string(),
+      sector: z.string(),
+      area: z.string().optional(),
+      participants: z.string().optional(),
+      description: z.string().optional(),
+      order: z.number(),
+    })),
+  }),
+});
+
 const settings = defineCollection({
   type: 'data',
   schema: z.any(),
@@ -215,6 +233,7 @@ export const collections = {
   partners, 
   fairs, 
   timeline, 
+  'chronology-years': chronologyYears,
   settings, 
   team, 
   'team-members': teamMembers,
