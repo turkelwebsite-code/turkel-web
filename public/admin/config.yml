@@ -39,7 +39,9 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
@@ -111,7 +113,9 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
@@ -183,7 +187,9 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
@@ -255,7 +261,9 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
@@ -327,7 +335,9 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Tarih", name: "date", widget: "string", hint: "Örnek: 15-18 Mart 2025"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
                   - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}

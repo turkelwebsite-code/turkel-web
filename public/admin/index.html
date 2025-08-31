@@ -46,9 +46,25 @@
     }
     
     function applyBeautifulPreview() {
-      console.log('🎨 Making preview beautiful...');
+      console.log('🎨 Making preview beautiful and hiding preview panel...');
       
-      // Style preview panel nicely
+      // Auto-hide preview panel by clicking the toggle button
+      setTimeout(() => {
+        const previewToggle = document.querySelector('.css-7qbe5n-IconWrapper, [class*="IconWrapper"]');
+        if (previewToggle) {
+          console.log('🔍 Found preview toggle button, clicking to hide...');
+          previewToggle.click();
+        }
+        
+        // Alternative selector for the preview toggle
+        const toggleButtons = document.querySelectorAll('button[title*="preview"], button[aria-label*="preview"], .e1jeq5dr0.css-7qbe5n-IconWrapper.e1jeq5dr1');
+        toggleButtons.forEach(btn => {
+          console.log('🔍 Clicking preview toggle button...');
+          btn.click();
+        });
+      }, 1000);
+      
+      // Style preview panel nicely (if still visible)
       const previews = document.querySelectorAll('[class*="PreviewPane"]');
       previews.forEach(preview => {
         preview.style.background = '#f8fafc';
@@ -82,7 +98,7 @@
         }
       });
       
-      console.log('✅ Beautiful preview styling applied');
+      console.log('✅ Beautiful preview styling applied and preview hidden');
     }
   </script>
 
@@ -168,6 +184,23 @@
       border-color: #CE1A28 !important;
       box-shadow: 0 0 0 3px rgba(206, 26, 40, 0.1) !important;
       outline: none !important;
+    }
+    
+    /* HIDE PREVIEW PANEL BY DEFAULT */
+    [class*="PreviewPane"] {
+      display: none !important;
+    }
+    
+    /* Hide preview toggle when not needed */
+    .css-7qbe5n-IconWrapper,
+    .e1jeq5dr0.css-7qbe5n-IconWrapper.e1jeq5dr1 {
+      opacity: 0.5 !important;
+    }
+    
+    /* Make editor full width when preview is hidden */
+    [class*="SplitView"] > div:first-child {
+      width: 100% !important;
+      max-width: 100% !important;
     }
   </style>
 </body>

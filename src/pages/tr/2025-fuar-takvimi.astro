@@ -26,6 +26,7 @@ try {
   const cmsFairs = year2025Data?.data?.fairs || [];
   console.log('🎪 CMS Fairs loaded for 2025:', cmsFairs.length);
   console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
+  console.log('🔍 DEBUG: Representative data check:', cmsFairs[0]?.representative);
   
   // Convert CMS data to page format
   var fairsData: Record<string, any[]> = {};
