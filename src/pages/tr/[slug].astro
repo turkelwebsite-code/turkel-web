@@ -35,6 +35,27 @@ console.log('🎯 DYNAMIC SLUG TR: Page title:', pageTitle);
 
 const cmsFairs = yearData.fairs || [];
 
+// Load team members for representative lookup
+const teamMembers = await getCollection('team-members');
+console.log('👥 TEAM LOOKUP: Team members loaded:', teamMembers.length);
+
+// Team member lookup function
+function getTeamMemberData(memberName: string) {
+  const member = teamMembers.find(m => m.data.name === memberName);
+  if (member) {
+    console.log('👥 TEAM LOOKUP: Found member:', memberName, member.data);
+    return {
+      name: member.data.name,
+      email: member.data.email,
+      title_tr: member.data.title.tr,
+      title_en: member.data.title.en,
+      phone: member.data.phone || ''
+    };
+  }
+  console.log('👥 TEAM LOOKUP: Member not found:', memberName);
+  return null;
+}
+
 // Convert CMS data to page format
 var fairsData: Record<string, any[]> = {};
 cmsFairs.forEach((fair: any) => {
@@ -52,12 +73,35 @@ cmsFairs.forEach((fair: any) => {
   };
 
   if (fair.representative) {
-    representativeData = {
-      name: fair.representative.name || '',
-      title: fair.representative.title_tr || '',
-      email: fair.representative.email || '',
-      phone: fair.representative.custom_phone || fair.representative.phone || ''
-    };
+    // If team_member is selected, get data from team collection
+    if (fair.representative.team_member) {
+      const teamMemberData = getTeamMemberData(fair.representative.team_member);
+      if (teamMemberData) {
+        representativeData = {
+          name: teamMemberData.name,
+          title: teamMemberData.title_tr,
+          email: teamMemberData.email,
+          phone: fair.representative.phone || teamMemberData.phone || ''
+        };
+        console.log('👥 TEAM LOOKUP: Using team member data for:', teamMemberData.name);
+      } else {
+        // Fallback to manual data
+        representativeData = {
+          name: fair.representative.name || '',
+          title: fair.representative.title_tr || '',
+          email: fair.representative.email || '',
+          phone: fair.representative.phone || ''
+        };
+      }
+    } else {
+      // Use manual representative data
+      representativeData = {
+        name: fair.representative.name || '',
+        title: fair.representative.title_tr || '',
+        email: fair.representative.email || '',
+        phone: fair.representative.phone || ''
+      };
+    }
   }
 
   fairsData[sector].push({
