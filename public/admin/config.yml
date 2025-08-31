@@ -43,20 +43,90 @@ collections:
             collapsed: true
             minimize_collapsed: true
             fields:
-          - label: "Yıl"
-            name: "year"
-            widget: "number"
-            default: 2026
-          - label: "Aktif"
-            name: "is_active"
-            widget: "boolean"
-            default: true
-          - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar", hint: "Bu yıl nerede gösterilecek?"}
-          - label: "Fuar Listesi"
-            name: "fairs"
-            widget: "list"
-            summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
+              - label: "📋 Temel Bilgiler"
+                name: "basic_info"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "🎪 Fuar Adı (TR)", name: "name_tr", widget: "string", hint: "Türkçe fuar adı"}
+                  - {label: "🎪 Fuar Adı (EN)", name: "name_en", widget: "string", hint: "English fair name"}
+                  - {label: "📅 Tarih (TR)", name: "date_tr", widget: "string", hint: "Örnek: 17-25 OCAK 2028"}
+                  - {label: "📅 Tarih (EN)", name: "date_en", widget: "string", hint: "Örnek: 17-25 JANUARY 2028"}
+                  - {label: "📍 Lokasyon (TR)", name: "location_tr", widget: "string", hint: "Örnek: DÜSSELDORF, ALMANYA"}
+                  - {label: "📍 Lokasyon (EN)", name: "location_en", widget: "string", hint: "Örnek: DUSSELDORF, GERMANY"}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", allow_add: true, options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Deri ve Kürk", "Güvenlik", "Teknoloji", "Gıda", "Otomotiv", "Sağlık", "Eğitim", "Spor", "Turizm", "Diğer"]}
+                  - {label: "📝 Açıklama (TR)", name: "description_tr", widget: "string", required: false, hint: "Fuar açıklaması"}
+                  - {label: "📝 Açıklama (EN)", name: "description_en", widget: "string", required: false, hint: "Fair description"}
+              - label: "🖼️ Görseller"
+                name: "visuals"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+              - label: "⚙️ Ayarlar"
+                name: "settings"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
+                  - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
+              - label: "🎠 Slider İçeriği"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition: {field: "settings.show_in_slider", value: true}
+                fields:
+                  - {label: "🌐 Website URL", name: "website_url", widget: "string", required: false, hint: "Fuar website linki"}
+                  - {label: "🗺️ Google Maps Embed", name: "maps_embed", widget: "text", required: false, hint: "Google Maps embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px"}
+                  - label: "🖼️ Mini Görseller"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
+
+      - label: "2026 Fuarları"
+        name: "fairs_2026"
+        file: "src/content/fair-years/2026.yml"
+        fields:
+          - {label: "📅 Yıl", name: "year", widget: "number", default: 2026}
+          - {label: "🔗 Sayfa Slug", name: "page_slug", widget: "string", default: "2026-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
+          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
+          - {label: "🔢 Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 3}
+          - label: "📝 Sayfa İçeriği"
+            name: "page_content"
+            widget: "object"
             collapsed: true
+            fields:
+              - {label: "Sayfa Başlığı (TR)", name: "title_tr", widget: "string", default: "2026 Fuar Takvimi"}
+              - {label: "Sayfa Başlığı (EN)", name: "title_en", widget: "string", default: "2026 Fair Calendar"}
+              - {label: "Menü Başlığı (TR)", name: "menu_title_tr", widget: "string", default: "2026 Fuar Takvimi"}
+              - {label: "Menü Başlığı (EN)", name: "menu_title_en", widget: "string", default: "2026 Fair Calendar"}
+              - {label: "Açıklama (TR)", name: "description_tr", widget: "text", default: "2026 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz."}
+              - {label: "Açıklama (EN)", name: "description_en", widget: "text", default: "In 2026, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide."}
+          - label: "🎪 Fuar Listesi"
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
