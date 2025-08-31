@@ -29,14 +29,6 @@ collections:
             widget: "boolean"
             default: true
           - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar", hint: "Bu yıl nerede gösterilecek?"}
-          - label: "📝 Sayfa İçeriği"
-            name: "page_content"
-            widget: "object"
-            fields:
-              - {label: "Sayfa Başlığı (TR)", name: "title_tr", widget: "string", default: "2026 Fuar Takvimi", hint: "Örnek: 2026 Fuar Takvimi"}
-              - {label: "Sayfa Başlığı (EN)", name: "title_en", widget: "string", default: "2026 Fair Calendar", hint: "Örnek: 2026 Fair Calendar"}
-              - {label: "Açıklama (TR)", name: "description_tr", widget: "text", default: "2026 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.", hint: "Sayfa açıklaması"}
-              - {label: "Açıklama (EN)", name: "description_en", widget: "text", default: "In 2026, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide.", hint: "Page description"}
           - label: "Fuar Listesi"
             name: "fairs"
             widget: "list"
@@ -73,15 +65,24 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
               - label: "👤 Temsilci Bilgileri"
                 name: "representative"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
                   - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
-                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -149,15 +150,24 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
               - label: "👤 Temsilci Bilgileri"
                 name: "representative"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
                   - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
-                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -225,15 +235,24 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
               - label: "👤 Temsilci Bilgileri"
                 name: "representative"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
                   - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
-                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -301,15 +320,24 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
               - label: "👤 Temsilci Bilgileri"
                 name: "representative"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
                   - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
-                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -377,15 +405,24 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+                  - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, hint: "Bu fuar kronoloji sayfasında gösterilsin mi?"}
+                  - label: "📜 Kronoloji Ek Bilgileri"
+                    name: "chronology_info"
+                    widget: "object"
+                    collapsed: true
+                    condition: {field: "show_in_chronology", value: true}
+                    fields:
+                      - {label: "📐 Fuar Alanı", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                      - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
               - label: "👤 Temsilci Bilgileri"
                 name: "representative"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team-members", search_fields: ["name", "email"], display_fields: ["name", "title.tr"], value_field: "{{slug}}", filter: {field: "is_fair_representative", value: true}, hint: "Fuar temsilcisi olarak işaretli ekip üyelerinden seçin"}
                   - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
-                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -468,25 +505,6 @@ collections:
       - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
       - {label: "🎯 Fuar Temsilcisi", name: "is_fair_representative", widget: "boolean", default: false, hint: "Bu kişi fuar temsilcisi olarak seçilebilsin mi?"}
 
-  # KRONOLOJİ YÖNETİMİ
-  - name: "chronology"
-    label: "📜 Kronoloji"
-    folder: "src/content/chronology"
-    create: true
-    slug: "{{fields.year}}-{{slug}}"
-    identifier_field: "year"
-    summary: "{{fields.year}} - {{fields.fair_name}} ({{fields.city}}, {{fields.country}})"
-    fields:
-      - {label: "📅 Yıl", name: "year", widget: "number", value_type: "int", min: 2015, max: 2030, hint: "Fuar yılı"}
-      - {label: "🎪 Fuar Adı", name: "fair_name", widget: "string", hint: "Örnek: LeShow Moskova"}
-      - {label: "🏙️ Şehir", name: "city", widget: "string", hint: "Örnek: Moskova"}
-      - {label: "🌍 Ülke", name: "country", widget: "string", hint: "Örnek: Rusya"}
-      - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
-      - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
-      - {label: "🏷️ Sektör", name: "sector", widget: "string", hint: "Örnek: Deri ve Kürk"}
-      - {label: "📝 Açıklama", name: "description", widget: "text", required: false, hint: "Fuar hakkında ek bilgiler"}
-      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
-      - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1, hint: "Kronoloji içindeki sıralama"}
 
   # SLIDER YÖNETİMİ - Otomatik CMS Entegrasyonu
   - name: "slider_settings"

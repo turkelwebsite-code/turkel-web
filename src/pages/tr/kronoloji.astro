@@ -11,36 +11,40 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Load chronology data from CMS
-const chronologyEntries = await getCollection('chronology');
-const activeChronology = chronologyEntries.filter(entry => entry.data.is_active);
-
-// Group by year and sort
+// Load chronology data from fairs (show_in_chronology = true)
+const allFairYears = await getCollection('fair-years');
 const chronologyData: Record<number, any[]> = {};
-activeChronology.forEach(entry => {
-  const year = entry.data.year;
-  if (!chronologyData[year]) {
-    chronologyData[year] = [];
-  }
-  chronologyData[year].push({
-    name: entry.data.fair_name,
-    city: entry.data.city,
-    country: entry.data.country,
-    area: entry.data.area || '',
-    participants: entry.data.participants || '',
-    sector: entry.data.sector,
-    description: entry.data.description || ''
+
+allFairYears.forEach(yearCollection => {
+  const year = yearCollection.data.year;
+  const fairs = yearCollection.data.fairs || [];
+  
+  fairs.forEach((fair: any) => {
+    if (fair.settings?.show_in_chronology) {
+      if (!chronologyData[year]) {
+        chronologyData[year] = [];
+      }
+      
+      // Extract location parts
+      const locationParts = fair.basic_info.location_tr?.split(', ') || ['', ''];
+      const city = locationParts[0] || fair.basic_info.location_tr || '';
+      const country = locationParts[1] || '';
+      
+      chronologyData[year].push({
+        name: fair.basic_info.name_tr,
+        city: city,
+        country: country,
+        area: fair.chronology_info?.area || '',
+        participants: fair.chronology_info?.participants || '',
+        sector: fair.basic_info.sector || '',
+        description: fair.chronology_info?.description || ''
+      });
+    }
   });
 });
 
-// Sort each year's fairs by order
-Object.keys(chronologyData).forEach(year => {
-  chronologyData[parseInt(year)].sort((a, b) => {
-    const entryA = activeChronology.find(e => e.data.fair_name === a.name);
-    const entryB = activeChronology.find(e => e.data.fair_name === b.name);
-    return (entryA?.data.order || 0) - (entryB?.data.order || 0);
-  });
-});
+console.log('📜 CHRONOLOGY DEBUG: Fairs with chronology flag found');
+console.log('📜 CHRONOLOGY DEBUG: Chronology years from fairs:', Object.keys(chronologyData));
 
 // Merge with static data where CMS data doesn't exist
 const staticChronologyData = {

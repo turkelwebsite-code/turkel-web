@@ -31,11 +31,12 @@ console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
 
-// Get dynamic page content
-const pageContent = year2026Data?.data?.page_content || {};
-const pageTitle = pageContent.title_tr || `${currentYear} Fuar Takvimi`;
-const pageDescription = pageContent.description_tr || `${currentYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
+// Get dynamic year from CMS (only year changes, title/description are static)
+const dynamicYear = year2026Data?.data?.year || currentYear;
+const pageTitle = `${dynamicYear} Fuar Takvimi`;
+const pageDescription = `${dynamicYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
 
+console.log('📝 DYNAMIC PAGE: Year from CMS:', dynamicYear);
 console.log('📝 DYNAMIC PAGE: Title:', pageTitle);
 console.log('📝 DYNAMIC PAGE: Description:', pageDescription);
 
