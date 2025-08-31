@@ -453,6 +453,11 @@ const debugInfo = {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
+  
+  /* Sector groups should not interfere with grid */
+  .sector-group {
+    display: contents;
+  }
 
   /* Desktop: 4 cards per row */
   @media (min-width: 1280px) {
@@ -747,18 +752,10 @@ const debugInfo = {
             break;
         }
         
-        // Store original parent reference
-        const originalParent = sectorGroup;
-        
-        // Remove cards from DOM temporarily
-        const cardElements = sortedFairs.map(fair => {
-          fair.element.remove();
-          return fair.element;
-        });
-        
-        // Re-append in sorted order
-        cardElements.forEach(card => {
-          originalParent.appendChild(card);
+        // Use CSS order property to maintain grid structure
+        sortedFairs.forEach((fair: any, index: number) => {
+          const cardElement = fair.element as HTMLElement;
+          cardElement.style.order = index.toString();
         });
       });
     }

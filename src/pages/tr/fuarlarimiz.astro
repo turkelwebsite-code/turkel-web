@@ -707,6 +707,11 @@ const sectors = Object.keys(finalFairsData);
   .sector-group.hidden {
     display: none;
   }
+  
+  /* Ensure fair cards can be reordered with CSS order */
+  .fair-card {
+    order: 0;
+  }
 </style>
 
 <script>
@@ -781,18 +786,10 @@ const sectors = Object.keys(finalFairsData);
             break;
         }
         
-        // Store original parent reference
-        const originalParent = sectorGroup;
-        
-        // Remove cards from DOM temporarily
-        const cardElements = sortedFairs.map((fair: any) => {
-          fair.element.remove();
-          return fair.element;
-        });
-        
-        // Re-append in sorted order
-        cardElements.forEach((card: any) => {
-          originalParent.appendChild(card);
+        // Use CSS order property to maintain grid structure
+        sortedFairs.forEach((fair: any, index: number) => {
+          const cardElement = fair.element as HTMLElement;
+          cardElement.style.order = index.toString();
         });
       });
     }
