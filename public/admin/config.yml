@@ -80,13 +80,9 @@ collections:
                     display_fields: ["name", "title.tr"]
                     filter: {field: "is_fair_representative", value: true}
                     required: false
-                    hint: "Ekip üyelerinden seçin (otomatik mail/title gelir)"
-                  - {label: "👤 İsim", name: "name", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
-                  - {label: "💼 Ünvan (TR)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi"], required: false}
-                  - {label: "💼 Ünvan (EN)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative"], required: false}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Ekip üyesi seçilirse otomatik dolar"}
-                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Farklı telefon numarası için"}
-                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false}
+                    hint: "Ekip üyesi seçin → İsim/email/title otomatik frontend'de çekilir"
+                  - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Sadece farklı telefon numarası için (opsiyonel)"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false, hint: "Telefon numarasını gizle"}
               - label: "⚙️ Ayarlar"
                 name: "settings"
                 widget: "object"

@@ -210,11 +210,7 @@ const fairYears = defineCollection({
         background_image: z.string(),
       }).optional(),
       representative: z.object({
-        name: z.string().optional(),
-        title: z.string().optional(),
-        title_tr: z.string().optional(),
-        title_en: z.string().optional(),
-        email: z.string().optional(),
+        team_member: z.string().optional(),
         phone: z.string().optional(),
         hide_phone: z.boolean().optional(),
       }).optional(),
