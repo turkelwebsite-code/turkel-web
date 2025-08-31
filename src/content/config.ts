@@ -132,17 +132,17 @@ const team = defineCollection({
 const teamMembers = defineCollection({
   type: 'content',
   schema: z.object({
-    slug: z.string(),
     name: z.string(),
     title: z.object({
       tr: z.string(),
       en: z.string(),
     }),
-    department: z.string(),
+    department: z.object({
+      tr: z.string(),
+      en: z.string(),
+    }),
     email: z.string(),
     phone: z.string().optional(),
-    photo: z.string().optional(),
-    bio: z.string().optional(),
     order: z.number(),
     is_active: z.boolean(),
     is_fair_representative: z.boolean(),
