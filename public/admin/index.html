@@ -92,76 +92,82 @@
     function setupTeamMemberAutoFill() {
       console.log('🎯 Setting up team member auto-fill...');
       
-      // Wait for form to load
-      setTimeout(() => {
-        const observer = new MutationObserver(() => {
-          // Look for team member select fields
-          const teamMemberSelects = document.querySelectorAll('select[id*="team_member"], input[id*="team_member"]');
+      // Global click listener for debugging
+      document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') {
+          console.log('🎯 Field clicked:', e.target.name || e.target.id, 'Value:', e.target.value);
+        }
+      });
+      
+      // Global change listener
+      document.addEventListener('change', function(e) {
+        const field = e.target;
+        console.log('🎯 Field changed:', field.name || field.id, 'Value:', field.value);
+        
+        // Check if this is a team member field
+        if ((field.name && field.name.includes('team_member')) || 
+            (field.id && field.id.includes('team_member'))) {
           
-          teamMemberSelects.forEach(select => {
-            if (!select.hasAttribute('data-autofill-setup')) {
-              select.setAttribute('data-autofill-setup', 'true');
-              
-              select.addEventListener('change', function(e) {
-                const selectedMember = e.target.value;
-                console.log('🎯 Team member selected:', selectedMember);
-                
-                if (selectedMember && TEAM_MEMBERS[selectedMember]) {
-                  const memberData = TEAM_MEMBERS[selectedMember];
-                  
-                  setTimeout(() => {
-                    // Find parent form container
-                    const formContainer = e.target.closest('[class*="Widget"]') || e.target.closest('form');
-                    
-                    if (formContainer) {
-                      // Auto-fill name
-                      const nameField = formContainer.querySelector('input[id*="name"]:not([id*="team_member"])');
-                      if (nameField) {
-                        nameField.value = selectedMember;
-                        nameField.dispatchEvent(new Event('input', { bubbles: true }));
-                        nameField.dispatchEvent(new Event('change', { bubbles: true }));
-                      }
-                      
-                      // Auto-fill email
-                      const emailField = formContainer.querySelector('input[id*="email"]');
-                      if (emailField) {
-                        emailField.value = memberData.email;
-                        emailField.dispatchEvent(new Event('input', { bubbles: true }));
-                        emailField.dispatchEvent(new Event('change', { bubbles: true }));
-                      }
-                      
-                      // Auto-fill TR title
-                      const titleTrField = formContainer.querySelector('select[id*="title_tr"]');
-                      if (titleTrField) {
-                        titleTrField.value = memberData.title_tr;
-                        titleTrField.dispatchEvent(new Event('change', { bubbles: true }));
-                      }
-                      
-                      // Auto-fill EN title
-                      const titleEnField = formContainer.querySelector('select[id*="title_en"]');
-                      if (titleEnField) {
-                        titleEnField.value = memberData.title_en;
-                        titleEnField.dispatchEvent(new Event('change', { bubbles: true }));
-                      }
-                      
-                      console.log('✅ Auto-filled data for:', selectedMember);
-                    }
-                  }, 100);
-                }
-              });
-            }
-          });
-        });
-        
-        // Start observing
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true
-        });
-        
-        console.log('✅ Team member auto-fill setup complete');
-      }, 2000);
+          const selectedMember = field.value;
+          console.log('🎯 Team member selected:', selectedMember);
+          
+          if (selectedMember && TEAM_MEMBERS[selectedMember]) {
+            const memberData = TEAM_MEMBERS[selectedMember];
+            console.log('🎯 Member data found:', memberData);
+            
+            setTimeout(() => {
+              autoFillFields(selectedMember, memberData);
+            }, 1000);
+          }
+        }
+      });
+      
+      console.log('✅ Global team member auto-fill setup complete');
     }
+    
+    function autoFillFields(selectedMember, memberData) {
+      console.log('🎯 Starting auto-fill for:', selectedMember);
+      
+      // Find all possible field patterns
+      const allInputs = document.querySelectorAll('input, select');
+      
+      allInputs.forEach(field => {
+        const fieldName = field.name || field.id || '';
+        
+        // Name field
+        if (fieldName.includes('name') && !fieldName.includes('team_member') && !fieldName.includes('cms_button')) {
+          field.value = selectedMember;
+          field.dispatchEvent(new Event('input', { bubbles: true }));
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+          console.log('✅ Filled name:', selectedMember);
+        }
+        
+        // Email field
+        if (fieldName.includes('email')) {
+          field.value = memberData.email;
+          field.dispatchEvent(new Event('input', { bubbles: true }));
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+          console.log('✅ Filled email:', memberData.email);
+        }
+        
+        // Title TR field
+        if (fieldName.includes('title_tr')) {
+          field.value = memberData.title_tr;
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+          console.log('✅ Filled title_tr:', memberData.title_tr);
+        }
+        
+        // Title EN field
+        if (fieldName.includes('title_en')) {
+          field.value = memberData.title_en;
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+          console.log('✅ Filled title_en:', memberData.title_en);
+        }
+      });
+      
+      console.log('✅ Auto-fill process completed');
+    }
+
   </script>
 
   <style>
