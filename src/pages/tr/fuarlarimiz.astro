@@ -3,14 +3,58 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { getCollection } from 'astro:content';
 
 const locale = 'tr';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Fair data organized by sectors
-const fairsData = {
+// Load CMS fair years data
+const fairYearsCollection = await getCollection('fair-years');
+console.log('🎪 FAIR YEARS: Loading CMS fair years for cards...');
+
+// Get all fairs from all active years for display
+var allFairsData: Record<string, any[]> = {};
+
+// Process CMS fair years
+fairYearsCollection.forEach(yearData => {
+  const yearFairs = yearData.data.fairs || [];
+  console.log(`🎪 FAIR YEARS: Processing ${yearData.data.year} with ${yearFairs.length} fairs`);
+  
+  yearFairs.forEach((fair: any) => {
+    const sector = fair.basic_info?.sector || 'Diğer';
+    
+    if (!allFairsData[sector]) {
+      allFairsData[sector] = [];
+    }
+    
+    // Convert CMS fair to display format
+    const fairCard = {
+      id: `${yearData.data.year}_${fair.basic_info?.name_tr}`,
+      name: fair.basic_info?.name_tr || 'Fuar Adı',
+      city: fair.basic_info?.location_tr?.split(',')[0]?.trim() || '',
+      country: fair.basic_info?.location_tr?.split(',')[1]?.trim() || '',
+      date: fair.basic_info?.date_tr || fair.basic_info?.date || '',
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: fair.representative?.name || 'Temsilci',
+        title: fair.representative?.title_tr || fair.representative?.title || 'Satış Temsilcisi',
+        email: fair.representative?.email || '',
+        phone: fair.representative?.phone || ''
+      },
+      description: fair.basic_info?.description_tr || ''
+    };
+    
+    allFairsData[sector].push(fairCard);
+  });
+});
+
+console.log('🎪 FAIR YEARS: All fairs loaded from CMS:', Object.keys(allFairsData));
+
+// Fallback static data (if no CMS data available)
+const fallbackFairsData = {
   "Moda ve Tekstil": [
     {
       id: 1,
@@ -183,8 +227,11 @@ const fairsData = {
   ]
 };
 
+// Use CMS data if available, otherwise fallback to static data
+const finalFairsData = Object.keys(allFairsData).length > 0 ? allFairsData : fallbackFairsData;
+
 // Get all sectors for filtering
-const sectors = Object.keys(fairsData);
+const sectors = Object.keys(finalFairsData);
 ---
 
 <BaseLayout locale={locale} title="Fuarlarımız - Türkel Fuarcılık" description="Türkel Fuarcılık'ın organize ettiği uluslararası fuarlar">
@@ -289,7 +336,7 @@ const sectors = Object.keys(fairsData);
 
           <!-- Fairs Grid -->
           <div class="fairs-container">
-            {Object.entries(fairsData).map(([sector, fairs]) => (
+            {Object.entries(finalFairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
                   <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">

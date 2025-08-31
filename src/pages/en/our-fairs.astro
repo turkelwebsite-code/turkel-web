@@ -3,14 +3,73 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
+import { getCollection } from 'astro:content';
 
 const locale = 'en';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Fair data organized by sectors
-const fairsData = {
+// Load CMS fair years data
+const fairYearsCollection = await getCollection('fair-years');
+console.log('🎪 FAIR YEARS EN: Loading CMS fair years for cards...');
+
+// Get all fairs from all active years for display
+var allFairsData: Record<string, any[]> = {};
+
+// Process CMS fair years
+fairYearsCollection.forEach(yearData => {
+  const yearFairs = yearData.data.fairs || [];
+  console.log(`🎪 FAIR YEARS EN: Processing ${yearData.data.year} with ${yearFairs.length} fairs`);
+  
+  yearFairs.forEach((fair: any) => {
+    const sector = fair.basic_info?.sector || 'Other';
+    
+    // Translate sector to English
+    const sectorTranslations: Record<string, string> = {
+      'Moda ve Tekstil': 'Fashion & Textile',
+      'Ev Tekstili ve Dekorasyon': 'Home Textile & Decoration',
+      'Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları': 'Furniture & Lighting',
+      'Kalıp & Plastik, İhtisas, Havuz': 'Mold & Plastic',
+      'Deri Fuarları & Güvenlik Sistemleri Fuarları': 'Leather & Security Systems',
+      'Güzellik ve Kozmetik': 'Beauty & Cosmetics',
+      'Enerji': 'Energy',
+      'İnşaat': 'Construction',
+      'Diğer': 'Other'
+    };
+    
+    const translatedSector = sectorTranslations[sector] || sector;
+    
+    if (!allFairsData[translatedSector]) {
+      allFairsData[translatedSector] = [];
+    }
+    
+    // Convert CMS fair to display format
+    const fairCard = {
+      id: `${yearData.data.year}_${fair.basic_info?.name_en}`,
+      name: fair.basic_info?.name_en || fair.basic_info?.name_tr || 'Fair Name',
+      city: fair.basic_info?.location_en?.split(',')[0]?.trim() || '',
+      country: fair.basic_info?.location_en?.split(',')[1]?.trim() || '',
+      date: fair.basic_info?.date_en || fair.basic_info?.date_tr || '',
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: fair.representative?.name || 'Representative',
+        title: fair.representative?.title_en || fair.representative?.title || 'Sales Representative',
+        email: fair.representative?.email || '',
+        phone: fair.representative?.phone || ''
+      },
+      description: fair.basic_info?.description_en || fair.basic_info?.description_tr || ''
+    };
+    
+    allFairsData[translatedSector].push(fairCard);
+  });
+});
+
+console.log('🎪 FAIR YEARS EN: All fairs loaded from CMS:', Object.keys(allFairsData));
+
+// Fallback static data (if no CMS data available)
+const fallbackFairsData = {
   "Fashion & Textile": [
     {
       id: 1,
@@ -149,8 +208,11 @@ const fairsData = {
   ]
 };
 
+// Use CMS data if available, otherwise fallback to static data
+const finalFairsData = Object.keys(allFairsData).length > 0 ? allFairsData : fallbackFairsData;
+
 // Get all sectors for filtering
-const sectors = Object.keys(fairsData);
+const sectors = Object.keys(finalFairsData);
 ---
 
 <BaseLayout locale={locale} title="Our Fairs - Türkel Fair Organization" description="International fairs organized by Türkel Fair Organization">
@@ -255,7 +317,7 @@ const sectors = Object.keys(fairsData);
 
           <!-- Fairs Grid -->
           <div class="fairs-container">
-            {Object.entries(fairsData).map(([sector, fairs]) => (
+            {Object.entries(finalFairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
                   <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
