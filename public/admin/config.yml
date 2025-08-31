@@ -444,23 +444,7 @@ collections:
 
 
 
-  # KRONOLOJI - Geçmiş Fuarlar
-  - name: "timeline"
-    label: "📅 Kronoloji"
-    folder: "src/content/timeline"
-    create: true
-    slug: "{{year}}-{{slug}}"
-    identifier_field: "fair_name"
-    summary: "{{fair_name}} - {{year}}"
-    fields:
-      - {label: "Fuar Adı", name: "fair_name", widget: "string", hint: "Örnek: LeShow Moskova 2024"}
-      - {label: "Yıl", name: "year", widget: "number", value_type: "int", min: 1990, max: 2024}
-      - {label: "Şehir", name: "city", widget: "string", hint: "Örnek: Moskova"}
-      - {label: "Ülke", name: "country", widget: "string", hint: "Örnek: Rusya"}
-      - {label: "Alan", name: "area", widget: "string", hint: "Örnek: 15,000 m²"}
-      - {label: "Katılımcı Sayısı", name: "participants", widget: "string", hint: "Örnek: 450"}
-      - {label: "Sektör", name: "sector", widget: "string", hint: "Örnek: Deri ve Kürk"}
-      - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, hint: "Gösterim sırası (1 en üstte)"}
+
 
   # PARTNERLER
   - name: "partners"
