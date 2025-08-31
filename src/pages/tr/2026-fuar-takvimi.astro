@@ -257,7 +257,7 @@ const debugInfo = {
                       />
                       <!-- Fair Logo Overlay -->
                       <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="bg-white bg-opacity-95 rounded-xl p-4 shadow-lg max-w-[280px]">
+                        <div class="bg-white bg-opacity-95 rounded-xl p-4 shadow-lg max-w-[230px]">
                           <img 
                             src={fair.logo || "/images/fuarlar-logo.png"} 
                             alt={`${fair.name} Logo`}
@@ -272,12 +272,12 @@ const debugInfo = {
                     <div class="p-6">
                       <!-- Fair Name -->
                       <div class="relative group">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
+                        <h3 class="text-xl font-bold text-gray-900 mb-1" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
                           {fair.name}
                         </h3>
                         <!-- Fair Description -->
                         {fair.description && (
-                          <p class="text-sm text-gray-600 mb-3 font-medium leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                          <p class="text-sm text-gray-600 mb-2 font-medium leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
                             {fair.description}
                           </p>
                         )}
