@@ -57,6 +57,33 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan", name: "title", widget: "string", required: false, hint: "Örnek: Satış Direktörü"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+              - label: "🌐 Slider İçin Ek Bilgiler"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition:
+                  field: settings.show_in_slider
+                  value: true
+                fields:
+                  - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
+                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - label: "📷 Mini Görseller (3 adet)"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
       
       - label: "2025 Fuarları"
         name: "fairs_2025"
@@ -102,6 +129,33 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan", name: "title", widget: "string", required: false, hint: "Örnek: Satış Direktörü"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+              - label: "🌐 Slider İçin Ek Bilgiler"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition:
+                  field: settings.show_in_slider
+                  value: true
+                fields:
+                  - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
+                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - label: "📷 Mini Görseller (3 adet)"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
       
       - label: "2024 Fuarları"
         name: "fairs_2024"
@@ -147,6 +201,33 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan", name: "title", widget: "string", required: false, hint: "Örnek: Satış Direktörü"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+              - label: "🌐 Slider İçin Ek Bilgiler"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition:
+                  field: settings.show_in_slider
+                  value: true
+                fields:
+                  - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
+                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - label: "📷 Mini Görseller (3 adet)"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
       
       - label: "2023 Fuarları"
         name: "fairs_2023"
@@ -192,6 +273,33 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan", name: "title", widget: "string", required: false, hint: "Örnek: Satış Direktörü"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+              - label: "🌐 Slider İçin Ek Bilgiler"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition:
+                  field: settings.show_in_slider
+                  value: true
+                fields:
+                  - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
+                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - label: "📷 Mini Görseller (3 adet)"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
       
       - label: "2022 Fuarları"
         name: "fairs_2022"
@@ -237,6 +345,33 @@ collections:
                 fields:
                   - {label: "🎠 Ana Sayfa Slider'ında Göster", name: "show_in_slider", widget: "boolean", default: false, hint: "Bu fuar ana sayfa slider'ında gösterilsin mi?"}
                   - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, hint: "Bu fuar form dropdown'ında gösterilsin mi?"}
+              - label: "👤 Temsilci Bilgileri"
+                name: "representative"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", required: false, hint: "Örnek: Seval Arslan"}
+                  - {label: "🏢 Unvan", name: "title", widget: "string", required: false, hint: "Örnek: Satış Direktörü"}
+                  - {label: "📧 E-posta", name: "email", widget: "string", required: false, hint: "Örnek: seval@turkel.com.tr"}
+                  - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+              - label: "🌐 Slider İçin Ek Bilgiler"
+                name: "slider_content"
+                widget: "object"
+                collapsed: true
+                condition:
+                  field: settings.show_in_slider
+                  value: true
+                fields:
+                  - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
+                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - label: "📷 Mini Görseller (3 adet)"
+                    name: "mini_images"
+                    widget: "list"
+                    max: 3
+                    min: 0
+                    field: {label: "Görsel", name: "image", widget: "image"}
+                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
 
 
 

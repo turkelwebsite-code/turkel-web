@@ -44,10 +44,10 @@ try {
       image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
       representative: {
-        name: "Satış Temsilcisi",
-        title: "Satış Direktörü", 
-        email: "info@turkel.com.tr",
-        phone: "+90 212 284 23 00"
+        name: fair.representative?.name || "Satış Temsilcisi",
+        title: fair.representative?.title || "Satış Direktörü", 
+        email: fair.representative?.email || "info@turkel.com.tr",
+        phone: fair.representative?.phone || "+90 212 284 23 00"
       },
       description: `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
     });
