@@ -179,6 +179,7 @@ const fairYears = defineCollection({
   schema: z.object({
     year: z.number(),
     page_slug: z.string().optional(),
+    page_slug_en: z.string().optional(),
     is_active: z.boolean(),
     display_status: z.string().optional(),
     menu_order: z.number().optional(),

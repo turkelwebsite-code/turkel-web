@@ -163,21 +163,20 @@ const currentPath = Astro.url.pathname;
                 {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
                   <div class="absolute top-full left-0 mt-0 w-56 bg-white  shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] transform translate-y-2 group-hover:translate-y-0">
                     <div class="py-2">
-                      <a href={`/${locale}/${locale === 'tr' ? '2026-fuar-takvimi' : '2026-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
-                        {locale === 'tr' ? '2026 Fuar Takvimi' : '2026 Fair Calendar'}
-                      </a>
-                      <a href={`/${locale}/${locale === 'tr' ? '2025-fuar-takvimi' : '2025-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
-                        {locale === 'tr' ? '2025 Fuar Takvimi' : '2025 Fair Calendar'}
-                      </a>
-                      <a href={`/${locale}/${locale === 'tr' ? '2024-fuar-takvimi' : '2024-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
-                        {locale === 'tr' ? '2024 Fuar Takvimi' : '2024 Fair Calendar'}
-                      </a>
-                      <a href={`/${locale}/${locale === 'tr' ? '2023-fuar-takvimi' : '2023-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
-                        {locale === 'tr' ? '2023 Fuar Takvimi' : '2023 Fair Calendar'}
-                      </a>
-                      <a href={`/${locale}/${locale === 'tr' ? '2022-fuar-takvimi' : '2022-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
-                        {locale === 'tr' ? '2022 Fuar Takvimi' : '2022 Fair Calendar'}
-                      </a>
+                      {activeFairYears.map(fairYear => {
+                        const slug = locale === 'tr' 
+                          ? (fairYear.data.page_slug || `${fairYear.data.year}-fuar-takvimi`)
+                          : (fairYear.data.page_slug_en || `${fairYear.data.year}-fair-calendar`);
+                        const menuTitle = locale === 'tr' 
+                          ? (fairYear.data.page_content?.menu_title_tr || `${fairYear.data.year} Fuar Takvimi`)
+                          : (fairYear.data.page_content?.menu_title_en || `${fairYear.data.year} Fair Calendar`);
+                        
+                        return (
+                          <a href={`/${locale}/${slug}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
+                            {menuTitle}
+                          </a>
+                        );
+                      })}
                       <div class="border-t border-gray-200 my-1"></div>
                       <a href={`/${locale}/${locale === 'tr' ? 'galeri' : 'gallery'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
                         {locale === 'tr' ? 'Galeri' : 'Gallery'}
@@ -321,21 +320,20 @@ const currentPath = Astro.url.pathname;
             
             {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
               <div id="mobile-dropdown-fuarlarimiz" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
-                <a href={`/${locale}/${locale === 'tr' ? '2026-fuar-takvimi' : '2026-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
-                  {locale === 'tr' ? '2026 Fuar Takvimi' : '2026 Fair Calendar'}
-                </a>
-                <a href={`/${locale}/${locale === 'tr' ? '2025-fuar-takvimi' : '2025-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
-                  {locale === 'tr' ? '2025 Fuar Takvimi' : '2025 Fair Calendar'}
-                </a>
-                <a href={`/${locale}/${locale === 'tr' ? '2024-fuar-takvimi' : '2024-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
-                  {locale === 'tr' ? '2024 Fuar Takvimi' : '2024 Fair Calendar'}
-                </a>
-                <a href={`/${locale}/${locale === 'tr' ? '2023-fuar-takvimi' : '2023-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
-                  {locale === 'tr' ? '2023 Fuar Takvimi' : '2023 Fair Calendar'}
-                </a>
-                <a href={`/${locale}/${locale === 'tr' ? '2022-fuar-takvimi' : '2022-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
-                  {locale === 'tr' ? '2022 Fuar Takvimi' : '2022 Fair Calendar'}
-                </a>
+                {activeFairYears.map(fairYear => {
+                  const slug = locale === 'tr' 
+                    ? (fairYear.data.page_slug || `${fairYear.data.year}-fuar-takvimi`)
+                    : (fairYear.data.page_slug_en || `${fairYear.data.year}-fair-calendar`);
+                  const menuTitle = locale === 'tr' 
+                    ? (fairYear.data.page_content?.menu_title_tr || `${fairYear.data.year} Fuar Takvimi`)
+                    : (fairYear.data.page_content?.menu_title_en || `${fairYear.data.year} Fair Calendar`);
+                  
+                  return (
+                    <a href={`/${locale}/${slug}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
+                      {menuTitle}
+                    </a>
+                  );
+                })}
                 <a href={`/${locale}/${locale === 'tr' ? 'galeri' : 'gallery'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
                   {locale === 'tr' ? 'Galeri' : 'Gallery'}
                 </a>

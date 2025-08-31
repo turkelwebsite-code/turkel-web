@@ -21,7 +21,8 @@ collections:
         file: "src/content/fair-years/2028.yml"
         fields:
           - {label: "📅 Yıl", name: "year", widget: "number", value_type: "int", default: 2028, hint: "Fuar yılı"}
-          - {label: "🔗 Sayfa Slug", name: "page_slug", widget: "string", default: "2028-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"], hint: "URL için özel slug"}
+          - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", default: "2028-fuar-takvimi", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"], hint: "Türkçe URL için slug"}
+          - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", default: "2028-fair-calendar", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"], hint: "English URL slug"}
           - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, hint: "Header menüsünde gösterilsin mi?"}
           - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
           - {label: "🔢 Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 1, hint: "Header menüsündeki sıralama (1 en üstte)"}
