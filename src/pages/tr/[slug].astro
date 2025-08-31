@@ -469,7 +469,11 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
         case 'name':
           console.log('🔤 A-Z SORTING: Before sort:', allCards.map((f: any) => f.name));
           allCards.sort((a: any, b: any) => {
-            const result = a.name.localeCompare(b.name, 'tr');
+            // Remove number prefixes for proper alphabetical sorting
+            const cleanNameA = a.name.replace(/^\d+\.\s*/, '').trim();
+            const cleanNameB = b.name.replace(/^\d+\.\s*/, '').trim();
+            console.log(`🔤 Comparing clean names: "${cleanNameA}" vs "${cleanNameB}"`);
+            const result = cleanNameA.localeCompare(cleanNameB, 'tr');
             return result;
           });
           console.log('🔤 A-Z SORTING: After sort:', allCards.map((f: any) => f.name));
