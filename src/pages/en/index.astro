@@ -26,7 +26,7 @@ if (!content) {
 // Get CMS fair data for slider
 console.log('🎬 SLIDER DEBUG: Loading CMS fairs for slider...');
 const fairYearData = await getCollection('fair-years');
-const allFairs = [];
+const allFairs: any[] = [];
 
 fairYearData.forEach((yearData: any) => {
   const fairs = yearData.data?.fairs || [];

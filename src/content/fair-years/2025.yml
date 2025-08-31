@@ -1,5 +1,16 @@
 year: 2025
+page_slug: "2025-fuar-takvimi"
+page_slug_en: "2025-fair-calendar"
 is_active: true
+display_status: Aktif Fuarlar
+menu_order: 2
+page_content:
+  title_tr: "2025 Fuar Takvimi"
+  title_en: "2025 Fair Calendar"
+  menu_title_tr: "2025 Fuar Takvimi"
+  menu_title_en: "2025 Fair Calendar"
+  description_tr: "2025 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz."
+  description_en: "In 2025, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide."
 fairs:
   - basic_info:
       name_tr: LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı
