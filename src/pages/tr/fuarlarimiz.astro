@@ -781,12 +781,18 @@ const sectors = Object.keys(finalFairsData);
             break;
         }
         
-        // Clear and reorder DOM elements to maintain grid structure
-        const currentCards = sectorGroup.querySelectorAll('.fair-card');
-        currentCards.forEach(card => card.remove());
+        // Store original parent reference
+        const originalParent = sectorGroup;
         
-        sortedFairs.forEach(fair => {
-          sectorGroup.appendChild(fair.element);
+        // Remove cards from DOM temporarily
+        const cardElements = sortedFairs.map((fair: any) => {
+          fair.element.remove();
+          return fair.element;
+        });
+        
+        // Re-append in sorted order
+        cardElements.forEach((card: any) => {
+          originalParent.appendChild(card);
         });
       });
     }

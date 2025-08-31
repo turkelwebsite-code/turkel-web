@@ -494,27 +494,20 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
           break;
       }
       
-      // Clear and reorder DOM elements to maintain grid structure
-      fairsContainer.innerHTML = '';
-      
-      // Rebuild sector groups and cards
-      const sectorCards = {};
-      sortedFairs.forEach(fair => {
-        if (!sectorCards[fair.sector]) sectorCards[fair.sector] = [];
-        sectorCards[fair.sector].push(fair.element);
-      });
-      
-      Object.keys(sectorCards).forEach(sector => {
-        const sectorDiv = document.createElement('div');
-        sectorDiv.className = 'sector-group';
-        sectorDiv.dataset.sector = sector;
-        
-        sectorCards[sector].forEach(card => {
-          sectorDiv.appendChild(card);
+      // Simple reordering without rebuilding structure
+      const container = fairsContainer as HTMLElement;
+      if (container) {
+        // Remove all cards temporarily
+        const cardElements = sortedFairs.map((fair: any) => {
+          fair.element.remove();
+          return fair.element;
         });
         
-        fairsContainer.appendChild(sectorDiv);
-      });
+        // Re-append in sorted order to the main container
+        cardElements.forEach((card: any) => {
+          container.appendChild(card);
+        });
+      }
     }
     
     // Sort button functionality

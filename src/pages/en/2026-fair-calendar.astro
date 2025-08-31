@@ -288,7 +288,7 @@ const debugInfo = {
             {Object.entries(fairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order || 999}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -548,6 +548,18 @@ const debugInfo = {
     color: white;
   }
 
+  /* Sort button styles */
+  .sort-btn.active {
+    background-color: #CE1A28;
+    color: white;
+    border-color: #CE1A28;
+  }
+  
+  .sort-btn:not(.active):hover {
+    border-color: #CE1A28;
+    color: #CE1A28;
+  }
+
   /* Hidden sector groups */
   .sector-group.hidden {
     display: none;
@@ -605,8 +617,134 @@ const debugInfo = {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const sortButtons = document.querySelectorAll('.sort-btn');
     const sectorGroups = document.querySelectorAll('.sector-group');
     const fairCards = document.querySelectorAll('.fair-card');
+    const fairsContainer = document.querySelector('.fairs-container');
+    
+    // Store original fair data for sorting
+    const fairsData: Record<string, any[]> = {};
+    
+    // Parse fair data from DOM
+    fairCards.forEach(card => {
+      const cardElement = card as HTMLElement;
+      const sector = card.closest('.sector-group')?.getAttribute('data-sector') || 'other';
+      if (!fairsData[sector]) fairsData[sector] = [];
+      
+      const nameElement = card.querySelector('h3');
+      const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
+      
+      fairsData[sector].push({
+        element: card,
+        name: nameElement?.textContent?.trim() || '',
+        date: dateElement?.textContent?.trim() || '',
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999
+      });
+    });
+    
+    // Sorting functionality
+    function sortFairs(sortType: string) {
+      Object.keys(fairsData).forEach(sector => {
+        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`) as HTMLElement;
+        if (!sectorGroup) return;
+        
+        const sortedFairs = [...fairsData[sector]];
+        
+        switch(sortType) {
+          case 'name':
+            sortedFairs.sort((a: any, b: any) => a.name.localeCompare(b.name, 'en'));
+            break;
+          case 'date':
+            sortedFairs.sort((a: any, b: any) => {
+              // English month names to numbers
+              const englishMonths: Record<string, string> = {
+                'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
+                'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
+                'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
+              };
+              
+              function parseDate(dateStr: string): Date {
+                // Handle formats like "17-25 JANUARY 2026" or "16 - 18 FEBRUARY 2026"
+                const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+                if (match) {
+                  const day = match[1];
+                  const month = englishMonths[match[2]] || '01';
+                  const year = match[3];
+                  return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+                }
+                return new Date(2099, 11, 31); // Far future date for unparseable dates
+              }
+              
+              const dateA = parseDate(a.date);
+              const dateB = parseDate(b.date);
+              return dateA.getTime() - dateB.getTime();
+            });
+            break;
+          case 'order':
+          default:
+            sortedFairs.sort((a: any, b: any) => a.order - b.order);
+            break;
+        }
+        
+        // Store original parent reference
+        const originalParent = sectorGroup;
+        
+        // Remove cards from DOM temporarily
+        const cardElements = sortedFairs.map((fair: any) => {
+          fair.element.remove();
+          return fair.element;
+        });
+        
+        // Re-append in sorted order
+        cardElements.forEach((card: any) => {
+          originalParent.appendChild(card);
+        });
+      });
+    }
+    
+    // Sort button functionality
+    sortButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const sortType = this.getAttribute('data-sort') || 'order';
+        
+        // Update active button
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        this.classList.add('active');
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        
+        // Apply sorting
+        sortFairs(sortType);
+      });
+    });
+    
+    // Clear sort button functionality
+    const clearButton = document.querySelector('.sort-clear-btn');
+    if (clearButton) {
+      clearButton.addEventListener('click', function() {
+        // Reset to original order (by order field)
+        sortFairs('order');
+        
+        // Reset active button to "Default"
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        const defaultButton = document.querySelector('[data-sort="order"]');
+        if (defaultButton) {
+          defaultButton.classList.add('active');
+          defaultButton.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+          defaultButton.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        }
+      });
+    }
     
     // Filter functionality
     filterButtons.forEach(button => {
