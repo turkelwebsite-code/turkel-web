@@ -69,12 +69,10 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team_members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -147,12 +145,10 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team_members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -225,12 +221,10 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team_members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -303,12 +297,10 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team_members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -381,12 +373,10 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "👤 Temsilci Adı", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
-                  - {label: "🏢 Unvan (Türkçe)", name: "title_tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü"], hint: "Türkçe ünvan seçin"}
-                  - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
-                  - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
-                  - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "👤 Temsilci Seç", name: "team_member", widget: "relation", collection: "team_members", search_fields: ["name", "email"], display_fields: ["name", "title.tr", "department"], value_field: "slug", hint: "Ekip üyelerinden temsilci seçin"}
+                  - {label: "📞 Özel Telefon", name: "custom_phone", widget: "string", required: false, hint: "Bu fuar için özel telefon numarası (opsiyonel)"}
                   - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
+                  - {label: "📝 Özel Not", name: "note", widget: "text", required: false, hint: "Bu fuar için özel not (opsiyonel)"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -441,13 +431,13 @@ collections:
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Gösterim sırası"}
       - {label: "Aktif", name: "is_active", widget: "boolean", default: true, hint: "Partner gösterilsin mi?"}
 
-  # EKİBİMİZ İÇERİĞİ
-  - name: "team_content"
+  # EKİBİMİZ YÖNETİMİ
+  - name: "team_management"
     label: "👥 Ekibimiz"
     files:
-      - label: "Ekip Sayfası İçeriği"
-        name: "team_page"
-        file: "src/content/team/content.yml"
+      - label: "Ekip Sayfası Ayarları"
+        name: "team_settings"
+        file: "src/content/team/settings.yml"
         fields:
           - label: "Sayfa Başlıkları"
             name: "titles"
@@ -455,15 +445,39 @@ collections:
             fields:
               - {label: "Başlık (Türkçe)", name: "tr", widget: "string", default: "Profesyonel Ekibimiz"}
               - {label: "Başlık (İngilizce)", name: "en", widget: "string", default: "Our Professional Team"}
-          
           - label: "Sayfa İçeriği"
             name: "content"
             widget: "object"
             fields:
-              - {label: "İçerik (Türkçe)", name: "tr", widget: "markdown", hint: "Mevcut sayfa içeriğini buraya kopyala"}
-              - {label: "İçerik (İngilizce)", name: "en", widget: "markdown", hint: "İngilizce sayfa içeriği"}
-          
+              - {label: "İçerik (Türkçe)", name: "tr", widget: "markdown", hint: "Ekip hakkında genel açıklama"}
+              - {label: "İçerik (İngilizce)", name: "en", widget: "markdown", hint: "Team general description"}
           - {label: "Ekip Sayısı", name: "team_count", widget: "string", default: "76 kişilik", hint: "Örnek: 76 kişilik"}
+
+  # EKİP ÜYELERİ
+  - name: "team_members"
+    label: "👤 Ekip Üyeleri"
+    folder: "src/content/team/members"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: "name"
+    summary: "{{fields.name}} - {{fields.department}} - {{fields.title_tr}}"
+    fields:
+      - {label: "Slug", name: "slug", widget: "string", hint: "URL için benzersiz isim (örnek: seval-arslan)"}
+      - {label: "👤 Ad Soyad", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
+      - label: "🏢 Unvan"
+        name: "title"
+        widget: "object"
+        fields:
+          - {label: "Türkçe", name: "tr", widget: "select", options: ["Satış Direktörü", "Satış Temsilcisi", "Satış Yöneticisi", "Bölge Müdürü", "İş Geliştirme Müdürü", "Yönetim Kurulu Başkanı", "Teknik Proje Direktörü", "Operasyon Müdürü", "Finansman Müdürü", "Muhasebe Müdürü", "Departman Asistanı"]}
+          - {label: "İngilizce", name: "en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager", "Chairman", "Technical Project Director", "Operations Manager", "Finance Manager", "Accounting Manager", "Department Assistant"]}
+      - {label: "🏢 Departman", name: "department", widget: "select", options: ["Yönetim Kurulu", "Moda Fuarları", "Ev Tekstili ve Dekorasyon Fuarları", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Teknik Proje", "Fuar Seyahatleri / TF Seyahat Acentası", "Finans & Muhasebe", "Dış İlişkiler ve Uluslararası Satış", "Lojistik ve Ulaşım", "Bilgi İşlem", "Grafik Tasarım"]}
+      - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
+      - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+      - {label: "📷 Fotoğraf", name: "photo", widget: "image", required: false, hint: "Ekip üyesi fotoğrafı (opsiyonel)"}
+      - {label: "📝 Kısa Biyografi", name: "bio", widget: "text", required: false, hint: "Kısa tanıtım metni"}
+      - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Departman içindeki sıralama"}
+      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+      - {label: "🎯 Fuar Temsilcisi", name: "is_fair_representative", widget: "boolean", default: false, hint: "Bu kişi fuar temsilcisi olarak seçilebilsin mi?"}
 
   # SLIDER YÖNETİMİ - Otomatik CMS Entegrasyonu
   - name: "slider_settings"
