@@ -60,7 +60,7 @@ fairYearsCollection.forEach(yearData => {
         phone: fair.representative?.phone || ''
       },
       description: fair.basic_info?.description_en || fair.basic_info?.description_tr || '',
-      order: fair.settings?.order || 999 // Default high number for unsorted items
+      order: fair.settings?.order ?? 999 // Default high number for unsorted items
     };
     
     allFairsData[translatedSector].push(fairCard);

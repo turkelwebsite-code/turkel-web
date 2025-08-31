@@ -122,7 +122,7 @@ cmsFairs.forEach((fair: any) => {
     logo: fair.visuals?.logo || '/images/fuarlar-logo.png',
     representative: representativeData,
     hidePhone: fair.representative?.hide_phone || false,
-    order: fair.settings?.order || 999 // Default high number for unsorted items
+    order: fair.settings?.order ?? 999 // Default high number for unsorted items
   });
 });
 

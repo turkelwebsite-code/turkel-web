@@ -45,7 +45,7 @@ fairYearsCollection.forEach(yearData => {
         phone: fair.representative?.phone || ''
       },
       description: fair.basic_info?.description_tr || '',
-      order: fair.settings?.order || 999 // Default high number for unsorted items
+      order: fair.settings?.order ?? 999 // Default high number for unsorted items
     };
     
     allFairsData[sector].push(fairCard);
@@ -77,7 +77,8 @@ const fallbackFairsData = {
         email: "seval@turkel.com.tr",
         phone: "+90 216 123 45 68"
       },
-      description: "Rusya'nın en büyük moda ve tekstil fuarı. Doğu Avrupa ve Orta Asya pazarlarına açılan kapınız. Yılda 2 kez düzenlenen bu prestijli fuarda 500+ katılımcı firma yer alır."
+      description: "Rusya'nın en büyük moda ve tekstil fuarı. Doğu Avrupa ve Orta Asya pazarlarına açılan kapınız. Yılda 2 kez düzenlenen bu prestijli fuarda 500+ katılımcı firma yer alır.",
+      order: 1
     },
     {
       id: 2,
@@ -93,7 +94,8 @@ const fallbackFairsData = {
         email: "hazal@turkel.com.tr",
         phone: "+90 216 123 45 69"
       },
-      description: "Türkiye'nin prestijli moda fuarı. Avrupa, Orta Doğu ve Afrika pazarlarının buluşma noktası. Lüks moda markalarından hazır giyim üreticilerine kadar geniş katılım."
+      description: "Türkiye'nin prestijli moda fuarı. Avrupa, Orta Doğu ve Afrika pazarlarının buluşma noktası. Lüks moda markalarından hazır giyim üreticilerine kadar geniş katılım.",
+      order: 2
     }
   ],
   "Ev Tekstili ve Dekorasyon": [
@@ -111,7 +113,8 @@ const fallbackFairsData = {
         email: "arzu@turkel.com.tr",
         phone: "+90 216 123 45 71"
       },
-      description: "Orta Asya'nın en büyük ev dekorasyonu fuarı. 15 ülkeden 500+ katılımcı firma. Halı, perde, yatak odası takımları ve dekoratif ürünlerin sergilendiği prestijli etkinlik."
+      description: "Orta Asya'nın en büyük ev dekorasyonu fuarı. 15 ülkeden 500+ katılımcı firma. Halı, perde, yatak odası takımları ve dekoratif ürünlerin sergilendiği prestijli etkinlik.",
+      order: 1
     },
     {
       id: 4,

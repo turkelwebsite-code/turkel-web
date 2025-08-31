@@ -90,10 +90,10 @@ collections:
             widget: "object"
             collapsed: true
             fields:
-              - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 1, hint: "Fuar kartlarının görüntülenme sırası (1, 2, 3...)"}
-              - {label: "Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false}
+              - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 1, required: false, hint: "Fuar kartlarının görüntülenme sırası (1, 2, 3...)"}
+              - {label: "Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false, required: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true, required: false}
+              - {label: "Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false, required: false}
               - label: "Slider İçeriği"
                 name: "slider_content"
                 widget: "object"
