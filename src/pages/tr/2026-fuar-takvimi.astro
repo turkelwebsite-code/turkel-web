@@ -748,6 +748,11 @@ const debugInfo = {
       });
     });
     
+    // Apply initial default sorting on page load
+    setTimeout(() => {
+      sortFairs('order');
+    }, 100);
+    
     // Sorting functionality - GLOBAL sorting across all sectors
     function sortFairs(sortType: string) {
       console.log('🔄 SORTING: Starting sort with type:', sortType);

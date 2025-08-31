@@ -455,6 +455,11 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
       });
     });
     
+    // Apply initial default sorting on page load
+    setTimeout(() => {
+      sortFairs('order');
+    }, 100);
+    
     // Sorting functionality - GLOBAL sorting across all cards
     function sortFairs(sortType: string) {
       console.log('🔄 SORTING: Starting sort with type:', sortType);
