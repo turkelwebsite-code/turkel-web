@@ -28,9 +28,9 @@ console.log('🎬 SLIDER DEBUG: Loading CMS fairs for slider...');
 const fairYearData = await getCollection('fair-years');
 const allFairs = [];
 
-fairYearData.forEach(yearData => {
+fairYearData.forEach((yearData: any) => {
   const fairs = yearData.data?.fairs || [];
-  fairs.forEach(fair => {
+  fairs.forEach((fair: any) => {
     if (fair.settings?.show_in_slider) {
       console.log('🎬 Found slider fair:', fair.basic_info?.name_tr);
       allFairs.push({

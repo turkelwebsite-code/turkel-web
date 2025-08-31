@@ -28,8 +28,8 @@ try {
   console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
   
   // Convert CMS data to page format
-  var fairsData = {};
-  cmsFairs.forEach(fair => {
+  var fairsData: Record<string, any[]> = {};
+  cmsFairs.forEach((fair: any) => {
     const sector = fair.basic_info.sector;
     if (!fairsData[sector]) {
       fairsData[sector] = [];
@@ -58,7 +58,7 @@ try {
   console.error('❌ CMS data loading failed for 2026, using fallback:', error);
   
   // Fallback static data if CMS fails
-  var fairsData = {
+  var fairsData: Record<string, any[]> = {
   "Moda ve Tekstil": [
     {
       id: 1,
