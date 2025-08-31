@@ -53,3 +53,29 @@ fairs:
     visuals:
       logo: /images/fuarlar-arkaplan.jpg
       background_image: /images/fuarlar-logo.png
+  - settings:
+      show_in_slider: true
+      show_in_forms: true
+    slider_content:
+      mini_images:
+        - /images/homedeco-detail1.png
+        - /images/homedeco-detail2.png
+        - /images/homedeco-detail3.png
+      website_url: www.turkel.com.tr
+      background_image: /images/homedeco-slider.png
+      maps_embed: https://g.co/kgs/FUfQX5R
+    basic_info:
+      name_tr: Homedeco Slider Test
+      name_en: Homedeco Slider Test
+      date: 11.11.2000
+      location_tr: kazakistan
+      location_en: kazakshtan
+      sector: Ev Tekstili ve Dekorasyon
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/instagram-post.jpg
+    representative:
+      name: Arzu
+      title: Satış Temsilcisi
+      email: arzu@turkel.com.tr
+      phone: +90 216 123 45 68
