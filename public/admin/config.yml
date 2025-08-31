@@ -42,19 +42,19 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
-                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
-                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Görüntüleme için tarih metni - otomatik formatlanır"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
-                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Fuar kartı arka plan görseli"}
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG | Şeffaf arka plan önerilir"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon önerilir"}
               - label: "⚙️ Görünürlük Ayarları"
                 name: "settings"
                 widget: "object"
@@ -81,14 +81,14 @@ collections:
                 fields:
                   - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
                   - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
-                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon"}
                   - label: "📷 Mini Görseller (3 adet)"
                     name: "mini_images"
                     widget: "list"
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
       - label: "2025 Fuarları"
         name: "fairs_2025"
@@ -116,19 +116,19 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
-                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
-                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Görüntüleme için tarih metni - otomatik formatlanır"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
-                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Fuar kartı arka plan görseli"}
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG | Şeffaf arka plan önerilir"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon önerilir"}
               - label: "⚙️ Görünürlük Ayarları"
                 name: "settings"
                 widget: "object"
@@ -155,14 +155,14 @@ collections:
                 fields:
                   - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
                   - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
-                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon"}
                   - label: "📷 Mini Görseller (3 adet)"
                     name: "mini_images"
                     widget: "list"
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
       - label: "2024 Fuarları"
         name: "fairs_2024"
@@ -190,19 +190,19 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
-                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
-                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Görüntüleme için tarih metni - otomatik formatlanır"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
-                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Fuar kartı arka plan görseli"}
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG | Şeffaf arka plan önerilir"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon önerilir"}
               - label: "⚙️ Görünürlük Ayarları"
                 name: "settings"
                 widget: "object"
@@ -229,14 +229,14 @@ collections:
                 fields:
                   - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
                   - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
-                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon"}
                   - label: "📷 Mini Görseller (3 adet)"
                     name: "mini_images"
                     widget: "list"
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
       - label: "2023 Fuarları"
         name: "fairs_2023"
@@ -264,19 +264,19 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
-                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
-                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Görüntüleme için tarih metni - otomatik formatlanır"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
-                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Fuar kartı arka plan görseli"}
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG | Şeffaf arka plan önerilir"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon önerilir"}
               - label: "⚙️ Görünürlük Ayarları"
                 name: "settings"
                 widget: "object"
@@ -303,14 +303,14 @@ collections:
                 fields:
                   - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
                   - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
-                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon"}
                   - label: "📷 Mini Görseller (3 adet)"
                     name: "mini_images"
                     widget: "list"
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
       
       - label: "2022 Fuarları"
         name: "fairs_2022"
@@ -338,19 +338,19 @@ collections:
                 fields:
                   - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Örnek: LeShow Moskova"}
                   - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "Örnek: LeShow Moscow"}
-                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "date", hint: "Fuar başlangıç tarihi"}
-                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "date", hint: "Fuar bitiş tarihi"}
-                  - {label: "📅 Tarih Metni", name: "date", widget: "string", hint: "Görüntüleme için tarih metni (Örnek: 15-18 Mart 2025)"}
+                  - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar başlangıç tarihi"}
+                  - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false, hint: "Fuar bitiş tarihi"}
+                  - {label: "📅 Tarih Metni", name: "date", widget: "datetime", date_format: "DD-MM MMMM YYYY", time_format: false, hint: "Görüntüleme için tarih metni - otomatik formatlanır"}
                   - {label: "🌍 Lokasyon (Türkçe)", name: "location_tr", widget: "string", hint: "Örnek: Moskova, Rusya"}
                   - {label: "🌍 Lokasyon (İngilizce)", name: "location_en", widget: "string", hint: "Örnek: Moscow, Russia"}
-                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Diğer"]}
+                  - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Aydınlatma", "Gıda ve İçecek", "Teknoloji", "İnşaat", "Otomotiv", "Sağlık", "Güzellik ve Kozmetik", "Spor ve Fitness", "Eğitim", "Turizm", "Enerji", "Çevre", "Diğer"], allow_add: true}
               - label: "🖼️ Görseller"
                 name: "visuals"
                 widget: "object"
                 collapsed: true
                 fields:
-                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "PNG/SVG formatında fuar logosu"}
-                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Fuar kartı arka plan görseli"}
+                  - {label: "Fuar Logosu", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 400x200px | Format: PNG/SVG | Şeffaf arka plan önerilir"}
+                  - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon önerilir"}
               - label: "⚙️ Görünürlük Ayarları"
                 name: "settings"
                 widget: "object"
@@ -377,14 +377,14 @@ collections:
                 fields:
                   - {label: "🔗 Fuar Web Sitesi", name: "website_url", widget: "string", required: false, hint: "Fuar resmi web sitesi"}
                   - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe embed kodu"}
-                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "Slider'da kullanılacak arka plan görseli"}
+                  - {label: "🖼️ Slider Arka Plan Görseli", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px | Format: JPG/PNG | Yatay kompozisyon"}
                   - label: "📷 Mini Görseller (3 adet)"
                     name: "mini_images"
                     widget: "list"
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "Slider detay görünümünde gösterilecek küçük görseller"
+                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
 
 
 
