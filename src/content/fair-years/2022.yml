@@ -1,29 +1,30 @@
-cms_button_label: "2022 Fuarları"
+cms_button_label: 2022 Fuarları
 year: 2022
-page_slug: "2022-fuar-takvimi"
-page_slug_en: "2022-fair-calendar"
-is_active: false
-display_status: "Kronoloji"
-menu_order: 99
+page_slug: 2022-fuar-takvimi
+page_slug_en: 2022-fair-calendar
+is_active: true
+display_status: Aktif Fuarlar
+menu_order: 5
 page_content:
-  title_tr: "2022 Fuar Takvimi"
-  title_en: "2022 Fair Calendar"
-  menu_title_tr: "2022 Fuar Takvimi"
-  menu_title_en: "2022 Fair Calendar"
-  description_tr: "2022 yılında dünya çapında organize ettiğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturduk."
-  description_en: "In 2022, we brought Turkish companies together with global markets at prestigious fairs we organized worldwide."
-
+  title_tr: 2022 Fuar Takvimi
+  title_en: 2022 Fair Calendar
+  menu_title_tr: 2022 Fuar Takvimi
+  menu_title_en: 2022 Fair Calendar
+  description_tr: 2022 yılında dünya çapında organize ettiğimiz prestijli
+    fuarlarda, Türk firmalarını global pazarlarla buluşturduk.
+  description_en: In 2022, we brought Turkish companies together with global
+    markets at prestigious fairs we organized worldwide.
 fairs:
   - basic_info:
-      name_tr: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı"
-      name_en: "HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair"
-      date: "22-25 Nisan 2022"
-      location_tr: "Almatı, Kazakistan"
-      location_en: "Almaty, Kazakhstan"
-      sector: "Ev Tekstili ve Dekorasyon"
+      name_tr: HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı
+      name_en: HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair
+      date: 22-25 Nisan 2022
+      location_tr: Almatı, Kazakistan
+      location_en: Almaty, Kazakhstan
+      sector: Ev Tekstili ve Dekorasyon
     visuals:
-      logo: "/images/homedeco-logo.png"
-      background_image: "/images/fuarlar-arkaplan.jpg"
+      logo: /images/homedeco-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
     settings:
       show_in_slider: false
       show_in_forms: false
