@@ -164,13 +164,16 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
               <div class="flex flex-wrap gap-2 items-center">
                 <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sıralama:</span>
                 <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
-                  Manuel Sıra
+                  Varsayılan
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
                   A-Z
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
                   Tarihe Göre
+                </button>
+                <button class="sort-clear-btn px-3 py-2 text-xs rounded-lg border border-gray-400 text-gray-500 bg-white transition-all duration-300 hover:border-red-500 hover:text-red-500 hover:bg-red-50" style="font-family: 'Radio Canada Big', sans-serif;" title="Sıralamayı sıfırla">
+                  ✕
                 </button>
               </div>
             </div>
@@ -491,9 +494,26 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
           break;
       }
       
-      // Reorder DOM elements
+      // Clear and reorder DOM elements to maintain grid structure
+      fairsContainer.innerHTML = '';
+      
+      // Rebuild sector groups and cards
+      const sectorCards = {};
       sortedFairs.forEach(fair => {
-        fairsContainer.appendChild(fair.element);
+        if (!sectorCards[fair.sector]) sectorCards[fair.sector] = [];
+        sectorCards[fair.sector].push(fair.element);
+      });
+      
+      Object.keys(sectorCards).forEach(sector => {
+        const sectorDiv = document.createElement('div');
+        sectorDiv.className = 'sector-group';
+        sectorDiv.dataset.sector = sector;
+        
+        sectorCards[sector].forEach(card => {
+          sectorDiv.appendChild(card);
+        });
+        
+        fairsContainer.appendChild(sectorDiv);
       });
     }
     
@@ -517,6 +537,29 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
         sortFairs(sortType);
       });
     });
+    
+    // Clear sort button functionality
+    const clearButton = document.querySelector('.sort-clear-btn');
+    if (clearButton) {
+      clearButton.addEventListener('click', function() {
+        // Reset to original order (by order field)
+        sortFairs('order');
+        
+        // Reset active button to "Varsayılan"
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        const defaultButton = document.querySelector('[data-sort="order"]');
+        if (defaultButton) {
+          defaultButton.classList.add('active');
+          defaultButton.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+          defaultButton.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        }
+      });
+    }
     
     // Filter functionality
     filterButtons.forEach(button => {

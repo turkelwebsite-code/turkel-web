@@ -293,13 +293,16 @@ const sectors = Object.keys(finalFairsData);
               <div class="flex flex-wrap gap-2 items-center">
                 <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sıralama:</span>
                 <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
-                  Manuel Sıra
+                  Varsayılan
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
                   A-Z
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
                   Tarihe Göre
+                </button>
+                <button class="sort-clear-btn px-3 py-2 text-xs rounded-lg border border-gray-400 text-gray-500 bg-white transition-all duration-300 hover:border-red-500 hover:text-red-500 hover:bg-red-50" style="font-family: 'Radio Canada Big', sans-serif;" title="Sıralamayı sıfırla">
+                  ✕
                 </button>
               </div>
             </div>
@@ -715,11 +718,12 @@ const sectors = Object.keys(finalFairsData);
     const fairsContainer = document.querySelector('.fairs-container');
     
     // Store original fair data for sorting
-    const fairsData = {};
+    const fairsData: Record<string, any[]> = {};
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
-      const sector = card.closest('.sector-group')?.dataset.sector || 'other';
+      const cardElement = card as HTMLElement;
+      const sector = card.closest('.sector-group')?.getAttribute('data-sector') || 'other';
       if (!fairsData[sector]) fairsData[sector] = [];
       
       const nameElement = card.querySelector('h3');
@@ -729,32 +733,32 @@ const sectors = Object.keys(finalFairsData);
         element: card,
         name: nameElement?.textContent?.trim() || '',
         date: dateElement?.textContent?.trim() || '',
-        order: parseInt(card.dataset.order) || 999
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999
       });
     });
     
     // Sorting functionality
-    function sortFairs(sortType) {
+    function sortFairs(sortType: string) {
       Object.keys(fairsData).forEach(sector => {
-        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`);
+        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`) as HTMLElement;
         if (!sectorGroup) return;
         
         const sortedFairs = [...fairsData[sector]];
         
         switch(sortType) {
           case 'name':
-            sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+            sortedFairs.sort((a: any, b: any) => a.name.localeCompare(b.name, 'tr'));
             break;
           case 'date':
-            sortedFairs.sort((a, b) => {
+            sortedFairs.sort((a: any, b: any) => {
               // Turkish month names to numbers
-              const turkishMonths = {
+              const turkishMonths: Record<string, string> = {
                 'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
                 'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
                 'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
               };
               
-              function parseDate(dateStr) {
+              function parseDate(dateStr: string): Date {
                 // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
                 const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
                 if (match) {
@@ -768,16 +772,19 @@ const sectors = Object.keys(finalFairsData);
               
               const dateA = parseDate(a.date);
               const dateB = parseDate(b.date);
-              return dateA - dateB;
+              return dateA.getTime() - dateB.getTime();
             });
             break;
           case 'order':
           default:
-            sortedFairs.sort((a, b) => a.order - b.order);
+            sortedFairs.sort((a: any, b: any) => a.order - b.order);
             break;
         }
         
-        // Reorder DOM elements
+        // Clear and reorder DOM elements to maintain grid structure
+        const currentCards = sectorGroup.querySelectorAll('.fair-card');
+        currentCards.forEach(card => card.remove());
+        
         sortedFairs.forEach(fair => {
           sectorGroup.appendChild(fair.element);
         });
@@ -786,8 +793,8 @@ const sectors = Object.keys(finalFairsData);
     
     // Sort button functionality
     sortButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const sortType = this.dataset.sort;
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const sortType = this.getAttribute('data-sort') || 'order';
         
         // Update active button
         sortButtons.forEach(btn => {
@@ -805,10 +812,33 @@ const sectors = Object.keys(finalFairsData);
       });
     });
     
+    // Clear sort button functionality
+    const clearButton = document.querySelector('.sort-clear-btn');
+    if (clearButton) {
+      clearButton.addEventListener('click', function() {
+        // Reset to original order (by order field)
+        sortFairs('order');
+        
+        // Reset active button to "Varsayılan"
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        const defaultButton = document.querySelector('[data-sort="order"]');
+        if (defaultButton) {
+          defaultButton.classList.add('active');
+          defaultButton.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+          defaultButton.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        }
+      });
+    }
+    
     // Filter functionality
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const selectedSector = this.dataset.sector;
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const selectedSector = this.getAttribute('data-sector') || 'all';
         
         // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -816,10 +846,12 @@ const sectors = Object.keys(finalFairsData);
         
         // Show/hide sector groups
         sectorGroups.forEach(group => {
-          if (selectedSector === 'all' || group.dataset.sector === selectedSector) {
-            group.classList.remove('hidden');
+          const groupElement = group as HTMLElement;
+          const groupSector = groupElement.getAttribute('data-sector');
+          if (selectedSector === 'all' || groupSector === selectedSector) {
+            groupElement.classList.remove('hidden');
           } else {
-            group.classList.add('hidden');
+            groupElement.classList.add('hidden');
           }
         });
       });
@@ -833,32 +865,40 @@ const sectors = Object.keys(finalFairsData);
     
     if (mobileFilterBtn && mobileFilterDropdown) {
       // Toggle dropdown
-      mobileFilterBtn.addEventListener('click', function() {
-        mobileFilterDropdown.classList.toggle('hidden');
-        const arrow = this.querySelector('svg');
-        arrow.style.transform = mobileFilterDropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      mobileFilterBtn.addEventListener('click', function(this: HTMLButtonElement) {
+        mobileFilterDropdown!.classList.toggle('hidden');
+        const arrow = this.querySelector('svg') as SVGElement;
+        if (arrow) {
+          arrow.style.transform = mobileFilterDropdown!.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
       });
       
       // Filter option selection
       mobileFilterOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          const selectedSector = this.dataset.sector;
-          const selectedText = this.textContent;
+        option.addEventListener('click', function(this: HTMLElement) {
+          const selectedSector = this.getAttribute('data-sector') || 'all';
+          const selectedText = this.textContent || '';
           
           // Update button text
-          mobileFilterText.textContent = selectedText;
+          if (mobileFilterText) {
+            mobileFilterText.textContent = selectedText;
+          }
           
           // Close dropdown
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg');
-          arrow.style.transform = 'rotate(0deg)';
+          const arrow = mobileFilterBtn.querySelector('svg') as SVGElement;
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
           
           // Apply filter
           sectorGroups.forEach(group => {
-            if (selectedSector === 'all' || group.dataset.sector === selectedSector) {
-              group.classList.remove('hidden');
+            const groupElement = group as HTMLElement;
+            const groupSector = groupElement.getAttribute('data-sector');
+            if (selectedSector === 'all' || groupSector === selectedSector) {
+              groupElement.classList.remove('hidden');
             } else {
-              group.classList.add('hidden');
+              groupElement.classList.add('hidden');
             }
           });
         });
@@ -866,10 +906,13 @@ const sectors = Object.keys(finalFairsData);
       
       // Close dropdown when clicking outside
       document.addEventListener('click', function(e) {
-        if (!mobileFilterBtn.contains(e.target) && !mobileFilterDropdown.contains(e.target)) {
+        const target = e.target as Node;
+        if (!mobileFilterBtn.contains(target) && !mobileFilterDropdown.contains(target)) {
           mobileFilterDropdown.classList.add('hidden');
-          const arrow = mobileFilterBtn.querySelector('svg');
-          arrow.style.transform = 'rotate(0deg)';
+          const arrow = mobileFilterBtn.querySelector('svg') as SVGElement;
+          if (arrow) {
+            arrow.style.transform = 'rotate(0deg)';
+          }
         }
       });
     }
@@ -878,9 +921,10 @@ const sectors = Object.keys(finalFairsData);
     const imageObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const img = entry.target;
-          if (img.dataset.src) {
-            img.src = img.dataset.src;
+          const img = entry.target as HTMLImageElement;
+          const dataSrc = img.getAttribute('data-src');
+          if (dataSrc) {
+            img.src = dataSrc;
             img.removeAttribute('data-src');
             img.classList.remove('lazy-loading');
             observer.unobserve(img);
@@ -925,20 +969,21 @@ const sectors = Object.keys(finalFairsData);
       if (trigger && tooltip) {
         trigger.addEventListener('mouseenter', (e) => {
           const rect = trigger.getBoundingClientRect();
+          const tooltipElement = tooltip as HTMLElement;
           
           // Tooltip'i mouse pozisyonuna yerleştir
-          tooltip.style.left = `${rect.left + (rect.width / 2) - 200}px`;
-          tooltip.style.top = `${rect.top - 80}px`;
+          tooltipElement.style.left = `${rect.left + (rect.width / 2) - 200}px`;
+          tooltipElement.style.top = `${rect.top - 80}px`;
           
           // Ekran sınırlarını kontrol et
           if (rect.left + (rect.width / 2) - 200 < 10) {
-            tooltip.style.left = '10px';
+            tooltipElement.style.left = '10px';
           } else if (rect.left + (rect.width / 2) + 200 > window.innerWidth - 10) {
-            tooltip.style.left = `${window.innerWidth - 410}px`;
+            tooltipElement.style.left = `${window.innerWidth - 410}px`;
           }
           
           if (rect.top - 80 < 10) {
-            tooltip.style.top = `${rect.bottom + 10}px`;
+            tooltipElement.style.top = `${rect.bottom + 10}px`;
           }
         });
       }
