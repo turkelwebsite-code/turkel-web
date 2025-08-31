@@ -220,7 +220,7 @@ fairs:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: İnşaat
       location_tr: MOSKOVA, RUSYA
-      start_date: 2025-04-22
+      start_date: 2026-04-22
       description_en: INTERNATIONAL SECURITY AND FIRE PROTECTION FAIR
       date_tr: 22 - 24 NİSAN 2026
       end_date: 2026-04-24
@@ -267,6 +267,7 @@ fairs:
       title_tr: Satış Direktörü
       title_en: Sales Director
       team_member: Ahmet Hilmi Çoruk
+      hide_phone: true
   - settings:
       show_in_slider: false
       show_in_forms: true
