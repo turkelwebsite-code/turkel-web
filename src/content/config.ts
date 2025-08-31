@@ -197,8 +197,8 @@ const fairYears = defineCollection({
       basic_info: z.object({
         name_tr: z.string(),
         name_en: z.string(),
-        start_date: z.string().optional(),
-        end_date: z.string().optional(),
+        start_date: z.date().optional(),
+        end_date: z.date().optional(),
         location_tr: z.string(),
         location_en: z.string(),
         sector: z.string(),

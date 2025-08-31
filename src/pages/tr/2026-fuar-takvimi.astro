@@ -53,11 +53,11 @@ function getTeamMemberData(memberName: string) {
 }
 
 // Date formatting function
-function formatDateRange(startDate: string, endDate: string, locale: 'tr' | 'en' = 'tr'): string {
+function formatDateRange(startDate: string | Date, endDate: string | Date, locale: 'tr' | 'en' = 'tr'): string {
   if (!startDate || !endDate) return '';
   
-  const start = new Date(startDate);
-  const end = new Date(endDate);
+  const start = startDate instanceof Date ? startDate : new Date(startDate);
+  const end = endDate instanceof Date ? endDate : new Date(endDate);
   
   const turkishMonths = ['OCAK', 'ŞUBAT', 'MART', 'NİSAN', 'MAYIS', 'HAZİRAN', 
                        'TEMMUZ', 'AĞUSTOS', 'EYLÜL', 'EKİM', 'KASIM', 'ARALIK'];
@@ -778,7 +778,7 @@ const debugInfo = {
             let dateA: Date, dateB: Date;
             
             if (a.startDate && a.startDate !== '') {
-              dateA = new Date(a.startDate);
+              dateA = a.startDate instanceof Date ? a.startDate : new Date(a.startDate);
               console.log(`📅 Using startDate for ${a.name}: ${a.startDate} → ${dateA.toISOString()}`);
             } else {
               // Fallback to parsing display date
@@ -800,7 +800,7 @@ const debugInfo = {
             }
             
             if (b.startDate && b.startDate !== '') {
-              dateB = new Date(b.startDate);
+              dateB = b.startDate instanceof Date ? b.startDate : new Date(b.startDate);
               console.log(`📅 Using startDate for ${b.name}: ${b.startDate} → ${dateB.toISOString()}`);
             } else {
               // Fallback to parsing display date
