@@ -35,8 +35,33 @@ Object.keys(teamData).forEach(department => {
   teamData[department].sort((a, b) => a.order - b.order);
 });
 
+// Define department order
+const departmentOrder = [
+  'Yönetim Kurulu',
+  'Moda Fuarları',
+  'Ev Tekstili ve Dekorasyon Fuarları',
+  'Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları',
+  'Kalıp & Plastik, İhtisas, Havuz',
+  'Deri Fuarları & Güvenlik Sistemleri Fuarları',
+  'Teknik Proje',
+  'Fuar Seyahatleri / TF Seyahat Acentası',
+  'Finans & Muhasebe',
+  'Dış İlişkiler ve Uluslararası Satış',
+  'Lojistik ve Ulaşım',
+  'Bilgi İşlem',
+  'Grafik Tasarım'
+];
+
+// Create ordered team data
+const orderedTeamData: Record<string, any[]> = {};
+departmentOrder.forEach(department => {
+  if (teamData[department]) {
+    orderedTeamData[department] = teamData[department];
+  }
+});
+
 console.log('👥 TEAM DEBUG: Active team members loaded:', activeMembers.length);
-console.log('👥 TEAM DEBUG: Departments found:', Object.keys(teamData));
+console.log('👥 TEAM DEBUG: Departments found:', Object.keys(orderedTeamData));
 ---
 
 <BaseLayout title="Ekibimiz - Türkel Fuarcılık" description="Türkel Fuarcılık profesyonel ekibi ve departmanları">
@@ -84,7 +109,7 @@ console.log('👥 TEAM DEBUG: Departments found:', Object.keys(teamData));
 
           <!-- Team Departments -->
           <div class="space-y-12">
-            {Object.entries(teamData).map(([department, members]) => (
+            {Object.entries(orderedTeamData).map(([department, members]) => (
               <div class="department-section">
                 <!-- Department Header -->
                 <div class="mb-8">

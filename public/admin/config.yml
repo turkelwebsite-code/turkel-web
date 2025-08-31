@@ -436,11 +436,10 @@ collections:
     label: "👤 Ekip Üyeleri"
     folder: "src/content/team-members"
     create: true
-    slug: "{{fields.slug}}"
+    slug: "{{slug}}"
     identifier_field: "name"
-    summary: "{{fields.name}} - {{fields.department}} - {{fields.title_tr}}"
+    summary: "{{fields.name}}"
     fields:
-      - {label: "Slug", name: "slug", widget: "string", hint: "URL için benzersiz isim (örnek: seval-arslan)"}
       - {label: "👤 Ad Soyad", name: "name", widget: "string", hint: "Örnek: Seval Arslan"}
       - label: "🏢 Unvan"
         name: "title"
