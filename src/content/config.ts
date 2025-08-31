@@ -216,6 +216,7 @@ const fairYears = defineCollection({
         hide_phone: z.boolean().optional(),
       }).optional(),
       settings: z.object({
+        order: z.number().optional(),
         show_in_slider: z.boolean(),
         show_in_forms: z.boolean(),
         show_in_chronology: z.boolean().optional(),

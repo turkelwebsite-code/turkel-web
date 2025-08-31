@@ -488,7 +488,7 @@ const sectors = Object.keys(fairsData);
     
     // Filter functionality
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
         const selectedSector = this.dataset.sector;
         
         // Update active button

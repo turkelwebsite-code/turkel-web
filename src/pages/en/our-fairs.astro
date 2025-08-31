@@ -59,14 +59,21 @@ fairYearsCollection.forEach(yearData => {
         email: fair.representative?.email || '',
         phone: fair.representative?.phone || ''
       },
-      description: fair.basic_info?.description_en || fair.basic_info?.description_tr || ''
+      description: fair.basic_info?.description_en || fair.basic_info?.description_tr || '',
+      order: fair.settings?.order || 999 // Default high number for unsorted items
     };
     
     allFairsData[translatedSector].push(fairCard);
   });
 });
 
+// Sort fairs within each sector by order
+Object.keys(allFairsData).forEach(sector => {
+  allFairsData[sector].sort((a, b) => a.order - b.order);
+});
+
 console.log('🎪 FAIR YEARS EN: All fairs loaded from CMS:', Object.keys(allFairsData));
+console.log('🎪 FAIR YEARS EN: Fairs sorted by order within each sector');
 
 // Fallback static data (if no CMS data available)
 const fallbackFairsData = {
@@ -256,8 +263,26 @@ const sectors = Object.keys(finalFairsData);
             </p>
           </div>
 
-          <!-- Sector Filter -->
-          <div class="mb-8">
+          <!-- Filters Section -->
+          <div class="mb-8 space-y-4">
+            <!-- Sorting Controls -->
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+              <!-- Sort Options -->
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sort by:</span>
+                <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Manual Order
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
+                  A-Z
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
+                  By Date
+                </button>
+              </div>
+            </div>
+            
+            <!-- Sector Filter -->
             <!-- Desktop Filter -->
             <div class="hidden md:flex flex-wrap justify-center gap-3">
               <button 
@@ -320,7 +345,7 @@ const sectors = Object.keys(finalFairsData);
             {Object.entries(finalFairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -650,8 +675,83 @@ const sectors = Object.keys(finalFairsData);
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const sortButtons = document.querySelectorAll('.sort-btn');
     const sectorGroups = document.querySelectorAll('.sector-group');
     const fairCards = document.querySelectorAll('.fair-card');
+    const fairsContainer = document.querySelector('.fairs-container');
+    
+    // Store original fair data for sorting
+    const fairsData = {};
+    
+    // Parse fair data from DOM
+    fairCards.forEach(card => {
+      const sector = card.closest('.sector-group')?.dataset.sector || 'other';
+      if (!fairsData[sector]) fairsData[sector] = [];
+      
+      const nameElement = card.querySelector('h3');
+      const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
+      
+      fairsData[sector].push({
+        element: card,
+        name: nameElement?.textContent?.trim() || '',
+        date: dateElement?.textContent?.trim() || '',
+        order: parseInt(card.dataset.order) || 999
+      });
+    });
+    
+    // Sorting functionality
+    function sortFairs(sortType) {
+      Object.keys(fairsData).forEach(sector => {
+        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`);
+        if (!sectorGroup) return;
+        
+        const sortedFairs = [...fairsData[sector]];
+        
+        switch(sortType) {
+          case 'name':
+            sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'en'));
+            break;
+          case 'date':
+            sortedFairs.sort((a, b) => {
+              // Simple date comparison for English dates
+              const dateA = new Date(a.date);
+              const dateB = new Date(b.date);
+              return dateA - dateB;
+            });
+            break;
+          case 'order':
+          default:
+            sortedFairs.sort((a, b) => a.order - b.order);
+            break;
+        }
+        
+        // Reorder DOM elements
+        sortedFairs.forEach(fair => {
+          sectorGroup.appendChild(fair.element);
+        });
+      });
+    }
+    
+    // Sort button functionality
+    sortButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const sortType = this.dataset.sort;
+        
+        // Update active button
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        this.classList.add('active');
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        
+        // Apply sorting
+        sortFairs(sortType);
+      });
+    });
     
     // Filter functionality
     filterButtons.forEach(button => {

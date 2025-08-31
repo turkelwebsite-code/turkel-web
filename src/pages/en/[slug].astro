@@ -33,7 +33,15 @@ console.log('🎯 DYNAMIC SLUG EN: Slug param:', slug);
 console.log('🎯 DYNAMIC SLUG EN: Year:', currentYear);
 console.log('🎯 DYNAMIC SLUG EN: Page title:', pageTitle);
 
-const cmsFairs = yearData.fairs || [];
+// Sort fairs by order field from CMS
+const cmsFairs = (yearData.fairs || []).sort((a, b) => {
+  const orderA = a.settings?.order || 999; // Default high number if no order
+  const orderB = b.settings?.order || 999;
+  return orderA - orderB; // Sort ascending (1, 2, 3...)
+});
+
+console.log('🎯 FAIR SORTING EN: Fairs sorted by order:', 
+  cmsFairs.map(fair => `${fair.basic_info?.name_en} (order: ${fair.settings?.order || 'none'})`));
 
 // Load team members for representative lookup
 const teamMembers = await getCollection('team-members');
@@ -106,19 +114,26 @@ cmsFairs.forEach((fair: any) => {
 
   fairsData[sector].push({
     id: fair.basic_info.name_tr.toLowerCase().replace(/\s+/g, '-'),
-    name: fair.basic_info.name_tr,
-    date: fair.basic_info.date_tr || fair.basic_info.date || '',
-    location: fair.basic_info.location_tr,
-    description: fair.basic_info.description_tr || '',
+    name: fair.basic_info.name_en || fair.basic_info.name_tr,
+    date: fair.basic_info.date_en || fair.basic_info.date_tr || '',
+    location: fair.basic_info.location_en || fair.basic_info.location_tr,
+    description: fair.basic_info.description_en || fair.basic_info.description_tr || '',
     backgroundImage: fair.visuals?.background_image || '/images/fuarlar-arkaplan.jpg',
     logo: fair.visuals?.logo || '/images/fuarlar-logo.png',
     representative: representativeData,
-    hidePhone: fair.representative?.hide_phone || false
+    hidePhone: fair.representative?.hide_phone || false,
+    order: fair.settings?.order || 999 // Default high number for unsorted items
   });
+});
+
+// Sort fairs within each sector by order
+Object.keys(fairsData).forEach(sector => {
+  fairsData[sector].sort((a, b) => a.order - b.order);
 });
 
 const sectors = Object.keys(fairsData);
 console.log('✅', currentYear, 'Fairs data converted:', sectors);
+console.log('✅', currentYear, 'Fairs sorted by order within each sector');
 ---
 
 <BaseLayout title={`${pageTitle} - Türkel Fuarcılık`} description={`${currentYear} yılında organize edeceğimiz uluslararası fuarların detaylı takvimi`} locale={locale}>

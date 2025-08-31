@@ -33,7 +33,15 @@ console.log('🎯 DYNAMIC SLUG TR: Slug param:', slug);
 console.log('🎯 DYNAMIC SLUG TR: Year:', currentYear);
 console.log('🎯 DYNAMIC SLUG TR: Page title:', pageTitle);
 
-const cmsFairs = yearData.fairs || [];
+// Sort fairs by order field from CMS
+const cmsFairs = (yearData.fairs || []).sort((a, b) => {
+  const orderA = a.settings?.order || 999; // Default high number if no order
+  const orderB = b.settings?.order || 999;
+  return orderA - orderB; // Sort ascending (1, 2, 3...)
+});
+
+console.log('🎯 FAIR SORTING: Fairs sorted by order:', 
+  cmsFairs.map(fair => `${fair.basic_info?.name_tr} (order: ${fair.settings?.order || 'none'})`));
 
 // Load team members for representative lookup
 const teamMembers = await getCollection('team-members');
@@ -113,12 +121,19 @@ cmsFairs.forEach((fair: any) => {
     backgroundImage: fair.visuals?.background_image || '/images/fuarlar-arkaplan.jpg',
     logo: fair.visuals?.logo || '/images/fuarlar-logo.png',
     representative: representativeData,
-    hidePhone: fair.representative?.hide_phone || false
+    hidePhone: fair.representative?.hide_phone || false,
+    order: fair.settings?.order || 999 // Default high number for unsorted items
   });
+});
+
+// Sort fairs within each sector by order
+Object.keys(fairsData).forEach(sector => {
+  fairsData[sector].sort((a, b) => a.order - b.order);
 });
 
 const sectors = Object.keys(fairsData);
 console.log('✅', currentYear, 'Fairs data converted:', sectors);
+console.log('✅', currentYear, 'Fairs sorted by order within each sector');
 ---
 
 <BaseLayout title={`${pageTitle} - Türkel Fuarcılık`} description={`${currentYear} yılında organize edeceğimiz uluslararası fuarların detaylı takvimi`} locale={locale}>
@@ -141,23 +156,43 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
             </p>
           </div>
 
-          <!-- Sector Filter Buttons -->
-          <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
-              Tümü
-            </button>
-            {sectors.map(sector => (
-              <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
-                {sector}
+          <!-- Filters Section -->
+          <div class="mb-12 space-y-4">
+            <!-- Sorting Controls -->
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+              <!-- Sort Options -->
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sıralama:</span>
+                <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Manuel Sıra
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
+                  A-Z
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Tarihe Göre
+                </button>
+              </div>
+            </div>
+            
+            <!-- Sector Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+              <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
+                Tümü
               </button>
-            ))}
+              {sectors.map(sector => (
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
+                  {sector}
+                </button>
+              ))}
+            </div>
           </div>
 
           <!-- Fairs Grid -->
           <div class="fairs-container">
             {Object.entries(fairsData).map(([sector, fairs]) => 
               fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector}>
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-sector={sector} data-order={fair.order}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -360,6 +395,18 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
     border-color: #CE1A28;
   }
 
+  /* Sort button styles */
+  .sort-btn.active {
+    background-color: #CE1A28;
+    color: white;
+    border-color: #CE1A28;
+  }
+  
+  .sort-btn:not(.active):hover {
+    border-color: #CE1A28;
+    color: #CE1A28;
+  }
+
   /* Mobile responsive */
   @media (max-width: 767px) {
     .fairs-container {
@@ -380,10 +427,78 @@ console.log('✅', currentYear, 'Fairs data converted:', sectors);
 </style>
 
 <script>
-  // Sector filtering functionality
+  // Sector filtering and sorting functionality
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const sortButtons = document.querySelectorAll('.sort-btn');
     const fairCards = document.querySelectorAll('.fair-card');
+    const fairsContainer = document.querySelector('.fairs-container');
+    
+    // Store original fair data for sorting
+    const fairsData = [];
+    
+    // Parse fair data from DOM
+    fairCards.forEach(card => {
+      const nameElement = card.querySelector('h3');
+      const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
+      
+      fairsData.push({
+        element: card,
+        name: nameElement?.textContent?.trim() || '',
+        date: dateElement?.textContent?.trim() || '',
+        order: parseInt(card.dataset.order) || 999,
+        sector: card.dataset.sector || ''
+      });
+    });
+    
+    // Sorting functionality
+    function sortFairs(sortType) {
+      const sortedFairs = [...fairsData];
+      
+      switch(sortType) {
+        case 'name':
+          sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+          break;
+        case 'date':
+          sortedFairs.sort((a, b) => {
+            // Simple date comparison - you might need to enhance this based on your date format
+            const dateA = new Date(a.date.replace(/(\d{1,2})-(\d{1,2}) (\w+) (\d{4})/, '$2 $3 $4'));
+            const dateB = new Date(b.date.replace(/(\d{1,2})-(\d{1,2}) (\w+) (\d{4})/, '$2 $3 $4'));
+            return dateA - dateB;
+          });
+          break;
+        case 'order':
+        default:
+          sortedFairs.sort((a, b) => a.order - b.order);
+          break;
+      }
+      
+      // Reorder DOM elements
+      sortedFairs.forEach(fair => {
+        fairsContainer.appendChild(fair.element);
+      });
+    }
+    
+    // Sort button functionality
+    sortButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const sortType = this.dataset.sort;
+        
+        // Update active button
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        this.classList.add('active');
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        
+        // Apply sorting
+        sortFairs(sortType);
+      });
+    });
     
     // Filter functionality
     filterButtons.forEach(button => {

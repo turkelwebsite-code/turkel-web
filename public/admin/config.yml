@@ -43,7 +43,7 @@ collections:
       - label: "Fuar Listesi"
         name: "fairs"
         widget: "list"
-        summary: "{{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
+        summary: "{{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • Sıra: {{fields.settings.order}}"
         collapsed: true
         minimize_collapsed: true
         fields:
@@ -90,6 +90,7 @@ collections:
             widget: "object"
             collapsed: true
             fields:
+              - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 1, hint: "Fuar kartlarının görüntülenme sırası (1, 2, 3...)"}
               - {label: "Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
               - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
               - {label: "Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false}
@@ -179,7 +180,7 @@ collections:
       - label: "Kronoloji Fuarları"
         name: "fairs"
         widget: "list"
-        summary: "{{fields.name}} • {{fields.city}}, {{fields.country}}"
+        summary: "{{fields.name}} • {{fields.city}}, {{fields.country}} • Sıra: {{fields.order}}"
         collapsed: true
         minimize_collapsed: true
         fields:
