@@ -23,6 +23,44 @@ if (!content) {
   throw new Error('Turkish content not found');
 }
 
+// Get CMS fair data for slider
+console.log('🎬 SLIDER DEBUG: Loading CMS fairs for slider...');
+const fairYearData = await getCollection('fair-years');
+const allFairs = [];
+
+fairYearData.forEach(yearData => {
+  const fairs = yearData.data?.fairs || [];
+  fairs.forEach(fair => {
+    if (fair.settings?.show_in_slider) {
+      console.log('🎬 Found slider fair:', fair.basic_info?.name_tr);
+      allFairs.push({
+        backgroundImage: fair.slider_content?.background_image || fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+        card: {
+          title: fair.basic_info?.name_tr || '',
+          dateText: fair.basic_info?.date || '',
+          location: fair.basic_info?.location_tr || '',
+          description: `${fair.basic_info?.name_tr} fuarı ${fair.basic_info?.date} tarihlerinde ${fair.basic_info?.location_tr}'de gerçekleşecek.`,
+          fairName: fair.basic_info?.name_tr || '',
+          fairLogo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+          fairWebsite: fair.slider_content?.website_url || '#',
+          miniImages: fair.slider_content?.mini_images?.map(img => img.image) || [],
+          mapsEmbed: fair.slider_content?.maps_embed || ''
+        }
+      });
+    }
+  });
+});
+
+console.log('🎬 SLIDER DEBUG: Total slider fairs found:', allFairs.length);
+
+// Update hero data with CMS fairs if available
+if (allFairs.length > 0) {
+  content.hero.slides = allFairs;
+  console.log('🎬 SLIDER DEBUG: Hero slides updated with CMS data');
+} else {
+  console.log('🎬 SLIDER DEBUG: No CMS slider fairs found, using static data');
+}
+
 const locale = 'tr';
 const currentPath = '/';
 ---

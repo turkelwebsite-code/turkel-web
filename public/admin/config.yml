@@ -432,49 +432,48 @@ collections:
           
           - {label: "Ekip Sayısı", name: "team_count", widget: "string", default: "76 kişilik", hint: "Örnek: 76 kişilik"}
 
-  # SLIDER YÖNETİMİ
+  # SLIDER YÖNETİMİ - Otomatik CMS Entegrasyonu
+  - name: "slider_settings"
+    label: "🎠 Ana Sayfa Slider Ayarları"
+    files:
+      - label: "Slider Yapılandırması"
+        name: "slider_config"
+        file: "src/content/settings/slider.yml"
+        fields:
+          - {label: "Slider Aktif", name: "enabled", widget: "boolean", default: true, hint: "Ana sayfa slider'ı aktif olsun mu?"}
+          - {label: "Otomatik CMS Entegrasyonu", name: "use_cms_fairs", widget: "boolean", default: true, hint: "CMS'te 'Ana Sayfa Slider'ında Göster' işaretli fuarları otomatik kullan"}
+          - {label: "Slider Geçiş Süresi (ms)", name: "transition_duration", widget: "number", default: 5000, hint: "Slider otomatik geçiş süresi milisaniye"}
+          - {label: "Slider Yüksekliği", name: "height", widget: "select", options: ["70vh", "75vh", "80vh"], default: "75vh"}
+          
+  # MANUEL SLIDER YÖNETİMİ (Opsiyonel)
   - name: "hero_slider"
-    label: "🎠 Ana Sayfa Slider"
+    label: "🎨 Manuel Slider İçerikleri"
     folder: "src/content/slider"
     create: true
     slug: "{{slug}}"
     identifier_field: "title"
-    summary: "{{type}} - {{title}}"
+    summary: "{{title}} - Sıra: {{order}}"
     fields:
-      - label: "Slider Başlığı"
-        name: "title"
-        widget: "string"
-        hint: "Slider item başlığı (admin panel için)"
-      - label: "Slider Tipi"
-        name: "type"
-        widget: "select"
-        options: 
-          - {label: "Fuar Bazlı (Otomatik)", value: "fair"}
-          - {label: "Özel İçerik", value: "custom"}
-        default: "fair"
-      
-      - label: "Fuar Seçimi (Sadece Fuar Bazlı İçin)"
-        name: "fair_reference"
-        widget: "relation"
-        collection: "fairs"
-        search_fields: ["basic_info.name_tr", "basic_info.name_en"]
-        value_field: "{{slug}}"
-        display_fields: ["basic_info.name_tr", "basic_info.year"]
-        required: false
-        condition:
-          field: type
-          value: fair
-      
-      - label: "Özel İçerik (Sadece Özel İçerik İçin)"
-        name: "custom_content"
+      - {label: "Slider Başlığı", name: "title", widget: "string", hint: "Slider item başlığı"}
+      - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "Slider arka plan görseli"}
+      - label: "İçerik"
+        name: "content"
         widget: "object"
-        required: false
-        condition:
-          field: type
-          value: custom
         fields:
           - label: "Başlık"
             name: "title"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "string"}
+              - {label: "İngilizce", name: "en", widget: "string"}
+          - label: "Tarih"
+            name: "date"
+            widget: "object"
+            fields:
+              - {label: "Türkçe", name: "tr", widget: "string"}
+              - {label: "İngilizce", name: "en", widget: "string"}
+          - label: "Lokasyon"
+            name: "location"
             widget: "object"
             fields:
               - {label: "Türkçe", name: "tr", widget: "string"}
@@ -485,9 +484,8 @@ collections:
             fields:
               - {label: "Türkçe", name: "tr", widget: "text"}
               - {label: "İngilizce", name: "en", widget: "text"}
-          - {label: "Görsel", name: "image", widget: "image"}
-          - {label: "Buton Linki", name: "cta_link", widget: "string", required: false}
-      
+          - {label: "Fuar Logosu", name: "logo", widget: "image", required: false}
+          - {label: "Web Sitesi", name: "website", widget: "string", required: false}
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1}
       - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
 
