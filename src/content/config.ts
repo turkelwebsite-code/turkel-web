@@ -177,6 +177,7 @@ const slider = defineCollection({
 const fairYears = defineCollection({
   type: 'data',
   schema: z.object({
+    cms_button_label: z.string().optional(),
     year: z.number(),
     page_slug: z.string().optional(),
     page_slug_en: z.string().optional(),
