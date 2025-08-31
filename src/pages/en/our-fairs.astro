@@ -721,11 +721,12 @@ const sectors = Object.keys(finalFairsData);
     const fairsContainer = document.querySelector('.fairs-container');
     
     // Store original fair data for sorting
-    const fairsData = {};
+    const fairsData: Record<string, any[]> = {};
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
-      const sector = card.closest('.sector-group')?.dataset.sector || 'other';
+      const cardElement = card as HTMLElement;
+      const sector = card.closest('.sector-group')?.getAttribute('data-sector') || 'other';
       if (!fairsData[sector]) fairsData[sector] = [];
       
       const nameElement = card.querySelector('h3');
@@ -849,8 +850,8 @@ const sectors = Object.keys(finalFairsData);
     
     // Sort button functionality
     sortButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const sortType = this.dataset.sort;
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const sortType = this.getAttribute('data-sort') || 'order';
         
         // Update active button
         sortButtons.forEach(btn => {
