@@ -29,7 +29,7 @@ collections:
             name: "fairs"
             widget: "list"
             summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
-            collapsed: false
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
@@ -74,7 +74,7 @@ collections:
             name: "fairs"
             widget: "list"
             summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
-            collapsed: false
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
@@ -119,7 +119,7 @@ collections:
             name: "fairs"
             widget: "list"
             summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
-            collapsed: false
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
@@ -164,7 +164,7 @@ collections:
             name: "fairs"
             widget: "list"
             summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
-            collapsed: false
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
@@ -209,7 +209,7 @@ collections:
             name: "fairs"
             widget: "list"
             summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date}} • {{fields.basic_info.location_tr}}"
-            collapsed: false
+            collapsed: true
             minimize_collapsed: true
             fields:
               - label: "📝 Temel Bilgiler"
