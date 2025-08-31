@@ -1,29 +1,30 @@
-cms_button_label: "2023 Fuarları"
+cms_button_label: 2023 Fuarları
 year: 2023
-page_slug: "2023-fuar-takvimi"
-page_slug_en: "2023-fair-calendar"
-is_active: false
-display_status: "Kronoloji"
+page_slug: 2023-fuar-takvimi
+page_slug_en: 2023-fair-calendar
+is_active: true
+display_status: Aktif Fuarlar
 menu_order: 98
 page_content:
-  title_tr: "2023 Fuar Takvimi"
-  title_en: "2023 Fair Calendar"
-  menu_title_tr: "2023 Fuar Takvimi"
-  menu_title_en: "2023 Fair Calendar"
-  description_tr: "2023 yılında dünya çapında organize ettiğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturduk."
-  description_en: "In 2023, we brought Turkish companies together with global markets at prestigious fairs we organized worldwide."
-
+  title_tr: 2023 Fuar Takvimi
+  title_en: 2023 Fair Calendar
+  menu_title_tr: 2023 Fuar Takvimi
+  menu_title_en: 2023 Fair Calendar
+  description_tr: 2023 yılında dünya çapında organize ettiğimiz prestijli
+    fuarlarda, Türk firmalarını global pazarlarla buluşturduk.
+  description_en: In 2023, we brought Turkish companies together with global
+    markets at prestigious fairs we organized worldwide.
 fairs:
   - basic_info:
-      name_tr: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı"
-      name_en: "LeShow Moscow - International Fashion and Textile Industry Fair"
-      date: "15-18 Mart 2023"
-      location_tr: "Moskova, Rusya"
-      location_en: "Moscow, Russia"
-      sector: "Moda ve Tekstil"
+      name_tr: LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı
+      name_en: LeShow Moscow - International Fashion and Textile Industry Fair
+      date: 15-18 Mart 2023
+      location_tr: Moskova, Rusya
+      location_en: Moscow, Russia
+      sector: Moda ve Tekstil
     visuals:
-      logo: "/images/fuarlar-logo.png"
-      background_image: "/images/fuarlar-arkaplan.jpg"
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
     settings:
       show_in_slider: false
       show_in_forms: false
