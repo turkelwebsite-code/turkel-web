@@ -74,6 +74,7 @@ collections:
                   - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
                   - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
                   - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -151,6 +152,7 @@ collections:
                   - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
                   - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
                   - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -228,6 +230,7 @@ collections:
                   - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
                   - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
                   - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -305,6 +308,7 @@ collections:
                   - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
                   - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
                   - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
@@ -382,6 +386,7 @@ collections:
                   - {label: "🏢 Unvan (İngilizce)", name: "title_en", widget: "select", options: ["Sales Director", "Sales Representative", "Sales Manager", "Regional Manager", "Business Development Manager"], hint: "English title selection"}
                   - {label: "📧 E-posta", name: "email", widget: "string", hint: "Örnek: seval@turkel.com.tr"}
                   - {label: "📞 Telefon (İsteğe bağlı)", name: "phone", widget: "string", required: false, hint: "Örnek: +90 216 123 45 68"}
+                  - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, hint: "Telefon numarasını card'da gösterme"}
               - label: "🌐 Slider İçin Ek Bilgiler"
                 name: "slider_content"
                 widget: "object"
