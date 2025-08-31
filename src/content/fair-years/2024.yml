@@ -1,6 +1,17 @@
 cms_button_label: "2024 Fuarları"
 year: 2024
+page_slug: "2024-fuar-takvimi"
+page_slug_en: "2024-fair-calendar"
 is_active: false
+display_status: "Kronoloji"
+menu_order: 97
+page_content:
+  title_tr: "2024 Fuar Takvimi"
+  title_en: "2024 Fair Calendar"
+  menu_title_tr: "2024 Fuar Takvimi"
+  menu_title_en: "2024 Fair Calendar"
+  description_tr: "2024 yılında dünya çapında organize ettiğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturduk."
+  description_en: "In 2024, we brought Turkish companies together with global markets at prestigious fairs we organized worldwide."
 
 fairs:
   - basic_info:
