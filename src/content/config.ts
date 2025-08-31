@@ -124,6 +124,7 @@ const timeline = defineCollection({
 const chronologyYears = defineCollection({
   type: 'data',
   schema: z.object({
+    cms_button_label: z.string().optional(),
     year: z.number(),
     is_active: z.boolean(),
     fairs: z.array(z.object({
