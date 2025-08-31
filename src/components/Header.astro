@@ -115,7 +115,7 @@ const currentPath = Astro.url.pathname;
             {navigation.map((item) => (
               <div class="relative group">
                 {/* Check if item has dropdown using hasDropdown property */}
-                {item.hasDropdown ? (
+                {(item as any).hasDropdown ? (
                   /* Dropdown trigger - no link */
                   <button 
                     type="button"
@@ -144,7 +144,7 @@ const currentPath = Astro.url.pathname;
                 )}
                 
                 {/* Dropdown Menus */}
-                {item.hasDropdown && item.label === (locale === 'tr' ? 'KURUMSAL' : 'CORPORATE') && (
+                {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'KURUMSAL' : 'CORPORATE') && (
                   <div class="absolute top-full left-0 mt-0 w-48 bg-white  shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] transform translate-y-2 group-hover:translate-y-0">
                     <div class="py-2">
                       <a href={`/${locale}/${locale === 'tr' ? 'hakkimizda' : 'about-us'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
@@ -160,7 +160,7 @@ const currentPath = Astro.url.pathname;
                   </div>
                 )}
                 
-                {item.hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
+                {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
                   <div class="absolute top-full left-0 mt-0 w-56 bg-white  shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] transform translate-y-2 group-hover:translate-y-0">
                     <div class="py-2">
                       <a href={`/${locale}/${locale === 'tr' ? '2026-fuar-takvimi' : '2026-fair-calendar'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
@@ -186,7 +186,7 @@ const currentPath = Astro.url.pathname;
                   </div>
                 )}
                 
-                {item.hasDropdown && item.label === (locale === 'tr' ? 'HİZMETLERİMİZ' : 'SERVICES') && (
+                {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'HİZMETLERİMİZ' : 'SERVICES') && (
                   <div class="absolute top-full left-0 mt-0 w-48 bg-white  shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] transform translate-y-2 group-hover:translate-y-0">
                     <div class="py-2">
                       <a href={`/${locale}/${locale === 'tr' ? 'nakliye' : 'shipping'}/`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
@@ -202,7 +202,7 @@ const currentPath = Astro.url.pathname;
                   </div>
                 )}
                 
-                {item.hasDropdown && item.label === (locale === 'tr' ? 'FAYDALI LİNKLER' : 'USEFUL LINKS') && (
+                {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FAYDALI LİNKLER' : 'USEFUL LINKS') && (
                   <div class="absolute top-full left-0 mt-0 w-56 bg-white  shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[9999] transform translate-y-2 group-hover:translate-y-0">
                     <div class="py-2">
                       <a href="https://www.ticaret.gov.tr/yurtdisi-teskilati" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#CE1A28] transition-colors">
@@ -263,7 +263,7 @@ const currentPath = Astro.url.pathname;
           <div class="mobile-nav-item">
             <div class="flex items-center justify-between">
               {/* Check if item has dropdown using hasDropdown property */}
-              {item.hasDropdown ? (
+              {(item as any).hasDropdown ? (
                 /* Dropdown trigger - no link */
                 <span 
                   class="text-base font-normal text-text-primary hover:text-primary transition-colors uppercase tracking-wide py-2 flex-1 cursor-pointer"
@@ -287,7 +287,7 @@ const currentPath = Astro.url.pathname;
                 </a>
               )}
               {/* Mobile dropdown toggle */}
-              {item.hasDropdown && (
+              {(item as any).hasDropdown && (
                 <button 
                   class="mobile-dropdown-toggle p-2 text-gray-400 hover:text-primary transition-colors"
                   onclick={`toggleMobileDropdown('${
@@ -305,7 +305,7 @@ const currentPath = Astro.url.pathname;
             </div>
             
             {/* Mobile Dropdown Menus */}
-            {item.hasDropdown && item.label === (locale === 'tr' ? 'KURUMSAL' : 'CORPORATE') && (
+            {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'KURUMSAL' : 'CORPORATE') && (
               <div id="mobile-dropdown-kurumsal" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                 <a href={`/${locale}/${locale === 'tr' ? 'hakkimizda' : 'about-us'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
                   {locale === 'tr' ? 'Hakkımızda' : 'About Us'}
@@ -319,7 +319,7 @@ const currentPath = Astro.url.pathname;
               </div>
             )}
             
-            {item.hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
+            {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FUARLARIMIZ' : 'OUR FAIRS') && (
               <div id="mobile-dropdown-fuarlarimiz" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                 <a href={`/${locale}/${locale === 'tr' ? '2026-fuar-takvimi' : '2026-fair-calendar'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
                   {locale === 'tr' ? '2026 Fuar Takvimi' : '2026 Fair Calendar'}
@@ -342,7 +342,7 @@ const currentPath = Astro.url.pathname;
               </div>
             )}
             
-            {item.hasDropdown && item.label === (locale === 'tr' ? 'HİZMETLERİMİZ' : 'SERVICES') && (
+            {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'HİZMETLERİMİZ' : 'SERVICES') && (
               <div id="mobile-dropdown-hizmetlerimiz" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                 <a href={`/${locale}/${locale === 'tr' ? 'nakliye' : 'shipping'}/`} class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
                   {locale === 'tr' ? 'Nakliye' : 'Shipping'}
@@ -356,7 +356,7 @@ const currentPath = Astro.url.pathname;
               </div>
             )}
             
-            {item.hasDropdown && item.label === (locale === 'tr' ? 'FAYDALI LİNKLER' : 'USEFUL LINKS') && (
+            {(item as any).hasDropdown && item.label === (locale === 'tr' ? 'FAYDALI LİNKLER' : 'USEFUL LINKS') && (
               <div id="mobile-dropdown-faydali-linkler" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
                 <a href="https://www.ticaret.gov.tr/yurtdisi-teskilati" target="_blank" class="block text-sm text-gray-600 hover:text-primary transition-colors py-1">
                   {locale === 'tr' ? 'Müşavirlikler' : 'Consultancies'}
@@ -528,10 +528,11 @@ const currentPath = Astro.url.pathname;
       
       // Rotate arrow
       if (arrow) {
+        const arrowElement = arrow as HTMLElement;
         if (dropdown.classList.contains('hidden')) {
-          arrow.style.transform = 'rotate(0deg)';
+          arrowElement.style.transform = 'rotate(0deg)';
         } else {
-          arrow.style.transform = 'rotate(180deg)';
+          arrowElement.style.transform = 'rotate(180deg)';
         }
       }
     }
