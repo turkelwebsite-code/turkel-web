@@ -31,6 +31,27 @@ console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
 
+// Load team members for representative lookup
+const teamMembers = await getCollection('team-members');
+console.log('👥 TEAM LOOKUP: Team members loaded:', teamMembers.length);
+
+// Team member lookup function
+function getTeamMemberData(memberName: string) {
+  const member = teamMembers.find(m => m.data.name === memberName);
+  if (member) {
+    console.log('👥 TEAM LOOKUP: Found member:', memberName, member.data);
+    return {
+      name: member.data.name,
+      email: member.data.email,
+      title_tr: member.data.title.tr,
+      title_en: member.data.title.en,
+      phone: member.data.phone || ''
+    };
+  }
+  console.log('👥 TEAM LOOKUP: Member not found:', memberName);
+  return null;
+}
+
 // Get dynamic year from CMS (only year changes, title/description are static)
 const dynamicYear = year2026Data?.data?.year || currentYear;
 const pageTitle = `${dynamicYear} Fuar Takvimi`;
@@ -50,6 +71,46 @@ try {
       fairsData[sector] = [];
     }
     
+    // Get representative data
+    let representativeData = {
+      name: '',
+      title: '',
+      email: '',
+      phone: ''
+    };
+
+    if (fair.representative) {
+      // If team_member is selected, get data from team collection
+      if (fair.representative.team_member) {
+        const teamMemberData = getTeamMemberData(fair.representative.team_member);
+        if (teamMemberData) {
+          representativeData = {
+            name: teamMemberData.name,
+            title: teamMemberData.title_tr,
+            email: teamMemberData.email,
+            phone: fair.representative.phone || teamMemberData.phone || ''
+          };
+          console.log('👥 TEAM LOOKUP: Using team member data for:', teamMemberData.name);
+        } else {
+          // Fallback to manual data
+          representativeData = {
+            name: fair.representative.name || '',
+            title: fair.representative.title_tr || '',
+            email: fair.representative.email || '',
+            phone: fair.representative.phone || ''
+          };
+        }
+      } else {
+        // Use manual representative data
+        representativeData = {
+          name: fair.representative.name || '',
+          title: fair.representative.title_tr || '',
+          email: fair.representative.email || '',
+          phone: fair.representative.phone || ''
+        };
+      }
+    }
+
     const fairItem = {
       id: fairsData[sector].length + 1,
       name: fair.basic_info.name_tr,
@@ -58,12 +119,9 @@ try {
       date: fair.basic_info.date_tr || fair.basic_info.date || '',
       image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
-      representative: {
-        name: fair.representative?.name || "Satış Temsilcisi",
-        title: fair.representative?.title_tr || fair.representative?.title || "Satış Direktörü", 
-        email: fair.representative?.email || "info@turkel.com.tr",
-        phone: fair.representative?.phone || ""
-      },
+      representative: representativeData,
+      hidePhone: fair.representative?.hide_phone || false,
+      order: fair.settings?.order ?? 999,
       description: fair.basic_info.description_tr || `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
     };
     
@@ -75,7 +133,13 @@ try {
     fairsData[sector].push(fairItem);
   });
   
+  // Sort fairs within each sector by order
+  Object.keys(fairsData).forEach(sector => {
+    fairsData[sector].sort((a, b) => a.order - b.order);
+  });
+  
   console.log('✅ 2026 Fairs data converted:', Object.keys(fairsData));
+  console.log('✅ 2026 Fairs sorted by order within each sector');
 } catch (error) {
   console.error('❌ CMS data loading failed for 2026, using fallback:', error);
   
@@ -243,16 +307,36 @@ const debugInfo = {
             </p>
           </div>
 
-          <!-- Sector Filter Buttons -->
-          <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
-              Tüm Sektörler
-            </button>
-            {sectors.map((sector) => (
-              <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
-                {sector}
+          <!-- Filters Section -->
+          <div class="mb-12 space-y-4">
+            <!-- Sorting Controls -->
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+              <!-- Sort Options -->
+              <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sıralama:</span>
+                <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Manuel Sıra
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
+                  A-Z
+                </button>
+                <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
+                  Tarihe Göre
+                </button>
+              </div>
+            </div>
+            
+            <!-- Sector Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+              <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
+                Tüm Sektörler
               </button>
-            ))}
+              {sectors.map((sector) => (
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
+                  {sector}
+                </button>
+              ))}
+            </div>
           </div>
 
           <!-- Fairs Grid -->
@@ -260,7 +344,7 @@ const debugInfo = {
             {Object.entries(fairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -522,6 +606,18 @@ const debugInfo = {
     color: white;
   }
 
+  /* Sort button styles */
+  .sort-btn.active {
+    background-color: #CE1A28;
+    color: white;
+    border-color: #CE1A28;
+  }
+  
+  .sort-btn:not(.active):hover {
+    border-color: #CE1A28;
+    color: #CE1A28;
+  }
+
   /* Hidden sector groups */
   .sector-group.hidden {
     display: none;
@@ -579,8 +675,101 @@ const debugInfo = {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const sortButtons = document.querySelectorAll('.sort-btn');
     const sectorGroups = document.querySelectorAll('.sector-group');
     const fairCards = document.querySelectorAll('.fair-card');
+    const fairsContainer = document.querySelector('.fairs-container');
+    
+    // Store original fair data for sorting
+    const fairsData = {};
+    
+    // Parse fair data from DOM
+    fairCards.forEach(card => {
+      const sector = card.closest('.sector-group')?.dataset.sector || 'other';
+      if (!fairsData[sector]) fairsData[sector] = [];
+      
+      const nameElement = card.querySelector('h3');
+      const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
+      
+      fairsData[sector].push({
+        element: card,
+        name: nameElement?.textContent?.trim() || '',
+        date: dateElement?.textContent?.trim() || '',
+        order: parseInt(card.dataset.order) || 999
+      });
+    });
+    
+    // Sorting functionality
+    function sortFairs(sortType) {
+      Object.keys(fairsData).forEach(sector => {
+        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`);
+        if (!sectorGroup) return;
+        
+        const sortedFairs = [...fairsData[sector]];
+        
+        switch(sortType) {
+          case 'name':
+            sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+            break;
+          case 'date':
+            sortedFairs.sort((a, b) => {
+              // Turkish month names to numbers
+              const turkishMonths = {
+                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
+              };
+              
+              function parseDate(dateStr) {
+                // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
+                const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+                if (match) {
+                  const day = match[1];
+                  const month = turkishMonths[match[2]] || '01';
+                  const year = match[3];
+                  return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+                }
+                return new Date(2099, 11, 31); // Far future date for unparseable dates
+              }
+              
+              const dateA = parseDate(a.date);
+              const dateB = parseDate(b.date);
+              return dateA - dateB;
+            });
+            break;
+          case 'order':
+          default:
+            sortedFairs.sort((a, b) => a.order - b.order);
+            break;
+        }
+        
+        // Reorder DOM elements
+        sortedFairs.forEach(fair => {
+          sectorGroup.appendChild(fair.element);
+        });
+      });
+    }
+    
+    // Sort button functionality
+    sortButtons.forEach(button => {
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const sortType = this.dataset.sort;
+        
+        // Update active button
+        sortButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+          btn.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        });
+        
+        this.classList.add('active');
+        this.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
+        
+        // Apply sorting
+        sortFairs(sortType);
+      });
+    });
     
     // Filter functionality
     filterButtons.forEach(button => {
