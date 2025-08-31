@@ -22,14 +22,14 @@ collections:
     identifier_field: "cms_button_label"
     summary: "{{cms_button_label}} • {{year}} yılı • {{fairs.length}} fuar"
     fields:
-      - {label: "🏷️ CMS Buton Adı", name: "cms_button_label", widget: "string", hint: "Bu isim sidebar'da gözükecek - otomatik güncellenir"}
-      - {label: "📅 Yıl", name: "year", widget: "number"}
-      - {label: "🔗 Sayfa Slug (TR)", name: "page_slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
-      - {label: "🔗 Sayfa Slug (EN)", name: "page_slug_en", widget: "string", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
-      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: false}
-      - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
-      - {label: "🔢 Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 0}
-      - label: "📝 Sayfa İçeriği"
+      - {label: "CMS Buton Adı", name: "cms_button_label", widget: "string", hint: "Bu isim sidebar'da gözükecek - otomatik güncellenir"}
+      - {label: "Yıl", name: "year", widget: "number"}
+      - {label: "Sayfa Slug (TR)", name: "page_slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
+      - {label: "Sayfa Slug (EN)", name: "page_slug_en", widget: "string", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: false}
+      - {label: "Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
+      - {label: "Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 0}
+      - label: "Sayfa İçeriği"
         name: "page_content"
         widget: "object"
         collapsed: true
@@ -40,40 +40,40 @@ collections:
           - {label: "Menü Başlığı (EN)", name: "menu_title_en", widget: "string"}
           - {label: "Açıklama (TR)", name: "description_tr", widget: "text"}
           - {label: "Açıklama (EN)", name: "description_en", widget: "text"}
-      - label: "🎪 Fuar Listesi"
+      - label: "Fuar Listesi"
         name: "fairs"
         widget: "list"
-        summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
+        summary: "{{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
         collapsed: true
         minimize_collapsed: true
         fields:
-          - label: "📋 Temel Bilgiler"
+          - label: "Temel Bilgiler"
             name: "basic_info"
             widget: "object"
             collapsed: true
             fields:
               - {label: "Fuar Adı (TR)", name: "name_tr", widget: "string", hint: "Türkçe fuar adı"}
               - {label: "Fuar Adı (EN)", name: "name_en", widget: "string", hint: "İngilizce fuar adı"}
-              - {label: "📅 Tarih (TR)", name: "date_tr", widget: "string", hint: "Örnek: 17-25 OCAK 2028", required: false}
-              - {label: "📅 Tarih (EN)", name: "date_en", widget: "string", hint: "Örnek: 17-25 JANUARY 2028", required: false}
-              - {label: "📍 Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
-              - {label: "📍 Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
-              - {label: "🏭 Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true}
-              - {label: "📝 Açıklama (TR)", name: "description_tr", widget: "text", required: false}
-              - {label: "📝 Açıklama (EN)", name: "description_en", widget: "text", required: false}
-          - label: "🎨 Görseller"
+              - {label: "Tarih (TR)", name: "date_tr", widget: "string", hint: "Örnek: 17-25 OCAK 2028", required: false}
+              - {label: "Tarih (EN)", name: "date_en", widget: "string", hint: "Örnek: 17-25 JANUARY 2028", required: false}
+              - {label: "Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
+              - {label: "Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
+              - {label: "Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true}
+              - {label: "Açıklama (TR)", name: "description_tr", widget: "text", required: false}
+              - {label: "Açıklama (EN)", name: "description_en", widget: "text", required: false}
+          - label: "Görseller"
             name: "visuals"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "🖼️ Logo", name: "logo", widget: "image", hint: "📐 İdeal Ölçü: 350x200px | Format: JPG/PNG"}
-              - {label: "🌅 Arka Plan Görseli", name: "background_image", widget: "image", hint: "📐 İdeal Ölçü: 570x380px | Format: JPG/PNG"}
-          - label: "👤 Temsilci Bilgileri"
+              - {label: "Logo", name: "logo", widget: "image", hint: "İdeal Ölçü: 350x200px | Format: JPG/PNG"}
+              - {label: "Arka Plan Görseli", name: "background_image", widget: "image", hint: "İdeal Ölçü: 570x380px | Format: JPG/PNG"}
+          - label: "Temsilci Bilgileri"
             name: "representative"
             widget: "object"
             collapsed: true
             fields:
-              - label: "👤 Ekip Üyesi Seç"
+              - label: "Ekip Üyesi Seç"
                 name: "team_member"
                 widget: "relation"
                 collection: "team-members"
@@ -83,42 +83,42 @@ collections:
                 filter: {field: "is_fair_representative", value: true}
                 required: false
                 hint: "Ekip üyesi seçin → İsim/email/title otomatik frontend'de çekilir"
-              - {label: "📞 Özel Telefon", name: "phone", widget: "string", required: false, hint: "Sadece farklı telefon numarası için (opsiyonel)"}
-              - {label: "📞 Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false, hint: "Telefon numarasını gizle"}
-          - label: "⚙️ Ayarlar"
+              - {label: "Özel Telefon", name: "phone", widget: "string", required: false, hint: "Sadece farklı telefon numarası için (opsiyonel)"}
+              - {label: "Telefon Gizle", name: "hide_phone", widget: "boolean", default: false, required: false, hint: "Telefon numarasını gizle"}
+          - label: "Ayarlar"
             name: "settings"
             widget: "object"
             collapsed: true
             fields:
-              - {label: "🎬 Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
-              - {label: "📝 İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
-              - {label: "📜 Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false}
-              - label: "🎬 Slider İçeriği"
+              - {label: "Ana Slider'da Göster", name: "show_in_slider", widget: "boolean", default: false}
+              - {label: "İletişim Formlarında Göster", name: "show_in_forms", widget: "boolean", default: true}
+              - {label: "Kronolojide Göster", name: "show_in_chronology", widget: "boolean", default: false}
+              - label: "Slider İçeriği"
                 name: "slider_content"
                 widget: "object"
                 collapsed: true
                 condition: {field: "settings.show_in_slider", value: true}
                 fields:
-                  - {label: "🌐 Site Linki", name: "website_url", widget: "string", required: false}
-                  - {label: "🗺️ Google Maps Embed URL", name: "maps_embed", widget: "text", required: false}
-                  - {label: "🌅 Slider Arka Plan", name: "background_image", widget: "image", required: false, hint: "📐 İdeal Ölçü: 1920x1080px"}
-                  - label: "🖼️ Mini Görseller"
+                  - {label: "Site Linki", name: "website_url", widget: "string", required: false}
+                  - {label: "Google Maps Embed URL", name: "maps_embed", widget: "text", required: false}
+                  - {label: "Slider Arka Plan", name: "background_image", widget: "image", required: false, hint: "İdeal Ölçü: 1920x1080px"}
+                  - label: "Mini Görseller"
                     name: "mini_images"
                     widget: "list"
                     required: false
                     max: 3
                     min: 0
                     field: {label: "Görsel", name: "image", widget: "image"}
-                    hint: "📐 İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
-              - label: "📜 Kronoloji Bilgileri"
+                    hint: "İdeal Ölçü: 400x400px | Format: JPG/PNG | Kare kompozisyon önerilir"
+              - label: "Kronoloji Bilgileri"
                 name: "chronology_info"
                 widget: "object"
                 collapsed: true
                 condition: {field: "settings.show_in_chronology", value: true}
                 fields:
-                  - {label: "🏢 Alan", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
-                  - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
-                  - {label: "📝 Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
+                  - {label: "Alan", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+                  - {label: "Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+                  - {label: "Ek Açıklama", name: "description", widget: "text", required: false, hint: "Kronoloji için ek bilgiler"}
 
   # EKİP ÜYELERİ
   - name: "team-members"
@@ -163,16 +163,34 @@ collections:
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Gösterim sırası"}
       - {label: "Aktif", name: "is_active", widget: "boolean", default: true, hint: "Partner gösterilsin mi?"}
 
-  # KRONOLOJİ YÖNETİMİ
+  # KRONOLOJİ YÖNETİMİ (FOLDER COLLECTION - 12 YIL)
   - name: "chronology_years"
     label: "Kronoloji"
-    files:
-      - label: "2024 Kronoloji"
-        name: "chronology_2024"
-        file: "src/content/chronology-years/2024.yml"
+    folder: "src/content/chronology-years"
+    create: true
+    slug: "{{year}}"
+    extension: "yml"
+    identifier_field: "cms_button_label"
+    summary: "{{cms_button_label}} • {{year}} yılı • {{fairs.length}} fuar"
+    fields:
+      - {label: "CMS Buton Adı", name: "cms_button_label", widget: "string", hint: "Bu isim sidebar'da gözükecek"}
+      - {label: "Yıl", name: "year", widget: "number"}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+      - label: "Kronoloji Fuarları"
+        name: "fairs"
+        widget: "list"
+        summary: "{{fields.name}} • {{fields.city}}, {{fields.country}}"
+        collapsed: true
+        minimize_collapsed: true
         fields:
-          - {label: "📅 Yıl", name: "year", widget: "number", default: 2024}
-          - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
+          - {label: "Fuar Adı", name: "name", widget: "string"}
+          - {label: "Şehir", name: "city", widget: "string"}
+          - {label: "Ülke", name: "country", widget: "string"}
+          - {label: "Sektör", name: "sector", widget: "string"}
+          - {label: "Alan", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
+          - {label: "Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
+          - {label: "Açıklama", name: "description", widget: "text", required: false}
+          - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
 
   # SİTE AYARLARI
   - name: "settings"
