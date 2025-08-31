@@ -5,12 +5,21 @@ import { Phone, Mail, Facebook, Youtube, Instagram, Linkedin } from 'lucide-astr
 import LangSwitch from './LangSwitch.astro';
 import VisitorFormModal from './VisitorFormModal.astro';
 import ParticipantFormModal from './ParticipantFormModal.astro';
+import { getCollection } from 'astro:content';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+
+// Load active fair years for dynamic menu
+const fairYears = await getCollection('fair-years');
+const activeFairYears = fairYears
+  .filter(year => year.data.is_active && year.data.display_status === 'Aktif Fuarlar')
+  .sort((a, b) => (a.data.menu_order || 1) - (b.data.menu_order || 1));
+
+console.log('🎯 HEADER: Active fair years loaded:', activeFairYears.length);
 const navigation = NAVIGATION_ITEMS[locale];
 const currentPath = Astro.url.pathname;
 ---

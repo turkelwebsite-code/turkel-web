@@ -9,16 +9,16 @@ export async function getStaticPaths() {
   // Get all fair years from CMS
   const fairYears = await getCollection('fair-years');
   
-  // Create paths for each active year
+  // Create paths for each active year with custom slug
   return fairYears
     .filter(year => year.data.is_active && year.data.display_status === 'Aktif Fuarlar')
     .map(year => ({
-      params: { year: year.data.year.toString() },
+      params: { slug: year.data.page_slug || `${year.data.year}-fuar-takvimi` },
       props: { yearData: year.data }
     }));
 }
 
-const { year } = Astro.params;
+const { slug } = Astro.params;
 const { yearData } = Astro.props;
 
 const locale = 'tr';
@@ -26,11 +26,12 @@ const footerContent = FOOTER_CONTENT[locale];
 
 // Get dynamic content
 const currentYear = yearData.year;
-const pageTitle = `${currentYear} Fuar Takvimi`;
-const pageDescription = `${currentYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
+const pageTitle = yearData.page_content?.title_tr || `${currentYear} Fuar Takvimi`;
+const pageDescription = yearData.page_content?.description_tr || `${currentYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
 
-console.log('🎯 DYNAMIC URL: Year param:', year);
-console.log('🎯 DYNAMIC URL: Page title:', pageTitle);
+console.log('🎯 DYNAMIC SLUG TR: Slug param:', slug);
+console.log('🎯 DYNAMIC SLUG TR: Year:', currentYear);
+console.log('🎯 DYNAMIC SLUG TR: Page title:', pageTitle);
 
 const cmsFairs = yearData.fairs || [];
 
@@ -42,7 +43,7 @@ cmsFairs.forEach((fair: any) => {
     fairsData[sector] = [];
   }
 
-  // Get representative data from team member relation or fallback
+  // Get representative data
   let representativeData = {
     name: '',
     title: '',
@@ -50,8 +51,7 @@ cmsFairs.forEach((fair: any) => {
     phone: ''
   };
 
-  if (fair.representative?.team_member) {
-    // TODO: Load team member data from relation
+  if (fair.representative) {
     representativeData = {
       name: fair.representative.name || '',
       title: fair.representative.title_tr || '',
@@ -73,7 +73,6 @@ cmsFairs.forEach((fair: any) => {
   });
 });
 
-// Generate sector list for filters
 const sectors = Object.keys(fairsData);
 console.log('✅', currentYear, 'Fairs data converted:', sectors);
 ---

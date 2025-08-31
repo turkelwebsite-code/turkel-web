@@ -12,13 +12,37 @@ editor:
   preview: false
 
 collections:
-  # FUARLAR - Yıl Bazlı Yönetim
+  # FUARLAR - Yeni Yıl Oluşturma Sistemi
   - name: "fair_years"
     label: "🎪 Fuarlar"
-    files:
-      - label: "2026 Fuarları"
-        name: "fairs_2026"
-        file: "src/content/fair-years/2026.yml"
+    folder: "src/content/fair-years"
+    create: true
+    slug: "{{fields.year}}"
+    identifier_field: "year"
+    summary: "{{fields.year}} - {{fields.fairs.length}} fuar - {{fields.page_slug}}"
+    fields:
+      - {label: "📅 Yıl", name: "year", widget: "number", value_type: "int", min: 2020, max: 2035, step: 1, hint: "Fuar yılı (örnek: 2028)"}
+      - {label: "🔗 Sayfa Slug", name: "page_slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire kullanın"], hint: "URL için slug (örnek: 2028-fuar-takvimi)"}
+      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, hint: "Bu yıl header menüsünde gösterilsin mi?"}
+      - {label: "📊 Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar", hint: "Bu yıl nerede gösterilecek?"}
+      - {label: "🔢 Menü Sırası", name: "menu_order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Header menüsündeki sıralama (1 en üstte)"}
+      - label: "📝 Sayfa İçeriği"
+        name: "page_content"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "Sayfa Başlığı (TR)", name: "title_tr", widget: "string", hint: "Örnek: 2028 Fuar Takvimi"}
+          - {label: "Sayfa Başlığı (EN)", name: "title_en", widget: "string", hint: "Örnek: 2028 Fair Calendar"}
+          - {label: "Menü Başlığı (TR)", name: "menu_title_tr", widget: "string", hint: "Header menüde görünecek (örnek: 2028 Fuar Takvimi)"}
+          - {label: "Menü Başlığı (EN)", name: "menu_title_en", widget: "string", hint: "Header menu title (örnek: 2028 Fair Calendar)"}
+          - {label: "Açıklama (TR)", name: "description_tr", widget: "text", hint: "Sayfa açıklaması"}
+          - {label: "Açıklama (EN)", name: "description_en", widget: "text", hint: "Page description"}
+      - label: "Fuar Listesi"
+        name: "fairs"
+        widget: "list"
+        summary: "🎪 {{fields.basic_info.name_tr}} • {{fields.basic_info.date_tr}} • {{fields.basic_info.location_tr}}"
+        collapsed: true
+        minimize_collapsed: true
         fields:
           - label: "Yıl"
             name: "year"

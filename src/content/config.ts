@@ -178,8 +178,18 @@ const fairYears = defineCollection({
   type: 'data',
   schema: z.object({
     year: z.number(),
+    page_slug: z.string().optional(),
     is_active: z.boolean(),
     display_status: z.string().optional(),
+    menu_order: z.number().optional(),
+    page_content: z.object({
+      title_tr: z.string().optional(),
+      title_en: z.string().optional(),
+      menu_title_tr: z.string().optional(),
+      menu_title_en: z.string().optional(),
+      description_tr: z.string().optional(),
+      description_en: z.string().optional(),
+    }).optional(),
     fairs: z.array(z.object({
       basic_info: z.object({
         name_tr: z.string(),

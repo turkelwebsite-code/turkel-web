@@ -1,11 +1,575 @@
 ---
-// REDIRECT TO DYNAMIC PAGE
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { FOOTER_CONTENT } from '../../lib/footer-content';
 import { getCollection } from 'astro:content';
 
-const fairYears = await getCollection('fair-years');
-const year2025Data = fairYears.find(item => item.id === '2025');
-const dynamicYear = year2025Data?.data?.year || 2025;
+const locale = 'tr';
 
-console.log('🔄 REDIRECT: 2025 page redirecting to:', `${dynamicYear}-fuar-takvimi`);
-return Astro.redirect(`/tr/${dynamicYear}-fuar-takvimi/`);
+// Use shared footer content
+const footerContent = FOOTER_CONTENT[locale];
+
+// Get fair data from CMS - ENHANCED DEBUG
+try {
+  console.log('🔍 DEBUG: Starting CMS data load for 2025...');
+  
+  const fairYearData = await getCollection('fair-years');
+  console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
+  console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
+  
+  // File-based collection uses filename as ID
+  const year2025Data = fairYearData.find(item => item.id === '2025');
+  console.log('🔍 DEBUG: 2025 data found:', !!year2025Data);
+  console.log('🔍 DEBUG: 2025 data content:', year2025Data?.data);
+  
+  const cmsFairs = year2025Data?.data?.fairs || [];
+  console.log('🎪 CMS Fairs loaded for 2025:', cmsFairs.length);
+  console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
+  console.log('🔍 DEBUG: Representative data check:', cmsFairs[0]?.representative);
+  
+  // Convert CMS data to page format
+  var fairsData: Record<string, any[]> = {};
+  cmsFairs.forEach((fair: any) => {
+    const sector = fair.basic_info.sector;
+    if (!fairsData[sector]) {
+      fairsData[sector] = [];
+    }
+    
+    fairsData[sector].push({
+      id: fairsData[sector].length + 1,
+      name: fair.basic_info.name_tr,
+      city: fair.basic_info.location_tr.split(',')[0].trim(),
+      country: fair.basic_info.location_tr.split(',')[1]?.trim() || fair.basic_info.location_tr,
+      date: fair.basic_info.date_tr || fair.basic_info.date || '',
+      image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
+      logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
+      representative: {
+        name: fair.representative?.name || "Satış Temsilcisi",
+        title: fair.representative?.title_tr || fair.representative?.title || "Satış Direktörü", 
+        email: fair.representative?.email || "info@turkel.com.tr",
+        phone: fair.representative?.phone || ""
+      },
+      description: fair.basic_info.description_tr || `${fair.basic_info.name_tr} fuarı ${fair.basic_info.date} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
+    });
+  });
+  
+  console.log('✅ Fairs data converted:', Object.keys(fairsData));
+} catch (error) {
+  console.error('❌ CMS data loading failed, using fallback:', error);
+  
+  // Fallback static data if CMS fails
+  var fairsData: Record<string, any[]> = {
+  "Moda ve Tekstil": [
+    {
+      id: 1,
+      name: "LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı 2025",
+      city: "Moskova",
+      country: "Rusya",
+      date: "15-18 Mart 2025",
+      representative: {
+        name: "Seval Arslan",
+        title: "Satış Direktörü",
+        email: "seval@turkel.com.tr",
+        phone: "+90 216 123 45 68"
+      }
+    },
+    {
+      id: 2,
+      name: "Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı 2025",
+      city: "İstanbul",
+      country: "Türkiye",
+      date: "20-23 Haziran 2025",
+      representative: {
+        name: "Hazal Özkap",
+        title: "Satış Sorumlusu",
+        email: "hazal@turkel.com.tr",
+        phone: "+90 216 123 45 69"
+      }
+    }
+  ],
+  "Ev Tekstili ve Dekorasyon": [
+    {
+      id: 3,
+      name: "HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı 2025",
+      city: "Almatı",
+      country: "Kazakistan",
+      date: "22-25 Nisan 2025",
+      representative: {
+        name: "Arzu Günal",
+        title: "Satış Direktörü",
+        email: "arzu@turkel.com.tr",
+        phone: "+90 216 123 45 71"
+      }
+    },
+    {
+      id: 4,
+      name: "Heimtextil Frankfurt - Dünya Ev Tekstili ve İç Dekorasyon Fuarı 2025",
+      city: "Frankfurt",
+      country: "Almanya",
+      date: "14-17 Ocak 2025",
+      representative: {
+        name: "Nur Kaya",
+        title: "Finansman Müdürü",
+        email: "nur@turkel.com.tr",
+        phone: "+90 216 123 45 86"
+      }
+    }
+  ],
+  "Mobilya ve Aydınlatma": [
+    {
+      id: 5,
+      name: "Furniture İstanbul - Türkiye Mobilya ve Dekorasyon Endüstrisi Fuarı 2025",
+      city: "İstanbul",
+      country: "Türkiye",
+      date: "10-13 Mayıs 2025",
+      representative: {
+        name: "Mehmet Kaya",
+        title: "Satış Direktörü",
+        email: "mehmet@turkel.com.tr",
+        phone: "+90 216 123 45 73"
+      }
+    }
+  ]
+  };
+}
+
+// Get all sectors for filtering
+const sectors = Object.keys(fairsData);
 ---
+
+<BaseLayout title="2025 Fuar Takvimi - Türkel Fuarcılık" description="2025 yılında organize ettiğimiz uluslararası fuarların detaylı takvimi" locale={locale}>
+  <Header locale={locale} />
+  
+  <main class="pt-8 pb-16">
+    <section class="py-16">
+      <div class="mx-auto px-5" style="max-width: calc(100% - 20px); background-color: white; border-radius: 10px; margin: 10px auto;">
+        <div class="container mx-auto px-4 lg:px-8">
+          
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <div class="flex items-center justify-center mb-4">
+              <h2 class="text-2xl lg:text-3xl font-bold text-gray-900" style="font-family: 'Radio Canada Big', sans-serif;">
+                2025 Fuar Takvimi
+              </h2>
+            </div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
+              2025 yılında dünya çapında organize ettiğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+            </p>
+          </div>
+
+          <!-- Sector Filter Buttons -->
+          <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
+              Tüm Sektörler
+            </button>
+            {sectors.map((sector) => (
+              <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
+                {sector}
+              </button>
+            ))}
+          </div>
+
+          <!-- Fairs Grid -->
+          <div class="fairs-container">
+            {Object.entries(fairsData).map(([sector, fairs]) => (
+              <div class="sector-group" data-sector={sector}>
+                {fairs.map((fair) => (
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+                    <!-- Fair Image with Logo -->
+                    <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
+                      <img 
+                        src={fair.image || "/images/fuarlar-arkaplan.jpg"} 
+                        alt={fair.name}
+                        class="w-full h-full object-cover object-center opacity-80"
+                        style="min-width: 100%; min-height: 100%;"
+                      />
+                      <!-- Fair Logo Overlay -->
+                      <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white bg-opacity-95 rounded-xl p-4 shadow-lg max-w-[230px]">
+                          <img 
+                            src={fair.logo || "/images/fuarlar-logo.png"} 
+                            alt={`${fair.name} Logo`}
+                            class="h-32 w-auto max-w-[260px] object-contain mx-auto"
+                            style="filter: hue-rotate(0deg);"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Fair Details -->
+                    <div class="p-6">
+                      <!-- Fair Name and Description -->
+                      <div class="mb-3">
+                        <h3 class="text-xl font-bold text-gray-900" style="font-family: 'Radio Canada Big', sans-serif;">
+                          {fair.name}
+                        </h3>
+                        <!-- Fair Description - Hiç boşluk yok -->
+                        {fair.description && (
+                          <p class="text-sm text-gray-600 font-medium leading-tight -mt-1" style="font-family: 'Radio Canada Big', sans-serif;">
+                            {fair.description}
+                          </p>
+                        )}
+                      </div>
+                      
+
+                      <!-- Fair Info -->
+                      <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-700">
+                          <svg class="w-4 h-4 mr-2 text-[#CE1A28]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                          </svg>
+                          <span class="font-medium">{fair.city}, {fair.country}</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-700">
+                          <svg class="w-4 h-4 mr-2 text-[#CE1A28]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                          </svg>
+                          <span class="font-medium">{fair.date}</span>
+                        </div>
+                      </div>
+
+                      <!-- Representative Info -->
+                      <div class="border-t border-gray-200 pt-4">
+                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Temsilci Bilgileri:</h4>
+                        <div class="space-y-1">
+                          <p class="text-sm text-gray-700">
+                            <span class="font-medium">{fair.representative.name}</span>
+                          </p>
+                          <p class="text-xs text-[#CE1A28] font-medium">
+                            {fair.representative.title}
+                          </p>
+                          <div class="mt-2 space-y-2">
+                            <a href={`mailto:${fair.representative.email}`} class="text-xs text-gray-600 hover:text-[#CE1A28] transition-colors flex items-center">
+                              <svg class="w-3 h-3 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                              </svg>
+                              <span class="truncate">{fair.representative.email}</span>
+                            </a>
+                            {fair.representative.phone && fair.representative.phone.trim() !== '' && !fair.representative.hide_phone && (
+                              <a href={`tel:${fair.representative.phone}`} class="text-xs text-gray-600 hover:text-[#CE1A28] transition-colors flex items-center">
+                                <svg class="w-3 h-3 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                <span class="truncate">{fair.representative.phone}</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale={locale} content={footerContent} />
+</BaseLayout>
+
+<style>
+  /* Fairs grid layout */
+  .fairs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Desktop: 4 cards per row */
+  @media (min-width: 1280px) {
+    .fairs-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Tablet: 2 cards per row */
+  @media (min-width: 768px) and (max-width: 1279px) {
+    .fairs-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Standard card dimensions - sabit yükseklik */
+  .fair-card {
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Card image section - 200px */
+  .fair-card .h-64 {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Card content section - esnek yükseklik */
+  .fair-card .p-6 {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1.5rem !important;
+  }
+
+  /* Fair name - esnek yükseklik */
+  .fair-card h3 {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  /* Simple CSS-only tooltip */
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+  
+  .group:hover .group-hover\:visible {
+    visibility: visible !important;
+  }
+
+  /* Fair info section - sabit yükseklik */
+  .fair-card .space-y-2 {
+    flex-shrink: 0 !important;
+    margin-bottom: 1rem !important;
+    height: 3rem !important;
+  }
+
+  /* Representative section - alt kısımda sabit yükseklik */
+  .fair-card .border-t {
+    margin-top: auto !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    flex-shrink: 0 !important;
+    min-height: 140px !important;
+    max-height: 140px !important;
+    overflow: hidden !important;
+  }
+
+  /* Email ve telefon hizalama düzeltmesi - alt alta */
+  .fair-card .border-t .space-y-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .fair-card .border-t .flex.items-center {
+    align-items: center !important;
+    gap: 0.5rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .fair-card .border-t .flex.items-center svg {
+    flex-shrink: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .fair-card .border-t .flex.items-center .truncate {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Mobile: 1 card per row */
+  @media (max-width: 767px) {
+    .fairs-container {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    /* Mobile card dimensions - sabit yükseklik */
+    .fair-card {
+      height: 440px !important;
+      min-height: 480px !important;
+      max-height: 480px !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    /* Mobile image section - biraz daraltıldı */
+    .fair-card .h-64 {
+      height: 180px !important;
+      min-height: 180px !important;
+      max-height: 180px !important;
+    }
+
+    /* Mobile representative section */
+    .fair-card .border-t {
+      min-height: 120px !important;
+    }
+    
+    /* Mobile'da logo daha küçük */
+    .fair-card .h-48 {
+      height: 6rem !important;
+      max-width: 150px !important;
+    }
+
+    /* Mobile content adjustments - esnek yükseklik */
+    .fair-card h3 {
+      font-size: 1rem !important;
+      line-height: 1.3 !important;
+    }
+
+    /* Mobile fair info section */
+    .fair-card .space-y-2 {
+      height: 2.5rem !important;
+    }
+
+    /* Mobile tooltip */
+    .tooltip-content {
+      max-width: 250px !important;
+      font-size: 0.75rem !important;
+    }
+  }
+
+  /* Filter button styles */
+  .filter-btn.active {
+    background-color: #CE1A28;
+    color: white;
+  }
+
+  /* Hidden sector groups */
+  .sector-group.hidden {
+    display: none;
+  }
+
+  /* Fair card hover effects */
+  .fair-card:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  /* Logo overlay styling */
+  .fair-card .absolute {
+    backdrop-filter: blur(2px);
+  }
+
+  /* Card animation */
+  .fair-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fair-card.animate-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Grid masonry effect prevention */
+  .fairs-container {
+    align-items: start;
+  }
+
+  .sector-group {
+    display: contents;
+  }
+
+  .sector-group.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const sectorGroups = document.querySelectorAll('.sector-group');
+    const fairCards = document.querySelectorAll('.fair-card');
+    
+    // Filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const selectedSector = target.dataset.sector;
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        target.classList.add('active');
+        
+        // Show/hide sector groups
+        sectorGroups.forEach(group => {
+          const groupElement = group as HTMLElement;
+          if (selectedSector === 'all' || groupElement.dataset.sector === selectedSector) {
+            groupElement.classList.remove('hidden');
+          } else {
+            groupElement.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Card animation on scroll
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, {
+      rootMargin: '20px 0px',
+      threshold: 0.1
+    });
+
+    // Observe all fair cards
+    fairCards.forEach(card => {
+      cardObserver.observe(card);
+    });
+
+    // Independent tooltip positioning
+    const tooltipGroups = document.querySelectorAll('.group');
+    
+    tooltipGroups.forEach(group => {
+      const trigger = group.querySelector('h3') as HTMLElement;
+      const tooltip = group.querySelector('.fixed') as HTMLElement;
+      
+      if (trigger && tooltip) {
+        trigger.addEventListener('mouseenter', (e) => {
+          const rect = trigger.getBoundingClientRect();
+          
+          // Tooltip'i mouse pozisyonuna yerleştir
+          tooltip.style.left = `${rect.left + (rect.width / 2) - 200}px`;
+          tooltip.style.top = `${rect.top - 80}px`;
+          
+          // Ekran sınırlarını kontrol et
+          if (rect.left + (rect.width / 2) - 200 < 10) {
+            tooltip.style.left = '10px';
+          } else if (rect.left + (rect.width / 2) + 200 > window.innerWidth - 10) {
+            tooltip.style.left = `${window.innerWidth - 410}px`;
+          }
+          
+          if (rect.top - 80 < 10) {
+            tooltip.style.top = `${rect.bottom + 10}px`;
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<!-- SIMPLE CLIENT DEBUG -->
+<script>
+  // Simple debug for 2025 fairs
+  console.log('🎯 2025 FUAR TAKVİMİ - CMS TEST');
+  console.log('📊 Page loaded successfully');
+  
+  // Check if fair cards are rendered
+  setTimeout(() => {
+    const fairCards = document.querySelectorAll('.fair-card');
+    console.log('🎪 Fair cards found on page:', fairCards.length);
+    
+    if (fairCards.length === 0) {
+      console.log('❌ No fair cards found - CMS data issue');
+    } else {
+      console.log('✅ Fair cards rendered successfully');
+    }
+  }, 1000);
+</script>
