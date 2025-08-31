@@ -385,7 +385,7 @@ const debugInfo = {
             {Object.entries(fairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order}>
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order} data-start-date={fair.startDate} data-end-date={fair.endDate}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
@@ -742,7 +742,9 @@ const debugInfo = {
         element: card,
         name: nameElement?.textContent?.trim() || '',
         date: dateElement?.textContent?.trim() || '',
-        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999,
+        startDate: cardElement.getAttribute('data-start-date') || null,
+        endDate: cardElement.getAttribute('data-end-date') || null
       });
     });
     
@@ -778,11 +780,12 @@ const debugInfo = {
             // Use start_date for sorting if available, otherwise parse display date
             let dateA: Date, dateB: Date;
             
-            if (a.startDate) {
-              dateA = a.startDate instanceof Date ? a.startDate : new Date(a.startDate);
+            if (a.startDate && a.startDate !== 'null' && a.startDate !== '') {
+              dateA = new Date(a.startDate);
               console.log(`📅 Using startDate for ${a.name}: ${a.startDate} → ${dateA.toISOString()}`);
             } else {
               // Fallback to parsing display date
+              console.log(`📅 FALLBACK: Using text parsing for ${a.name}: ${a.date}`);
               const turkishMonths: Record<string, string> = {
                 'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
                 'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
@@ -800,11 +803,12 @@ const debugInfo = {
               }
             }
             
-            if (b.startDate) {
-              dateB = b.startDate instanceof Date ? b.startDate : new Date(b.startDate);
+            if (b.startDate && b.startDate !== 'null' && b.startDate !== '') {
+              dateB = new Date(b.startDate);
               console.log(`📅 Using startDate for ${b.name}: ${b.startDate} → ${dateB.toISOString()}`);
             } else {
               // Fallback to parsing display date
+              console.log(`📅 FALLBACK: Using text parsing for ${b.name}: ${b.date}`);
               const turkishMonths: Record<string, string> = {
                 'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
                 'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
