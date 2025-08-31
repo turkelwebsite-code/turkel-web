@@ -303,11 +303,11 @@ const sectors = Object.keys(fairsData);
     margin-bottom: 2rem !important;
   }
 
-  /* Card image section - biraz daraltıldı */
+  /* Card image section - 200px */
   .fair-card .h-64 {
-    height: 220px !important;
-    min-height: 220px !important;
-    max-height: 220px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
     flex-shrink: 0 !important;
   }
 
@@ -319,18 +319,12 @@ const sectors = Object.keys(fairsData);
     padding: 1.5rem !important;
   }
 
-  /* Fair name - sabit yükseklik, maksimum 2 satır */
+  /* Fair name - esnek yükseklik */
   .fair-card h3 {
     font-size: 1.125rem !important;
     line-height: 1.4 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-    margin-bottom: 0.75rem !important;
     word-wrap: break-word !important;
     hyphens: auto !important;
-    height: 3.15rem !important;
   }
 
   /* Simple CSS-only tooltip */
