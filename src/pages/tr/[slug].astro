@@ -455,16 +455,28 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
       });
     });
     
-    // Sorting functionality
+    // Sorting functionality - GLOBAL sorting across all cards
     function sortFairs(sortType: string) {
-      const sortedFairs = [...fairsData];
+      console.log('🔄 SORTING: Starting sort with type:', sortType);
+      
+      // Use the global fairsData array directly (all cards together)
+      const allCards = [...fairsData];
+      
+      console.log('🔄 SORTING: Total cards to sort:', allCards.length);
+      console.log('🔄 SORTING: Sample card names:', allCards.slice(0, 3).map((f: any) => f.name));
       
       switch(sortType) {
         case 'name':
-          sortedFairs.sort((a: any, b: any) => a.name.localeCompare(b.name, 'tr'));
+          console.log('🔤 A-Z SORTING: Before sort:', allCards.map((f: any) => f.name));
+          allCards.sort((a: any, b: any) => {
+            const result = a.name.localeCompare(b.name, 'tr');
+            return result;
+          });
+          console.log('🔤 A-Z SORTING: After sort:', allCards.map((f: any) => f.name));
           break;
         case 'date':
-          sortedFairs.sort((a: any, b: any) => {
+          console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
+          allCards.sort((a: any, b: any) => {
             // Turkish month names to numbers
             const turkishMonths: Record<string, string> = {
               'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
@@ -486,20 +498,27 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
             
             const dateA = parseDate(a.date);
             const dateB = parseDate(b.date);
+            console.log(`📅 Comparing: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
             return dateA.getTime() - dateB.getTime();
           });
+          console.log('📅 DATE SORTING: After sort:', allCards.map((f: any) => f.date));
           break;
         case 'order':
         default:
-          sortedFairs.sort((a: any, b: any) => a.order - b.order);
+          console.log('🔢 ORDER SORTING: Before sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          allCards.sort((a: any, b: any) => a.order - b.order);
+          console.log('🔢 ORDER SORTING: After sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
           break;
       }
       
-      // Use CSS order property to maintain grid structure
-      sortedFairs.forEach((fair: any, index: number) => {
+      // Apply CSS order to ALL cards globally
+      allCards.forEach((fair: any, index: number) => {
         const cardElement = fair.element as HTMLElement;
         cardElement.style.order = index.toString();
+        console.log(`📍 Setting order ${index} for: ${fair.name}`);
       });
+      
+      console.log('✅ SORTING: Completed');
     }
     
     // Sort button functionality

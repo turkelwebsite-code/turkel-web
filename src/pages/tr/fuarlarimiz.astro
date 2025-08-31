@@ -742,56 +742,73 @@ const sectors = Object.keys(finalFairsData);
       });
     });
     
-    // Sorting functionality
+    // Sorting functionality - GLOBAL sorting across all sectors
     function sortFairs(sortType: string) {
+      console.log('🔄 SORTING: Starting sort with type:', sortType);
+      
+      // Get ALL cards from ALL sectors for global sorting
+      const allCards: any[] = [];
       Object.keys(fairsData).forEach(sector => {
-        const sectorGroup = document.querySelector(`[data-sector="${sector}"]`) as HTMLElement;
-        if (!sectorGroup) return;
-        
-        const sortedFairs = [...fairsData[sector]];
-        
-        switch(sortType) {
-          case 'name':
-            sortedFairs.sort((a: any, b: any) => a.name.localeCompare(b.name, 'tr'));
-            break;
-          case 'date':
-            sortedFairs.sort((a: any, b: any) => {
-              // Turkish month names to numbers
-              const turkishMonths: Record<string, string> = {
-                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
-                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
-                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
-              };
-              
-              function parseDate(dateStr: string): Date {
-                // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
-                const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
-                if (match) {
-                  const day = match[1];
-                  const month = turkishMonths[match[2]] || '01';
-                  const year = match[3];
-                  return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
-                }
-                return new Date(2099, 11, 31); // Far future date for unparseable dates
-              }
-              
-              const dateA = parseDate(a.date);
-              const dateB = parseDate(b.date);
-              return dateA.getTime() - dateB.getTime();
-            });
-            break;
-          case 'order':
-          default:
-            sortedFairs.sort((a: any, b: any) => a.order - b.order);
-            break;
-        }
-        
-        // Use CSS order property to maintain grid structure
-        sortedFairs.forEach((fair: any, index: number) => {
-          const cardElement = fair.element as HTMLElement;
-          cardElement.style.order = index.toString();
-        });
+        fairsData[sector].forEach(fair => allCards.push(fair));
       });
+      
+      console.log('🔄 SORTING: Total cards to sort:', allCards.length);
+      console.log('🔄 SORTING: Sample card names:', allCards.slice(0, 3).map((f: any) => f.name));
+      
+      switch(sortType) {
+        case 'name':
+          console.log('🔤 A-Z SORTING: Before sort:', allCards.map((f: any) => f.name));
+          allCards.sort((a: any, b: any) => {
+            const result = a.name.localeCompare(b.name, 'tr');
+            return result;
+          });
+          console.log('🔤 A-Z SORTING: After sort:', allCards.map((f: any) => f.name));
+          break;
+        case 'date':
+          console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
+          allCards.sort((a: any, b: any) => {
+            // Turkish month names to numbers
+            const turkishMonths: Record<string, string> = {
+              'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+              'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+              'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
+            };
+            
+            function parseDate(dateStr: string): Date {
+              // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
+              const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
+              if (match) {
+                const day = match[1];
+                const month = turkishMonths[match[2]] || '01';
+                const year = match[3];
+                return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
+              }
+              return new Date(2099, 11, 31); // Far future date for unparseable dates
+            }
+            
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            console.log(`📅 Comparing: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
+            return dateA.getTime() - dateB.getTime();
+          });
+          console.log('📅 DATE SORTING: After sort:', allCards.map((f: any) => f.date));
+          break;
+        case 'order':
+        default:
+          console.log('🔢 ORDER SORTING: Before sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          allCards.sort((a: any, b: any) => a.order - b.order);
+          console.log('🔢 ORDER SORTING: After sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          break;
+      }
+      
+      // Apply CSS order to ALL cards globally
+      allCards.forEach((fair: any, index: number) => {
+        const cardElement = fair.element as HTMLElement;
+        cardElement.style.order = index.toString();
+        console.log(`📍 Setting order ${index} for: ${fair.name}`);
+      });
+      
+      console.log('✅ SORTING: Completed');
     }
     
     // Sort button functionality
