@@ -438,10 +438,11 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     const fairsContainer = document.querySelector('.fairs-container');
     
     // Store original fair data for sorting
-    const fairsData = [];
+    const fairsData: any[] = [];
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
+      const cardElement = card as HTMLElement;
       const nameElement = card.querySelector('h3');
       const dateElement = card.querySelector('.flex.items-center:nth-child(2) .font-medium');
       
@@ -449,29 +450,29 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
         element: card,
         name: nameElement?.textContent?.trim() || '',
         date: dateElement?.textContent?.trim() || '',
-        order: parseInt(card.dataset.order) || 999,
-        sector: card.dataset.sector || ''
+        order: parseInt(cardElement.getAttribute('data-order') || '999') || 999,
+        sector: cardElement.getAttribute('data-sector') || ''
       });
     });
     
     // Sorting functionality
-    function sortFairs(sortType) {
+    function sortFairs(sortType: string) {
       const sortedFairs = [...fairsData];
       
       switch(sortType) {
         case 'name':
-          sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+          sortedFairs.sort((a: any, b: any) => a.name.localeCompare(b.name, 'tr'));
           break;
         case 'date':
-          sortedFairs.sort((a, b) => {
+          sortedFairs.sort((a: any, b: any) => {
             // Turkish month names to numbers
-            const turkishMonths = {
+            const turkishMonths: Record<string, string> = {
               'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
               'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
               'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
             };
             
-            function parseDate(dateStr) {
+            function parseDate(dateStr: string): Date {
               // Handle formats like "17-25 OCAK 2026" or "16 - 18 ŞUBAT 2026"
               const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
@@ -485,12 +486,12 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
             
             const dateA = parseDate(a.date);
             const dateB = parseDate(b.date);
-            return dateA - dateB;
+            return dateA.getTime() - dateB.getTime();
           });
           break;
         case 'order':
         default:
-          sortedFairs.sort((a, b) => a.order - b.order);
+          sortedFairs.sort((a: any, b: any) => a.order - b.order);
           break;
       }
       
@@ -503,8 +504,8 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     
     // Sort button functionality
     sortButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const sortType = this.dataset.sort;
+      button.addEventListener('click', function(this: HTMLButtonElement) {
+        const sortType = this.getAttribute('data-sort') || 'order';
         
         // Update active button
         sortButtons.forEach(btn => {
