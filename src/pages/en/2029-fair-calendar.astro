@@ -22,11 +22,11 @@ console.log('🔍 DEBUG EN: Available collections:', fairYearData?.map(item => i
 
 // File-based collection uses filename as ID
 const year2029Data = fairYearData.find(item => item.id === '2029');
-console.log('🔍 DEBUG EN: 2026 data found:', !!year2026Data);
-console.log('🔍 DEBUG EN: 2026 data content:', year2026Data?.data);
+console.log('🔍 DEBUG EN: 2029 data found:', !!year2029Data);
+console.log('🔍 DEBUG EN: 2029 data content:', year2029Data?.data);
 
 const cmsFairs = year2029Data?.data?.fairs || [];
-console.log('🎪 CMS Fairs loaded for 2026 EN:', cmsFairs.length);
+console.log('🎪 CMS Fairs loaded for 2029 EN:', cmsFairs.length);
 console.log('🔍 DEBUG EN: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG EN: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG EN: All fair data:', JSON.stringify(cmsFairs[0], null, 2));

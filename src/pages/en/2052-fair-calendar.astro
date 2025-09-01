@@ -14,7 +14,7 @@ const footerContent = FOOTER_CONTENT[locale];
 const currentYear = 2052;
 
 // Get fair data from CMS for 2026 - ENHANCED DEBUG
-console.log('🔍 DEBUG EN: Starting CMS data load for 2026...');
+console.log('🔍 DEBUG EN: Starting CMS data load for 2052...');
 
 const fairYearData = await getCollection('fair-years');
 console.log('🔍 DEBUG EN: Fair year collections found:', fairYearData?.length || 0);
@@ -22,11 +22,11 @@ console.log('🔍 DEBUG EN: Available collections:', fairYearData?.map(item => i
 
 // File-based collection uses filename as ID
 const year2052Data = fairYearData.find(item => item.id === '2028');
-console.log('🔍 DEBUG EN: 2026 data found:', !!year2026Data);
-console.log('🔍 DEBUG EN: 2026 data content:', year2026Data?.data);
+console.log('🔍 DEBUG EN: 2052 data found:', !!year2052Data);
+console.log('🔍 DEBUG EN: 2052 data content:', year2052Data?.data);
 
 const cmsFairs = year2052Data?.data?.fairs || [];
-console.log('🎪 CMS Fairs loaded for 2026 EN:', cmsFairs.length);
+console.log('🎪 CMS Fairs loaded for 2052 EN:', cmsFairs.length);
 console.log('🔍 DEBUG EN: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG EN: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG EN: All fair data:', JSON.stringify(cmsFairs[0], null, 2));

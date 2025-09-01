@@ -10,23 +10,23 @@ const locale = 'tr';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Get current year from URL or default to 2026
-const currentYear = 2029;
+// Get current year from URL or default to 2023
+const currentYear = 2023;
 
-// Get fair data from CMS for 2026 - ENHANCED DEBUG
-console.log('🔍 DEBUG: Starting CMS data load for 2026...');
+// Get fair data from CMS for 2023 - ENHANCED DEBUG
+console.log('🔍 DEBUG: Starting CMS data load for 2023...');
 
 const fairYearData = await getCollection('fair-years');
 console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
 console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
 
 // File-based collection uses filename as ID
-const year2029Data = fairYearData.find(item => item.id === '2029');
-console.log('🔍 DEBUG: 2029 data found:', !!year2029Data);
-console.log('🔍 DEBUG: 2029 data content:', year2029Data?.data);
+const year2023Data = fairYearData.find(item => item.id === '2023');
+console.log('🔍 DEBUG: 2023 data found:', !!year2023Data);
+console.log('🔍 DEBUG: 2023 data content:', year2023Data?.data);
 
-const cmsFairs = year2029Data?.data?.fairs || [];
-console.log('🎪 CMS Fairs loaded for 2029:', cmsFairs.length);
+const cmsFairs = year2023Data?.data?.fairs || [];
+console.log('🎪 CMS Fairs loaded for 2023:', cmsFairs.length);
 console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
@@ -83,7 +83,7 @@ function formatDateRange(startDate: string | Date, endDate: string | Date, local
 }
 
 // Get dynamic year from CMS (only year changes, title/description are static)
-const dynamicYear = year2029Data?.data?.year || currentYear;
+const dynamicYear = year2023Data?.data?.year || currentYear;
 const pageTitle = `${dynamicYear} Fuar Takvimi`;
 const pageDescription = `${dynamicYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
 
