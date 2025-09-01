@@ -26,12 +26,12 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI  TEKNE VE SU SPORLARI FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
-      location_tr: ULUSLARARASI  TEKNE VE SU SPORLARI FUARI
+      location_tr: DUSSELDORF, ALMANYA
       start_date: 2025-01-18
       description_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
       end_date: 2025-01-26
       name_tr: BOOT DUSSELDORF
-      location_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
+      location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
     visuals:
       logo: /images/fuarlar-logo.png
