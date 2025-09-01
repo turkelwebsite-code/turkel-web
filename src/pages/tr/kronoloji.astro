@@ -508,7 +508,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
   sortedYears.map(year => `${year}: ${finalChronologyData[year]?.length || 0}`));
 ---
 
-<BaseLayout title="Kronoloji - Türkel Fuarcılık" description="Türkel Fuarcılık'ın son 10 yıllık fuar organizasyonları kronolojisi">
+<BaseLayout title="Kronoloji - Türkel Fuarcılık" description="Türkel Fuarcılık'ın son 10 yıllık fuar organizasyonları kronolojisi" locale={locale}>
   <Header locale={locale} />
   
   <main class="min-h-screen">
@@ -554,7 +554,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
                 <div class="relative">
                   <!-- Year Circle -->
                   <div class="flex items-center justify-center lg:justify-start">
-                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year === '2024' || year === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
+                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year.toString() === '2024' || year.toString() === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
                          data-year={year}
                          style="font-family: 'Radio Canada Big', sans-serif;">
                       {year}
@@ -562,7 +562,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
                   </div>
                   
                   <!-- Fair Details (2024 and 2023 visible by default, others hidden) -->
-                  <div class={`timeline-content mt-4 lg:mt-0 ${year === '2024' || year === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
+                  <div class={`timeline-content mt-4 lg:mt-0 ${year.toString() === '2024' || year.toString() === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
                     <div class={`timeline-item-container w-full lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right lg:ml-0 timeline-left' : 'lg:pl-8 lg:text-left lg:ml-1/2 timeline-right'}`}>
                       <div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow relative" style="z-index: 1;">
                         <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 bg-white pb-4 pt-6 border-b border-gray-100 px-6" style="font-family: 'Radio Canada Big', sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
@@ -618,16 +618,17 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
         if (window.innerWidth <= 1024) {
           const containers = document.querySelectorAll('.timeline-item-container');
           containers.forEach(container => {
+            const element = container as HTMLElement;
             // Inline style'ları tamamen kaldır
-            container.removeAttribute('style');
-            container.style.cssText = '';
+            element.removeAttribute('style');
+            element.style.cssText = '';
             
             // Zorla mobile CSS uygula
-            container.style.setProperty('margin-left', '0', 'important');
-            container.style.setProperty('margin-right', '0', 'important');
-            container.style.setProperty('width', '100%', 'important');
-            container.style.setProperty('display', 'flex', 'important');
-            container.style.setProperty('justify-content', 'center', 'important');
+            element.style.setProperty('margin-left', '0', 'important');
+            element.style.setProperty('margin-right', '0', 'important');
+            element.style.setProperty('width', '100%', 'important');
+            element.style.setProperty('display', 'flex', 'important');
+            element.style.setProperty('justify-content', 'center', 'important');
           });
         }
       }
@@ -639,7 +640,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
       const timelineYears = document.querySelectorAll('.timeline-year');
       
       timelineYears.forEach(yearElement => {
-        yearElement.addEventListener('click', function() {
+        yearElement.addEventListener('click', function(this: HTMLElement) {
           const year = this.dataset.year;
           const content = document.getElementById(`content-${year}`);
           
@@ -651,7 +652,9 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
           });
           
           // Toggle current content
-          content.classList.toggle('hidden');
+          if (content) {
+            content.classList.toggle('hidden');
+          }
           
           // Update year button style
           timelineYears.forEach(el => {
@@ -659,7 +662,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
             el.classList.add('bg-[#CE1A28]');
           });
           
-          if (!content.classList.contains('hidden')) {
+          if (content && !content.classList.contains('hidden')) {
             this.classList.remove('bg-[#CE1A28]');
             this.classList.add('bg-[#B01520]');
           }
