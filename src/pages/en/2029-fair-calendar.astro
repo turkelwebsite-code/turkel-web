@@ -10,23 +10,23 @@ const locale = 'en';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Get current year from URL or default to 2026
-const currentYear = 2022;
+// Get current year from URL or default to 2029
+const currentYear = 2029;
 
-// Get fair data from CMS for 2026 - ENHANCED DEBUG
-console.log('🔍 DEBUG EN: Starting CMS data load for 2022...');
+// Get fair data from CMS for 2029 - ENHANCED DEBUG
+console.log('🔍 DEBUG EN: Starting CMS data load for 2029...');
 
 const fairYearData = await getCollection('fair-years');
 console.log('🔍 DEBUG EN: Fair year collections found:', fairYearData?.length || 0);
 console.log('🔍 DEBUG EN: Available collections:', fairYearData?.map(item => item.id) || []);
 
 // File-based collection uses filename as ID
-const year2022Data = fairYearData.find(item => item.id === '2022');
-console.log('🔍 DEBUG EN: 2022 data found:', !!year2022Data);
-console.log('🔍 DEBUG EN: 2022 data content:', year2022Data?.data);
+const year2029Data = fairYearData.find(item => item.id === '2029');
+console.log('🔍 DEBUG EN: 2026 data found:', !!year2026Data);
+console.log('🔍 DEBUG EN: 2026 data content:', year2026Data?.data);
 
-const cmsFairs = year2022Data?.data?.fairs || [];
-console.log('🎪 CMS Fairs loaded for 2022 EN:', cmsFairs.length);
+const cmsFairs = year2029Data?.data?.fairs || [];
+console.log('🎪 CMS Fairs loaded for 2026 EN:', cmsFairs.length);
 console.log('🔍 DEBUG EN: First fair:', cmsFairs[0]);
 console.log('🔍 DEBUG EN: Representative data:', cmsFairs[0]?.representative);
 console.log('🔍 DEBUG EN: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
@@ -83,7 +83,7 @@ function formatDateRange(startDate: string | Date, endDate: string | Date, local
 }
 
 // Get dynamic year from CMS (only year changes, title/description are static)
-const dynamicYear = year2022Data?.data?.year || currentYear;
+const dynamicYear = year2029Data?.data?.year || currentYear;
 const pageTitle = `${dynamicYear} Fair Calendar`;
 const pageDescription = `In ${dynamicYear}, we will connect Turkish companies with global markets through prestigious fairs organized worldwide.`;
 

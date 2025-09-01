@@ -5,41 +5,41 @@ import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
 import { getCollection } from 'astro:content';
 
-const locale = 'en';
+const locale = 'tr';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Get current year from URL or default to 2026
-const currentYear = 2022;
+// Get current year from URL or default to 2025
+const currentYear = 2025;
 
-// Get fair data from CMS for 2026 - ENHANCED DEBUG
-console.log('🔍 DEBUG EN: Starting CMS data load for 2022...');
+// Get fair data from CMS for 2025 - ENHANCED DEBUG
+console.log('🔍 DEBUG: Starting CMS data load for 2025...');
 
 const fairYearData = await getCollection('fair-years');
-console.log('🔍 DEBUG EN: Fair year collections found:', fairYearData?.length || 0);
-console.log('🔍 DEBUG EN: Available collections:', fairYearData?.map(item => item.id) || []);
+console.log('🔍 DEBUG: Fair year collections found:', fairYearData?.length || 0);
+console.log('🔍 DEBUG: Available collections:', fairYearData?.map(item => item.id) || []);
 
 // File-based collection uses filename as ID
-const year2022Data = fairYearData.find(item => item.id === '2022');
-console.log('🔍 DEBUG EN: 2022 data found:', !!year2022Data);
-console.log('🔍 DEBUG EN: 2022 data content:', year2022Data?.data);
+const year2025Data = fairYearData.find(item => item.id === '2025');
+console.log('🔍 DEBUG: 2025 data found:', !!year2025Data);
+console.log('🔍 DEBUG: 2025 data content:', year2025Data?.data);
 
-const cmsFairs = year2022Data?.data?.fairs || [];
-console.log('🎪 CMS Fairs loaded for 2022 EN:', cmsFairs.length);
-console.log('🔍 DEBUG EN: First fair:', cmsFairs[0]);
-console.log('🔍 DEBUG EN: Representative data:', cmsFairs[0]?.representative);
-console.log('🔍 DEBUG EN: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
+const cmsFairs = year2025Data?.data?.fairs || [];
+console.log('🎪 CMS Fairs loaded for 2025:', cmsFairs.length);
+console.log('🔍 DEBUG: First fair:', cmsFairs[0]);
+console.log('🔍 DEBUG: Representative data:', cmsFairs[0]?.representative);
+console.log('🔍 DEBUG: All fair data:', JSON.stringify(cmsFairs[0], null, 2));
 
 // Load team members for representative lookup
 const teamMembers = await getCollection('team-members');
-console.log('👥 TEAM LOOKUP EN: Team members loaded:', teamMembers.length);
+console.log('👥 TEAM LOOKUP: Team members loaded:', teamMembers.length);
 
 // Team member lookup function
 function getTeamMemberData(memberName: string) {
   const member = teamMembers.find(m => m.data.name === memberName);
   if (member) {
-    console.log('👥 TEAM LOOKUP EN: Found member:', memberName, member.data);
+    console.log('👥 TEAM LOOKUP: Found member:', memberName, member.data);
     return {
       name: member.data.name,
       email: member.data.email,
@@ -48,12 +48,12 @@ function getTeamMemberData(memberName: string) {
       phone: member.data.phone || ''
     };
   }
-  console.log('👥 TEAM LOOKUP EN: Member not found:', memberName);
+  console.log('👥 TEAM LOOKUP: Member not found:', memberName);
   return null;
 }
 
 // Date formatting function
-function formatDateRange(startDate: string | Date, endDate: string | Date, locale: 'tr' | 'en' = 'en'): string {
+function formatDateRange(startDate: string | Date, endDate: string | Date, locale: 'tr' | 'en' = 'tr'): string {
   if (!startDate || !endDate) return '';
   
   const start = startDate instanceof Date ? startDate : new Date(startDate);
@@ -69,10 +69,10 @@ function formatDateRange(startDate: string | Date, endDate: string | Date, local
   const year = start.getFullYear();
   
   if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
-    // Same month: "17-25 JANUARY 2026"
+    // Same month: "17-25 OCAK 2026"
     return `${start.getDate()}-${end.getDate()} ${month} ${year}`;
   } else {
-    // Different months: "30 JANUARY - 2 FEBRUARY 2026"
+    // Different months: "30 OCAK - 2 ŞUBAT 2026"
     const endMonth = months[end.getMonth()];
     if (start.getFullYear() === end.getFullYear()) {
       return `${start.getDate()} ${month} - ${end.getDate()} ${endMonth} ${year}`;
@@ -83,39 +83,20 @@ function formatDateRange(startDate: string | Date, endDate: string | Date, local
 }
 
 // Get dynamic year from CMS (only year changes, title/description are static)
-const dynamicYear = year2022Data?.data?.year || currentYear;
-const pageTitle = `${dynamicYear} Fair Calendar`;
-const pageDescription = `In ${dynamicYear}, we will connect Turkish companies with global markets through prestigious fairs organized worldwide.`;
+const dynamicYear = year2025Data?.data?.year || currentYear;
+const pageTitle = `${dynamicYear} Fuar Takvimi`;
+const pageDescription = `${dynamicYear} yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.`;
 
-console.log('📝 DYNAMIC PAGE EN: Year from CMS:', dynamicYear);
-console.log('📝 DYNAMIC PAGE EN: Title:', pageTitle);
-console.log('📝 DYNAMIC PAGE EN: Description:', pageDescription);
+console.log('📝 DYNAMIC PAGE: Year from CMS:', dynamicYear);
+console.log('📝 DYNAMIC PAGE: Title:', pageTitle);
+console.log('📝 DYNAMIC PAGE: Description:', pageDescription);
 
 try {
   
-  // Sector translation mapping
-  const sectorTranslations: Record<string, string> = {
-    "Moda ve Tekstil": "Fashion & Textile",
-    "Ev Tekstili ve Dekorasyon": "Home Textile & Decoration", 
-    "Mobilya ve Aydınlatma": "Furniture & Lighting",
-    "Gıda ve İçecek": "Food & Beverage",
-    "Teknoloji": "Technology",
-    "İnşaat": "Construction",
-    "Otomotiv": "Automotive",
-    "Sağlık": "Healthcare",
-    "Güzellik ve Kozmetik": "Beauty & Cosmetics",
-    "Spor ve Fitness": "Sports & Fitness",
-    "Eğitim": "Education",
-    "Turizm": "Tourism",
-    "Enerji": "Energy",
-    "Çevre": "Environment",
-    "Diğer": "Other"
-  };
-
   // Convert CMS data to page format
   var fairsData: Record<string, any[]> = {};
   cmsFairs.forEach((fair: any) => {
-    const sector = sectorTranslations[fair.basic_info.sector] || fair.basic_info.sector;
+    const sector = fair.basic_info.sector;
     if (!fairsData[sector]) {
       fairsData[sector] = [];
     }
@@ -135,16 +116,16 @@ try {
         if (teamMemberData) {
           representativeData = {
             name: teamMemberData.name,
-            title: teamMemberData.title_en,
+            title: teamMemberData.title_tr,
             email: teamMemberData.email,
             phone: fair.representative.phone || teamMemberData.phone || ''
           };
-          console.log('👥 TEAM LOOKUP EN: Using team member data for:', teamMemberData.name);
+          console.log('👥 TEAM LOOKUP: Using team member data for:', teamMemberData.name);
         } else {
           // Fallback to manual data
           representativeData = {
             name: fair.representative.name || '',
-            title: fair.representative.title_en || '',
+            title: fair.representative.title_tr || '',
             email: fair.representative.email || '',
             phone: fair.representative.phone || ''
           };
@@ -153,7 +134,7 @@ try {
         // Use manual representative data
         representativeData = {
           name: fair.representative.name || '',
-          title: fair.representative.title_en || '',
+          title: fair.representative.title_tr || '',
           email: fair.representative.email || '',
           phone: fair.representative.phone || ''
         };
@@ -162,14 +143,14 @@ try {
 
     // Generate date display from start_date and end_date
     const displayDate = fair.basic_info.start_date && fair.basic_info.end_date 
-      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en')
-      : fair.basic_info.date_en || '';
+      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'tr')
+      : fair.basic_info.date_tr || '';
 
     const fairItem = {
       id: fairsData[sector].length + 1,
-      name: fair.basic_info.name_en || fair.basic_info.name_tr,
-      city: fair.basic_info.location_en?.split(',')[0].trim() || fair.basic_info.location_tr?.split(',')[0].trim(),
-      country: fair.basic_info.location_en?.split(',')[1]?.trim() || fair.basic_info.location_tr?.split(',')[1]?.trim() || fair.basic_info.location_en || fair.basic_info.location_tr,
+      name: fair.basic_info.name_tr,
+      city: fair.basic_info.location_tr.split(',')[0].trim(),
+      country: fair.basic_info.location_tr.split(',')[1]?.trim() || fair.basic_info.location_tr,
       date: displayDate,
       startDate: fair.basic_info.start_date || null, // For sorting (Date object)
       endDate: fair.basic_info.end_date || null, // For sorting (Date object)
@@ -178,14 +159,14 @@ try {
       representative: representativeData,
       hidePhone: fair.representative?.hide_phone || false,
       order: fair.settings?.order ?? 999,
-      description: fair.basic_info.description_en || `${fair.basic_info.name_en || fair.basic_info.name_tr} fair will take place on ${displayDate} in ${fair.basic_info.location_en || fair.basic_info.location_tr}.`
+      description: fair.basic_info.description_tr || `${fair.basic_info.name_tr} fuarı ${displayDate} tarihlerinde ${fair.basic_info.location_tr}'de gerçekleşecek.`
     };
     
-    console.log('🔍 DEBUG EN: Processing fair:', fair.basic_info.name_en || fair.basic_info.name_tr);
-    console.log('🔍 DEBUG EN: Representative from CMS:', fair.representative);
-    console.log('🔍 DEBUG EN: Final representative data:', fairItem.representative);
-    console.log('🔍 DEBUG EN: Date display:', displayDate);
-    console.log('🔍 DEBUG EN: Order value:', fair.settings?.order, 'Final order:', fairItem.order);
+    console.log('🔍 DEBUG: Processing fair:', fair.basic_info.name_tr);
+    console.log('🔍 DEBUG: Representative from CMS:', fair.representative);
+    console.log('🔍 DEBUG: Final representative data:', fairItem.representative);
+    console.log('🔍 DEBUG: Phone value check:', `"${fair.representative?.phone || 'EMPTY'}"`);
+    console.log('🔍 DEBUG: Order value:', fair.settings?.order, 'Final order:', fairItem.order);
     
     fairsData[sector].push(fairItem);
   });
@@ -196,6 +177,7 @@ try {
   });
   
   console.log('✅ 2026 Fairs data converted:', Object.keys(fairsData));
+  console.log('✅ 2026 Fairs sorted by order within each sector');
 } catch (error) {
   console.error('❌ CMS data loading failed for 2026, using fallback:', error);
   
@@ -343,7 +325,7 @@ const debugInfo = {
 };
 ---
 
-<BaseLayout title="2026 Fair Calendar - Türkel Fair Organization" description="Detailed calendar of international fairs we will organize in 2026" locale={locale}>
+<BaseLayout title={`${pageTitle} - Türkel Fuarcılık`} description={`${currentYear} yılında organize edeceğimiz uluslararası fuarların detaylı takvimi`} locale={locale}>
   <Header locale={locale} />
   
   <main class="pt-8 pb-16">
@@ -355,11 +337,11 @@ const debugInfo = {
           <div class="text-center mb-12">
             <div class="flex items-center justify-center mb-4">
               <h2 class="text-2xl lg:text-3xl font-bold text-gray-900" style="font-family: 'Radio Canada Big', sans-serif;">
-                2026 Fair Calendar
+                {pageTitle}
               </h2>
             </div>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto" style="font-family: 'Radio Canada Big', sans-serif;">
-              In 2026, we will connect Turkish companies with global markets through prestigious fairs organized worldwide.
+              {pageDescription}
             </p>
           </div>
 
@@ -369,17 +351,17 @@ const debugInfo = {
             <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
               <!-- Sort Options -->
               <div class="flex flex-wrap gap-2 items-center">
-                <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sort by:</span>
+                <span class="text-sm font-medium text-gray-700 mr-2" style="font-family: 'Radio Canada Big', sans-serif;">Sıralama:</span>
                 <button class="sort-btn active px-4 py-2 text-xs rounded-lg border border-[#CE1A28] bg-[#CE1A28] text-white transition-all duration-300 hover:bg-[#B01520]" data-sort="order" style="font-family: 'Radio Canada Big', sans-serif;">
-                  Default
+                  Varsayılan
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="name" style="font-family: 'Radio Canada Big', sans-serif;">
                   A-Z
                 </button>
                 <button class="sort-btn px-4 py-2 text-xs rounded-lg border border-gray-300 text-gray-700 bg-white transition-all duration-300 hover:border-[#CE1A28] hover:text-[#CE1A28]" data-sort="date" style="font-family: 'Radio Canada Big', sans-serif;">
-                  By Date
+                  Tarihe Göre
                 </button>
-                <button class="sort-clear-btn px-3 py-2 text-xs rounded-lg border border-gray-400 text-gray-500 bg-white transition-all duration-300 hover:border-red-500 hover:text-red-500 hover:bg-red-50" style="font-family: 'Radio Canada Big', sans-serif;" title="Reset sorting">
+                <button class="sort-clear-btn px-3 py-2 text-xs rounded-lg border border-gray-400 text-gray-500 bg-white transition-all duration-300 hover:border-red-500 hover:text-red-500 hover:bg-red-50" style="font-family: 'Radio Canada Big', sans-serif;" title="Sıralamayı sıfırla">
                   ✕
                 </button>
               </div>
@@ -388,7 +370,7 @@ const debugInfo = {
             <!-- Sector Filter Buttons -->
             <div class="flex flex-wrap justify-center gap-4">
               <button class="filter-btn active px-6 py-2 rounded-full border-2 border-[#CE1A28] text-[#CE1A28] hover:bg-[#CE1A28] hover:text-white transition-colors font-medium" data-sector="all">
-                All Sectors
+                Tüm Sektörler
               </button>
               {sectors.map((sector) => (
                 <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-700 hover:border-[#CE1A28] hover:text-[#CE1A28] transition-colors font-medium" data-sector={sector}>
@@ -460,7 +442,7 @@ const debugInfo = {
 
                       <!-- Representative Info -->
                       <div class="border-t border-gray-200 pt-4">
-                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Representative:</h4>
+                        <h4 class="text-sm font-semibold text-gray-900 mb-2">Temsilci Bilgileri:</h4>
                         <div class="space-y-1">
                           <p class="text-sm text-gray-700">
                             <span class="font-medium">{fair.representative.name}</span>
@@ -507,6 +489,11 @@ const debugInfo = {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+  }
+  
+  /* Sector groups should not interfere with grid */
+  .sector-group {
+    display: contents;
   }
 
   /* Desktop: 4 cards per row */
@@ -580,6 +567,8 @@ const debugInfo = {
     padding-bottom: 1rem !important;
     flex-shrink: 0 !important;
     min-height: 140px !important;
+    max-height: 140px !important;
+    overflow: hidden !important;
   }
 
   /* Email ve telefon hizalama düzeltmesi - alt alta */
@@ -727,16 +716,6 @@ const debugInfo = {
   .sector-group.hidden {
     display: none;
   }
-  
-  /* Ensure fair cards can be reordered with CSS order */
-  .fair-card {
-    order: 0;
-  }
-
-  /* Grid masonry effect prevention */
-  .fairs-container {
-    align-items: start;
-  }
 </style>
 
 <script>
@@ -776,7 +755,7 @@ const debugInfo = {
     
     // Sorting functionality - GLOBAL sorting across all sectors
     function sortFairs(sortType: string) {
-      console.log('🔄 SORTING EN: Starting sort with type:', sortType);
+      console.log('🔄 SORTING: Starting sort with type:', sortType);
       
       // Get ALL cards from ALL sectors for global sorting
       const allCards: any[] = [];
@@ -784,44 +763,44 @@ const debugInfo = {
         fairsData[sector].forEach((fair: any) => allCards.push(fair));
       });
       
-      console.log('🔄 SORTING EN: Total cards to sort:', allCards.length);
-      console.log('🔄 SORTING EN: Sample card names:', allCards.slice(0, 3).map((f: any) => f.name));
+      console.log('🔄 SORTING: Total cards to sort:', allCards.length);
+      console.log('🔄 SORTING: Sample card names:', allCards.slice(0, 3).map((f: any) => f.name));
       
       switch(sortType) {
         case 'name':
-          console.log('🔤 A-Z SORTING EN: Before sort:', allCards.map((f: any) => f.name));
+          console.log('🔤 A-Z SORTING: Before sort:', allCards.map((f: any) => f.name));
           allCards.sort((a: any, b: any) => {
             // Remove number prefixes for proper alphabetical sorting
             const cleanNameA = a.name.replace(/^\d+\.\s*/, '').trim();
             const cleanNameB = b.name.replace(/^\d+\.\s*/, '').trim();
-            console.log(`🔤 Comparing clean names EN: "${cleanNameA}" vs "${cleanNameB}"`);
-            const result = cleanNameA.localeCompare(cleanNameB, 'en');
+            console.log(`🔤 Comparing clean names: "${cleanNameA}" vs "${cleanNameB}"`);
+            const result = cleanNameA.localeCompare(cleanNameB, 'tr');
             return result;
           });
-          console.log('🔤 A-Z SORTING EN: After sort:', allCards.map((f: any) => f.name));
+          console.log('🔤 A-Z SORTING: After sort:', allCards.map((f: any) => f.name));
           break;
         case 'date':
-          console.log('📅 DATE SORTING EN: Before sort:', allCards.map((f: any) => f.date));
+          console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
           allCards.sort((a: any, b: any) => {
             // Use start_date for sorting if available, otherwise parse display date
             let dateA: Date, dateB: Date;
             
             if (a.startDate && a.startDate !== 'null' && a.startDate !== '') {
               dateA = new Date(a.startDate);
-              console.log(`📅 Using startDate EN for ${a.name}: ${a.startDate} → ${dateA.toISOString()}`);
+              console.log(`📅 Using startDate for ${a.name}: ${a.startDate} → ${dateA.toISOString()}`);
             } else {
               // Fallback to parsing display date
-              console.log(`📅 FALLBACK EN: Using text parsing for ${a.name}: ${a.date}`);
-              const englishMonths: Record<string, string> = {
-                'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
-                'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
-                'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
+              console.log(`📅 FALLBACK: Using text parsing for ${a.name}: ${a.date}`);
+              const turkishMonths: Record<string, string> = {
+                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
               };
               
               const match = a.date.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
                 const day = match[1];
-                const month = englishMonths[match[2]] || '01';
+                const month = turkishMonths[match[2]] || '01';
                 const year = match[3];
                 dateA = new Date(`${year}-${month}-${day.padStart(2, '0')}`);
               } else {
@@ -831,20 +810,20 @@ const debugInfo = {
             
             if (b.startDate && b.startDate !== 'null' && b.startDate !== '') {
               dateB = new Date(b.startDate);
-              console.log(`📅 Using startDate EN for ${b.name}: ${b.startDate} → ${dateB.toISOString()}`);
+              console.log(`📅 Using startDate for ${b.name}: ${b.startDate} → ${dateB.toISOString()}`);
             } else {
               // Fallback to parsing display date
-              console.log(`📅 FALLBACK EN: Using text parsing for ${b.name}: ${b.date}`);
-              const englishMonths: Record<string, string> = {
-                'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
-                'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
-                'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
+              console.log(`📅 FALLBACK: Using text parsing for ${b.name}: ${b.date}`);
+              const turkishMonths: Record<string, string> = {
+                'OCAK': '01', 'ŞUBAT': '02', 'MART': '03', 'NİSAN': '04',
+                'MAYIS': '05', 'HAZİRAN': '06', 'TEMMUZ': '07', 'AĞUSTOS': '08',
+                'EYLÜL': '09', 'EKİM': '10', 'KASIM': '11', 'ARALIK': '12'
               };
               
               const match = b.date.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
                 const day = match[1];
-                const month = englishMonths[match[2]] || '01';
+                const month = turkishMonths[match[2]] || '01';
                 const year = match[3];
                 dateB = new Date(`${year}-${month}-${day.padStart(2, '0')}`);
               } else {
@@ -852,16 +831,16 @@ const debugInfo = {
               }
             }
             
-            console.log(`📅 Comparing EN: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
+            console.log(`📅 Comparing: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
             return dateA.getTime() - dateB.getTime();
           });
-          console.log('📅 DATE SORTING EN: After sort:', allCards.map((f: any) => f.date));
+          console.log('📅 DATE SORTING: After sort:', allCards.map((f: any) => f.date));
           break;
         case 'order':
         default:
-          console.log('🔢 ORDER SORTING EN: Before sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          console.log('🔢 ORDER SORTING: Before sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
           allCards.sort((a: any, b: any) => a.order - b.order);
-          console.log('🔢 ORDER SORTING EN: After sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          console.log('🔢 ORDER SORTING: After sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
           break;
       }
       
@@ -869,10 +848,10 @@ const debugInfo = {
       allCards.forEach((fair: any, index: number) => {
         const cardElement = fair.element as HTMLElement;
         cardElement.style.order = index.toString();
-        console.log(`📍 Setting order EN ${index} for: ${fair.name}`);
+        console.log(`📍 Setting order ${index} for: ${fair.name}`);
       });
       
-      console.log('✅ SORTING EN: Completed');
+      console.log('✅ SORTING: Completed');
     }
     
     // Sort button functionality
@@ -903,7 +882,7 @@ const debugInfo = {
         // Reset to original order (by order field)
         sortFairs('order');
         
-        // Reset active button to "Default"
+        // Reset active button to "Varsayılan"
         sortButtons.forEach(btn => {
           btn.classList.remove('active');
           btn.classList.remove('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
