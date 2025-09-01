@@ -43,7 +43,7 @@ fairYearData.forEach((yearData: any) => {
           fairName: fair.basic_info?.name_en || '',
           fairLogo: fair.visuals?.logo || "/images/fuarlar-logo.png",
           fairWebsite: fair.slider_content?.website_url || '#',
-          miniImages: fair.slider_content?.mini_images?.map(img => img.image) || [],
+          miniImages: fair.slider_content?.mini_images?.map((img: any) => img.image) || [],
           mapsEmbed: fair.slider_content?.maps_embed || ''
         }
       });
