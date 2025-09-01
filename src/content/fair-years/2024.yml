@@ -18,26 +18,44 @@ fairs:
   - basic_info:
       name_tr: LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı
       name_en: LeShow Moscow - International Fashion and Textile Industry Fair
-      date: 15-18 Mart 2024
+      start_date: 2024-03-15
+      end_date: 2024-03-18
+      date_tr: 15-18 MART 2024
+      date_en: 15-18 MARCH 2024
       location_tr: Moskova, Rusya
       location_en: Moscow, Russia
       sector: Moda ve Tekstil
+      description_tr: ULUSLARARASI MODA VE TEKSTİL ENDÜSTRİSİ FUARI
+      description_en: INTERNATIONAL FASHION AND TEXTILE INDUSTRY FAIR
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/fuarlar-arkaplan.jpg
+    representative:
+      team_member: Seval Arslan
+      hide_phone: true
     settings:
+      order: 1
       show_in_slider: false
       show_in_forms: false
   - basic_info:
       name_tr: Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı
       name_en: Fashion Week Istanbul Premium Textile and Fashion Industry Fair
-      date: 20-23 Haziran 2024
+      start_date: 2024-06-20
+      end_date: 2024-06-23
+      date_tr: 20-23 HAZİRAN 2024
+      date_en: 20-23 JUNE 2024
       location_tr: İstanbul, Türkiye
       location_en: Istanbul, Turkey
       sector: Moda ve Tekstil
+      description_tr: ULUSLARARASI MODA VE TEKSTİL ENDÜSTRİSİ FUARI
+      description_en: INTERNATIONAL FASHION AND TEXTILE INDUSTRY FAIR
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/fuarlar-arkaplan.jpg
+    representative:
+      team_member: Seval Arslan
+      hide_phone: true
     settings:
+      order: 2
       show_in_slider: false
       show_in_forms: false
