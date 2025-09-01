@@ -72,10 +72,29 @@ fairs:
       title_en: Sales Director
       team_member: Arzu Günal
       hide_phone: true
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 3
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: PARIS BRIDAL FAIR
+      name_en: PARIS BRIDAL FAIR
+      start_date: 2026-03-08
+      end_date: 2026-03-09
+      location_tr: PARİS, FRANSA
+      location_en: PARIS, FRANCE
+      sector: Moda ve Tekstil
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 3
+      order: 4
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
@@ -84,10 +103,10 @@ fairs:
       description_en: WEDDING DRESS, EVENING DRESS, GROOM'S SUIT AND WEDDING DRESS FABRIC FAIR
       date_tr: 27 - 28 MART 2026
       end_date: 2026-03-28
-      name_tr: WEDDING FASHION MOSCOW
+      name_tr: 43. WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       date_en: 27 - 28 MARCH 2026
-      name_en: WEDDING FASHION MOSCOW
+      name_en: 43. WEDDING FASHION MOSCOW
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/fair-bg-wedding.png
@@ -103,7 +122,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 4
+      order: 5
     basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
@@ -131,7 +150,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 5
+      order: 6
     basic_info:
       description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
@@ -159,7 +178,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 6
+      order: 7
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Enerji
@@ -187,7 +206,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 7
+      order: 8
     basic_info:
       description_tr: ULUSLARARASI BORU VE TEL FUARI
       sector: İnşaat
@@ -215,7 +234,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 8
+      order: 9
     basic_info:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: İnşaat
@@ -240,38 +259,31 @@ fairs:
       title_en: Sales Representative
       team_member: Neşe Şenyurt
       hide_phone: true
-  - settings:
-      show_in_slider: false
-      show_in_forms: true
-      order: 9
-    basic_info:
-      description_tr: ULUSLARARASI PLASTİK VE KAUÇUK FUARI
-      sector: İnşaat
-      location_tr: BARSELONA, İSPANYA
-      start_date: 2026-06-02
-      description_en: INTERNATIONAL PLASTIC AND RUBBER FAIR
-      date_tr: "2 - 5 HAZİRAN 2026\t"
-      end_date: 2026-06-05
-      name_tr: EQUIP PLAST 2026
-      location_en: BARCELONA, SPAIN
-      date_en: "2 - 5 JUNE 2026\t"
-      name_en: EQUIP PLAST 2026
-    visuals:
-      logo: /images/fair-logo-equıp.jpg
-      background_image: /images/fair-bg-equıplast.png
-    representative:
-      name: Ahmet Hilmi ÇORUK
-      title: ""
-      email: ahmethilmi@turkel.com.tr
-      phone: ""
-      title_tr: Satış Direktörü
-      title_en: Sales Director
-      team_member: Ahmet Hilmi Çoruk
+  - representative:
       hide_phone: true
+      team_member: Gül Baykara
+    settings:
+      order: 10
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARASI DERİ VE MODA FUARI
+      sector: Moda ve Tekstil
+      location_tr: MOSKOVA, RUSYA
+      start_date: 1990-01-01
+      description_en: INT'L WINTER FASHION TRADE SHOW
+      end_date: 1990-01-03
+      name_tr: 29.LESHOW
+      location_en: MOSCOW, RUSSIA
+      name_en: 29.LESHOW
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 10
+      order: 11
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
@@ -299,7 +311,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 11
+      order: 12
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Enerji
@@ -327,7 +339,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 12
+      order: 13
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Enerji
@@ -352,3 +364,199 @@ fairs:
       title_en: Sales Director
       team_member: Ahmet Hilmi Çoruk
       hide_phone: true
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 14
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: "ULUSLARARASI ÇOCUK FUARI "
+      sector: Moda ve Tekstil
+      location_tr: KÖLN, ALMANYA
+      start_date: 1901-01-01
+      description_en: THE TRADE SHOW FOR KIDS’ FIRST YEARS
+      end_date: 1901-01-03
+      name_tr: KIND+JUGEND
+      location_en: COLOGNE, GERMANY
+      name_en: KIND+JUGEND
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 15
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: BRIDAL WEEK HARROGATE
+      name_en: BRIDAL WEEK HARROGATE
+      start_date: 1901-01-01
+      end_date: 1901-01-03
+      location_tr: HARROGATE, İNGİLTERE
+      location_en: HARROGATE, ENGLAND
+      sector: Moda ve Tekstil
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 16
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
+      name_en: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: RİYAD, SUUDİ ARABİSTAN
+      location_en: RIYADH, SAUDI ARABIA
+      sector: Diğer
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Pınar Yalçın
+    settings:
+      order: 17
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: INTERLIGHT CENTRAL ASYA
+      name_en: INTERLIGHT CENTRAL ASIA
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: ASTANA, KAZAKİSTAN
+      location_en: ASTANA, KAZAKHSTAN
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Pınar Yalçın
+    settings:
+      order: 18
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
+      name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: RİYAD, SUUDİ ARABİSTAN
+      location_en: RIYADH, SAUDI ARABIA
+      sector: Moda ve Tekstil
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Arzu Günal
+    settings:
+      order: 19
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: HOMETEXTILE & DESIGN 2025
+      name_en: HOMETEXTILE & DESIGN 2025
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: MOSKOVA, RUSYA
+      location_en: MOSCOW, RUSSIA
+      sector: Ev Tekstili ve Dekorasyon
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Pınar Yalçın
+    settings:
+      order: 20
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: INTERLIGHT SMART CITY & HOME
+      name_en: INTERLIGHT SMART CITY & HOME
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: MOSKOVA, RUSYA
+      location_en: MOSCOW, RUSSIA
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Ahmet Hilmi Çoruk
+    settings:
+      order: 21
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: Pool, Wellness and Outdoor Fuarı
+      sector: Kalıp & Plastik, İhtisas, Havuz
+      location_tr: BARSELONA, İSPANYA
+      start_date: 1901-01-01
+      description_en: Pool, Wellness and Outdoor Fuarı
+      end_date: 1901-01-01
+      name_tr: PISCINA BARCELONA
+      location_en: BARCELONA, SPAIN
+      name_en: PISCINA BARCELONA
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: false
+      team_member: Pınar Yalçın
+    settings:
+      order: 22
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: Uluslararası Mobilya, Bağlantı Elemanları ve Yan Sanayi Fuarı.
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 1901-01-01
+      description_en: Uluslararası Mobilya, Bağlantı Elemanları ve Yan Sanayi Fuarı.
+      end_date: 1901-01-01
+      name_tr: 36.MEBEL
+      location_en: MOSCOW, RUSSIA
+      name_en: 36.MEBEL
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
+  - representative:
+      hide_phone: true
+      team_member: Pınar Yalçın
+    settings:
+      order: 23
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      name_tr: WOODEX 2025
+      name_en: WOODEX 2025
+      start_date: 1901-01-01
+      end_date: 1901-01-01
+      location_tr: MOSKOVA, RUSYA
+      location_en: MOSCOW, RUSSIA
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    visuals:
+      logo: /images/fuarlar-logo.png
+      background_image: /images/fuarlar-arkaplan.jpg
