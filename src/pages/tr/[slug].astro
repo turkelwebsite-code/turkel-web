@@ -24,6 +24,36 @@ const { yearData } = Astro.props;
 const locale = 'tr';
 const footerContent = FOOTER_CONTENT[locale];
 
+// Date formatting function
+function formatDateRange(startDate: string | Date, endDate: string | Date, locale: 'tr' | 'en' = 'tr'): string {
+  if (!startDate || !endDate) return '';
+  
+  const start = startDate instanceof Date ? startDate : new Date(startDate);
+  const end = endDate instanceof Date ? endDate : new Date(endDate);
+  
+  const turkishMonths = ['OCAK', 'ŞUBAT', 'MART', 'NİSAN', 'MAYIS', 'HAZİRAN', 
+                       'TEMMUZ', 'AĞUSTOS', 'EYLÜL', 'EKİM', 'KASIM', 'ARALIK'];
+  const englishMonths = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE',
+                        'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+  
+  const months = locale === 'tr' ? turkishMonths : englishMonths;
+  const month = months[start.getMonth()];
+  const year = start.getFullYear();
+  
+  if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
+    // Same month: "17-25 OCAK 2026"
+    return `${start.getDate()}-${end.getDate()} ${month} ${year}`;
+  } else {
+    // Different months: "30 OCAK - 2 ŞUBAT 2026"
+    const endMonth = months[end.getMonth()];
+    if (start.getFullYear() === end.getFullYear()) {
+      return `${start.getDate()} ${month} - ${end.getDate()} ${endMonth} ${year}`;
+    } else {
+      return `${start.getDate()} ${month} ${start.getFullYear()} - ${end.getDate()} ${endMonth} ${end.getFullYear()}`;
+    }
+  }
+}
+
 // Get dynamic content
 const currentYear = yearData.year;
 const pageTitle = yearData.page_content?.title_tr || `${currentYear} Fuar Takvimi`;
@@ -115,7 +145,9 @@ cmsFairs.forEach((fair: any) => {
   fairsData[sector].push({
     id: fair.basic_info.name_tr.toLowerCase().replace(/\s+/g, '-'),
     name: fair.basic_info.name_tr,
-    date: fair.basic_info.date_tr || fair.basic_info.date || '',
+    date: fair.basic_info.start_date && fair.basic_info.end_date 
+      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'tr')
+      : fair.basic_info.date_tr || fair.basic_info.date || '',
     location: fair.basic_info.location_tr,
     description: fair.basic_info.description_tr || '',
     backgroundImage: fair.visuals?.background_image || '/images/fuarlar-arkaplan.jpg',
