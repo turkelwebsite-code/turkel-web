@@ -1,103 +1,38 @@
-cms_button_label: "2025 Fuarları"
+cms_button_label: 2025 Fuarları
 year: 2025
-page_slug: "2025-fuar-takvimi"
-page_slug_en: "2025-fair-calendar"
+page_slug: 2025-fuar-takvimi
+page_slug_en: 2025-fair-calendar
 is_active: true
 display_status: Aktif Fuarlar
 menu_order: 2
 page_content:
-  title_tr: "2025 Fuar Takvimi"
-  title_en: "2025 Fair Calendar"
-  menu_title_tr: "2025 Fuar Takvimi"
-  menu_title_en: "2025 Fair Calendar"
-  description_tr: "2025 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz."
-  description_en: "In 2025, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide."
+  title_tr: 2025 Fuar Takvimi
+  title_en: 2025 Fair Calendar
+  menu_title_tr: 2025 Fuar Takvimi
+  menu_title_en: 2025 Fair Calendar
+  description_tr: 2025 yılında dünya çapında organize edeceğimiz prestijli
+    fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+  description_en: In 2025, we bring Turkish companies together with global markets
+    at prestigious fairs we organize worldwide.
 fairs:
-  - basic_info:
-      name_tr: LeShow Moskova - Uluslararası Moda ve Tekstil Endüstrisi Fuarı
-      name_en: LeShow Moscow - International Fashion and Textile Industry Fair
-      start_date: 2025-03-15
-      end_date: 2025-03-18
-      date_tr: 15-18 MART 2025
-      date_en: 15-18 MARCH 2025
-      location_tr: Moskova, Rusya
-      location_en: Moscow, Russia
-      sector: Moda ve Tekstil
-      description_tr: ULUSLARARASI MODA VE TEKSTİL ENDÜSTRİSİ FUARI
-      description_en: INTERNATIONAL FASHION AND TEXTILE INDUSTRY FAIR
-    visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
-    representative:
-      team_member: Seval Arslan
+  - representative:
       hide_phone: true
+      team_member: Ahmet Hilmi Çoruk
     settings:
       order: 1
-      show_in_slider: true
+      show_in_slider: false
       show_in_forms: true
-  - basic_info:
-      name_tr: HomeDeco Kazakistan - Ev Tekstili ve İç Dekorasyon Ürünleri Fuarı
-      name_en: HomeDeco Kazakhstan - Home Textile and Interior Decoration Fair
-      start_date: 2025-04-22
-      end_date: 2025-04-25
-      date_tr: 22-25 NİSAN 2025
-      date_en: 22-25 APRIL 2025
-      location_tr: Almatı, Kazakistan
-      location_en: Almaty, Kazakhstan
-      sector: Ev Tekstili ve Dekorasyon
-      description_tr: ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
-      description_en: INTERNATIONAL HOME TEXTILE AND DECORATION FAIR
-    visuals:
-      logo: /images/homedeco-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
-    representative:
-      team_member: Arzu Günal
-      hide_phone: true
-    settings:
-      order: 2
-      show_in_slider: true
-      show_in_forms: true
-  - basic_info:
-      name_tr: Fashion Week İstanbul Premium Tekstil ve Moda Endüstrisi Fuarı
-      name_en: Fashion Week Istanbul Premium Textile and Fashion Industry Fair
-      start_date: 2025-06-20
-      end_date: 2025-06-23
-      date_tr: 20-23 HAZİRAN 2025
-      date_en: 20-23 JUNE 2025
-      location_tr: İstanbul, Türkiye
-      location_en: Istanbul, Turkey
-      sector: Moda ve Tekstil
-      description_tr: ULUSLARARASI MODA VE TEKSTİL ENDÜSTRİSİ FUARI
-      description_en: INTERNATIONAL FASHION AND TEXTILE INDUSTRY FAIR
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI  TEKNE VE SU SPORLARI FUARI
+      sector: Kalıp & Plastik, İhtisas, Havuz
+      location_tr: ULUSLARARASI  TEKNE VE SU SPORLARI FUARI
+      start_date: 2025-01-18
+      description_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
+      end_date: 2025-01-26
+      name_tr: BOOT DUSSELDORF
+      location_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
+      name_en: BOOT DUSSELDORF
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/fuarlar-arkaplan.jpg
-    representative:
-      team_member: Seval Arslan
-      hide_phone: true
-    settings:
-      order: 3
-      show_in_slider: false
-      show_in_forms: true
-  - basic_info:
-      name_tr: Test 1950
-      name_en: Test 1950
-      start_date: 2025-01-21
-      end_date: 2025-01-21
-      date_tr: 21 OCAK 2025
-      date_en: 21 JANUARY 2025
-      location_tr: Turkey
-      location_en: Turkey
-      sector: Ev Tekstili ve Dekorasyon
-      description_tr: TEST FUARI
-      description_en: TEST FAIR
-    visuals:
-      logo: /images/fuarlar-arkaplan.jpg
-      background_image: /images/fuarlar-logo.png
-    representative:
-      team_member: Arzu Günal
-      hide_phone: true
-    settings:
-      order: 4
-      show_in_slider: false
-      show_in_forms: true
