@@ -2,15 +2,121 @@ cms_button_label: "2020"
 year: 2020
 is_active: true
 fairs:
-  - order: 1
-    name_tr: "Test Fuarı 2020"
-    name_en: "Test Fair 2020"
-    city_tr: "İstanbul"
-    city_en: "Istanbul"
-    country_tr: "Türkiye"
-    country_en: "Turkey"
-    sector: "Moda ve Tekstil"
-    area: "10,000 m²"
-    participants: "300"
-    description_tr: "2020 test fuarı açıklaması"
-    description_en: "2020 test fair description"
+  - description_tr: 35.INTERBUILD EXPO ULUSLARARASI YAPI VE MİMARLIK FUARI
+    sector: İnşaat
+    country_tr: UKRAYNA
+    description_en: 35th INTERBUILD EXPO INTERNATIONAL BUILDING AND ARCHITECTURE FAIR
+    order: 1
+    name_tr: 35.INTERBUILD EXPO
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: 35.INTERBUILD EXPO
+    city_en: KIEV
+  - description_tr: ULUSLARASI DERİ VE MODA FUARI
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: " WINTER FASHION TRADE SHOW"
+    order: 2
+    name_tr: 23.LESHOW
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 23rd LESHOW
+    city_en: MOSCOW
+  - order: 3
+    name_tr: KIFF INT'L FURNITURE FORUM
+    name_en: KIFF INT'L FURNITURE FORUM
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: İnşaat
+  - order: 4
+    name_tr: WEDDING FASHION
+    name_en: WEDDING FASHION
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
+    sector: Moda ve Tekstil
+  - description_tr: " ULUSLARARASI EV TEKSTİLİ, DEKORASYON ve ZÜCCACİYE FUARI"
+    sector: Moda ve Tekstil
+    country_tr: KAZAKİSTAN
+    description_en: INTERNATIONAL HOME TEXTILES, DECORATION AND GLASSWARE FAIR
+    order: 5
+    name_tr: HOMEDECO KAZAKHSTAN
+    city_tr: ALMATI
+    country_en: KAZAKHSTAN
+    name_en: HOMEDECO KAZAKHSTAN
+    city_en: ALMATY
+  - description_tr: Uluslararası Yapı ve Mimarlık Fuarı
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: UKRAYNA
+    description_en: International Building & Architecture Exhibition
+    order: 6
+    name_tr: INTERBUILD EXPO
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: INTERBUILD EXPO
+    city_en: KIEV
+  - description_tr: |
+      ULUSLARARASI GELİNLİK VE ABİYE GİYİM FUARI
+    sector: Moda ve Tekstil
+    country_tr: İNGİLTERE
+    description_en: INTERNATIONAL WEDDING DRESS AND EVENING DRESS FAIR
+    order: 7
+    name_tr: 3. LONDON BRIDAL FASHION WEEK
+    city_tr: LONDRA
+    country_en: ENGLAND
+    name_en: 3. LONDON BRIDAL FASHION WEEK
+    city_en: LONDON
+  - description_tr: 25.ELCOM UKRAINE ULUSLARARASI ELEKTRİK, ENDÜSTRİYEL AYDINLATMA
+      ve OTOMASYON FUARI
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: UKRAYNA
+    description_en: 25th ELCOM UKRAINE INTERNATIONAL ELECTRICAL, INDUSTRIAL LIGHTING
+      AND AUTOMATION FAIR
+    order: 8
+    name_tr: ELCOM UKRAINE
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: ELCOM UKRAINE
+    city_en: KIEV
+  - order: 9
+    name_tr: DUBAI WOOD SHOW
+    name_en: DUBAI WOOD SHOW
+    city_tr: DUBAİ
+    city_en: DUBAI
+    country_tr: BAE
+    country_en: UAE
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - description_tr: 23. LESHOW ULUSLARARASI KIŞ MODASI FUARI
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: |
+      23rd LESHOW INT'L WINTER FASHION TRADE SHOW
+    order: 10
+    name_tr: 23. LESHOW
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 23rd LESHOW
+    city_en: MOSCOW
+  - description_tr: ULUSLARARASI SAĞLIK FUARI
+    sector: Diğer
+    country_tr: KOLOMBİYA
+    description_en: INTERNATIONAL HEALTH FAIR
+    order: 11
+    name_tr: "7.MEDITECH INT'L HEALTH FAIR\t"
+    city_tr: BOGOTA
+    country_en: COLOMBIA
+    name_en: "7.MEDITECH INT'L HEALTH FAIR\t"
+    city_en: BOGOTA
+  - description_tr: Uluslararası İnşaat Fuarı
+    sector: İnşaat
+    country_tr: KENYA
+    description_en: International Construction Fair
+    order: 12
+    name_tr: 23.BUILDEXPO AFRICA
+    city_tr: NAİROBİ
+    country_en: KENYA
+    name_en: 23.BUILDEXPO AFRICA
+    city_en: NAIROBI
