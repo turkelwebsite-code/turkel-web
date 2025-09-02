@@ -1,40 +1,40 @@
-cms_button_label: "2023 Kronoloji"
-year: 2023
+cms_button_label: 2017 Kronoloji
+year: 2017
 is_active: true
 fairs:
-  - name_tr: "Fashion Week İstanbul 2023"
-    name_en: "Fashion Week Istanbul 2023"
-    city_tr: "İstanbul"
-    city_en: "Istanbul"
-    country_tr: "Türkiye"
-    country_en: "Turkey"
-    sector: "Moda ve Tekstil"
-    area: "12,000 m²"
-    participants: "320"
-    description_tr: "Türkiye'nin prestijli moda fuarı"
-    description_en: "Turkey's prestigious fashion fair"
+  - participants: "320"
+    description_tr: Türkiye'nin prestijli moda fuarı
+    sector: Moda ve Tekstil
+    country_tr: Türkiye
+    description_en: Turkey's prestigious fashion fair
+    area: 12,000 m²
     order: 1
-  - name_tr: "HomeDeco Almatı 2023"
-    name_en: "HomeDeco Almaty 2023"
-    city_tr: "Almatı"
-    city_en: "Almaty"
-    country_tr: "Kazakistan"
-    country_en: "Kazakhstan"
-    sector: "Ev Tekstili ve Dekorasyon"
-    area: "8,000 m²"
-    participants: "180"
-    description_tr: "Orta Asya'nın ev dekorasyonu fuarı"
-    description_en: "Central Asia's home decoration fair"
+    name_tr: Fashion Week İstanbul 2023
+    city_tr: İstanbul
+    country_en: Turkey
+    name_en: Fashion Week Istanbul 2023
+    city_en: Istanbul
+  - participants: "180"
+    description_tr: Orta Asya'nın ev dekorasyonu fuarı
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: Kazakistan
+    description_en: Central Asia's home decoration fair
+    area: 8,000 m²
     order: 2
-  - name_tr: "Security Expo Moskova 2023"
-    name_en: "Security Expo Moscow 2023"
-    city_tr: "Moskova"
-    city_en: "Moscow"
-    country_tr: "Rusya"
-    country_en: "Russia"
-    sector: "Deri Fuarları & Güvenlik Sistemleri Fuarları"
-    area: "6,000 m²"
-    participants: "150"
-    description_tr: "Güvenlik teknolojileri fuarı"
-    description_en: "Security technologies fair"
+    name_tr: HomeDeco Almatı 2023
+    city_tr: Almatı
+    country_en: Kazakhstan
+    name_en: HomeDeco Almaty 2023
+    city_en: Almaty
+  - participants: "150"
+    description_tr: Güvenlik teknolojileri fuarı
+    sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+    country_tr: Rusya
+    description_en: Security technologies fair
+    area: 6,000 m²
     order: 3
+    name_tr: Security Expo Moskova 2023
+    city_tr: Moskova
+    country_en: Russia
+    name_en: Security Expo Moscow 2023
+    city_en: Moscow
