@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CheckCircle } from 'lucide-astro';
+
+// Get query params to determine language
+const url = new URL(Astro.request.url);
+const lang = url.searchParams.get('lang') || 'tr';
+const locale = lang === 'en' ? 'en' : 'tr';
+
+// Get form type to customize message
+const formType = url.searchParams.get('form-type') || 'contact';
+
+const getTitle = () => {
+  if (locale === 'tr') {
+    switch (formType) {
+      case 'visitor': return 'Ziyaretçi Formu Gönderildi';
+      case 'participant': return 'Katılımcı Formu Gönderildi';
+      case 'newsletter': return 'Bülten Aboneliği Başarılı';
+      default: return 'Mesajınız Gönderildi';
+    }
+  } else {
+    switch (formType) {
+      case 'visitor': return 'Visitor Form Submitted';
+      case 'participant': return 'Participant Form Submitted';
+      case 'newsletter': return 'Newsletter Subscription Successful';
+      default: return 'Message Sent';
+    }
+  }
+};
+
+const getMessage = () => {
+  if (locale === 'tr') {
+    switch (formType) {
+      case 'visitor': return 'Ziyaretçi formunuz başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.';
+      case 'participant': return 'Katılımcı formunuz başarıyla gönderildi. Fuar katılımı ile ilgili detayları size ileteceğiz.';
+      case 'newsletter': return 'Bülten aboneliğiniz başarıyla tamamlandı. Fuar haberlerinden ve özel tekliflerden haberdar olacaksınız.';
+      default: return 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.';
+    }
+  } else {
+    switch (formType) {
+      case 'visitor': return 'Your visitor form has been submitted successfully. We will contact you shortly.';
+      case 'participant': return 'Your participant form has been submitted successfully. We will provide you with details about fair participation.';
+      case 'newsletter': return 'Your newsletter subscription has been completed successfully. You will stay updated on fair news and special offers.';
+      default: return 'Your message has been sent successfully. We will get back to you as soon as possible.';
+    }
+  }
+};
+
+const title = getTitle();
+const message = getMessage();
+const description = locale === 'tr' 
+  ? 'Form gönderimi başarıyla tamamlandı.'
+  : 'Form submission completed successfully.';
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  locale={locale}
+  canonical={`/success?lang=${locale}&form-type=${formType}`}
+>
+  <main class="min-h-screen flex items-center justify-center bg-gray-50">
+    <div class="max-w-md w-full mx-4">
+      <div class="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <!-- Success Icon -->
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+            <CheckCircle size={32} class="text-green-600" />
+          </div>
+        </div>
+
+        <!-- Success Message -->
+        <h1 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Radio Canada Big', sans-serif;">
+          {title}
+        </h1>
+
+        <p class="text-gray-600 mb-8 leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+          {message}
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="space-y-3">
+          <a 
+            href={locale === 'en' ? '/en/' : '/'}
+            class="block w-full bg-[#CE1A28] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#B01620] transition-colors"
+            style="font-family: 'Radio Canada Big', sans-serif;"
+          >
+            {locale === 'tr' ? 'Ana Sayfaya Dön' : 'Return to Homepage'}
+          </a>
+
+          {formType !== 'newsletter' && (
+            <a 
+              href={locale === 'en' ? '/en/contact' : '/tr/iletisim'}
+              class="block w-full border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+              style="font-family: 'Radio Canada Big', sans-serif;"
+            >
+              {locale === 'tr' ? 'İletişim Sayfası' : 'Contact Page'}
+            </a>
+          )}
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <p class="text-sm text-gray-500" style="font-family: 'Radio Canada Big', sans-serif;">
+            {locale === 'tr' 
+              ? 'Sorularınız için: info@turkel.com.tr' 
+              : 'For questions: info@turkel.com.tr'
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  // Auto redirect to homepage after 10 seconds
+  setTimeout(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang') || 'tr';
+    window.location.href = lang === 'en' ? '/en/' : '/';
+  }, 10000);
+</script>

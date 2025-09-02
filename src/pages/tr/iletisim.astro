@@ -180,7 +180,19 @@ const offices = [
             </div>
             
             <!-- Inline Contact Form -->
-            <form id="contact-form" class="max-w-4xl mx-auto space-y-8">
+            <form 
+              id="contact-form" 
+              name="contact-form" 
+              method="POST" 
+              data-netlify="true" 
+              data-netlify-recaptcha="true"
+              action="/success"
+              class="max-w-4xl mx-auto space-y-8"
+            >
+              <!-- Hidden fields for Netlify -->
+              <input type="hidden" name="form-name" value="contact-form" />
+              <input type="hidden" name="form-type" value="contact" />
+              <input type="hidden" name="language" value="tr" />
               
               <!-- Personal Information -->
               <div class="space-y-4">
@@ -331,6 +343,11 @@ const offices = [
                 </div>
               </div>
 
+              <!-- reCAPTCHA -->
+              <div class="flex justify-center">
+                <div data-netlify-recaptcha="true"></div>
+              </div>
+
               <!-- Form Submit -->
               <div class="text-center pt-6 border-t border-gray-200">
                 <button 
@@ -434,16 +451,15 @@ const offices = [
     const form = document.getElementById('contact-form');
 
     if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      form.addEventListener('submit', (e) => {
+        // Let Netlify handle the form submission
+        // Form will redirect to success page automatically
         
-        try {
-          // Form submission logic here
-          alert('Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.');
-          form.reset();
-        } catch (error) {
-          console.error('Form submission error:', error);
-          alert('Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Gönderiliyor...';
         }
       });
     }

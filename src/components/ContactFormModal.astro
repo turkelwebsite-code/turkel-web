@@ -208,7 +208,7 @@ const { locale } = Astro.props;
     const form = document.getElementById('contact-form');
 
     // Open modal function
-    window.openContactModal = () => {
+    (window as any).openContactModal = () => {
       if (modal) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -222,7 +222,7 @@ const { locale } = Astro.props;
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = '';
-        if (form) form.reset();
+        if (form) (form as HTMLFormElement).reset();
       }
     };
 

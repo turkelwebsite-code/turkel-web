@@ -73,7 +73,19 @@ const legacyFairOptions = [
 
     <!-- Modal Content -->
     <div class="px-8 py-6">
-      <form id="participant-form" class="space-y-6">
+      <form 
+        id="participant-form" 
+        name="participant-form" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-recaptcha="true"
+        action="/success"
+        class="space-y-6"
+      >
+        <!-- Hidden fields for Netlify -->
+        <input type="hidden" name="form-name" value="participant-form" />
+        <input type="hidden" name="form-type" value="participant" />
+        <input type="hidden" name="language" value={locale} />
         
         <!-- Fair Information Section -->
         <div class="space-y-4">
@@ -308,6 +320,11 @@ const legacyFairOptions = [
           </div>
         </div>
 
+        <!-- reCAPTCHA -->
+        <div class="flex justify-center">
+          <div data-netlify-recaptcha="true"></div>
+        </div>
+
         <!-- Form Actions -->
         <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200">
           <button 
@@ -422,31 +439,19 @@ const legacyFairOptions = [
       }
     });
 
-    // Form submission
+    // Form submission - Netlify Forms handles this automatically
     if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+      form.addEventListener('submit', (e) => {
+        // Let Netlify handle the form submission
+        // Form will redirect to success page automatically
         
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        try {
-          // Here you would typically send the data to your backend
-          console.log('Participant form data:', data);
-          
-          // Show success message
-          alert(document.documentElement.lang === 'tr' 
-            ? 'Formunuz başarıyla gönderildi. En kısa sürede sizinle iletişime geçeceğiz.' 
-            : 'Your form has been submitted successfully. We will contact you shortly.'
-          );
-          
-          closeModal();
-        } catch (error) {
-          console.error('Form submission error:', error);
-          alert(document.documentElement.lang === 'tr' 
-            ? 'Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.' 
-            : 'An error occurred while submitting the form. Please try again.'
-          );
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = document.documentElement.lang === 'tr' 
+            ? 'Gönderiliyor...' 
+            : 'Submitting...';
         }
       });
     }
