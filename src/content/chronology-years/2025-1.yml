@@ -3,14 +3,10 @@ year: 2019
 is_active: true
 fairs:
   - order: 1
-    name_tr: "Test Fuarı"
-    name_en: "Test Fair"
-    city_tr: "İstanbul"
-    city_en: "Istanbul"
-    country_tr: "Türkiye"
-    country_en: "Turkey"
-    sector: "Moda ve Tekstil"
-    area: "15,000 m²"
-    participants: "450"
-    description_tr: "Test açıklaması"
-    description_en: "Test description"
+    name_tr: 15.DUBAI WOOD SHOW
+    name_en: 15.DUBAI WOOD SHOW
+    city_tr: DUBAI
+    city_en: DUBAI
+    country_tr: BAE
+    country_en: UAE
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
