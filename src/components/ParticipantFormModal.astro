@@ -360,7 +360,7 @@ const legacyFairOptions = [
     const fairOptions = document.querySelectorAll('.participant-fair-option');
 
     // Open modal function
-    window.openParticipantModal = () => {
+    (window as any).openParticipantModal = () => {
       if (modal) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -374,9 +374,9 @@ const legacyFairOptions = [
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = '';
-        if (form) form.reset();
-        if (fairSearch) fairSearch.value = '';
-        if (fairSelect) fairSelect.value = '';
+        if (form) (form as HTMLFormElement).reset();
+        if (fairSearch) (fairSearch as HTMLInputElement).value = '';
+        if (fairSelect) (fairSelect as HTMLInputElement).value = '';
         if (fairDropdown) fairDropdown.classList.add('hidden');
       }
     };
@@ -390,13 +390,13 @@ const legacyFairOptions = [
 
       // Filter options on input
       fairSearch.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
+        const searchTerm = (e.target as HTMLInputElement)?.value?.toLowerCase() || '';
         fairOptions.forEach(option => {
-          const text = option.textContent.toLowerCase();
+          const text = option.textContent?.toLowerCase() || '';
           if (text.includes(searchTerm)) {
-            option.style.display = 'block';
+            (option as HTMLElement).style.display = 'block';
           } else {
-            option.style.display = 'none';
+            (option as HTMLElement).style.display = 'none';
           }
         });
         fairDropdown.classList.remove('hidden');
@@ -407,15 +407,15 @@ const legacyFairOptions = [
         option.addEventListener('click', () => {
           const value = option.getAttribute('data-value');
           const text = option.textContent;
-          fairSearch.value = text;
-          fairSelect.value = value;
+          (fairSearch as HTMLInputElement).value = text || '';
+          if (fairSelect) (fairSelect as HTMLInputElement).value = value || '';
           fairDropdown.classList.add('hidden');
         });
       });
 
       // Hide dropdown when clicking outside
       document.addEventListener('click', (e) => {
-        if (!fairSearch.contains(e.target) && !fairDropdown.contains(e.target)) {
+        if (!fairSearch.contains(e.target as Node) && !fairDropdown.contains(e.target as Node)) {
           fairDropdown.classList.add('hidden');
         }
       });
