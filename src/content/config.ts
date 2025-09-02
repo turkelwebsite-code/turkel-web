@@ -184,6 +184,29 @@ const teamMembers = defineCollection({
   }),
 });
 
+const heroSlides = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title_tr: z.string(),
+    title_en: z.string(),
+    date_tr: z.string().optional(),
+    date_en: z.string().optional(),
+    location_tr: z.string().optional(),
+    location_en: z.string().optional(),
+    description_tr: z.string().optional(),
+    description_en: z.string().optional(),
+    background_image: z.string(),
+    logo: z.string().optional(),
+    website_url: z.string().optional(),
+    mini_images: z.array(z.object({
+      image: z.string()
+    })).optional(),
+    maps_embed: z.string().optional(),
+    order: z.number().optional(),
+    is_active: z.boolean().optional()
+  })
+});
+
 const slider = defineCollection({
   type: 'content',
   schema: z.any(),
@@ -260,6 +283,7 @@ export const collections = {
   settings, 
   team, 
   'team-members': teamMembers,
+  'hero-slides': heroSlides,
   slider,
   'fair-years': fairYears
 };

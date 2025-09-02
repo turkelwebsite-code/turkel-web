@@ -209,14 +209,36 @@ collections:
           - {label: "Site Açıklaması", name: "site_description", widget: "text"}
 
   # ANA SAYFA SLIDER
-  - name: "slider"
-    label: "Ana Sayfa Slider Ayarları"
-    files:
-      - label: "Slider İçerikleri"
-        name: "content"
-        file: "src/content/slider/content.yml"
-        fields:
-          - {label: "Slider Başlığı", name: "title", widget: "string"}
+  - name: "hero_slides"
+    label: "🎬 Ana Sayfa Slider"
+    folder: "src/content/hero-slides"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title_tr"
+    summary: "{{title_tr}} • Sıra: {{order}} • {{#is_active}}Aktif{{/is_active}}{{^is_active}}Pasif{{/is_active}}"
+    fields:
+      - {label: "🇹🇷 Başlık (Türkçe)", name: "title_tr", widget: "string", hint: "Slider başlığı Türkçe"}
+      - {label: "🇺🇸 Başlık (İngilizce)", name: "title_en", widget: "string", hint: "Slider başlığı İngilizce"}
+      - {label: "🇹🇷 Tarih (Türkçe)", name: "date_tr", widget: "string", required: false, hint: "Örnek: 17-25 OCAK 2026"}
+      - {label: "🇺🇸 Tarih (İngilizce)", name: "date_en", widget: "string", required: false, hint: "Example: 17-25 JANUARY 2026"}
+      - {label: "🇹🇷 Konum (Türkçe)", name: "location_tr", widget: "string", required: false, hint: "Örnek: Moskova, Rusya"}
+      - {label: "🇺🇸 Konum (İngilizce)", name: "location_en", widget: "string", required: false, hint: "Example: Moscow, Russia"}
+      - {label: "🇹🇷 Açıklama (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Slider açıklaması"}
+      - {label: "🇺🇸 Açıklama (İngilizce)", name: "description_en", widget: "text", required: false, hint: "Slider description"}
+      - {label: "🖼️ Arka Plan Görseli", name: "background_image", widget: "image", hint: "İdeal Ölçü: 1920x1080px | Format: JPG/PNG"}
+      - {label: "🏷️ Logo", name: "logo", widget: "image", required: false, hint: "Fuar/marka logosu"}
+      - {label: "🔗 Website Linki", name: "website_url", widget: "string", required: false, hint: "Slider'dan gidilecek link"}
+      - label: "📷 Mini Görseller (3 adet)"
+        name: "mini_images"
+        widget: "list"
+        required: false
+        max: 3
+        min: 0
+        field: {label: "Görsel", name: "image", widget: "image"}
+        hint: "İdeal Ölçü: 400x400px | Slider içinde küçük görseller"
+      - {label: "🗺️ Google Maps Embed", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe kodu"}
+      - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Slider gösterim sırası"}
+      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, hint: "Slider'da gösterilsin mi?"}
 
   # SEKTÖR YÖNETİMİ
   - name: "sector_management"

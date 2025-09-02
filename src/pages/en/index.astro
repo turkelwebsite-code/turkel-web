@@ -35,42 +35,37 @@ if (!content) {
   throw new Error('English content not found');
 }
 
-// Get CMS fair data for slider
-console.log('🎬 SLIDER DEBUG: Loading CMS fairs for slider...');
-const fairYearData = await getCollection('fair-years');
-const allFairs: any[] = [];
+// Load hero slides from CMS
+console.log('🎬 SLIDER DEBUG: Loading CMS hero slides...');
+const heroSlidesData = await getCollection('hero-slides');
+const activeSlides = heroSlidesData
+  .filter(slide => slide.data.is_active !== false)
+  .sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
 
-fairYearData.forEach((yearData: any) => {
-  const fairs = yearData.data?.fairs || [];
-  fairs.forEach((fair: any) => {
-    if (fair.settings?.show_in_slider) {
-      console.log('🎬 Found slider fair:', fair.basic_info?.name_en);
-      allFairs.push({
-        backgroundImage: fair.slider_content?.background_image || fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
-        card: {
-          title: fair.basic_info?.name_en || '',
-          dateText: fair.basic_info?.date_en || fair.basic_info?.date || '',
-          location: fair.basic_info?.location_en || '',
-          description: `${fair.basic_info?.name_en} fair will take place on ${fair.basic_info?.date} in ${fair.basic_info?.location_en}.`,
-          fairName: fair.basic_info?.name_en || '',
-          fairLogo: fair.visuals?.logo || "/images/fuarlar-logo.png",
-          fairWebsite: fair.slider_content?.website_url || '#',
-          miniImages: fair.slider_content?.mini_images?.map((img: any) => img.image) || [],
-          mapsEmbed: fair.slider_content?.maps_embed || ''
-        }
-      });
-    }
-  });
-});
+console.log('🎬 SLIDER DEBUG: Active hero slides found:', activeSlides.length);
 
-console.log('🎬 SLIDER DEBUG: Total slider fairs found:', allFairs.length);
+// Convert CMS slides to hero format for EN
+const cmsSlides = activeSlides.map(slide => ({
+  backgroundImage: slide.data.background_image,
+  card: {
+    title: slide.data.title_en,
+    dateText: slide.data.date_en || '',
+    location: slide.data.location_en || '',
+    description: slide.data.description_en || '',
+    fairName: slide.data.title_en,
+    fairLogo: slide.data.logo || "/images/fuarlar-logo.png",
+    fairWebsite: slide.data.website_url || '#',
+    miniImages: slide.data.mini_images?.map(img => img.image) || [],
+    mapsEmbed: slide.data.maps_embed || ''
+  }
+}));
 
-// Update hero data with CMS fairs if available
-if (allFairs.length > 0) {
-  content.hero.slides = allFairs;
-  console.log('🎬 SLIDER DEBUG: Hero slides updated with CMS data');
+// Update hero data with CMS slides if available
+if (cmsSlides.length > 0) {
+  content.hero.slides = cmsSlides;
+  console.log('🎬 SLIDER DEBUG: Hero slides updated with CMS hero-slides data');
 } else {
-  console.log('🎬 SLIDER DEBUG: No CMS slider fairs found, using static data');
+  console.log('🎬 SLIDER DEBUG: No CMS hero slides found, using static data');
 }
 
 const locale = 'en';
