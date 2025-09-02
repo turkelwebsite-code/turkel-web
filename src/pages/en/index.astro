@@ -87,20 +87,20 @@ const success = url.searchParams.get('success');
 
   <!-- Success Notification -->
   {success && (
-    <div id="success-notification" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-50 max-w-md">
+    <div id="success-notification" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl z-[9999] max-w-md animate-slide-in">
       <div class="flex items-center justify-between">
         <div>
-          <div class="font-semibold mb-1">
+          <div class="font-semibold mb-1" style="font-family: 'Radio Canada Big', sans-serif;">
             {success === 'visitor' && 'Visitor Form Submitted!'}
             {success === 'participant' && 'Participant Form Submitted!'}
             {success === 'contact' && 'Message Sent!'}
             {success === 'newsletter' && 'Newsletter Subscription Successful!'}
           </div>
-          <div class="text-sm opacity-90">
+          <div class="text-sm opacity-90" style="font-family: 'Radio Canada Big', sans-serif;">
             We will contact you shortly.
           </div>
         </div>
-        <button onclick="document.getElementById('success-notification').remove()" class="ml-4 text-white hover:text-gray-200">
+        <button onclick="document.getElementById('success-notification').remove()" class="ml-4 text-white hover:text-gray-200 text-xl font-bold">
           ✕
         </button>
       </div>
@@ -250,6 +250,22 @@ const success = url.searchParams.get('success');
 )}
 
 <style>
+  /* Success notification animation */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
   /* Hero section specific styles */
   .hero-section {
     position: relative;
