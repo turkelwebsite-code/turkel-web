@@ -446,7 +446,7 @@ const legacyFairOptions = [
         closeModal();
         
         // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = document.documentElement.lang === 'tr' 

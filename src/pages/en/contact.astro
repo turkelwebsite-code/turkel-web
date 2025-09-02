@@ -451,7 +451,7 @@ const offices = [
     if (form) {
       form.addEventListener('submit', (e) => {
         // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = 'Submitting...';
