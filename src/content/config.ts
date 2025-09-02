@@ -74,11 +74,14 @@ const home = defineCollection({
 });
 
 const partners = defineCollection({
-  type: "data", 
-  schema: z.array(z.object({
+  type: "content", 
+  schema: z.object({
     name: z.string(),
-    logo: z.string()
-  }))
+    logo: z.string(),
+    website: z.string().optional(),
+    order: z.number().optional(),
+    is_active: z.boolean().optional()
+  })
 });
 
 // CMS Collections

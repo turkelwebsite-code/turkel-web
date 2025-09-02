@@ -17,7 +17,19 @@ const homeContent = await getCollection('home');
 const partnersContent = await getCollection('partners');
 
 const content = homeContent.find(item => item.id === 'tr')?.data;
-const partners = partnersContent.find(item => item.id === 'partners')?.data || [];
+
+// Load dynamic partners from CMS (folder collection)
+const allPartners = partnersContent
+  .filter(partner => partner.data.is_active !== false) // Show active partners
+  .sort((a, b) => (a.data.order || 999) - (b.data.order || 999)) // Sort by order
+  .map(partner => ({
+    name: partner.data.name,
+    logo: partner.data.logo,
+    website: partner.data.website
+  }));
+
+console.log('🤝 PARTNERS DEBUG: Active partners loaded:', allPartners.length);
+const partners = allPartners;
 
 if (!content) {
   throw new Error('Turkish content not found');

@@ -1,9 +1,7 @@
 ---
-name: "Partner 02"
-logo: "/images/partner02.png"
-website: ""
+name: "Ticaret Bakanlığı"
+logo: "/images/ticaret-bakanligi-logo.png"
+website: "https://www.ticaret.gov.tr"
 order: 2
 is_active: true
 ---
-
-Partner 02 şirketi.
