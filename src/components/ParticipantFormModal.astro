@@ -78,7 +78,7 @@ const legacyFairOptions = [
         name="participant-form" 
         method="POST" 
         data-netlify="true" 
-        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
         action="/?success=participant"
         class="space-y-6"
       >
@@ -86,6 +86,9 @@ const legacyFairOptions = [
         <input type="hidden" name="form-name" value="participant-form" />
         <input type="hidden" name="form-type" value="participant" />
         <input type="hidden" name="language" value={locale} />
+        <div style="display: none;">
+          <label>Bot Field: <input name="bot-field" /></label>
+        </div>
         
         <!-- Fair Information Section -->
         <div class="space-y-4">
@@ -320,10 +323,7 @@ const legacyFairOptions = [
           </div>
         </div>
 
-        <!-- reCAPTCHA -->
-        <div class="flex justify-center">
-          <div data-netlify-recaptcha="true"></div>
-        </div>
+
 
         <!-- Form Actions -->
         <div class="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200">

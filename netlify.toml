@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Form notifications
+# Form notifications - Honeypot spam protection
 [[forms]]
   name = "visitor-form"
   

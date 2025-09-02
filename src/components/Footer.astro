@@ -60,6 +60,7 @@ const { locale, content } = Astro.props;
             name="newsletter-footer" 
             method="POST" 
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             action="/?success=newsletter"
             class="flex flex-col sm:flex-row w-full max-w-[676px]"
           >
@@ -67,6 +68,9 @@ const { locale, content } = Astro.props;
             <input type="hidden" name="form-name" value="newsletter-footer" />
             <input type="hidden" name="form-type" value="newsletter" />
             <input type="hidden" name="language" value={locale} />
+            <div style="display: none;">
+              <label>Bot Field: <input name="bot-field" /></label>
+            </div>
             
             <!-- Email Input -->
             <div class="flex-1 bg-[#FBEAEC] rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none px-4 sm:px-6 lg:px-12 py-4 sm:py-5 lg:py-6 transition-all duration-300 hover:bg-[#F5D5D8] focus-within:bg-[#F5D5D8]">

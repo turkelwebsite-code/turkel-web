@@ -185,7 +185,7 @@ const offices = [
               name="contact-form" 
               method="POST" 
               data-netlify="true" 
-              data-netlify-recaptcha="true"
+              data-netlify-honeypot="bot-field"
               action="/tr/?success=contact"
               class="max-w-4xl mx-auto space-y-8"
             >
@@ -193,6 +193,9 @@ const offices = [
               <input type="hidden" name="form-name" value="contact-form" />
               <input type="hidden" name="form-type" value="contact" />
               <input type="hidden" name="language" value="tr" />
+              <div style="display: none;">
+                <label>Bot Field: <input name="bot-field" /></label>
+              </div>
               
               <!-- Personal Information -->
               <div class="space-y-4">
@@ -343,10 +346,7 @@ const offices = [
                 </div>
               </div>
 
-              <!-- reCAPTCHA -->
-              <div class="flex justify-center">
-                <div data-netlify-recaptcha="true"></div>
-              </div>
+
 
               <!-- Form Submit -->
               <div class="text-center pt-6 border-t border-gray-200">
