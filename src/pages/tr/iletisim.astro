@@ -186,7 +186,7 @@ const offices = [
               method="POST" 
               data-netlify="true" 
               data-netlify-recaptcha="true"
-              action="/success"
+              action="/tr/?success=contact"
               class="max-w-4xl mx-auto space-y-8"
             >
               <!-- Hidden fields for Netlify -->
@@ -452,9 +452,6 @@ const offices = [
 
     if (form) {
       form.addEventListener('submit', (e) => {
-        // Let Netlify handle the form submission
-        // Form will redirect to success page automatically
-        
         // Show loading state
         const submitBtn = form.querySelector('button[type="submit"]');
         if (submitBtn) {

@@ -70,6 +70,10 @@ if (cmsSlides.length > 0) {
 
 const locale = 'tr';
 const currentPath = '/';
+
+// Check for success parameter
+const url = new URL(Astro.request.url);
+const success = url.searchParams.get('success');
 ---
 
 <BaseLayout
@@ -80,6 +84,28 @@ const currentPath = '/';
 >
   <!-- Header -->
   <Header locale={locale} />
+
+  <!-- Success Notification -->
+  {success && (
+    <div id="success-notification" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-50 max-w-md">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="font-semibold mb-1">
+            {success === 'visitor' && 'Ziyaretçi Formu Gönderildi!'}
+            {success === 'participant' && 'Katılımcı Formu Gönderildi!'}
+            {success === 'contact' && 'Mesajınız Gönderildi!'}
+            {success === 'newsletter' && 'Bülten Aboneliği Başarılı!'}
+          </div>
+          <div class="text-sm opacity-90">
+            En kısa sürede sizinle iletişime geçeceğiz.
+          </div>
+        </div>
+        <button onclick="document.getElementById('success-notification').remove()" class="ml-4 text-white hover:text-gray-200">
+          ✕
+        </button>
+      </div>
+    </div>
+  )}
 
   <!-- Main Content -->
   <main>
@@ -208,6 +234,20 @@ const currentPath = '/';
   <VisitorFormModal locale={locale} />
   <ParticipantFormModal locale={locale} />
 </BaseLayout>
+
+{success && (
+  <script>
+    // Auto hide success notification after 5 seconds
+    setTimeout(() => {
+      const notification = document.getElementById('success-notification');
+      if (notification) {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => notification.remove(), 300);
+      }
+    }, 5000);
+  </script>
+)}
 
 <style>
   /* Hero section specific styles */

@@ -184,7 +184,7 @@ const offices = [
               method="POST" 
               data-netlify="true" 
               data-netlify-recaptcha="true"
-              action="/success"
+              action="/en/?success=contact"
               class="max-w-4xl mx-auto space-y-8"
             >
               <!-- Hidden fields for Netlify -->
@@ -449,20 +449,12 @@ const offices = [
     const form = document.getElementById('contact-form');
 
     if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        try {
-          // Let Netlify handle the form submission
-          // Show loading state
-          const submitBtn = form.querySelector('button[type="submit"]');
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-          }
-        } catch (error) {
-          console.error('Form submission error:', error);
-          alert('An error occurred while submitting the form. Please try again.');
+      form.addEventListener('submit', (e) => {
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Submitting...';
         }
       });
     }

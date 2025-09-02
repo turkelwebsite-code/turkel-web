@@ -79,7 +79,7 @@ const legacyFairOptions = [
         method="POST" 
         data-netlify="true" 
         data-netlify-recaptcha="true"
-        action="/success"
+        action="/?success=visitor"
         class="space-y-6"
       >
         <!-- Hidden fields for Netlify -->
@@ -401,11 +401,10 @@ const legacyFairOptions = [
     });
 
     // Form submission - Netlify Forms handles this automatically
-    // We'll keep the modal close functionality
     if (form) {
       form.addEventListener('submit', (e) => {
-        // Let Netlify handle the form submission
-        // Form will redirect to success page automatically
+        // Close modal before submission
+        closeModal();
         
         // Show loading state
         const submitBtn = form.querySelector('button[type="submit"]');
