@@ -198,9 +198,7 @@ const heroSlides = defineCollection({
     background_image: z.string(),
     logo: z.string().optional(),
     website_url: z.string().optional(),
-    mini_images: z.array(z.object({
-      image: z.string()
-    })).optional(),
+    mini_images: z.array(z.string()).optional(),
     maps_embed: z.string().optional(),
     order: z.number().optional(),
     is_active: z.boolean().optional()

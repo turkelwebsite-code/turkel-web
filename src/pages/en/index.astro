@@ -55,7 +55,7 @@ const cmsSlides = activeSlides.map(slide => ({
     fairName: slide.data.title_en,
     fairLogo: slide.data.logo || "/images/fuarlar-logo.png",
     fairWebsite: slide.data.website_url || '#',
-    miniImages: slide.data.mini_images?.map(img => img.image) || [],
+    miniImages: slide.data.mini_images || [],
     mapsEmbed: slide.data.maps_embed || ''
   }
 }));

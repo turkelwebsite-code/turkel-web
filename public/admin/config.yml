@@ -234,7 +234,7 @@ collections:
         required: false
         max: 3
         min: 0
-        field: {label: "Görsel", name: "image", widget: "image"}
+        field: {label: "Görsel", name: "mini_images", widget: "image"}
         hint: "İdeal Ölçü: 400x400px | Slider içinde küçük görseller"
       - {label: "🗺️ Google Maps Embed", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe kodu"}
       - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Slider gösterim sırası"}
