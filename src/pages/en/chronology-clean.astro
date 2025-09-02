@@ -11,23 +11,6 @@ const locale = 'en';
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Sector translation function
-function translateSector(sectorTR: string): string {
-  const sectorTranslations: Record<string, string> = {
-    'Moda ve Tekstil': 'Fashion & Textile',
-    'Ev Tekstili ve Dekorasyon': 'Home Textile & Decoration',
-    'Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları': 'Furniture & Lighting',
-    'Kalıp & Plastik, İhtisas, Havuz': 'Mold & Plastic',
-    'Deri Fuarları & Güvenlik Sistemleri Fuarları': 'Leather & Security',
-    'Güzellik ve Kozmetik': 'Beauty & Cosmetics',
-    'Enerji': 'Energy',
-    'İnşaat': 'Construction',
-    'Diğer': 'Other'
-  };
-  
-  return sectorTranslations[sectorTR] || sectorTR;
-}
-
 // Load chronology data from CMS chronology-years collection
 var chronologyData: Record<number, any[]> = {};
 
@@ -602,7 +585,7 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
                                 {fair.participants && fair.participants.trim() !== '' && (
                                   <div><span class="font-medium">Participants:</span> {fair.participants}</div>
                                 )}
-                                <div class="sm:col-span-2"><span class="font-medium">Sector:</span> {translateSector(fair.sector)}</div>
+                                <div class="sm:col-span-2"><span class="font-medium">Sector:</span> {fair.sector}</div>
                                 {fair.description_tr && fair.description_tr.trim() !== '' && (
                                   <div class="sm:col-span-2 mt-2"><span class="font-medium">Description:</span> {fair.description_en || fair.description_tr}</div>
                                 )}
