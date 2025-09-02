@@ -3,10 +3,14 @@ year: 2020
 is_active: true
 fairs:
   - order: 1
-    name: tet
-    city: tet
-    country: test
-    sector: test
-    area: "100"
-    participants: "100"
-    description: test
+    name_tr: "Test Fuarı 2020"
+    name_en: "Test Fair 2020"
+    city_tr: "İstanbul"
+    city_en: "Istanbul"
+    country_tr: "Türkiye"
+    country_en: "Turkey"
+    sector: "Moda ve Tekstil"
+    area: "10,000 m²"
+    participants: "300"
+    description_tr: "2020 test fuarı açıklaması"
+    description_en: "2020 test fair description"
