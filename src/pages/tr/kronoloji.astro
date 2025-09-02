@@ -554,15 +554,15 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
                 <div class="relative">
                   <!-- Year Circle -->
                   <div class="flex items-center justify-center lg:justify-start">
-                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year.toString() === '2024' || year.toString() === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
+                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${index === 0 ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
                          data-year={year}
                          style="font-family: 'Radio Canada Big', sans-serif;">
                       {year}
                     </div>
                   </div>
                   
-                  <!-- Fair Details (2024 and 2023 visible by default, others hidden) -->
-                  <div class={`timeline-content mt-4 lg:mt-0 ${year.toString() === '2024' || year.toString() === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
+                  <!-- Fair Details (first year visible by default, others hidden) -->
+                  <div class={`timeline-content mt-4 lg:mt-0 ${index === 0 ? '' : 'hidden'}`} id={`content-${year}`}>
                     <div class={`timeline-item-container w-full lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right lg:ml-0 timeline-left' : 'lg:pl-8 lg:text-left lg:ml-1/2 timeline-right'}`}>
                       <div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow relative" style="z-index: 1;">
                         <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 bg-white pb-4 pt-6 border-b border-gray-100 px-6" style="font-family: 'Radio Canada Big', sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
