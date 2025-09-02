@@ -2,15 +2,83 @@ cms_button_label: 2017 Kronoloji
 year: 2017
 is_active: true
 fairs:
-  - participants: "450"
-    description_tr: Rusya'nın en büyük moda ve tekstil fuarı
+  - order: 1
+    name_tr: 2.AFRICA BUILD
+    name_en: 2.AFRICA BUILD
+    city_tr: LAGOS
+    city_en: LAGOS
+    country_tr: NİJERYA
+    country_en: NIGERIA
+    sector: İnşaat
+  - order: 2
+    name_tr: 30.WEDDING FASHION MOSCOW
+    name_en: 30.WEDDING FASHION MOSCOW
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
     sector: Moda ve Tekstil
-    country_tr: Rusya
-    description_en: Russia's largest fashion and textile fair
-    area: 15,000 m²
-    order: 1
-    name_tr: LeShow Moskova 2024
-    city_tr: Moskova
-    country_en: Russia
-    name_en: LeShow Moscow 2024
-    city_en: Moscow
+  - order: 3
+    name_tr: 14.MEDİBAT Mediterranean Building Exhibition
+    name_en: 14.MEDİBAT Mediterranean Building Exhibition
+    city_tr: SFAK
+    city_en: SFAK
+    country_tr: TUNUS
+    country_en: TUNISIAN
+    sector: İnşaat
+  - order: 4
+    name_tr: "21.BABY EXPO "
+    name_en: 21.BABY EXPO
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: Moda ve Tekstil
+  - order: 5
+    name_tr: "LIGHT & ELECTRICITY "
+    name_en: "LIGHT & ELECTRICITY "
+    city_tr: VARŞOVA
+    city_en: WARSAW
+    country_tr: POLONYA
+    country_en: POLAND
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 6
+    name_tr: "11. HOMEDECO "
+    name_en: 11. HOMEDECO
+    city_tr: ALMATI
+    city_en: ALMATY
+    country_tr: KAZAKİSTAN
+    country_en: KAZAKHSTAN
+    sector: Moda ve Tekstil
+  - order: 7
+    name_tr: FUR EXCELLENCE IN ATHENS
+    name_en: FUR EXCELLENCE IN ATHENS
+    city_tr: ATHENA
+    city_en: ATHENS
+    country_tr: YUNANİSTAN
+    sector: Moda ve Tekstil
+    country_en: GREECE
+  - order: 8
+    name_tr: 21.ELCOM UKRAINE
+    name_en: 21.ELCOM UKRAINE
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 9
+    name_tr: 20.LESHOW
+    name_en: 20.LESHOW
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
+    sector: Moda ve Tekstil
+  - order: 10
+    name_tr: "8th INTERNATIONAL EXHIBITION of MOTHER, BABY &CHILD "
+    name_en: "8th INTERNATIONAL EXHIBITION of MOTHER, BABY &CHILD "
+    city_tr: TARHAN
+    city_en: TARHAN
+    country_tr: İRAN
+    country_en: IRAN
+    sector: Moda ve Tekstil
