@@ -1,7 +1,7 @@
 ---
-name: "Kosgeb"
-logo: "/images/kosgeb-logo.png"
-website: "https://www.kosgeb.gov.tr"
+name: Partner01- Expo Center
+logo: /images/partner01.png
+website: ""
 order: 1
 is_active: true
 ---
