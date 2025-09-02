@@ -186,7 +186,7 @@ const offices = [
               method="POST" 
               data-netlify="true" 
               data-netlify-honeypot="bot-field"
-              action="/tr/?success=contact"
+
               class="max-w-4xl mx-auto space-y-8"
             >
               <!-- Hidden fields for Netlify -->
@@ -375,6 +375,38 @@ const offices = [
   <VisitorFormModal locale={locale} />
   <ParticipantFormModal locale={locale} />
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          });
+          
+          if (response.ok) {
+            // Redirect with success parameter
+            window.location.href = `/tr/?success=contact`;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+      });
+    }
+  });
+</script>
 
 <style>
   /* Smooth animations */

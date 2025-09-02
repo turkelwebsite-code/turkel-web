@@ -61,7 +61,7 @@ const { locale, content } = Astro.props;
             method="POST" 
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            action="/?success=newsletter"
+
             class="flex flex-col sm:flex-row w-full max-w-[676px]"
           >
             <!-- Hidden fields for Netlify -->
@@ -287,3 +287,39 @@ const { locale, content } = Astro.props;
 
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[name="newsletter-footer"]');
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          });
+          
+          if (response.ok) {
+            // Redirect with success parameter
+            const currentLang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+            window.location.href = currentLang === 'en' ? `/en/?success=newsletter` : `/?success=newsletter`;
+          } else {
+            throw new Error('Newsletter subscription failed');
+          }
+        } catch (error) {
+          console.error('Newsletter subscription error:', error);
+          alert(document.documentElement.lang === 'tr' 
+            ? 'Bülten aboneliği sırasında bir hata oluştu.' 
+            : 'An error occurred during newsletter subscription.'
+          );
+        }
+      });
+    }
+  });
+</script>

@@ -79,7 +79,7 @@ const legacyFairOptions = [
         method="POST" 
         data-netlify="true" 
         data-netlify-honeypot="bot-field"
-        action="/?success=participant"
+
         class="space-y-6"
       >
         <!-- Hidden fields for Netlify -->
@@ -439,11 +439,34 @@ const legacyFairOptions = [
       }
     });
 
-    // Form submission - Let Netlify handle completely
+    // Form submission with AJAX
     if (form) {
-      form.addEventListener('submit', (e) => {
-        // Just close modal, let Netlify handle the rest
-        closeModal();
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        
+        try {
+          const response = await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          });
+          
+          if (response.ok) {
+            closeModal();
+            // Redirect with success parameter
+            window.location.href = `/?success=participant`;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert(document.documentElement.lang === 'tr' 
+            ? 'Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.' 
+            : 'An error occurred while submitting the form. Please try again.'
+          );
+        }
       });
     }
   });
