@@ -128,13 +128,24 @@ const chronologyYears = defineCollection({
     year: z.number(),
     is_active: z.boolean(),
     fairs: z.array(z.object({
-      name: z.string(),
-      city: z.string(),
-      country: z.string(),
+      // Yeni field'lar
+      name_tr: z.string().optional(),
+      name_en: z.string().optional(),
+      city_tr: z.string().optional(),
+      city_en: z.string().optional(),
+      country_tr: z.string().optional(),
+      country_en: z.string().optional(),
+      description_tr: z.string().optional(),
+      description_en: z.string().optional(),
+      // Eski field'lar (geriye uyumluluk)
+      name: z.string().optional(),
+      city: z.string().optional(),
+      country: z.string().optional(),
+      description: z.string().optional(),
+      // Ortak field'lar
       sector: z.string(),
       area: z.string().optional(),
       participants: z.string().optional(),
-      description: z.string().optional(),
       order: z.number(),
     })),
   }),

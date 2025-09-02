@@ -3,9 +3,14 @@ year: 2019
 is_active: true
 fairs:
   - order: 1
-    name: test
-    city: test
-    country: test
-    sector: test
-    area: "123123"
-    participants: "123"
+    name_tr: "Test Fuarı"
+    name_en: "Test Fair"
+    city_tr: "İstanbul"
+    city_en: "Istanbul"
+    country_tr: "Türkiye"
+    country_en: "Turkey"
+    sector: "Moda ve Tekstil"
+    area: "15,000 m²"
+    participants: "450"
+    description_tr: "Test açıklaması"
+    description_en: "Test description"

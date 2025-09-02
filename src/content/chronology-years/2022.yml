@@ -3,7 +3,14 @@ year: 2021
 is_active: true
 fairs:
   - order: 1
-    name: 15.DUBAI WOOD SHOW
-    city: DUBAİ
-    country: BAE
-    sector: ULUSLARARASI AHŞAP VE AĞAÇ İŞLEME MAKİNELERİ ENDÜSTRİSİ FUARI
+    name_tr: "15. DUBAI WOOD SHOW"
+    name_en: "15th DUBAI WOOD SHOW"
+    city_tr: "Dubai"
+    city_en: "Dubai"
+    country_tr: "BAE"
+    country_en: "UAE"
+    sector: "İnşaat"
+    area: "12,000 m²"
+    participants: "320"
+    description_tr: "Uluslararası ahşap ve ağaç işleme makineleri endüstrisi fuarı"
+    description_en: "International wood and woodworking machinery industry fair"

@@ -574,14 +574,21 @@ console.log('📜 CHRONOLOGY DEBUG: Total entries per year:',
                           {fairs.map((fair) => (
                             <div class="border-l-4 border-[#CE1A28] pl-4 py-2">
                               <h4 class="font-semibold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
-                                {fair.name}
+                                {fair.name_tr || fair.name}
                               </h4>
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                <div><span class="font-medium">Şehir:</span> {fair.city}</div>
-                                <div><span class="font-medium">Ülke:</span> {fair.country}</div>
-                                <div><span class="font-medium">Alan:</span> {fair.area} m²</div>
-                                <div><span class="font-medium">Katılımcı:</span> {fair.participants}</div>
+                                <div><span class="font-medium">Şehir:</span> {fair.city_tr || fair.city}</div>
+                                <div><span class="font-medium">Ülke:</span> {fair.country_tr || fair.country}</div>
+                                {fair.area && fair.area.trim() !== '' && (
+                                  <div><span class="font-medium">Alan:</span> {fair.area}</div>
+                                )}
+                                {fair.participants && fair.participants.trim() !== '' && (
+                                  <div><span class="font-medium">Katılımcı:</span> {fair.participants}</div>
+                                )}
                                 <div class="sm:col-span-2"><span class="font-medium">Sektör:</span> {fair.sector}</div>
+                                {fair.description_tr && fair.description_tr.trim() !== '' && (
+                                  <div class="sm:col-span-2 mt-2"><span class="font-medium">Açıklama:</span> {fair.description_tr}</div>
+                                )}
                               </div>
                             </div>
                           ))}

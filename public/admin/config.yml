@@ -180,18 +180,22 @@ collections:
       - label: "Kronoloji Fuarları"
         name: "fairs"
         widget: "list"
-        summary: "{{fields.name}} • {{fields.city}}, {{fields.country}} • Sıra: {{fields.order}}"
+        summary: "{{fields.name_tr}} • {{fields.city_tr}}, {{fields.country_tr}} • {{fields.sector}} • Sıra: {{fields.order}}"
         collapsed: true
         minimize_collapsed: true
         fields:
-          - {label: "Fuar Adı", name: "name", widget: "string"}
-          - {label: "Şehir", name: "city", widget: "string"}
-          - {label: "Ülke", name: "country", widget: "string"}
-          - {label: "Sektör", name: "sector", widget: "string"}
-          - {label: "Alan", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m²"}
-          - {label: "Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450"}
-          - {label: "Açıklama", name: "description", widget: "text", required: false}
-          - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
+          - {label: "🇹🇷 Fuar Adı (Türkçe)", name: "name_tr", widget: "string", hint: "Türkçe fuar adı"}
+          - {label: "🇺🇸 Fuar Adı (İngilizce)", name: "name_en", widget: "string", hint: "İngilizce fuar adı"}
+          - {label: "🏙️ Şehir (Türkçe)", name: "city_tr", widget: "string", hint: "Örnek: Moskova"}
+          - {label: "🏙️ Şehir (İngilizce)", name: "city_en", widget: "string", hint: "Example: Moscow"}
+          - {label: "🌍 Ülke (Türkçe)", name: "country_tr", widget: "string", hint: "Örnek: Rusya"}
+          - {label: "🌍 Ülke (İngilizce)", name: "country_en", widget: "string", hint: "Example: Russia"}
+          - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true, hint: "Fuarlardaki sektör listesinden seçin"}
+          - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m² - Boş bırakılırsa gösterilmez"}
+          - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450 - Boş bırakılırsa gösterilmez"}
+          - {label: "📝 Açıklama (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Türkçe açıklama"}
+          - {label: "📝 Açıklama (İngilizce)", name: "description_en", widget: "text", required: false, hint: "English description"}
+          - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
 
   # SİTE AYARLARI
   - name: "settings"

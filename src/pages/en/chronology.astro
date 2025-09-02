@@ -4,430 +4,511 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { FOOTER_CONTENT } from '../../lib/footer-content';
 import { SITE_CONFIG } from '../../lib/constants';
+import { getCollection } from 'astro:content';
 
 const locale = 'en';
 
 // Use shared footer content
 const footerContent = FOOTER_CONTENT[locale];
 
-// Chronology data - Last 10 years
-const chronologyData = {
+// Load chronology data from CMS chronology-years collection
+var chronologyData: Record<number, any[]> = {};
+
+try {
+  const chronologyYears = await getCollection('chronology-years');
+  console.log('📜 CHRONOLOGY DEBUG: Chronology years collection loaded:', chronologyYears.length);
+
+  // Load from chronology-years collection
+  chronologyYears.forEach(yearCollection => {
+    const year = yearCollection.data.year;
+    if (yearCollection.data.is_active && yearCollection.data.fairs) {
+      chronologyData[year] = yearCollection.data.fairs.sort((a, b) => a.order - b.order);
+      console.log(`📜 CHRONOLOGY DEBUG: Loaded ${year} with ${yearCollection.data.fairs.length} fairs from CMS`);
+    }
+  });
+
+  console.log('📜 CHRONOLOGY DEBUG: Years from CMS:', Object.keys(chronologyData));
+} catch (error) {
+  console.log('📜 CHRONOLOGY DEBUG: chronology-years collection not found, using fallback');
+  chronologyData = {};
+}
+
+// Auto-populate from fairs with show_in_chronology flag
+const allFairYears = await getCollection('fair-years');
+allFairYears.forEach(yearCollection => {
+  const year = yearCollection.data.year;
+  const fairs = yearCollection.data.fairs || [];
+  
+  fairs.forEach((fair: any) => {
+    if (fair.settings?.show_in_chronology) {
+      if (!chronologyData[year]) {
+        chronologyData[year] = [];
+      }
+      
+      // Extract location parts
+      const locationParts = fair.basic_info.location_tr?.split(', ') || ['', ''];
+      const city = locationParts[0] || fair.basic_info.location_tr || '';
+      const country = locationParts[1] || '';
+      
+      // Check if this fair already exists in chronology CMS
+      const existsInCMS = chronologyData[year].some(existing => 
+        existing.name === fair.basic_info.name_tr
+      );
+      
+      if (!existsInCMS) {
+        chronologyData[year].push({
+          name: fair.basic_info.name_tr,
+          city: city,
+          country: country,
+          area: fair.chronology_info?.area || '',
+          participants: fair.chronology_info?.participants || '',
+          sector: fair.basic_info.sector || '',
+          description: fair.chronology_info?.description || ''
+        });
+      }
+    }
+  });
+});
+
+console.log('📜 CHRONOLOGY DEBUG: Auto-populated from fairs');
+console.log('📜 CHRONOLOGY DEBUG: Final years with data:', Object.keys(chronologyData));
+
+// Remove static data - use only CMS data
+console.log('📜 CHRONOLOGY DEBUG: Using only CMS data, no static fallback');
+
+// Final chronology data (CMS only)
+const finalChronologyData = chronologyData;
+
+// Legacy static data (removed - now using CMS only)
+const removedStaticChronologyData = {
   2024: [
     {
-      name: "LeShow Moscow 2024",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2024",
+      city: "Moskova",
+      country: "Rusya",
       area: "15,000",
       participants: "450",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2024",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2024",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "12,000",
       participants: "320",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     },
     {
-      name: "Furniture Istanbul 2024",
-      city: "Istanbul",
-      country: "Turkey",
+      name: "Furniture İstanbul 2024",
+      city: "İstanbul",
+      country: "Türkiye",
       area: "25,000",
       participants: "680",
-      sector: "Furniture"
+      sector: "Mobilya"
     },
     {
       name: "Textile Expo Dubai 2024",
       city: "Dubai",
-      country: "UAE",
+      country: "BAE",
       area: "18,000",
       participants: "520",
-      sector: "Textile"
+      sector: "Tekstil"
     },
     {
       name: "Fashion Week Milano 2024",
       city: "Milano",
-      country: "Italy",
+      country: "İtalya",
       area: "22,000",
       participants: "780",
-      sector: "Fashion"
+      sector: "Moda"
     },
     {
       name: "Construction Fair Berlin 2024",
       city: "Berlin",
-      country: "Germany",
+      country: "Almanya",
       area: "35,000",
       participants: "920",
-      sector: "Construction"
+      sector: "İnşaat"
     },
     {
       name: "Food Expo Paris 2024",
       city: "Paris",
-      country: "France",
+      country: "Fransa",
       area: "28,000",
       participants: "650",
-      sector: "Food"
+      sector: "Gıda"
     },
     {
       name: "Tech Summit London 2024",
-      city: "London",
-      country: "UK",
+      city: "Londra",
+      country: "İngiltere",
       area: "16,000",
       participants: "480",
-      sector: "Technology"
+      sector: "Teknoloji"
     },
     {
       name: "Auto Show Frankfurt 2024",
       city: "Frankfurt",
-      country: "Germany",
+      country: "Almanya",
       area: "45,000",
       participants: "1200",
-      sector: "Automotive"
+      sector: "Otomotiv"
     },
     {
       name: "Energy Fair Amsterdam 2024",
       city: "Amsterdam",
-      country: "Netherlands",
+      country: "Hollanda",
       area: "20,000",
       participants: "580",
-      sector: "Energy"
+      sector: "Enerji"
     },
     {
       name: "Healthcare Expo Vienna 2024",
-      city: "Vienna",
-      country: "Austria",
+      city: "Viyana",
+      country: "Avusturya",
       area: "14,000",
       participants: "420",
-      sector: "Healthcare"
+      sector: "Sağlık"
     },
     {
       name: "Beauty Fair Barcelona 2024",
       city: "Barcelona",
-      country: "Spain",
+      country: "İspanya",
       area: "12,500",
       participants: "380",
-      sector: "Cosmetics"
+      sector: "Kozmetik"
     },
     {
       name: "Sports Expo Munich 2024",
-      city: "Munich",
-      country: "Germany",
+      city: "Münih",
+      country: "Almanya",
       area: "19,000",
       participants: "560",
-      sector: "Sports"
+      sector: "Spor"
     },
     {
       name: "Agriculture Fair Warsaw 2024",
-      city: "Warsaw",
-      country: "Poland",
+      city: "Varşova",
+      country: "Polonya",
       area: "24,000",
       participants: "720",
-      sector: "Agriculture"
+      sector: "Tarım"
     },
     {
       name: "Jewelry Show Geneva 2024",
-      city: "Geneva",
-      country: "Switzerland",
+      city: "Cenevre",
+      country: "İsviçre",
       area: "8,000",
       participants: "250",
-      sector: "Jewelry"
+      sector: "Mücevher"
     },
     {
       name: "Electronics Fair Tokyo 2024",
       city: "Tokyo",
-      country: "Japan",
+      country: "Japonya",
       area: "32,000",
       participants: "850",
-      sector: "Electronics"
+      sector: "Elektronik"
     },
     {
       name: "Chemical Expo Rotterdam 2024",
       city: "Rotterdam",
-      country: "Netherlands",
+      country: "Hollanda",
       area: "26,000",
       participants: "680",
-      sector: "Chemical"
+      sector: "Kimya"
     },
     {
       name: "Packaging Fair Düsseldorf 2024",
       city: "Düsseldorf",
-      country: "Germany",
+      country: "Almanya",
       area: "21,000",
       participants: "620",
-      sector: "Packaging"
+      sector: "Ambalaj"
     },
     {
       name: "Maritime Expo Hamburg 2024",
       city: "Hamburg",
-      country: "Germany",
+      country: "Almanya",
       area: "17,000",
       participants: "490",
-      sector: "Maritime"
+      sector: "Denizcilik"
     },
     {
       name: "Renewable Energy Fair Copenhagen 2024",
-      city: "Copenhagen",
-      country: "Denmark",
+      city: "Kopenhag",
+      country: "Danimarka",
       area: "15,500",
       participants: "460",
-      sector: "Renewable Energy"
+      sector: "Yenilenebilir Enerji"
     },
     {
       name: "Logistics Expo Brussels 2024",
-      city: "Brussels",
-      country: "Belgium",
+      city: "Brüksel",
+      country: "Belçika",
       area: "23,000",
       participants: "670",
-      sector: "Logistics"
+      sector: "Lojistik"
     },
     {
       name: "Mining Fair Johannesburg 2024",
       city: "Johannesburg",
-      country: "South Africa",
+      country: "Güney Afrika",
       area: "29,000",
       participants: "780",
-      sector: "Mining"
+      sector: "Madencilik"
     },
     {
       name: "Plastics Expo Chicago 2024",
       city: "Chicago",
-      country: "USA",
+      country: "ABD",
       area: "31,000",
       participants: "820",
-      sector: "Plastics"
+      sector: "Plastik"
     },
     {
       name: "Security Fair Las Vegas 2024",
       city: "Las Vegas",
-      country: "USA",
+      country: "ABD",
       area: "18,500",
       participants: "540",
-      sector: "Security"
+      sector: "Güvenlik"
     },
     {
       name: "Lighting Expo Stockholm 2024",
       city: "Stockholm",
-      country: "Sweden",
+      country: "İsveç",
       area: "13,000",
       participants: "390",
-      sector: "Lighting"
+      sector: "Aydınlatma"
     },
     {
       name: "Furniture Design Fair Helsinki 2024",
       city: "Helsinki",
-      country: "Finland",
+      country: "Finlandiya",
       area: "16,500",
       participants: "480",
-      sector: "Furniture Design"
+      sector: "Mobilya Tasarım"
     },
     {
       name: "Wine Expo Bordeaux 2024",
       city: "Bordeaux",
-      country: "France",
+      country: "Fransa",
       area: "11,000",
       participants: "320",
-      sector: "Wine"
+      sector: "Şarap"
     },
     {
       name: "Textile Machinery Fair Milan 2024",
-      city: "Milan",
-      country: "Italy",
+      city: "Milano",
+      country: "İtalya",
       area: "27,000",
       participants: "750",
-      sector: "Textile Machinery"
+      sector: "Tekstil Makineleri"
     },
     {
       name: "Green Technology Fair Oslo 2024",
       city: "Oslo",
-      country: "Norway",
+      country: "Norveç",
       area: "14,500",
       participants: "430",
-      sector: "Green Technology"
+      sector: "Yeşil Teknoloji"
     },
     {
       name: "Digital Innovation Summit Zurich 2024",
-      city: "Zurich",
-      country: "Switzerland",
+      city: "Zürih",
+      country: "İsviçre",
       area: "12,000",
       participants: "360",
-      sector: "Digital Innovation"
+      sector: "Dijital İnovasyon"
     }
   ],
   2023: [
     {
-      name: "LeShow Moscow 2023",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2023",
+      city: "Moskova",
+      country: "Rusya",
       area: "14,500",
       participants: "420",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2023",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2023",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "11,500",
       participants: "300",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     },
     {
       name: "Textile Expo Dubai 2023",
       city: "Dubai",
-      country: "UAE",
+      country: "BAE",
       area: "18,000",
       participants: "520",
-      sector: "Textile"
+      sector: "Tekstil"
     }
   ],
   2022: [
     {
-      name: "LeShow Moscow 2022",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2022",
+      city: "Moskova",
+      country: "Rusya",
       area: "13,800",
       participants: "380",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2022",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2022",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "10,800",
       participants: "280",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ],
   2021: [
     {
       name: "Digital LeShow 2021",
       city: "Online",
-      country: "Digital",
-      area: "Digital",
+      country: "Dijital",
+      area: "Dijital",
       participants: "850",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
       name: "HomeDeco Virtual 2021",
       city: "Online",
-      country: "Digital",
-      area: "Digital",
+      country: "Dijital",
+      area: "Dijital",
       participants: "650",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ],
   2020: [
     {
-      name: "LeShow Moscow 2020",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2020",
+      city: "Moskova",
+      country: "Rusya",
       area: "12,000",
       participants: "320",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     }
   ],
   2019: [
     {
-      name: "LeShow Moscow 2019",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2019",
+      city: "Moskova",
+      country: "Rusya",
       area: "16,000",
       participants: "480",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2019",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2019",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "13,500",
       participants: "350",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     },
     {
-      name: "Furniture Istanbul 2019",
-      city: "Istanbul",
-      country: "Turkey",
+      name: "Furniture İstanbul 2019",
+      city: "İstanbul",
+      country: "Türkiye",
       area: "28,000",
       participants: "750",
-      sector: "Furniture"
+      sector: "Mobilya"
     }
   ],
   2018: [
     {
-      name: "LeShow Moscow 2018",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2018",
+      city: "Moskova",
+      country: "Rusya",
       area: "15,500",
       participants: "460",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2018",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2018",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "12,800",
       participants: "330",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ],
   2017: [
     {
-      name: "LeShow Moscow 2017",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2017",
+      city: "Moskova",
+      country: "Rusya",
       area: "14,800",
       participants: "440",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2017",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2017",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "11,200",
       participants: "290",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ],
   2016: [
     {
-      name: "LeShow Moscow 2016",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2016",
+      city: "Moskova",
+      country: "Rusya",
       area: "14,200",
       participants: "420",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2016",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2016",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "10,500",
       participants: "270",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ],
   2015: [
     {
-      name: "LeShow Moscow 2015",
-      city: "Moscow",
-      country: "Russia",
+      name: "LeShow Moskova 2015",
+      city: "Moskova",
+      country: "Rusya",
       area: "13,500",
       participants: "400",
-      sector: "Leather & Fur"
+      sector: "Deri ve Kürk"
     },
     {
-      name: "HomeDeco Kazakhstan 2015",
-      city: "Almaty",
-      country: "Kazakhstan",
+      name: "HomeDeco Kazakistan 2015",
+      city: "Almatı",
+      country: "Kazakistan",
       area: "9,800",
       participants: "250",
-      sector: "Home Textile"
+      sector: "Ev Tekstili"
     }
   ]
 };
+
+// Sort years in descending order (newest first) and limit to 12 years (CMS only)
+const currentYear = new Date().getFullYear();
+const sortedYears = Object.keys(finalChronologyData)
+  .map(year => parseInt(year))
+  .filter(year => year <= currentYear) // Only past and current years
+  .sort((a, b) => b - a)
+  .slice(0, 12); // Limit to 12 years
+
+console.log('📜 CHRONOLOGY DEBUG: Final chronology years (last 10):', sortedYears);
+console.log('📜 CHRONOLOGY DEBUG: Total entries per year:', 
+  sortedYears.map(year => `${year}: ${finalChronologyData[year]?.length || 0}`));
 ---
 
-<BaseLayout title="Chronology - Türkel Fair Organization" description="Chronology of Türkel Fair Organization's fair organizations over the last 10 years">
+<BaseLayout title="Chronology - Türkel Fuarcılık" description="Chronology of Türkel Fuarcılık's fair organizations over the last 10 years" locale={locale}>
   <Header locale={locale} />
   
   <main class="min-h-screen">
@@ -436,7 +517,7 @@ const chronologyData = {
       <div class="mx-auto px-5" style="max-width: calc(100% - 20px);">
         <div class="container mx-auto px-4 lg:px-8">
           <nav class="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6" style="font-family: 'Radio Canada Big', sans-serif;">
-            <a href="/en/" class="hover:text-[#CE1A28] transition-colors">Home</a>
+            <a href="/tr/" class="hover:text-[#CE1A28] transition-colors">Ana Sayfa</a>
             <span>/</span>
             <span class="text-gray-900 font-medium">Chronology</span>
           </nav>
@@ -463,16 +544,17 @@ const chronologyData = {
             
             <!-- Timeline Items -->
             <div class="space-y-16 lg:space-y-24">
-              {Object.entries(chronologyData).reverse().map(([year, fairs], index) => {
-                // Debug: Position based on year number
-                const yearNum = parseInt(year);
-                const isLeft = yearNum % 2 === 0; // Even years (2024, 2022, 2020...) on left side
+              {sortedYears.map((year, index) => {
+                const fairs = finalChronologyData[year];
+                // Debug: Yıl numarasına göre pozisyon belirleme
+                const yearNum = year;
+                const isLeft = yearNum % 2 === 0; // Çift yıllar (2024, 2022, 2020...) sol tarafta
                 console.log(`Year: ${year}, YearNum: ${yearNum}, IsLeft: ${isLeft}`);
                 return (
                 <div class="relative">
                   <!-- Year Circle -->
                   <div class="flex items-center justify-center lg:justify-start">
-                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year === '2024' || year === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
+                    <div class={`lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg lg:text-xl z-10 cursor-pointer transition-colors timeline-year ${year.toString() === '2024' || year.toString() === '2023' ? 'bg-[#B01520]' : 'bg-[#CE1A28] hover:bg-[#B01520]'}`}
                          data-year={year}
                          style="font-family: 'Radio Canada Big', sans-serif;">
                       {year}
@@ -480,11 +562,11 @@ const chronologyData = {
                   </div>
                   
                   <!-- Fair Details (2024 and 2023 visible by default, others hidden) -->
-                  <div class={`timeline-content mt-4 lg:mt-0 ${year === '2024' || year === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
+                  <div class={`timeline-content mt-4 lg:mt-0 ${year.toString() === '2024' || year.toString() === '2023' ? '' : 'hidden'}`} id={`content-${year}`}>
                     <div class={`timeline-item-container w-full lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right lg:ml-0 timeline-left' : 'lg:pl-8 lg:text-left lg:ml-1/2 timeline-right'}`}>
                       <div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow relative" style="z-index: 1;">
                         <h3 class="text-xl lg:text-2xl font-bold text-gray-900 mb-4 bg-white pb-4 pt-6 border-b border-gray-100 px-6" style="font-family: 'Radio Canada Big', sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-                          {year} Fairs
+                          {year} Fuarları
                         </h3>
                         
                         <div class="max-h-80 overflow-y-auto">
@@ -492,14 +574,21 @@ const chronologyData = {
                           {fairs.map((fair) => (
                             <div class="border-l-4 border-[#CE1A28] pl-4 py-2">
                               <h4 class="font-semibold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;">
-                                {fair.name}
+                                {fair.name_en || fair.name_tr || fair.name}
                               </h4>
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
-                                <div><span class="font-medium">City:</span> {fair.city}</div>
-                                <div><span class="font-medium">Country:</span> {fair.country}</div>
-                                <div><span class="font-medium">Area:</span> {fair.area} m²</div>
-                                <div><span class="font-medium">Participants:</span> {fair.participants}</div>
+                                <div><span class="font-medium">City:</span> {fair.city_en || fair.city_tr || fair.city}</div>
+                                <div><span class="font-medium">Country:</span> {fair.country_en || fair.country_tr || fair.country}</div>
+                                {fair.area && fair.area.trim() !== '' && (
+                                  <div><span class="font-medium">Area:</span> {fair.area}</div>
+                                )}
+                                {fair.participants && fair.participants.trim() !== '' && (
+                                  <div><span class="font-medium">Participants:</span> {fair.participants}</div>
+                                )}
                                 <div class="sm:col-span-2"><span class="font-medium">Sector:</span> {fair.sector}</div>
+                                {fair.description_tr && fair.description_tr.trim() !== '' && (
+                                  <div class="sm:col-span-2 mt-2"><span class="font-medium">Description:</span> {fair.description_en || fair.description_tr}</div>
+                                )}
                               </div>
                             </div>
                           ))}
@@ -514,10 +603,10 @@ const chronologyData = {
             </div>
           </div>
           
-          <!-- Subtitle -->
+          <!-- Alt Başlık -->
           <div class="text-center mt-12">
             <h2 class="text-lg lg:text-xl text-gray-900 font-normal" style="font-family: 'Radio Canada Big', sans-serif;">
-              Chronological history of fairs organized with our 30 years of experience
+              30 yıllık deneyimimizle düzenlediğimiz fuarların kronolojik geçmişi
             </h2>
           </div>
           
@@ -531,33 +620,34 @@ const chronologyData = {
   <!-- Timeline JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile responsive inline style cleanup
+      // Mobile responsive inline style temizleme
       function fixMobileStyles() {
         if (window.innerWidth <= 1024) {
           const containers = document.querySelectorAll('.timeline-item-container');
           containers.forEach(container => {
-            // Remove inline styles completely
-            container.removeAttribute('style');
-            container.style.cssText = '';
+            const element = container as HTMLElement;
+            // Inline style'ları tamamen kaldır
+            element.removeAttribute('style');
+            element.style.cssText = '';
             
-            // Force apply mobile CSS
-            container.style.setProperty('margin-left', '0', 'important');
-            container.style.setProperty('margin-right', '0', 'important');
-            container.style.setProperty('width', '100%', 'important');
-            container.style.setProperty('display', 'flex', 'important');
-            container.style.setProperty('justify-content', 'center', 'important');
+            // Zorla mobile CSS uygula
+            element.style.setProperty('margin-left', '0', 'important');
+            element.style.setProperty('margin-right', '0', 'important');
+            element.style.setProperty('width', '100%', 'important');
+            element.style.setProperty('display', 'flex', 'important');
+            element.style.setProperty('justify-content', 'center', 'important');
           });
         }
       }
       
-      // Run on page load and resize
+      // Sayfa yüklendiğinde ve resize'da çalıştır
       fixMobileStyles();
       window.addEventListener('resize', fixMobileStyles);
       
       const timelineYears = document.querySelectorAll('.timeline-year');
       
       timelineYears.forEach(yearElement => {
-        yearElement.addEventListener('click', function() {
+        yearElement.addEventListener('click', function(this: HTMLElement) {
           const year = this.dataset.year;
           const content = document.getElementById(`content-${year}`);
           
@@ -569,7 +659,9 @@ const chronologyData = {
           });
           
           // Toggle current content
-          content.classList.toggle('hidden');
+          if (content) {
+            content.classList.toggle('hidden');
+          }
           
           // Update year button style
           timelineYears.forEach(el => {
@@ -577,12 +669,12 @@ const chronologyData = {
             el.classList.add('bg-[#CE1A28]');
           });
           
-          if (!content.classList.contains('hidden')) {
+          if (content && !content.classList.contains('hidden')) {
             this.classList.remove('bg-[#CE1A28]');
             this.classList.add('bg-[#B01520]');
           }
           
-          // Reapply mobile styles
+          // Mobile style'ları tekrar uygula
           setTimeout(fixMobileStyles, 10);
         });
       });
@@ -625,9 +717,9 @@ const chronologyData = {
       }
     }
     
-    /* Mobile Responsive - Radical CSS Override */
+    /* Mobile Responsive - Radikal CSS Override */
     @media (max-width: 1024px) {
-      /* Force reset all timeline items */
+      /* Tüm timeline item'ları zorla sıfırla */
       .timeline-item-container,
       .timeline-item-container[style],
       .timeline-item-container[style*="margin"],
@@ -641,22 +733,22 @@ const chronologyData = {
         right: auto !important;
         position: static !important;
         
-        /* Same behavior for all cards */
+        /* Tüm card'lar için aynı davranış */
         width: 100% !important;
         max-width: 100% !important;
         
-        /* Flexbox centering */
+        /* Flexbox ortalama */
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
       }
       
-      /* Distance year circles from cards */
+      /* Yıl dairelerini card'lardan uzaklaştır */
       .timeline-year {
         margin-bottom: 24px !important;
       }
       
-      /* Reset timeline content too */
+      /* Timeline content'i de sıfırla */
       .timeline-content,
       .timeline-content[style] {
         margin: 0 !important;
@@ -666,7 +758,7 @@ const chronologyData = {
         display: block !important;
       }
       
-      /* Card container - correct HTML structure and perfectly centered */
+      /* Card container - doğru HTML yapısına göre ve tam ortalı */
       .timeline-item-container {
         width: 100% !important;
         max-width: none !important;
@@ -682,7 +774,7 @@ const chronologyData = {
         position: relative !important;
       }
       
-      /* Card inner - div with bg-white class */
+      /* Card içi - bg-white class'ına sahip div */
       .timeline-item-container > .bg-white {
         border-radius: 8px !important;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
@@ -698,7 +790,7 @@ const chronologyData = {
         padding: 0 !important;
       }
       
-      /* Header - h3 element */
+      /* Header - h3 elementi */
       .timeline-item-container h3 {
         padding: 20px 24px 16px 24px !important;
         margin: 0 !important;
@@ -710,7 +802,7 @@ const chronologyData = {
         display: block !important;
       }
       
-      /* Scroll container - max-h-80 class */
+      /* Scroll container - max-h-80 class'ı */
       .timeline-item-container .max-h-80 {
         max-height: 300px !important;
         overflow-y: auto !important;
@@ -720,7 +812,7 @@ const chronologyData = {
         display: block !important;
       }
       
-      /* Content area - space-y-4 class */
+      /* Content area - space-y-4 class'ı */
       .timeline-item-container .space-y-4 {
         padding: 16px 24px 24px 24px !important;
         margin: 0 !important;
@@ -728,7 +820,7 @@ const chronologyData = {
         display: block !important;
       }
       
-      /* Fair items - divs with border-l-4 class */
+      /* Fuar item'ları - border-l-4 class'ına sahip div'ler */
       .timeline-item-container .border-l-4 {
         margin-bottom: 16px !important;
         display: block !important;
@@ -740,7 +832,7 @@ const chronologyData = {
         padding-bottom: 8px !important;
       }
       
-      /* Fair titles - h4 element */
+      /* Fuar başlıkları - h4 elementi */
       .timeline-item-container h4 {
         font-weight: 600 !important;
         color: #111827 !important;
@@ -749,7 +841,7 @@ const chronologyData = {
         font-size: 1rem !important;
       }
       
-      /* Fair detail grid */
+      /* Fuar detay grid'i */
       .timeline-item-container .grid {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
