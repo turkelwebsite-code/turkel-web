@@ -1,40 +1,163 @@
-cms_button_label: 2017 Kronoloji
-year: 2017
+cms_button_label: 2018 Kronoloji2
+year: 2029
 is_active: true
 fairs:
-  - participants: "320"
-    description_tr: Türkiye'nin prestijli moda fuarı
-    sector: Moda ve Tekstil
-    country_tr: Türkiye
-    description_en: Turkey's prestigious fashion fair
-    area: 12,000 m²
+  - description_tr: MIMARI AYDINLATMA, KONUT ve DEKORATIF AYDINLATMA
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: POLONYA
+    description_en: ARCHITECTURAL LIGHTING, RESIDENTIAL AND DECORATIVE LIGHTING
     order: 1
-    name_tr: Fashion Week İstanbul 2023
-    city_tr: İstanbul
-    country_en: Turkey
-    name_en: Fashion Week Istanbul 2023
-    city_en: Istanbul
-  - participants: "180"
-    description_tr: Orta Asya'nın ev dekorasyonu fuarı
-    sector: Ev Tekstili ve Dekorasyon
-    country_tr: Kazakistan
-    description_en: Central Asia's home decoration fair
-    area: 8,000 m²
+    name_tr: LIGHT & ELECTRICITY
+    city_tr: VARŞOVA
+    country_en: POLAND
+    name_en: LIGHT & ELECTRICITY
+    city_en: WARSAW
+  - description_tr: TARIM, MAKINE ve MATERAYELLERI
+    sector: Moda ve Tekstil
+    country_tr: İRAN
+    description_en: AGRICULTURE, MACHINERY AND MATERIALS
     order: 2
-    name_tr: HomeDeco Almatı 2023
-    city_tr: Almatı
-    country_en: Kazakhstan
-    name_en: HomeDeco Almaty 2023
-    city_en: Almaty
-  - participants: "150"
-    description_tr: Güvenlik teknolojileri fuarı
-    sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
-    country_tr: Rusya
-    description_en: Security technologies fair
-    area: 6,000 m²
+    name_tr: IRAN AGRISHOW
+    city_tr: TAHRAN
+    country_en: IRAN
+    name_en: IRAN AGRISHOW
+    city_en: TEHERAN
+  - description_tr: ""
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: ""
     order: 3
-    name_tr: Security Expo Moskova 2023
-    city_tr: Moskova
-    country_en: Russia
-    name_en: Security Expo Moscow 2023
-    city_en: Moscow
+    name_tr: 32. WEDDING FASHION MOSCOW
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 32. WEDDING FASHION MOSCOW
+    city_en: MOSCOW
+  - order: 4
+    name_tr: FUR EXCELLENCE IN ATHENS
+    name_en: FUR EXCELLENCE IN ATHENS
+    city_tr: ATİNA
+    city_en: ATHENS
+    country_tr: YUNANİSTAN
+    country_en: GREECE
+    sector: Moda ve Tekstil
+  - order: 5
+    name_tr: 12.HOMEDECO KAZAKHSTAN
+    name_en: 12.HOMEDECO KAZAKHSTAN
+    city_tr: ALMATI
+    city_en: ALMATY
+    country_tr: KAZAKİSTAN
+    country_en: KAZAKHSTAN
+    sector: Ev Tekstili ve Dekorasyon
+  - description_tr: ULUSLARARASI ÇOCUK GİYİM ve ÜRÜNLERİ FUARI
+    sector: Moda ve Tekstil
+    country_tr: UKRAYNA
+    description_en: INTERNATIONAL CHILDREN'S CLOTHING AND PRODUCTS FAIR
+    order: 6
+    name_tr: BAYBY EXPO
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: BAYBY EXPO
+    city_en: KIEV
+  - description_tr: "ULUSLARARASI ENERJİ, ELEKTRİK ve ELEKTRONİK FUARI "
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: UKRAYNA
+    description_en: "INTERNATIONAL ENERGY, ELECTRICITY AND ELECTRONICS FAIR "
+    order: 7
+    name_tr: 22.ELCOM UKRAINE'2018
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: 22.ELCOM UKRAINE'2018
+    city_en: KIEV
+  - description_tr: "ULUSLARARASI DERİ ve KÜRK MODA FUARI "
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: INTERNATIONAL LEATHER AND FUR FASHION FAIR
+    order: 8
+    name_tr: 21.LESHOW MOSCOW
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 21.LESHOW MOSCOW
+    city_en: MOSCOW
+  - description_tr: |
+      13. ULUSLARARASI ÇOCUK ÜRÜNLERİ VE GİYİM SERGİSİ
+    sector: Moda ve Tekstil
+    country_tr: KAZAKİSTAN
+    description_en: 13th INTERNATIONAL EXHIBITION FOR CHILDREN PRODUCTS & CLOTHES
+    order: 9
+    name_tr: CHILDHOOD & KIDSFASHION 2018
+    city_tr: ALMATI
+    country_en: KAZAKHSTAN
+    name_en: CHILDHOOD & KIDSFASHION 2018
+    city_en: ALMATY
+  - description_tr: ULUSLARARASI EV TEKSİTLİ, ZÜCCACİYE, MOBİLYA, DEKORASYON ve AKSESUAR FUARI
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: POLONYA
+    description_en: INTERNATIONAL HOME TEXTILES, GLASSWARE, FURNITURE, DECORATION
+      AND ACCESSORIES FAIR
+    order: 10
+    name_tr: WARSAW HOME
+    city_tr: VARŞOVA
+    country_en: POLAND
+    name_en: WARSAW HOME
+    city_en: WARSAW
+  - order: 11
+    name_tr: ANKARA LOJİSTİK ZİRVESİ
+    name_en: ANKARA LOJİSTİK ZİRVESİ
+    city_tr: ANKARA
+    city_en: ANKARA
+    country_tr: TÜRKİYE
+    country_en: TURKEY
+    sector: Diğer
+  - description_tr: MOBİLYA, AYDINLATMA, DEKOR, EV TEKSTİLİ
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: UKRAYNA
+    description_en: FURNITURE, LIGHTING, DECOR, HOME TEXTILES
+    order: 12
+    name_tr: "DESING LIVING TENDENCY\t"
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: "DESING LIVING TENDENCY\t"
+    city_en: KIEV
+  - description_tr: ULUSLARARASI SERAMİK, MUTFAK & BANYO ve SIHHİ TESİSAT FUARI
+    sector: İnşaat
+    country_tr: MISIR
+    description_en: |
+      INTERNATIONAL CERAMIC, KITCHEN & BATHROOM AND SANITARY FAIR
+    order: 13
+    name_tr: ICS 2018
+    city_tr: KAHİRE
+    country_en: EGYPT
+    name_en: ICS 2018
+    city_en: CAIRO
+  - description_tr: NİJERYA ULUSLARARASI HAZIR GİYİM ve AKSESUAR FUARI
+    sector: Moda ve Tekstil
+    country_tr: NİJERYA
+    description_en: NIGERIA INTERNATIONAL READY-TO-WEAR AND ACCESSORIES FAIR
+    order: 14
+    name_tr: 1.READY TO WEAR & ACCESSORIES NIGERIA EXPO
+    city_tr: LAGOS
+    country_en: NIGERIA
+    name_en: 1.READY TO WEAR & ACCESSORIES NIGERIA EXPO
+    city_en: LAGOS
+  - description_tr: ULUSLARARASI EV TEKSTİLİ, MOBİLYA, HEDİYELİK EŞYA ve ZÜCCACİYE FUARI
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: NİJERYA
+    description_en: INTERNATIONAL HOME TEXTILES, FURNITURE, GIFTS AND GLASSWARE FAIR
+    order: 15
+    name_tr: 2. HOMEDECOR and GIFTWARE
+    city_tr: LAGOS
+    country_en: NIGERIA
+    name_en: 2. HOMEDECOR and GIFTWARE
+    city_en: LAGOS
+  - description_tr: ULUSLARARASI MOBİLYA ÜRETİM TEKNOLOJİLERİ, AĞAÇ İŞLEME
+      MAKİNELERİ, AKSESUAR, HAMMEDE FUARI
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: MISIR
+    description_en: INTERNATIONAL FURNITURE PRODUCTION TECHNOLOGIES, WOODWORKING
+      MACHINERY, ACCESSORIES, RAW MATERIALS FAIR
+    order: 16
+    name_tr: 2. EGY WOODEX
+    city_tr: KAHİRE
+    country_en: EGYPT
+    name_en: 2. EGY WOODEX
+    city_en: CAIRO
