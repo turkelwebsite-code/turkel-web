@@ -2,15 +2,151 @@ cms_button_label: 2021 Kronoloji
 year: 2021
 is_active: true
 fairs:
-  - order: 1
-    name_tr: "15. DUBAI WOOD SHOW"
-    name_en: "15th DUBAI WOOD SHOW"
-    city_tr: "Dubai"
-    city_en: "Dubai"
-    country_tr: "BAE"
-    country_en: "UAE"
-    sector: "İnşaat"
-    area: "12,000 m²"
-    participants: "320"
-    description_tr: "Uluslararası ahşap ve ağaç işleme makineleri endüstrisi fuarı"
-    description_en: "International wood and woodworking machinery industry fair"
+  - participants: "320"
+    description_tr: Uluslararası ahşap ve ağaç işleme makineleri endüstrisi fuarı
+    sector: İnşaat
+    country_tr: BAE
+    description_en: International wood and woodworking machinery industry fair
+    area: 12,000 m²
+    order: 1
+    name_tr: 15. DUBAI WOOD SHOW
+    city_tr: Dubai
+    country_en: UAE
+    name_en: 15th DUBAI WOOD SHOW
+    city_en: Dubai
+  - description_tr: |
+      37.WEDDING FASHION MOSCOW ULUSLARARASI GELİNLİK VE ABİYE GİYİM FUARI
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: 37th WEDDING FASHION MOSCOW INTERNATIONAL WEDDING AND EVENING DRESS FAIR
+    order: 2
+    name_tr: 37.WEDDING FASHION
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 37.WEDDING FASHION
+    city_en: MOSCOW
+  - order: 3
+    name_tr: 2.BUILD YOUR HOUSE EXHIBITION
+    name_en: 2.BUILD YOUR HOUSE EXHIBITION
+    city_tr: DOHA
+    city_en: DOHA
+    country_tr: KATAR
+    country_en: QATAR
+    sector: İnşaat
+  - description_tr: ULUSLARARASI EV TEKSTİLİ, DEKORASYON ve ZÜCCACİYE FUARI
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: KAZAKİSTAN
+    description_en: INTERNATIONAL HOME TEXTILES, DECORATION AND GLASSWARE FAIR
+    order: 4
+    name_tr: 14.HOMEDECO
+    city_tr: ALMATI
+    country_en: KAZAKHSTAN
+    name_en: 14.HOMEDECO
+    city_en: ALMATY
+  - description_tr: |
+      Mobilya, Tasarım, Dekorasyon, Ev Tekstili ve Aydınlatma Ekipmanları Fuarı
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: BAE
+    description_en: Furniture, Design, Decoration, Home Textiles and Lighting Equipment Fair
+    order: 5
+    name_tr: 30. INDEX
+    city_tr: DUBAİ
+    country_en: UAE
+    name_en: 30. INDEX
+    city_en: DUBAI
+  - order: 6
+    name_tr: 23.KITE Kenya International Trade Exhibition
+    name_en: 23.KITE Kenya International Trade Exhibition
+    city_tr: NAİROBİ
+    city_en: NAIROBI
+    country_tr: KENYA
+    country_en: KENYA
+    sector: Diğer
+  - order: 7
+    name_tr: 23.BUILDEXPO KENYA
+    name_en: 23.BUILDEXPO KENYA
+    city_tr: NAİROBİ
+    city_en: NAIROBI
+    country_tr: KENYA
+    country_en: KENYA
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - description_tr: ULUSLARASI DERİ VE MODA FUARI
+    sector: Moda ve Tekstil
+    country_tr: RUSYA
+    description_en: INT'L WINTER FASHION TRADE SHOW
+    order: 8
+    name_tr: 24.LESHOW
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 24.LESHOW
+    city_en: MOSCOW
+  - order: 9
+    name_tr: FIMI
+    name_en: FIMI
+    city_tr: VALENSİYA
+    city_en: VALENCIA
+    country_tr: İSPANYA
+    country_en: SPAIN
+    sector: Moda ve Tekstil
+  - order: 10
+    name_tr: 22.PREVIEW IN SEOUL
+    name_en: 22.PREVIEW IN SEOUL
+    city_tr: SEOUL
+    city_en: SEOUL
+    country_tr: S.KOREA
+    country_en: S.KOREA
+    sector: Ev Tekstili ve Dekorasyon
+  - description_tr: ULUSLARARASI ÇOCUK FUARI
+    sector: Moda ve Tekstil
+    country_tr: ALMANYA
+    description_en: THE TRADE SHOW FOR KIDS’ FIRST YEARS
+    order: 11
+    name_tr: KIND+JUGEND 2021
+    city_tr: KÖLN
+    country_en: GERMANY
+    name_en: KIND+JUGEND 2021
+    city_en: COLOGNE
+  - description_tr: |
+      ULUSLARARASI ELEKTRİK, ENDÜSTRİYEL AYDINLATMA ve OTOMASYON FUARI
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: UKRAYNA
+    description_en: INTERNATIONAL ELECTRICAL, INDUSTRIAL LIGHTING AND AUTOMATION FAIR
+    order: 12
+    name_tr: 25.ELCOM UKRAINE
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: 25.ELCOM UKRAINE
+    city_en: KYIV
+  - description_tr: |
+      ULUSLARARASI EV TEKSTİLİ, İÇ DİZAYN VE HEDİYELİK EŞYA FUARI
+    sector: Ev Tekstili ve Dekorasyon
+    country_tr: UKRAYNA
+    description_en: INTERNATIONAL HOME TEXTILES, INTERIOR DESIGN AND GIFTS FAIR
+    order: 13
+    name_tr: DESIGN LIVING TENDENCY
+    city_tr: KİEV
+    country_en: UKRAINE
+    name_en: DESIGN LIVING TENDENCY
+    city_en: KIEV
+  - description_tr: |
+      16.SOLUTRANS Uluslararası Karayolu ve Şehir Taşımacılığı Fuarı
+    sector: Diğer
+    country_tr: FRANSA
+    description_en: 16th SOLUTRANS International Road and Urban Transport Fair
+    order: 14
+    name_tr: 16.SOLUTRANS
+    city_tr: LYON
+    country_en: FRANCE
+    name_en: 16.SOLUTRANS
+    city_en: LYON
+  - description_tr: |
+      32. Mebel Mobilya, Mobilya Yan Sanayi ve Bağlantı Elemanları Fuarı
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+    country_tr: RUSYA
+    description_en: 32nd Furniture, Furniture Sub-Industry and Fittings Fair
+    order: 15
+    name_tr: 32. Mebel
+    city_tr: MOSKOVA
+    country_en: RUSSIA
+    name_en: 32. Mebel
+    city_en: MOSCOW
