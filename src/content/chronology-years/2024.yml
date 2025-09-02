@@ -1,16 +1,16 @@
-cms_button_label: "2024 Kronoloji"
-year: 2024
+cms_button_label: 2018 Kronoloji
+year: 2018
 is_active: true
 fairs:
-  - name_tr: "LeShow Moskova 2024"
-    name_en: "LeShow Moscow 2024"
-    city_tr: "Moskova"
-    city_en: "Moscow"
-    country_tr: "Rusya"
-    country_en: "Russia"
-    sector: "Moda ve Tekstil"
-    area: "15,000 m²"
-    participants: "450"
-    description_tr: "Rusya'nın en büyük moda ve tekstil fuarı"
-    description_en: "Russia's largest fashion and textile fair"
+  - participants: "450"
+    description_tr: Rusya'nın en büyük moda ve tekstil fuarı
+    sector: Moda ve Tekstil
+    country_tr: Rusya
+    description_en: Russia's largest fashion and textile fair
+    area: 15,000 m²
     order: 1
+    name_tr: LeShow Moskova 2024
+    city_tr: Moskova
+    country_en: Russia
+    name_en: LeShow Moscow 2024
+    city_en: Moscow
