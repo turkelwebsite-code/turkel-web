@@ -1,18 +1,39 @@
+---
+// This page helps Netlify detect forms during build with dynamic fair options
+import { getFairOptions } from '../utils/fair-options';
+
+// Get fair options for both languages
+const fairOptionsTR = await getFairOptions('tr');
+const fairOptionsEN = await getFairOptions('en');
+---
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Netlify Forms Detection</title>
+  <meta name="robots" content="noindex, nofollow">
 </head>
 <body style="display: none;">
-  <!-- This file helps Netlify detect forms during build -->
+  <!-- This file helps Netlify detect forms during build with dynamic CMS data -->
   
   <!-- Visitor Form -->
-  <form name="visitor-form" netlify>
+  <form name="visitor-form" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="visitor-form" />
     <input type="hidden" name="form-type" value="visitor" />
     <input type="hidden" name="language" />
     <input name="bot-field" style="display: none;" />
-    <input name="fair" />
+    
+    <!-- Dynamic fair options as select for Netlify to detect -->
+    <select name="fair">
+      <option value="">Fuar Seçin / Select Fair</option>
+      {fairOptionsTR.map(option => (
+        <option value={option.value}>{option.label} (TR)</option>
+      ))}
+      {fairOptionsEN.map(option => (
+        <option value={option.value}>{option.label} (EN)</option>
+      ))}
+    </select>
+    
     <input name="firstName" />
     <input name="lastName" />
     <input name="email" />
@@ -24,12 +45,23 @@
   </form>
 
   <!-- Participant Form -->
-  <form name="participant-form" netlify>
+  <form name="participant-form" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="participant-form" />
     <input type="hidden" name="form-type" value="participant" />
     <input type="hidden" name="language" />
     <input name="bot-field" style="display: none;" />
-    <input name="fair" />
+    
+    <!-- Dynamic fair options -->
+    <select name="fair">
+      <option value="">Fuar Seçin / Select Fair</option>
+      {fairOptionsTR.map(option => (
+        <option value={option.value}>{option.label} (TR)</option>
+      ))}
+      {fairOptionsEN.map(option => (
+        <option value={option.value}>{option.label} (EN)</option>
+      ))}
+    </select>
+    
     <input name="firstName" />
     <input name="lastName" />
     <input name="email" />
@@ -41,7 +73,7 @@
   </form>
 
   <!-- Contact Form TR -->
-  <form name="contact-form" netlify>
+  <form name="contact-form" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="contact-form" />
     <input type="hidden" name="form-type" value="contact" />
     <input type="hidden" name="language" value="tr" />
@@ -58,7 +90,7 @@
   </form>
 
   <!-- Contact Form EN -->
-  <form name="contact-form-en" netlify>
+  <form name="contact-form-en" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="contact-form-en" />
     <input type="hidden" name="form-type" value="contact" />
     <input type="hidden" name="language" value="en" />
@@ -75,12 +107,20 @@
   </form>
 
   <!-- Newsletter Form -->
-  <form name="newsletter-footer" netlify>
+  <form name="newsletter-footer" data-netlify="true" data-netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="newsletter-footer" />
     <input type="hidden" name="form-type" value="newsletter" />
     <input type="hidden" name="language" />
     <input name="bot-field" style="display: none;" />
     <input name="email" />
   </form>
+
+  <!-- Debug info -->
+  <div>
+    <h3>Form Detection Debug</h3>
+    <p>TR Fairs: {fairOptionsTR.length}</p>
+    <p>EN Fairs: {fairOptionsEN.length}</p>
+    <p>Build Time: {new Date().toISOString()}</p>
+  </div>
 </body>
 </html>
