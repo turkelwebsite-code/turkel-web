@@ -439,20 +439,11 @@ const legacyFairOptions = [
       }
     });
 
-    // Form submission - Netlify Forms handles this automatically
+    // Form submission - Let Netlify handle completely
     if (form) {
       form.addEventListener('submit', (e) => {
-        // Close modal before submission
+        // Just close modal, let Netlify handle the rest
         closeModal();
-        
-        // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = document.documentElement.lang === 'tr' 
-            ? 'Gönderiliyor...' 
-            : 'Submitting...';
-        }
       });
     }
   });
