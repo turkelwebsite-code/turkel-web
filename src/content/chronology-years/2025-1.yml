@@ -3,10 +3,162 @@ year: 2019
 is_active: true
 fairs:
   - order: 1
-    name_tr: 15.DUBAI WOOD SHOW
-    name_en: 15.DUBAI WOOD SHOW
-    city_tr: DUBAI
+    name_tr: LESHOW İSTANBUL
+    name_en: LESHOW İSTANBUL
+    city_tr: İSTANBUL
+    city_en: ISTANBUL
+    country_tr: TÜRKİYE
+    country_en: TURKEY
+    sector: Moda ve Tekstil
+  - order: 2
+    name_tr: PROMOTE
+    name_en: PROMOTE
+    city_tr: YAOUNDE
+    city_en: YAOUNDE
+    country_tr: KAMERUN
+    country_en: CAMEROON
+    sector: Diğer
+  - order: 3
+    name_tr: DUBAI WOODSHOW
+    name_en: DUBAI WOODSHOW
+    city_tr: DUBAİ
     city_en: DUBAI
     country_tr: BAE
     country_en: UAE
     sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 4
+    name_tr: WEDDING MOSCOW
+    name_en: WEDDING MOSCOW
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
+    sector: Moda ve Tekstil
+  - order: 5
+    name_tr: EGYPT PROJECTS
+    name_en: EGYPT PROJECTS
+    city_tr: KAHİRE
+    city_en: CAIRO
+    country_tr: MISIR
+    country_en: EGYPT
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 6
+    name_tr: WINDOOREX
+    name_en: WINDOOREX
+    city_tr: KAHİRE
+    city_en: CAIRO
+    country_tr: MISIR
+    country_en: EGYPT
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 7
+    name_tr: EXTILE AMMAN FASHION
+    name_en: EXTILE AMMAN FASHION
+    city_tr: AMMAN
+    city_en: AMMAN
+    country_tr: ÜRDÜN
+    country_en: JORDAN
+    sector: Moda ve Tekstil
+  - order: 8
+    name_tr: HOMEDECO ALMATY
+    name_en: HOMEDECO ALMATY
+    city_tr: ALMATI
+    city_en: ALMATY
+    country_tr: KAZAKİSTAN
+    country_en: KAZAKHSTAN
+    sector: Ev Tekstili ve Dekorasyon
+  - order: 9
+    name_tr: BABY EXPO
+    name_en: BABY EXPO
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: Moda ve Tekstil
+  - order: 10
+    name_tr: ROSBUILD
+    name_en: ROSBUILD
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
+    sector: İnşaat
+  - order: 11
+    name_tr: 23.ELCOM UKRAINE
+    name_en: 23.ELCOM UKRAINE
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 12
+    name_tr: LESHOW MOSCOW
+    name_en: LESHOW MOSCOW
+    city_tr: MOSKOVA
+    city_en: MOSCOW
+    country_tr: RUSYA
+    country_en: RUSSIA
+    sector: Moda ve Tekstil
+  - order: 13
+    name_tr: 22.KITE KENYA
+    name_en: 22.KITE KENYA
+    city_tr: NAIROBI
+    city_en: NAİROBİ
+    country_tr: KENYA
+    country_en: KENYA
+    sector: Diğer
+  - order: 14
+    name_tr: WALL&FLOOREX
+    name_en: WALL&FLOOREX
+    city_tr: KAHİRE
+    city_en: CAIRO
+    country_tr: MISIR
+    country_en: EGYPT
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 15
+    name_tr: KIND+JUGEND
+    name_en: KIND+JUGEND
+    city_tr: KÖLN
+    city_en: COLOGNE
+    country_tr: ALMANYA
+    country_en: GERMANY
+    sector: Moda ve Tekstil
+  - order: 16
+    name_tr: 17. HEALTH ASIA
+    name_en: 17. HEALTH ASIA
+    city_tr: KARAÇİ
+    city_en: KARACHI
+    country_tr: PAKİSTAN
+    country_en: PAKISTAN
+    sector: Diğer
+  - order: 17
+    name_tr: DLT KİEV
+    name_en: DLT KİEV
+    city_tr: KİEV
+    city_en: KIEV
+    country_tr: UKRAYNA
+    country_en: UKRAINE
+    sector: Moda ve Tekstil
+  - order: 18
+    name_tr: 1st PURE LIVING
+    name_en: 1st PURE LIVING
+    city_tr: LONDRA
+    city_en: LONDON
+    country_tr: İNGİLTERE
+    country_en: ENGLAND
+    sector: Ev Tekstili ve Dekorasyon
+  - order: 19
+    name_tr: ICS SHOW EGYPT
+    name_en: ICS SHOW EGYPT
+    city_tr: KAHİRE
+    city_en: CAIRO
+    country_tr: MISIR
+    country_en: EGYPT
+    sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+  - order: 20
+    name_tr: EGYTEX
+    name_en: EGYTEX
+    city_tr: KAHİRE
+    country_tr: MISIR
+    city_en: CAIRO
+    country_en: EGYPT
+    sector: Diğer
