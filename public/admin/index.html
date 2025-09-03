@@ -155,11 +155,72 @@
         }, 300000); // 5 dakikada bir
         
         console.log('✅ Blob cleanup interval kuruldu');
-        console.log('🎯 Artık manuel kaydetme modundasınız - Güncelle butonunu kullanın');
+        
+        // GITHUB TOKEN YENİLEME SİSTEMİ
+        setupTokenRefresh();
+        
+        console.log('🎯 Uzun çalışma modu aktif - Token otomatik yenilenecek');
         
       } catch (error) {
         console.warn('⚠️ Draft cleanup hatasi (normal):', error);
       }
+    }
+
+    function setupTokenRefresh() {
+      console.log('🔄 GitHub token yenileme sistemi kuruluyor...');
+      
+      // Her 30 dakikada bir token durumunu kontrol et
+      setInterval(() => {
+        try {
+          if (window.netlifyIdentity && window.netlifyIdentity.currentUser()) {
+            const user = window.netlifyIdentity.currentUser();
+            const tokenExpiry = user.token?.expires_at;
+            
+            if (tokenExpiry) {
+              const expiryTime = new Date(tokenExpiry).getTime();
+              const currentTime = new Date().getTime();
+              const timeLeft = expiryTime - currentTime;
+              const minutesLeft = Math.floor(timeLeft / (1000 * 60));
+              
+              console.log(`⏱️ Token süresi: ${minutesLeft} dakika kaldı`);
+              
+              // 10 dakika kala token'ı yenile
+              if (minutesLeft < 10 && minutesLeft > 0) {
+                console.log('🔄 Token yenileniyor...');
+                
+                // Token'ı yenile
+                user.jwt().then(token => {
+                  console.log('✅ Token başarıyla yenilendi');
+                }).catch(error => {
+                  console.warn('⚠️ Token yenileme hatası:', error);
+                  // Kullanıcıyı uyar
+                  alert('Oturum süreniz dolmak üzere. Lütfen çalışmanızı kaydedin ve yeniden giriş yapın.');
+                });
+              }
+              
+              // 2 dakika kala son uyarı
+              if (minutesLeft < 2 && minutesLeft > 0) {
+                alert(`⚠️ Oturumunuz ${minutesLeft} dakika sonra sona erecek! Lütfen hemen kaydedin!`);
+              }
+            }
+          }
+        } catch (error) {
+          console.warn('Token kontrol hatası:', error);
+        }
+      }, 30000); // 30 saniyede bir kontrol
+      
+      // Sayfa kapatılırken uyarı
+      window.addEventListener('beforeunload', (e) => {
+        const hasUnsavedChanges = document.querySelector('[class*="dirty"], [data-dirty="true"]');
+        if (hasUnsavedChanges) {
+          e.preventDefault();
+          e.returnValue = 'Kaydedilmemiş değişiklikleriniz var! Çıkmak istediğinizden emin misiniz?';
+          return e.returnValue;
+        }
+      });
+      
+      console.log('✅ Token yenileme sistemi kuruldu - Her 30 saniyede kontrol');
+      console.log('⏱️ 10 dakika kala otomatik yenileme, 2 dakika kala uyarı');
     }
 
     function setupTeamMemberAutoFill() {
