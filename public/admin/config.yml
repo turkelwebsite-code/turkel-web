@@ -10,9 +10,8 @@ locale: 'tr'
 display_url: https://turkel-web.netlify.app
 show_preview_links: false
 
-# Draft backup optimizasyonu
+# Draft backup optimizasyonu (editorial workflow kaldırıldı)
 local_backend: false
-publish_mode: editorial_workflow
 
 # Editor ayarları - draft backup için optimize
 editor:
