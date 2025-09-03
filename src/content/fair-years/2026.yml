@@ -383,7 +383,7 @@ fairs:
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
     visuals:
-      logo: /images/fuarlar-logo.png
+      logo: /images/fair-bg-beauty.png
       background_image: /images/fuarlar-arkaplan.jpg
   - representative:
       hide_phone: true
