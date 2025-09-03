@@ -93,22 +93,38 @@
     function fixDraftBackup() {
       console.log('🔧 Draft backup sistemi duzeltiliyor...');
       
-      // Local storage temizleme ve optimizasyon
+      // KAPSAMLI LOCAL STORAGE TEMİZLEME
       try {
-        // Eski/bozuk draft'ları temizle
+        // TÜM CMS ile ilgili verileri temizle
         const keysToRemove = [];
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
-          if (key && (key.includes('netlify-cms') || key.includes('draft'))) {
+          if (key && (
+            key.includes('netlify-cms') || 
+            key.includes('decap-cms') ||
+            key.includes('draft') ||
+            key.includes('cms') ||
+            key.includes('editor') ||
+            key.includes('backup')
+          )) {
             keysToRemove.push(key);
           }
         }
-        keysToRemove.forEach(key => localStorage.removeItem(key));
+        keysToRemove.forEach(key => {
+          localStorage.removeItem(key);
+          console.log('🗑️ Silindi:', key);
+        });
         
-        // Session storage da temizle
+        // Session storage da tamamen temizle
         sessionStorage.clear();
         
-        console.log('✅ Eski draftlar temizlendi');
+        // IndexedDB de varsa temizle
+        if (window.indexedDB) {
+          const deleteReq = indexedDB.deleteDatabase('netlify-cms');
+          deleteReq.onsuccess = () => console.log('🗑️ IndexedDB temizlendi');
+        }
+        
+        console.log('✅ TÜM eski draftlar ve cache temizlendi');
         
         // Blob URL cleanup için interval
         setInterval(() => {
