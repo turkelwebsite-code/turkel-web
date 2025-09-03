@@ -126,6 +126,26 @@
         
         console.log('✅ TÜM eski draftlar ve cache temizlendi');
         
+        // DRAFT BACKUP SİSTEMİNİ DEVRE DIŞI BIRAK
+        // CMS'in otomatik backup'ını engelle
+        if (window.CMS) {
+          // CMS event'lerini override et
+          const originalSetTimeout = window.setTimeout;
+          window.setTimeout = function(callback, delay) {
+            // Draft backup ile ilgili timeout'ları engelle
+            const callbackStr = callback.toString();
+            if (callbackStr.includes('persistLocalDraftBackup') || 
+                callbackStr.includes('draft') || 
+                callbackStr.includes('backup')) {
+              console.log('🚫 Draft backup timeout engellendi');
+              return null;
+            }
+            return originalSetTimeout.apply(this, arguments);
+          };
+          
+          console.log('🚫 Otomatik draft backup devre dışı bırakıldı');
+        }
+        
         // Blob URL cleanup için interval
         setInterval(() => {
           // Memory'deki eski blob URL'leri temizle
@@ -135,6 +155,7 @@
         }, 300000); // 5 dakikada bir
         
         console.log('✅ Blob cleanup interval kuruldu');
+        console.log('🎯 Artık manuel kaydetme modundasınız - Güncelle butonunu kullanın');
         
       } catch (error) {
         console.warn('⚠️ Draft cleanup hatasi (normal):', error);
