@@ -91,7 +91,7 @@
     }
 
     function fixDraftBackup() {
-      console.log('🔧 Draft backup sistemi düzeltiliyor...');
+      console.log('🔧 Draft backup sistemi duzeltiliyor...');
       
       // Local storage temizleme ve optimizasyon
       try {
@@ -108,7 +108,7 @@
         // Session storage da temizle
         sessionStorage.clear();
         
-        console.log('✅ Eski draft'lar temizlendi');
+        console.log('✅ Eski draftlar temizlendi');
         
         // Blob URL cleanup için interval
         setInterval(() => {
@@ -121,7 +121,7 @@
         console.log('✅ Blob cleanup interval kuruldu');
         
       } catch (error) {
-        console.warn('⚠️ Draft cleanup hatası (normal):', error);
+        console.warn('⚠️ Draft cleanup hatasi (normal):', error);
       }
     }
 
