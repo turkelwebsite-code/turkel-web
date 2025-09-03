@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: master
+  squash_merges: true
 
 media_folder: "public/images"
 public_folder: "/images"
@@ -8,8 +9,18 @@ public_folder: "/images"
 locale: 'tr'
 display_url: https://turkel-web.netlify.app
 show_preview_links: false
+
+# Draft backup optimizasyonu
+local_backend: false
+publish_mode: editorial_workflow
+
+# Editor ayarları - draft backup için optimize
 editor:
   preview: false
+  frame: true
+  
+# Performance ayarları
+load_config_file: false
 
 collections:
   # FUARLAR - Yıl Bazlı Yönetim (FOLDER COLLECTION - Dinamik Summary)

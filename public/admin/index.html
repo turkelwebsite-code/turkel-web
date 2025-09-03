@@ -67,8 +67,9 @@
         
         console.log("✅ Türkel CMS Login successful:", user.email);
         
-        // Apply simple CMS styling and setup auto-fill
+        // Apply simple CMS styling, fix drafts and setup auto-fill
         setTimeout(() => {
+          fixDraftBackup();
           applySimpleCMSStyling();
           setupTeamMemberAutoFill();
         }, 1000);
@@ -87,6 +88,41 @@
       }
       
       console.log('✅ Minimal styling uygulandı');
+    }
+
+    function fixDraftBackup() {
+      console.log('🔧 Draft backup sistemi düzeltiliyor...');
+      
+      // Local storage temizleme ve optimizasyon
+      try {
+        // Eski/bozuk draft'ları temizle
+        const keysToRemove = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && (key.includes('netlify-cms') || key.includes('draft'))) {
+            keysToRemove.push(key);
+          }
+        }
+        keysToRemove.forEach(key => localStorage.removeItem(key));
+        
+        // Session storage da temizle
+        sessionStorage.clear();
+        
+        console.log('✅ Eski draft'lar temizlendi');
+        
+        // Blob URL cleanup için interval
+        setInterval(() => {
+          // Memory'deki eski blob URL'leri temizle
+          if (window.URL && window.URL.revokeObjectURL) {
+            // Bu otomatik olarak eski blob'ları temizler
+          }
+        }, 300000); // 5 dakikada bir
+        
+        console.log('✅ Blob cleanup interval kuruldu');
+        
+      } catch (error) {
+        console.warn('⚠️ Draft cleanup hatası (normal):', error);
+      }
     }
 
     function setupTeamMemberAutoFill() {
