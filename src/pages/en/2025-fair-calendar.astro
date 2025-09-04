@@ -162,7 +162,7 @@ try {
 
     // Generate date display from start_date and end_date - hide_dates kontrolü
     let displayDate = '';
-    if (fair.basic_info.hide_dates) {
+    if (fair.basic_info.hide_dates === true) {
       displayDate = 'Date will be announced soon';
     } else if (fair.basic_info.start_date && fair.basic_info.end_date) {
       displayDate = formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en');
