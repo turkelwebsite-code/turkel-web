@@ -424,9 +424,11 @@ const debugInfo = {
                         </h3>
                         <!-- Fair Description - Hiç boşluk yok -->
                         {fair.description && (
-                          <p class="text-sm text-gray-600 font-medium leading-relaxed mt-1" style="font-family: 'Radio Canada Big', sans-serif;">
-                            {fair.description}
-                          </p>
+                          <div class="description-container max-h-12 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-400 mt-1">
+                            <p class="text-sm text-gray-600 font-medium leading-relaxed" style="font-family: 'Radio Canada Big', sans-serif;">
+                              {fair.description}
+                            </p>
+                          </div>
                         )}
                       </div>
                       
@@ -550,6 +552,31 @@ const debugInfo = {
     line-height: 1.2 !important;
     word-wrap: break-word !important;
     hyphens: auto !important;
+  }
+
+  /* Scrollable description */
+  .description-container {
+    max-height: 3rem; /* ~2 satır için */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+  }
+
+  .description-container::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .description-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .description-container::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 2px;
+  }
+
+  .description-container::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
   }
 
   /* Simple CSS-only tooltip */
