@@ -1,7 +1,5 @@
 import type { APIRoute } from 'astro';
-
-// Nodemailer require - ES modules uyumluluğu için
-const nodemailer = require('nodemailer');
+import { createTransporter } from 'nodemailer';
 
 export const prerender = false;
 
@@ -31,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('📧 GMAIL SMTP: Creating transporter...');
     
     // Gmail SMTP
-    const transporter = nodemailer.createTransporter({
+    const transporter = createTransporter({
       service: 'gmail',
       auth: {
         user: 'turkelwebsite@gmail.com',
