@@ -74,10 +74,15 @@ fairYearsCollection.forEach(yearData => {
       allFairsData[translatedSector] = [];
     }
     
+    // Check if dates should be hidden
+    const hideDates = fair.basic_info?.hide_dates || false;
+    
     // Generate date display from start_date and end_date
-    const displayDate = fair.basic_info?.start_date && fair.basic_info?.end_date 
-      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en')
-      : fair.basic_info?.date_en || '';
+    const displayDate = hideDates 
+      ? 'Date will be announced soon'
+      : (fair.basic_info?.start_date && fair.basic_info?.end_date 
+        ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en')
+        : fair.basic_info?.date_en || '');
 
     // Convert CMS fair to display format
     const fairCard = {
@@ -88,6 +93,7 @@ fairYearsCollection.forEach(yearData => {
       date: displayDate,
       startDate: fair.basic_info?.start_date || null, // For sorting
       endDate: fair.basic_info?.end_date || null, // For sorting
+      hide_dates: hideDates, // For sorting logic
       image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
       representative: {
@@ -410,7 +416,7 @@ const sectors = Object.keys(finalFairsData);
                     <div class="p-6">
                       <!-- Fair Name -->
                       <div class="relative group">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 leading-tight" style="font-family: 'Radio Canada Big', sans-serif;" title={fair.name}>
                           {fair.name}
                         </h3>
                         <!-- Independent Tooltip -->
@@ -776,6 +782,11 @@ const sectors = Object.keys(finalFairsData);
         case 'date':
           console.log('📅 DATE SORTING EN: Before sort:', allCards.map((f: any) => f.date));
           allCards.sort((a: any, b: any) => {
+            // Hide_dates items always go to bottom
+            if (a.hide_dates && !b.hide_dates) return 1;
+            if (!a.hide_dates && b.hide_dates) return -1;
+            if (a.hide_dates && b.hide_dates) return 0; // Both hidden, keep original order
+            
             // Use start_date for sorting if available, otherwise parse display date
             let dateA: Date, dateB: Date;
             
