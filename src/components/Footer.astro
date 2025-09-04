@@ -281,37 +281,47 @@ const { locale, content } = Astro.props;
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form[name="newsletter-footer"]');
-
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('newsletter-footer-form');
+  
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      console.log('🚀 Newsletter: Form gönderiliyor...');
+      const formData = new FormData(form);
+      const currentLang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+      
+      // Web3Forms setup
+      formData.append('access_key', '26c4e2e8-c895-4821-a0fd-450c838a96ec');
+      formData.append('subject', currentLang === 'tr' ? '📰 Yeni Bülten Aboneliği' : '📰 New Newsletter Subscription');
+      formData.append('from_name', 'Turkel Fuarcılık');
+      formData.append('to_email', 'info@turkel.com.tr');
+      
+      // Email message
+      const emailMessage = currentLang === 'tr' ? 
+        '📰 YENİ BÜLTEN ABONELİĞİ\\n\\n• Email: ' + formData.get('email') + '\\n• Dil: Türkçe\\n• Zaman: ' + new Date().toLocaleString('tr-TR')
+        :
+        '📰 NEW NEWSLETTER SUBSCRIPTION\\n\\n• Email: ' + formData.get('email') + '\\n• Language: English\\n• Time: ' + new Date().toLocaleString('en-US');
+      
+      formData.append('message', emailMessage);
+      
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
         
-        const formData = new FormData(form as HTMLFormElement);
-        
-        try {
-          const response = await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData as any).toString()
-          });
-          
-          if (response.ok) {
-            // Redirect with success parameter
-            const currentLang = document.documentElement.lang === 'en' ? 'en' : 'tr';
-            window.location.href = currentLang === 'en' ? `/en/?success=newsletter` : `/?success=newsletter`;
-          } else {
-            throw new Error('Newsletter subscription failed');
-          }
-        } catch (error) {
-          console.error('Newsletter subscription error:', error);
-          alert(document.documentElement.lang === 'tr' 
-            ? 'Bülten aboneliği sırasında bir hata oluştu.' 
-            : 'An error occurred during newsletter subscription.'
-          );
+        if (response.ok) {
+          form.reset();
+          alert(currentLang === 'tr' ? '✅ Bülten aboneliği başarılı!' : '✅ Newsletter subscription successful!');
+        } else {
+          alert(currentLang === 'tr' ? '❌ Abonelik başarısız!' : '❌ Subscription failed!');
         }
-      });
-    }
-  });
+      } catch (error) {
+        alert(currentLang === 'tr' ? '❌ Bir hata oluştu!' : '❌ An error occurred!');
+      }
+    });
+  }
+});
 </script>
