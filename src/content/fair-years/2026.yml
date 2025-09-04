@@ -22,6 +22,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI TEKNE VE SU SPORLARI FUARI
       sector: Diğer
+      hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-01-17
       description_en: " INTERNATIONAL BOAT AND WATER SPORTS FAIR"
@@ -32,7 +33,6 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 17-25 JANUARY 2026
       name_en: BOOT DUSSELDORF
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-boot.jpg
       background_image: /images/fair-bg-boot.png
@@ -52,6 +52,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
       sector: Ev Tekstili ve Dekorasyon
+      hide_dates: false
       location_tr: ALMATI, KAZAKİSTAN
       start_date: 2026-02-16
       description_en: INTERNATIONAL HOME TEXTILES AND DECORATION FAIR
@@ -61,7 +62,6 @@ fairs:
       location_en: ALMATY, KAZAKHSTAN
       date_en: 16 - 18 FEBRUARY 2026
       name_en: 18TH HOMEDECO KAZAKHSTAN
-      hide_dates: false
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/fuarlar-arkaplan.jpg
@@ -85,6 +85,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI GELİNLİK FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: PARİS, FRANSA
       start_date: 2026-03-08
       description_en: INTERNATIONAL BRIDAL SHOW
@@ -92,7 +93,6 @@ fairs:
       name_tr: PARIS BRIDAL FAIR
       location_en: PARIS, FRANCE
       name_en: PARIS BRIDAL FAIR
-      hide_dates: false
     visuals:
       logo: /images/logo-parisbridal.jpg
       background_image: /images/image_1_48.webp
@@ -103,6 +103,7 @@ fairs:
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-03-27
       description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
@@ -112,7 +113,6 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 27 - 28 MARCH 2026
       name_en: 43. WEDDING FASHION MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/fair-bg-wedding.png
@@ -132,6 +132,7 @@ fairs:
     basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-03-20
       description_en: COSMETICS, BEAUTY, WELLNESS & SPA AND HAIR PRODUCTS FAIR
@@ -141,7 +142,6 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 20 - 22 MARCH 2026
       name_en: BEAUTY DUSSELDORF
-      hide_dates: false
     visuals:
       logo: /images/ekran-resmi-2025-09-03-21.23.28.png
       background_image: /images/fair-bg-beauty.png
@@ -161,6 +161,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-03-21
       description_en: INTERNATIONAL HAIR PRODUCTS FAIR
@@ -170,7 +171,6 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 21 - 22 MARCH 2026
       name_en: TOP HAIR
-      hide_dates: false
     visuals:
       logo: /images/th_messe_logo_2026-rgb-20mm.png
       background_image: /images/fair-bg-tophair.jpg
@@ -190,6 +190,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: false
       location_tr: DUBAİ, BAE
       start_date: 2026-04-07
       description_en: INTERNATIONAL ELECTRICITY, ENERGY AND LIGHTING FAIR
@@ -199,7 +200,6 @@ fairs:
       location_en: DUBAI, UAE
       date_en: 7 - 9 APRIL 2026
       name_en: MIDDLE EAST ENERGY
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-mee.jpg
       background_image: /images/fair-bg-mee.png
@@ -219,6 +219,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI BORU VE TEL FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-04-15
       description_en: INTERNATIONAL PIPE AND WIRE FAIR
@@ -228,7 +229,6 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 15 - 17 APRIL 2026
       name_en: WIRE & TUBE
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-wiretube.png
       background_image: /images/fair-bg-wiretube.png
@@ -248,6 +248,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-04-22
       description_en: INTERNATIONAL SECURITY AND FIRE PROTECTION FAIR
@@ -257,7 +258,6 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 22 - 24 APRIL 2026
       name_en: SECURIKA MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-securika.png
       background_image: /images/fair-bg-securika.png
@@ -281,6 +281,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARASI KIŞ MODA FUARI
       sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-23
       description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
@@ -288,7 +289,6 @@ fairs:
       name_tr: 29.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 29TH LESHOW MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshow-gorsel-fair.jpg
@@ -299,6 +299,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
+      hide_dates: false
       location_tr: KAZAN, TATARİSTAN
       start_date: 2025-05-14
       description_en: INTERNATIONAL TRADE FAIR
@@ -308,7 +309,6 @@ fairs:
       location_en: KAZAN, TATARSTAN
       date_en: 14 - 16 MAY 2025
       name_en: KAZAN FORUM & RUSYA HELAL EXPO
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-kazan.jpg
       background_image: /images/fair-bg-kazan.png
@@ -328,6 +328,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-08
       description_en: INTERNATIONAL ELECTRICITY, ENERGY LIGHTING AND BUILDING AUTOMATION FAIR
@@ -337,7 +338,6 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 8 - 10 JUNE 2026
       name_en: ELECTRO
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-electro.png
       background_image: /images/fair-bg-electro.png
@@ -357,6 +357,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Enerji
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-16
       description_en: INTERNATIONAL MOLD AND PLASTIC FAIR
@@ -366,7 +367,6 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 16 - 19 JUNE 2026
       name_en: ROSMOULD / ROSPLAST
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-rosmould.png
       background_image: /images/fair-bg-rosmould.png
@@ -390,6 +390,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI BEBEK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda ve Tekstil
+      hide_dates: true
       location_tr: KÖLN, ALMANYA
       start_date: 1901-01-01
       description_en: INTERNATIONAL TRADE FAIR FOR BABY AND TODDLER OUTFITTING
@@ -397,7 +398,6 @@ fairs:
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
-      hide_dates: false
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
@@ -412,6 +412,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI GELİNLİK FUARI
       sector: Moda ve Tekstil
+      hide_dates: true
       location_tr: HARROGATE, İNGİLTERE
       start_date: 1901-01-01
       description_en: INTERNATIONAL BRIDAL FAIR
@@ -419,7 +420,6 @@ fairs:
       name_tr: HARROGE BRIDAL – WHITE GALLERY
       location_en: HARROGATE, UK
       name_en: HARROGE BRIDAL – WHITE GALLERY
-      hide_dates: false
     visuals:
       logo: /images/logo-bridal.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -434,6 +434,7 @@ fairs:
     basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Diğer
+      hide_dates: true
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 1901-01-01
       description_en: BABY & CHILDREN'S CLOTHING AND EQUIPMENT FAIR
@@ -441,7 +442,6 @@ fairs:
       name_tr: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
       location_en: RIYADH, SAUDI ARABIA
       name_en: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
-      hide_dates: false
     visuals:
       logo: /images/logo-kidstoys.png
       background_image: /images/gorsel-kidstoys.jpg
@@ -457,6 +457,7 @@ fairs:
       description_tr: ULUSLARARASI AYDINLATMA, ELEKTRİK MÜHENDİSLİĞİ VE GÜVENLİK
         SİSTEMLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: true
       location_tr: ASTANA, KAZAKİSTAN
       start_date: 1901-01-01
       description_en: NTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
@@ -478,6 +479,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI MODA FUARI
       sector: Moda ve Tekstil
+      hide_dates: true
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 1901-01-01
       description_en: INTERNATIONAL FASHION FAIR
@@ -485,7 +487,6 @@ fairs:
       name_tr: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
       location_en: RIYADH, SAUDI ARABIA
       name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
-      hide_dates: false
     visuals:
       logo: /images/logo-saudi.jpg
       background_image: /images/gorsel-saudi.jpg
@@ -501,6 +502,7 @@ fairs:
       description_tr: ULUSLARARASI İÇ MEKAN KUMAŞLARI, EV TEKSTİLİ VE DEKORASYON
         MALZEMELERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
+      hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
       description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILES AND
@@ -523,6 +525,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
       description_en: INTERNATIONAL TRADE FAIR FOR LIGHTING AND BUILDING SERVICES TECHNOLOGY
@@ -530,7 +533,6 @@ fairs:
       name_tr: INTERLIGHT SMART CITY & HOME
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT SMART CITY & HOME
-      hide_dates: false
     visuals:
       logo: /images/logo-ınterlıght.png
       background_image: /images/gorsel-interlightsmart.jpg
@@ -545,6 +547,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI HAVUZ, SAĞLIK VE AÇIK HAVA FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: true
       location_tr: BARSELONA, İSPANYA
       start_date: 1901-01-01
       description_en: INTERNATIONAL POOL, HEALTH AND OUTDOOR FAIR
@@ -552,7 +555,6 @@ fairs:
       name_tr: PISCINA BARCELONA
       location_en: BARCELONA, SPAIN
       name_en: PISCINA BARCELONA
-      hide_dates: false
     visuals:
       logo: /images/logo-piscina.png
       background_image: /images/gorsel-piscina.jpg
@@ -567,6 +569,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, BAĞLANTI ELEMANLARI VE YAN SANAYİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
       description_en: INTERNATIONAL EXHIBITION FOR FURNITURE, FITTINGS AND UPHOLSTERY
@@ -574,7 +577,6 @@ fairs:
       name_tr: 36.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 36TH MEBEL
-      hide_dates: false
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png
@@ -590,6 +592,7 @@ fairs:
       description_tr: ULUSLARARASI AĞAÇ İŞLEME VE MOBİLYA ENDÜSTRİSİ İÇİN EKİPMAN,
         MALZEME VE BİLEŞENLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
       description_en: ANNUAL INTERNATIONAL EXHIBITION OF EQUIPMENT, MATERIALS AND
