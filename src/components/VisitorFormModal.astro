@@ -434,10 +434,17 @@ const legacyFairOptions = [
       
       try {
         console.log('🔧 STEP 1: Creating form data...');
-        console.log('🔧 STEP 2: Form data created, sending to API...');
         
-        // Test fetch request
-        const response = await fetch('/api/send-email', {
+        // Web3Forms için ekstra fields
+        formData.append('access_key', '8f123456-7890-1234-5678-901234567890'); // Placeholder
+        formData.append('subject', `🎯 Ziyaretçi Formu - ${formData.get('firstName')} ${formData.get('lastName')}`);
+        formData.append('from_name', 'Turkel Website');
+        formData.append('to_email', 'info@turkel.com.tr');
+        
+        console.log('🔧 STEP 2: Web3Forms data prepared, sending...');
+        
+        // Direkt Web3Forms'a gönder
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formData
         });
