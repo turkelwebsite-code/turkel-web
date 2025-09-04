@@ -9,6 +9,7 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   site: 'https://turkel2025.netlify.app',
   trailingSlash: 'always',
+  output: 'server', // API routes için SSR
 
   build: {
     format: 'file'

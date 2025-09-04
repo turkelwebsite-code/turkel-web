@@ -75,20 +75,11 @@ const legacyFairOptions = [
     <div class="px-8 py-6">
       <form 
         id="participant-form" 
-        name="participant-form" 
-        method="POST" 
-        data-netlify="true" 
-        data-netlify-honeypot="bot-field"
-
         class="space-y-6"
       >
-        <!-- Hidden fields for Netlify -->
-        <input type="hidden" name="form-name" value="participant-form" />
+        <!-- Hidden fields -->
         <input type="hidden" name="form-type" value="participant" />
         <input type="hidden" name="language" value={locale} />
-        <div style="display: none;">
-          <label>Bot Field: <input name="bot-field" /></label>
-        </div>
         
         <!-- Fair Information Section -->
         <div class="space-y-4">
@@ -470,6 +461,62 @@ const legacyFairOptions = [
       });
     }
   });
+  
+  // Form submission
+  const participantForm = document.getElementById('participant-form');
+  if (participantForm) {
+    participantForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      console.log('🚀 Gmail SMTP: Participant form gönderiliyor...');
+      const formData = new FormData(participantForm);
+      
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          body: formData
+        });
+        
+        console.log('📥 Response:', response.status, response.ok);
+        
+        if (response.ok) {
+          closeParticipantModal();
+          showParticipantSuccessNotification();
+        } else {
+          alert(locale === 'tr' ? 'Form gönderilemedi!' : 'Form could not be sent!');
+        }
+      } catch (error) {
+        console.error('Form error:', error);
+        alert(locale === 'tr' ? 'Bir hata oluştu!' : 'An error occurred!');
+      }
+    });
+  }
+  
+  // Success notification
+  function showParticipantSuccessNotification() {
+    const notification = document.createElement('div');
+    notification.innerHTML = `
+      <div style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; font-family: Arial, sans-serif;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span>✅</span>
+          <div>
+            <div style="font-weight: 600;">${locale === 'tr' ? 'Katılımcı formu gönderildi!' : 'Participant form sent!'}</div>
+            <div style="font-size: 12px; opacity: 0.9;">${locale === 'tr' ? 'En kısa sürede sizinle iletişime geçeceğiz.' : 'We will contact you soon.'}</div>
+          </div>
+          <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">✕</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(notification);
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => notification.remove(), 300);
+    }, 5000);
+  }
+  
 </script>
 
 <style>
