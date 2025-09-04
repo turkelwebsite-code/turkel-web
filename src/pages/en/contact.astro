@@ -383,12 +383,13 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('to_email', 'info@turkel.com.tr');
       
       // Email message
-      const emailMessage = '📧 NEW CONTACT FORM - TURKEL FAIR ORGANIZATION\\n\\n' +
-        '👤 PERSONAL INFORMATION:\\n' +
-        '• Full Name: ' + formData.get('fullName') + '\\n' +
-        '• Email: ' + formData.get('email') + '\\n' +
-        '• Phone: ' + formData.get('phone') + '\\n\\n' +
-        '💬 MESSAGE:\\n' + (formData.get('message') || 'No message') + '\\n\\n' +
+      const emailMessage = '📧 NEW CONTACT FORM - TURKEL FAIR ORGANIZATION\n\n' +
+        '👤 PERSONAL INFORMATION:\n' +
+        '• Full Name: ' + formData.get('fullName') + '\n' +
+        '• Email: ' + formData.get('email') + '\n' +
+        '• Phone: ' + formData.get('phone') + '\n\n' +
+        '💬 MESSAGE:\n' + (formData.get('message') || 'No message') + '\n\n' +
+        '🎯 SUBJECT: ' + (formData.get('subject') || 'General Contact') + '\n\n' +
         '📅 Time: ' + new Date().toLocaleString('en-US');
       
       formData.append('message', emailMessage);
@@ -401,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (response.ok) {
           form.reset();
-          alert('✅ Message sent successfully!');
+          showContactNotification();
         } else {
           alert('❌ Form could not be sent!');
         }
@@ -409,6 +410,29 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('❌ An error occurred!');
       }
     });
+  }
+  
+  // Contact notification
+  function showContactNotification() {
+    const notification = document.createElement('div');
+    notification.innerHTML = 
+      '<div style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; font-family: Arial, sans-serif;">' +
+        '<div style="display: flex; align-items: center; gap: 10px;">' +
+          '<span>📧</span>' +
+          '<div>' +
+            '<div style="font-weight: 600;">Message sent successfully!</div>' +
+            '<div style="font-size: 12px; opacity: 0.9;">We will contact you as soon as possible.</div>' +
+          '</div>' +
+          '<button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">✕</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => notification.remove(), 300);
+    }, 5000);
   }
 });
 </script>

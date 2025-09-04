@@ -523,18 +523,18 @@ ${formData.get('notes') || 'Ek not bulunmuyor.'}
   // Success notification
   function showSuccessNotification() {
     const notification = document.createElement('div');
-    notification.innerHTML = `
-      <div style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; font-family: Arial, sans-serif;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <span>✅</span>
-          <div>
-            <div style="font-weight: 600;">${locale === 'tr' ? 'Form başarıyla gönderildi!' : 'Form sent successfully!'}</div>
-            <div style="font-size: 12px; opacity: 0.9;">${locale === 'tr' ? 'En kısa sürede sizinle iletişime geçeceğiz.' : 'We will contact you soon.'}</div>
-          </div>
-          <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">✕</button>
-        </div>
-      </div>
-    `;
+    const isTurkish = locale === 'tr';
+    notification.innerHTML = 
+      '<div style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; font-family: Arial, sans-serif;">' +
+        '<div style="display: flex; align-items: center; gap: 10px;">' +
+          '<span>✅</span>' +
+          '<div>' +
+            '<div style="font-weight: 600;">' + (isTurkish ? 'Form başarıyla gönderildi!' : 'Form sent successfully!') + '</div>' +
+            '<div style="font-size: 12px; opacity: 0.9;">' + (isTurkish ? 'En kısa sürede sizinle iletişime geçeceğiz.' : 'We will contact you soon.') + '</div>' +
+          '</div>' +
+          '<button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">✕</button>' +
+        '</div>' +
+      '</div>';
     document.body.appendChild(notification);
     
     // Auto hide after 5 seconds

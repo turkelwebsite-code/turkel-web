@@ -300,9 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Email message
       const emailMessage = currentLang === 'tr' ? 
-        '📰 YENİ BÜLTEN ABONELİĞİ\\n\\n• Email: ' + formData.get('email') + '\\n• Dil: Türkçe\\n• Zaman: ' + new Date().toLocaleString('tr-TR')
+        '📰 YENİ BÜLTEN ABONELİĞİ\n\n• Email: ' + formData.get('email') + '\n• Dil: Türkçe\n• Zaman: ' + new Date().toLocaleString('tr-TR')
         :
-        '📰 NEW NEWSLETTER SUBSCRIPTION\\n\\n• Email: ' + formData.get('email') + '\\n• Language: English\\n• Time: ' + new Date().toLocaleString('en-US');
+        '📰 NEW NEWSLETTER SUBSCRIPTION\n\n• Email: ' + formData.get('email') + '\n• Language: English\n• Time: ' + new Date().toLocaleString('en-US');
       
       formData.append('message', emailMessage);
       
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (response.ok) {
           form.reset();
-          alert(currentLang === 'tr' ? '✅ Bülten aboneliği başarılı!' : '✅ Newsletter subscription successful!');
+          showNewsletterNotification();
         } else {
           alert(currentLang === 'tr' ? '❌ Abonelik başarısız!' : '❌ Subscription failed!');
         }
@@ -322,6 +322,30 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(currentLang === 'tr' ? '❌ Bir hata oluştu!' : '❌ An error occurred!');
       }
     });
+  }
+  
+  // Newsletter notification
+  function showNewsletterNotification() {
+    const currentLang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+    const notification = document.createElement('div');
+    notification.innerHTML = 
+      '<div style="position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; font-family: Arial, sans-serif;">' +
+        '<div style="display: flex; align-items: center; gap: 10px;">' +
+          '<span>📰</span>' +
+          '<div>' +
+            '<div style="font-weight: 600;">' + (currentLang === 'tr' ? 'Bülten aboneliği başarılı!' : 'Newsletter subscription successful!') + '</div>' +
+            '<div style="font-size: 12px; opacity: 0.9;">' + (currentLang === 'tr' ? 'Fuar haberlerinden haberdar olacaksınız.' : 'You will be notified about fair news.') + '</div>' +
+          '</div>' +
+          '<button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer; margin-left: 10px;">✕</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateX(100%)';
+      setTimeout(() => notification.remove(), 300);
+    }, 5000);
   }
 });
 </script>
