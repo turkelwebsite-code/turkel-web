@@ -32,6 +32,7 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 17-25 JANUARY 2026
       name_en: BOOT DUSSELDORF
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-boot.jpg
       background_image: /images/fair-bg-boot.png
@@ -60,6 +61,7 @@ fairs:
       location_en: ALMATY, KAZAKHSTAN
       date_en: 16 - 18 FEBRUARY 2026
       name_en: 18TH HOMEDECO KAZAKHSTAN
+      hide_dates: false
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/fuarlar-arkaplan.jpg
@@ -90,6 +92,7 @@ fairs:
       name_tr: PARIS BRIDAL FAIR
       location_en: PARIS, FRANCE
       name_en: PARIS BRIDAL FAIR
+      hide_dates: false
     visuals:
       logo: /images/logo-parisbridal.jpg
       background_image: /images/image_1_48.webp
@@ -109,6 +112,7 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 27 - 28 MARCH 2026
       name_en: 43. WEDDING FASHION MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/fair-bg-wedding.png
@@ -137,6 +141,7 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 20 - 22 MARCH 2026
       name_en: BEAUTY DUSSELDORF
+      hide_dates: false
     visuals:
       logo: /images/ekran-resmi-2025-09-03-21.23.28.png
       background_image: /images/fair-bg-beauty.png
@@ -165,6 +170,7 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 21 - 22 MARCH 2026
       name_en: TOP HAIR
+      hide_dates: false
     visuals:
       logo: /images/th_messe_logo_2026-rgb-20mm.png
       background_image: /images/fair-bg-tophair.jpg
@@ -193,6 +199,7 @@ fairs:
       location_en: DUBAI, UAE
       date_en: 7 - 9 APRIL 2026
       name_en: MIDDLE EAST ENERGY
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-mee.jpg
       background_image: /images/fair-bg-mee.png
@@ -221,6 +228,7 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       date_en: 15 - 17 APRIL 2026
       name_en: WIRE & TUBE
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wiretube.png
       background_image: /images/fair-bg-wiretube.png
@@ -249,6 +257,7 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 22 - 24 APRIL 2026
       name_en: SECURIKA MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-securika.png
       background_image: /images/fair-bg-securika.png
@@ -279,6 +288,7 @@ fairs:
       name_tr: 29.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 29TH LESHOW MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshow-gorsel-fair.jpg
@@ -298,6 +308,7 @@ fairs:
       location_en: KAZAN, TATARSTAN
       date_en: 14 - 16 MAY 2025
       name_en: KAZAN FORUM & RUSYA HELAL EXPO
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-kazan.jpg
       background_image: /images/fair-bg-kazan.png
@@ -326,6 +337,7 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 8 - 10 JUNE 2026
       name_en: ELECTRO
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-electro.png
       background_image: /images/fair-bg-electro.png
@@ -354,6 +366,7 @@ fairs:
       location_en: MOSCOW, RUSSIA
       date_en: 16 - 19 JUNE 2026
       name_en: ROSMOULD / ROSPLAST
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-rosmould.png
       background_image: /images/fair-bg-rosmould.png
@@ -384,6 +397,7 @@ fairs:
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
+      hide_dates: false
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
@@ -405,6 +419,7 @@ fairs:
       name_tr: HARROGE BRIDAL – WHITE GALLERY
       location_en: HARROGATE, UK
       name_en: HARROGE BRIDAL – WHITE GALLERY
+      hide_dates: false
     visuals:
       logo: /images/logo-bridal.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -426,6 +441,7 @@ fairs:
       name_tr: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
       location_en: RIYADH, SAUDI ARABIA
       name_en: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
+      hide_dates: false
     visuals:
       logo: /images/logo-kidstoys.png
       background_image: /images/gorsel-kidstoys.jpg
@@ -469,6 +485,7 @@ fairs:
       name_tr: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
       location_en: RIYADH, SAUDI ARABIA
       name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
+      hide_dates: false
     visuals:
       logo: /images/logo-saudi.jpg
       background_image: /images/gorsel-saudi.jpg
@@ -513,6 +530,7 @@ fairs:
       name_tr: INTERLIGHT SMART CITY & HOME
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT SMART CITY & HOME
+      hide_dates: false
     visuals:
       logo: /images/logo-ınterlıght.png
       background_image: /images/gorsel-interlightsmart.jpg
@@ -534,6 +552,7 @@ fairs:
       name_tr: PISCINA BARCELONA
       location_en: BARCELONA, SPAIN
       name_en: PISCINA BARCELONA
+      hide_dates: false
     visuals:
       logo: /images/logo-piscina.png
       background_image: /images/gorsel-piscina.jpg
@@ -555,6 +574,7 @@ fairs:
       name_tr: 36.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 36TH MEBEL
+      hide_dates: false
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png

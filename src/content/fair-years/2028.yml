@@ -29,6 +29,7 @@ fairs:
       location_tr: KOPENHAG, DANİMARKA
       location_en: COPENHAGEN, DENMARK
       sector: Moda ve Tekstil
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-ciff.jpg
       background_image: /images/fair-bg-ciff.jpeg

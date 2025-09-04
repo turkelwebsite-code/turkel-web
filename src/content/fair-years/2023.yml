@@ -33,6 +33,7 @@ fairs:
       name_tr: BOOT DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
+      hide_dates: false
     visuals:
       logo: /images/logo-boot.png
       background_image: /images/gorsel-boot.avif
@@ -76,6 +77,7 @@ fairs:
       name_tr: 40. WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       name_en: 40TH WEDDING FASHION MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -97,6 +99,7 @@ fairs:
       name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
       name_en: MIDDLE EAST ENERGY
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-mee.jpg
       background_image: /images/fair-bg-mee.png
@@ -118,6 +121,7 @@ fairs:
       name_tr: 15.HOMEDECO KAZAKİSTAN
       location_en: ALMATY, KAZAKHSTAN
       name_en: 15.HOMEDECO KAZAKHSTAN
+      hide_dates: false
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/homedeco-detail3.png
@@ -139,6 +143,7 @@ fairs:
       name_tr: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
       location_en: LONDON, UK
       name_en: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
+      hide_dates: false
     visuals:
       logo: /images/logo-bridal.png
       background_image: /images/image_1_48.webp
@@ -160,6 +165,7 @@ fairs:
       name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
       name_en: IMM COLOGNE
+      hide_dates: false
     visuals:
       logo: /images/imm.png
       background_image: /images/immgorsel.jpg
@@ -226,6 +232,7 @@ fairs:
       name_tr: 26.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 26.LESHOW MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshow-gorsel-fair.jpg
@@ -247,6 +254,7 @@ fairs:
       name_tr: WOODEX FOR AFRICA
       location_en: JOHANNESBURG, SOUTH AFRICA
       name_en: WOODEX FOR AFRICA
+      hide_dates: false
     visuals:
       logo: /images/woodexlogo.png
       background_image: /images/woodexafricagorsel.jpg
@@ -268,6 +276,7 @@ fairs:
       name_tr: PREVIEW IN SEOUL
       location_en: SEOUL, S. KOREA
       name_en: PREVIEW IN SEOUL
+      hide_dates: false
     visuals:
       logo: /images/prewievlogo.png
       background_image: /images/previewgorsel.jpg
@@ -289,6 +298,7 @@ fairs:
       name_tr: SLEEP EXPO MIDDLE EAST
       location_en: DUBAI, UAE
       name_en: SLEEP EXPO MIDDLE EAST
+      hide_dates: false
     visuals:
       logo: /images/sleep-expo-middle.png
       background_image: /images/sleepexpogorsel.jpg
@@ -310,6 +320,7 @@ fairs:
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
+      hide_dates: false
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
@@ -331,6 +342,7 @@ fairs:
       name_tr: THE FLOORING SHOW
       location_en: HARROGATE, UK
       name_en: THE FLOORING SHOW
+      hide_dates: false
     visuals:
       logo: /images/flooringshowlogo.png
       background_image: /images/flooringshowgorsel.jpg
@@ -352,6 +364,7 @@ fairs:
       name_tr: "INTERLIGHT "
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT
+      hide_dates: false
     visuals:
       logo: /images/ınterligthmoscowlogo.jpg
       background_image: /images/ınterlightmoscowgorsel.jpg
@@ -373,6 +386,7 @@ fairs:
       name_tr: EGYPT ENERGY
       location_en: CAIRO, EGYPT
       name_en: EGYPT ENERGY
+      hide_dates: false
     visuals:
       logo: /images/egyptenergylogo.png
       background_image: /images/egyptenergygorsel.jpg
@@ -394,6 +408,7 @@ fairs:
       name_tr: 34.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 34.MEBEL
+      hide_dates: false
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/mebelgorsel.jpg

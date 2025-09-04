@@ -33,6 +33,7 @@ fairs:
       name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
       name_en: IMM COLOGNE
+      hide_dates: false
     visuals:
       logo: /images/imm.png
       background_image: /images/immgorsel.jpg
@@ -54,6 +55,7 @@ fairs:
       name_tr: BOOT DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
+      hide_dates: false
     visuals:
       logo: /images/logo-boot.png
       background_image: /images/fair-bg-boot.png
@@ -97,6 +99,7 @@ fairs:
       name_tr: 40.WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       name_en: 40TH WEDDING FASHION MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -118,6 +121,7 @@ fairs:
       name_tr: BEAUTY DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BEAUTY DUSSELDORF
+      hide_dates: false
     visuals:
       logo: /images/ekran-resmi-2025-09-03-21.23.28.png
       background_image: /images/fair-bg-beauty.png
@@ -139,6 +143,7 @@ fairs:
       name_tr: BRIDAL WEEK HARROGATE
       location_en: HARROGATE, UK
       name_en: BRIDAL WEEK HARROGATE
+      hide_dates: false
     visuals:
       logo: /images/bridal-week.png
       background_image: /images/fair-bg-wedding.png
@@ -160,6 +165,7 @@ fairs:
       name_tr: WIRE & TUBE
       location_en: DUSSELDORF, GERMANY
       name_en: "WIRE & TUBE "
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wiretube.png
       background_image: /images/fair-bg-wiretube.png
@@ -225,6 +231,7 @@ fairs:
       name_tr: WHITE GALLERY LONDON
       location_en: LONDON, UK
       name_en: WHITE GALLERY LONDON
+      hide_dates: false
     visuals:
       logo: /images/white-gallery.jpg
       background_image: /images/whitegallery.jpg
@@ -246,6 +253,7 @@ fairs:
       name_tr: COMVEX
       location_en: MOSCOW, RUSSIA
       name_en: COMVEX
+      hide_dates: false
     visuals:
       logo: /images/comwex.jpg
       background_image: /images/comwexgorsel.png
@@ -289,6 +297,7 @@ fairs:
       name_tr: 27.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 27.LESHOW MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshowgorsel.jpeg
@@ -310,6 +319,7 @@ fairs:
       name_tr: KIDSPACE
       location_en: DUBAI, UAE
       name_en: KIDSPACE
+      hide_dates: false
     visuals:
       logo: /images/kids-space.png
       background_image: /images/kidspacegorsel.jpg
@@ -331,6 +341,7 @@ fairs:
       name_tr: ROSMOULD / ROSPLAST
       location_en: MOSCOW, RUSSIA
       name_en: ROSMOULD / ROSPLAST
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-rosmould.png
       background_image: /images/download.jpg
@@ -397,6 +408,7 @@ fairs:
       name_tr: THE FLOORING SHOW
       location_en: HARROGATE, UK
       name_en: THE FLOORING SHOW
+      hide_dates: false
     visuals:
       logo: /images/flooringshowlogo.png
       background_image: /images/flooringshowgorsel.jpg
@@ -418,6 +430,7 @@ fairs:
       name_tr: INTERLIGHT
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT
+      hide_dates: false
     visuals:
       logo: /images/ınterligthmoscowlogo.jpg
       background_image: /images/ınterlightmoscowgorsel.jpg
@@ -483,6 +496,7 @@ fairs:
       name_tr: "APPAREL SOURCING TASKENT "
       location_en: TASHKENT, UZBEKISTAN
       name_en: APPAREL SOURCING TASHKENT
+      hide_dates: false
     visuals:
       logo: /images/apparellogo.png
       background_image: /images/apparelgorsel.png
@@ -526,6 +540,7 @@ fairs:
       name_tr: BEAUTY WORLD CENTRAL ASIA
       location_en: TASHKENT, UZBEKISTAN
       name_en: BEAUTY WORLD CENTRAL ASIA
+      hide_dates: false
     visuals:
       logo: /images/beautyworldlogo.png
       background_image: /images/beautyworldgorsel.png
@@ -547,6 +562,7 @@ fairs:
       name_tr: TEXWORLD TASHKENT
       location_en: TASHKENT, UZBEKISTAN
       name_en: TEXWORLD TASHKENT
+      hide_dates: false
     visuals:
       logo: /images/texworldlogo.png
       background_image: /images/texworldgorsel.png
@@ -568,6 +584,7 @@ fairs:
       name_tr: HACE HOTEL EXPO
       location_en: KAHIRE, EGYPT
       name_en: HACE HOTEL EXPO
+      hide_dates: false
     visuals:
       logo: /images/hacehotel.png
       background_image: /images/hotelexpo.jpg

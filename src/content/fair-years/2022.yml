@@ -33,6 +33,7 @@ fairs:
       name_tr: CIFF
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF
+      hide_dates: false
     visuals:
       logo: /images/cifflogo.jpg
       background_image: /images/cıffgorsel.jpg
@@ -54,6 +55,7 @@ fairs:
       name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
       name_en: MIDDLE EAST ENERGY
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-mee.jpg
       background_image: /images/fair-bg-mee.png
@@ -75,6 +77,7 @@ fairs:
       name_tr: 38.WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       name_en: 38TH WEDDING FASHION MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -96,6 +99,7 @@ fairs:
       name_tr: 16.DUBAI WOOD SHOW
       location_en: DUBAI, UAE
       name_en: 16TH DUBAI WOOD SHOW
+      hide_dates: false
     visuals:
       logo: /images/woodlogo.png
       background_image: /images/woodgorsel.png
@@ -117,6 +121,7 @@ fairs:
       name_tr: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
       location_en: LONDON, UK
       name_en: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
+      hide_dates: false
     visuals:
       logo: /images/takvim_lbfw.jpg
       background_image: /images/image_1_48.webp
@@ -138,6 +143,7 @@ fairs:
       name_tr: BUILD YOUR HOUSE
       location_en: DOHA, QATAR
       name_en: BUILD YOUR HOUSE
+      hide_dates: false
     visuals:
       logo: /images/buildyourlogo.jpg
       background_image: /images/buildyourgorsel.jpg
@@ -159,6 +165,7 @@ fairs:
       name_tr: CIFF KIDS
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF KIDS
+      hide_dates: false
     visuals:
       logo: /images/ciffkids.jpg
       background_image: /images/ciffkidsgorsel.jpg
@@ -180,6 +187,7 @@ fairs:
       name_tr: WIRE & TUBE
       location_en: DUSSELDORF, GERMANY
       name_en: WIRE & TUBE
+      hide_dates: false
     visuals:
       logo: /images/fair-logo-wiretube.png
       background_image: /images/fair-bg-wiretube.png
@@ -201,6 +209,7 @@ fairs:
       name_tr: 25.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 25TH LESHOW MOSCOW
+      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/0161.jpg
@@ -222,6 +231,7 @@ fairs:
       name_tr: CIFF
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF
+      hide_dates: false
     visuals:
       logo: /images/cifflogo.jpg
       background_image: /images/cıffgorsel.jpg
@@ -243,6 +253,7 @@ fairs:
       name_tr: PREVIEW IN SEOUL
       location_en: SEOUL, S. KOREA
       name_en: PREVIEW IN SEOUL
+      hide_dates: false
     visuals:
       logo: /images/prewievlogo.png
       background_image: /images/previewgorsel.jpg
@@ -264,6 +275,7 @@ fairs:
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
+      hide_dates: false
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/kidspacegorsel.jpg
@@ -285,6 +297,7 @@ fairs:
       name_tr: BRIDAL WEEK HARROGATE
       location_en: HARROGATE, UK
       name_en: BRIDAL WEEK HARROGATE
+      hide_dates: false
     visuals:
       logo: /images/takvim_lbfw.jpg
       background_image: /images/edited_groupshot-1024x1024.jpg
@@ -306,6 +319,7 @@ fairs:
       name_tr: THE FLOORING SHOW
       location_en: HARROGATE, ENGLAND
       name_en: THE FLOORING SHOW
+      hide_dates: false
     visuals:
       logo: /images/flooringshowlogo.png
       background_image: /images/flooringshowgorsel.jpg
@@ -327,6 +341,7 @@ fairs:
       name_tr: INTERLIGHT
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT
+      hide_dates: false
     visuals:
       logo: /images/ınterligthmoscowlogo.jpg
       background_image: /images/ınterlightmoscowgorsel.jpg
@@ -346,6 +361,7 @@ fairs:
       location_tr: PARİS, FRANSA
       location_en: PARIS, FRANCE
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: false
     visuals:
       logo: /images/equipmaglogo.png
       background_image: /images/equipmaggorsel.jpg
@@ -365,6 +381,7 @@ fairs:
       location_tr: PARİS, FRANSA
       location_en: PARIS, FRANCE
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: false
     visuals:
       logo: /images/equipautologo.png
       background_image: /images/equipautogorsel.jpg
@@ -386,6 +403,7 @@ fairs:
       name_tr: EGYPT ENERGY
       location_en: CAIRO, EGYPT
       name_en: EGYPT ENERGY
+      hide_dates: false
     visuals:
       logo: /images/egyptenergylogo.png
       background_image: /images/egyptenergygorsel.jpg
@@ -407,6 +425,7 @@ fairs:
       name_tr: HACE HOTEL EXPO
       location_en: CAIRO, EGYPT
       name_en: HACE HOTEL EXPO
+      hide_dates: false
     visuals:
       logo: /images/hacehotel.png
       background_image: /images/hotelexpo.jpg
@@ -428,6 +447,7 @@ fairs:
       name_tr: 33.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 33.MEBEL
+      hide_dates: false
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png
@@ -449,6 +469,7 @@ fairs:
       name_tr: FURNITURE 360
       location_en: SHARJAH, U.A.E.
       name_en: FURNITURE 360
+      hide_dates: false
     visuals:
       logo: /images/firnuturelogo.png
       background_image: /images/furnituregorsel.jpg
