@@ -24,16 +24,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: IMM COLOGNE
-      name_en: IMM COLOGNE
-      start_date: 2024-01-14
-      end_date: 2024-01-18
+      description_tr: ULUSLARARASI MOBİLYA VE DEKORASYON FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: KOLN, ALMANYA
+      start_date: 2024-01-14
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF INTERIOR DESIGN
+      end_date: 2024-01-18
+      name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
-      sector: Diğer
+      name_en: IMM COLOGNE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/imm.png
+      background_image: /images/immgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -53,8 +55,8 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-boot.png
+      background_image: /images/fair-bg-boot.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -65,18 +67,18 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: |
-        ULUSLARARASI EV TEKSTİLİ, ve DEKORASYON FUARI
+        ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
       sector: Ev Tekstili ve Dekorasyon
       location_tr: ALMATI, KAZAKİSTAN
       start_date: 2025-03-04
       description_en: INTERNATIONAL HOME TEXTILES AND DECORATION FAIR
       end_date: 2025-03-06
-      name_tr: 16.HOMEDECO
+      name_tr: 16.HOMEDECO KAZAKHSTAN
       location_en: ALMATY, KAZAKHSTAN
-      name_en: 16.HOMEDECO
+      name_en: 16TH HOMEDECO KAZAKHSTAN
     visuals:
       logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      background_image: /images/homedeco-detail3.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -86,18 +88,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: ULUSLARARASI GELİNLİK VE ABİYE GİYİM FUARI
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-03-21
-      description_en: INTERNATIONAL WEDDING DRESS AND EVENING DRESS FAIR
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
       end_date: 2024-03-23
       name_tr: 40.WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
-      name_en: 40.WEDDING FASHION MOSCOW
+      name_en: 40TH WEDDING FASHION MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -107,16 +109,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: BEAUTY DUSSELDORF
-      name_en: BEAUTY DUSSELDORF
-      start_date: 2024-03-22
-      end_date: 2024-03-24
-      location_tr: DUSSELDORF, ALMANYA
-      location_en: DUSSELDORF, GERMANY
+      description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      location_tr: DUSSELDORF, ALMANYA
+      start_date: 2024-03-22
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BEAUTY INDUSTRY AND PRODUCTS
+      end_date: 2024-03-24
+      name_tr: BEAUTY DUSSELDORF
+      location_en: DUSSELDORF, GERMANY
+      name_en: BEAUTY DUSSELDORF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/ekran-resmi-2025-09-03-21.23.28.png
+      background_image: /images/fair-bg-beauty.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -126,16 +130,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: BRIDAL WEEK HARROGATE
-      name_en: BRIDAL WEEK HARROGATE
-      start_date: 2024-03-24
-      end_date: 2024-03-26
-      location_tr: HARROGATE, İNGİLTERE
-      location_en: HARROGATE, ENGLAND
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
+      location_tr: HARROGATE, İNGİLTERE
+      start_date: 2024-03-24
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BRIDAL FASHION INDUSTRY
+      end_date: 2024-03-26
+      name_tr: BRIDAL WEEK HARROGATE
+      location_en: HARROGATE, UK
+      name_en: BRIDAL WEEK HARROGATE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/bridal-week.png
+      background_image: /images/fair-bg-wedding.png
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -145,16 +151,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: WIRE &TUBE
-      name_en: "WIRE &TUBE "
-      start_date: 2024-04-15
-      end_date: 2024-04-19
+      description_tr: ULUSLARASI BORU VE TEL FUARI
+      sector: Kalıp & Plastik, İhtisas, Havuz
       location_tr: DUSSELDORF, ALMANYA
+      start_date: 2024-04-15
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF CABLE AND WIRE PRODUCTS
+      end_date: 2024-04-19
+      name_tr: WIRE & TUBE
       location_en: DUSSELDORF, GERMANY
-      sector: İnşaat
+      name_en: "WIRE & TUBE "
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-wiretube.png
+      background_image: /images/fair-bg-wiretube.png
   - representative:
       hide_phone: false
       team_member: Pınar Yalçın
@@ -164,16 +172,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: MIDDLE EAST ENERGY
-      name_en: MIDDLE EAST ENERGY
-      start_date: 2024-04-16
-      end_date: 2024-04-19
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: DUBAİ, BAE
+      start_date: 2024-04-16
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY AND
+        LIGHTING PRODUCTS
+      end_date: 2024-04-19
+      name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
-      sector: Enerji
+      name_en: MIDDLE EAST ENERGY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-mee.jpg
+      background_image: /images/fair-bg-mee.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -183,16 +194,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: SLEEP EXPO EUROPE
-      name_en: "SLEEP EXPO EUROPE "
-      start_date: 2024-04-23
-      end_date: 2024-04-25
-      location_tr: MAASTRICHT, HOLLANDA
-      location_en: MAASTRICHT, NETHERLANDS
+      description_tr: YATAK VE UYKU TEKNOLOJİLERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
+      location_tr: MAASTRICHT, HOLLANDA
+      start_date: 2024-04-23
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF THE BEDDING
+        EQUIPMENT, COMPONENTS
+      end_date: 2024-04-25
+      name_tr: SLEEP EXPO EUROPE
+      location_en: MAASTRICHT, NETHERLANDS
+      name_en: "SLEEP EXPO EUROPE "
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/sleep-expo.png
+      background_image: /images/sleepexpoeurope.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -202,16 +216,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: LONDON  WHITE GALLERY
-      name_en: LONDON  WHITE GALLERY
-      start_date: 2024-05-08
-      end_date: 2024-05-09
-      location_tr: LONDRA, İNGİLTERE
-      location_en: LONDON, ENGLAND
+      description_tr: TASARIM, GELİNLİK VE AKSESUAR FUARI
       sector: Moda ve Tekstil
+      location_tr: LONDRA, İNGİLTERE
+      start_date: 2024-05-08
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF THE BRIDAL FASHION INDUSTRY
+      end_date: 2024-05-09
+      name_tr: WHITE GALLERY LONDON
+      location_en: LONDON, UK
+      name_en: WHITE GALLERY LONDON
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/white-gallery.jpg
+      background_image: /images/whitegallery.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -221,18 +237,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: Uluslararası Ticari Araçlar ve Teknolojileri Fuarı
+      description_tr: ULUSLARARASI TİCARİ ARAÇLAR VE TEKNOLOJİLERİ FUARI
       sector: Diğer
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-05-28
-      description_en: International Commercial Vehicles and Technologies Fair
+      description_en: INTERNATIONAL TRADE FAIR FOR COMMERCIAL VEHICLES AND TECHNOLOGIES
       end_date: 2024-05-31
       name_tr: COMVEX
       location_en: MOSCOW, RUSSIA
       name_en: COMVEX
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/comwex.jpg
+      background_image: /images/comwexgorsel.png
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -242,16 +258,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: ELECTRO
-      name_en: ELECTRO
-      start_date: 2024-06-04
-      end_date: 2024-06-07
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2024-06-04
+      description_en: NTERNATIONAL EXHIBITION FOR ELECTRICAL EQUIPMENT FOR POWER AND
+        ELECTRICAL ENGINEERING, AUTOMATION, LIGHTING ENGINEERING
+      end_date: 2024-06-07
+      name_tr: ELECTRO
+      location_en: MOSCOW, RUSSIA
+      name_en: ELECTRO
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-electro.png
+      background_image: /images/electrogorsel.png
   - representative:
       hide_phone: true
       team_member: Gül Baykara
@@ -261,18 +280,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: "ULUSLARASI DERİ VE MODA FUARI "
-      sector: Moda ve Tekstil
+      description_tr: "ULUSLARASI KIŞ MODA FUARI "
+      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-04
-      description_en: INT'L WINTER FASHION TRADE SHOW
+      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
       end_date: 2024-06-06
-      name_tr: 27.LESHOW
+      name_tr: 27.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
-      name_en: 27.LESHOW
+      name_en: 27.LESHOW MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/leshowgorsel.jpeg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -282,16 +301,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: KIDSPACE SHOW DUBAI
-      name_en: KIDSPACE SHOW DUBAI
-      start_date: 2024-06-04
-      end_date: 2024-06-06
-      location_tr: DUBAI, BAE
-      location_en: DUBAI, UAE
+      description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda ve Tekstil
+      location_tr: DUBAI, BAE
+      start_date: 2024-06-04
+      description_en: BABY & CHILDREN'S CLOTHING AND EQUIPMENT FAIR
+      end_date: 2024-06-06
+      name_tr: KIDSPACE
+      location_en: DUBAI, UAE
+      name_en: KIDSPACE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/kids-space.png
+      background_image: /images/kidspacegorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -301,16 +322,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: ROSMOULD / ROSPLAST
-      name_en: ROSMOULD / ROSPLAST
-      start_date: 2024-06-18
-      end_date: 2024-06-20
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2024-06-18
+      description_en: ROSMOULD INTERNATIONAL MOLD FAIR / ROSPLAST INTERNATIONAL PLASTIC FAIR
+      end_date: 2024-06-20
+      name_tr: ROSMOULD / ROSPLAST
+      location_en: MOSCOW, RUSSIA
+      name_en: ROSMOULD / ROSPLAST
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-rosmould.png
+      background_image: /images/download.jpg
   - representative:
       hide_phone: false
       team_member: Arzu Günal
@@ -320,16 +343,20 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: HOMETEXTILE & DESIGN
-      name_en: HOMETEXTILE & DESIGN
-      start_date: 2024-09-03
-      end_date: 2024-09-05
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARASI İÇ MEKAN KUMAŞLARI, EV TEKSTİLİ VE DEKORASYON
+        MALZEMELERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2024-09-03
+      description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILE AND
+        DECORATING MATERIALS
+      end_date: 2024-09-05
+      name_tr: HOMETEXTILE & DESIGN
+      location_en: MOSCOW, RUSSIA
+      name_en: HOMETEXTILE & DESIGN
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-hometextile.png
+      background_image: /images/gorsel-hometextile.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -339,18 +366,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: "ULUSLARARASI ÇOCUK FUARI "
+      description_tr: "ULUSLARARASI BEBEK - ÇOCUK GİYİM VE SEKTÖREL TİCARET FUARI "
       sector: Moda ve Tekstil
       location_tr: KÖLN, ALMANYA
       start_date: 2024-09-03
-      description_en: " THE TRADE SHOW FOR KIDS’ FIRST YEARS"
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BABY AND TODDLER
+        OUTFITTING FASHION
       end_date: 2024-09-05
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/kind-logo-fair.png
+      background_image: /images/ekran-resmi-2025-09-03-22.48.44.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -360,16 +388,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: THE FLOORING SHOW
-      name_en: THE FLOORING SHOW
-      start_date: 2024-09-15
-      end_date: 2024-09-17
+      description_tr: ZEMİN KAPLAMALARI FUARI
+      sector: Diğer
       location_tr: HARROGATE, İNGİLTERE
-      location_en: HARROGATE, ENGLAND
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      start_date: 2024-09-15
+      description_en: FLOOR COVERINGS FAIR
+      end_date: 2024-09-17
+      name_tr: THE FLOORING SHOW
+      location_en: HARROGATE, UK
+      name_en: THE FLOORING SHOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/flooringshowlogo.png
+      background_image: /images/flooringshowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -379,16 +409,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: INTERLIGHT
-      name_en: INTERLIGHT
-      start_date: 2024-09-17
-      end_date: 2024-09-20
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2024-09-17
+      description_en: INTERNATIONAL LIGHTING AND SMART BUILDING TECHNOLOGIES FAIR
+      end_date: 2024-09-20
+      name_tr: INTERLIGHT
+      location_en: MOSCOW, RUSSIA
+      name_en: INTERLIGHT
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/ınterligthmoscowlogo.jpg
+      background_image: /images/ınterlightmoscowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -398,16 +430,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: ORGATEC
-      name_en: ORGATEC
-      start_date: 2024-10-22
-      end_date: 2024-10-25
+      description_tr: ULUSLARARASI OFİS MOBİLYALARI VE DONANIMLARI FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: KÖLN, ALMANYA
+      start_date: 2024-10-22
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF OFFICE-FACILITY
+        FURNITURE AND ADVANCED DECORATION TECHNOLOGIES
+      end_date: 2024-10-25
+      name_tr: ORGATEC
       location_en: COLOGNE, GERMANY
-      sector: Enerji
+      name_en: ORGATEC
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/orgateclogo.png
+      background_image: /images/orgatechgorsel.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -417,16 +452,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: HEIMTEXTILE UZBEKISTAN
-      name_en: HEIMTEXTILE UZBEKISTAN
-      start_date: 2024-11-06
-      end_date: 2024-11-08
-      location_tr: TAŞKENT, ÖZBEKİSTAN
-      location_en: TASHKENT, UZBEKISTAN
+      description_tr: ULUSLARARASI EV TEKSTİLİ, TEKSTİL İŞLEMLERİ VE MALZEMELERİ TİCARET FUARI
       sector: Moda ve Tekstil
+      location_tr: TAŞKENT, ÖZBEKİSTAN
+      start_date: 2024-11-06
+      description_en: INTERNATIONAL TRADE FAIR OF HOME TEXTILES, CLOTHING CARE,
+        TEXTILE PROCESSES, AND MATERIALS
+      end_date: 2024-11-08
+      name_tr: HEIMTEXTILE
+      location_en: TASHKENT, UZBEKISTAN
+      name_en: HEIMTEXTILE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/heimtextilozbekistanlogo.png
+      background_image: /images/heimtextilgorsel.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -436,18 +474,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: TEXWORLD TASHKENT /KIDSWORLD CENTRAL ASIA 2024
+      description_tr: TEKSTİL FUARI
       sector: Moda ve Tekstil
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
-      description_en: TEXWORLD TASHKENT /KIDSWORLD CENTRAL ASIA 2024
+      description_en: TEXTILE FAIR
       end_date: 2024-11-08
       name_tr: "APPAREL SOURCING TASKENT "
       location_en: TASHKENT, UZBEKISTAN
-      name_en: APPAREL SOURCING TASKENT
+      name_en: APPAREL SOURCING TASHKENT
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/apparellogo.png
+      background_image: /images/apparelgorsel.png
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -457,18 +495,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: "Uluslararası Mobilya, Bağlantı Elemanları ve Yan Sanayi Fuarı.  "
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
+      sector: Güzellik ve Kozmetik
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-11-18
-      description_en: International Furniture, Fasteners and Sub-Industry Fair.
+      description_en: INTERNATIONAL FURNITURE, FURNITURE SUB-INDUSTRY AND UPHOLSTERY
+        FABRIC FAIR
       end_date: 2024-11-22
       name_tr: 35.MEBEL
       location_en: MOSCOW, RUSSIA
-      name_en: 35.MEBEL
+      name_en: 35TH MEBEL
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-mebel.png
+      background_image: /images/mebelgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -478,13 +517,79 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: BEAUTY WORLD CENTRAL ASIA
-      name_en: BEAUTY WORLD CENTRAL ASIA
-      start_date: 2024-11-21
-      end_date: 2024-11-23
-      location_tr: TAŞKENT, ÖZBEKİSTAN
-      location_en: TASHKENT, UZBEKISTAN
+      description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      location_tr: TAŞKENT, ÖZBEKİSTAN
+      start_date: 2024-11-21
+      description_en: INTERNATIONAL BEAUTY, COSMETIC AND PERSONAL CARE FAIR
+      end_date: 2024-11-23
+      name_tr: BEAUTY WORLD CENTRAL ASIA
+      location_en: TASHKENT, UZBEKISTAN
+      name_en: BEAUTY WORLD CENTRAL ASIA
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/beautyworldlogo.png
+      background_image: /images/beautyworldgorsel.png
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: KUMAŞ, İPLİK VE TEKSTİL AKSESUARLARI FUARI
+      sector: Moda ve Tekstil
+      location_tr: TAŞKENT, ÖZBEKİSTAN
+      start_date: 2024-11-06
+      description_en: FABRIC, YARN AND TEXTILE ACCESSORIES FAIR
+      end_date: 2024-11-08
+      name_tr: TEXWORLD TASHKENT
+      location_en: TASHKENT, UZBEKISTAN
+      name_en: TEXWORLD TASHKENT
+    visuals:
+      logo: /images/texworldlogo.png
+      background_image: /images/texworldgorsel.png
+  - representative:
+      hide_phone: true
+      team_member: Ahmet Hilmi Çoruk
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARASI OTEL MALZEMELERİ FUARI
+      sector: Diğer
+      location_tr: KAHİRE, MISIR
+      start_date: 2024-09-02
+      description_en: INTERNATIONAL HOTEL SUPPLIES FAIR
+      end_date: 2024-09-04
+      name_tr: HACE HOTEL EXPO
+      location_en: KAHIRE, EGYPT
+      name_en: HACE HOTEL EXPO
+    visuals:
+      logo: /images/hacehotel.png
+      background_image: /images/hotelexpo.jpg
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI
+      sector: Moda ve Tekstil
+      location_tr: LAS VEGAS, AMERİKA
+      start_date: 2024-08-11
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BRIDAL FASHION &
+        TEXTILE INDUSTRY
+      end_date: 2024-08-13
+      name_tr: VOW BRIDAL & FORMAL
+      location_en: LAS VEGAS, USA
+      name_en: VOW BRIDAL & FORMAL
+    visuals:
+      logo: /images/vow-bridal.png
+      background_image: /images/vowbridalgorsel.jpg
