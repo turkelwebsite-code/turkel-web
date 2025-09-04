@@ -374,11 +374,11 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       console.log('🚀 Contact Form: EN form gönderiliyor...');
-      const formData = new FormData(form);
+      const formData = new FormData(form as HTMLFormElement);
       
       // Web3Forms setup
       formData.append('access_key', '26c4e2e8-c895-4821-a0fd-450c838a96ec');
-      formData.append('subject', '📧 New Contact Form - ' + formData.get('fullName'));
+      formData.append('subject', '📧 New Contact Form - ' + formData.get('name') + ' ' + formData.get('surname'));
       formData.append('from_name', 'Turkel Fair Organization');
       formData.append('to_email', 'info@turkel.com.tr');
       
@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         if (response.ok) {
-          form.reset();
+          (form as HTMLFormElement).reset();
           showContactNotification();
         } else {
           alert('❌ Form could not be sent!');
