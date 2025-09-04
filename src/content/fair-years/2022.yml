@@ -17,27 +17,6 @@ page_content:
 fairs:
   - representative:
       hide_phone: true
-      team_member: Gül Baykara
-    settings:
-      order: 1
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: "ULUSLARARASI DERİ VE MODA FUARI "
-      sector: Moda ve Tekstil
-      location_tr: İSTANBUL, TURKİYE
-      start_date: 2022-01-20
-      description_en: INTERNATIONAL LEATHER AND FASHION FAIR
-      end_date: 2022-01-22
-      name_tr: " 3.LESHOW İSTANBUL"
-      location_en: ISTANBUL, TURKEY
-      name_en: " 3.LESHOW İSTANBUL"
-    visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
-  - representative:
-      hide_phone: true
       team_member: Seval Arslan
     settings:
       order: 2
@@ -45,18 +24,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: "COPENHAGEN FASHION FAIR "
+      description_tr: MODA FUARI
       sector: Moda ve Tekstil
       location_tr: KOPENHAG, DANİMARKA
       start_date: 2022-02-02
-      description_en: "COPENHAGEN FASHION FAIR "
+      description_en: "FASHION FAIR "
       end_date: 2022-02-04
       name_tr: CIFF
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/cifflogo.jpg
+      background_image: /images/cıffgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -66,16 +45,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: MIDDLE EAST ENERGY
-      name_en: MIDDLE EAST ENERGY
-      start_date: 2022-03-07
-      end_date: 2022-03-09
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: DUBAİ, BAE
+      start_date: 2022-03-07
+      description_en: INTERNATIONAL ELECTRICITY, ELECTRONIC AND LIGHTING FAIR
+      end_date: 2022-03-09
+      name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
-      sector: Enerji
+      name_en: MIDDLE EAST ENERGY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-mee.jpg
+      background_image: /images/fair-bg-mee.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -85,18 +66,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: ULUSLARARASI GELİNLİK VE ABİYE GİYİM FUARI
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-03-10
-      description_en: INTERNATIONAL WEDDING DRESS AND EVENING DRESS FAIR
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
       end_date: 2023-03-12
       name_tr: 38.WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
-      name_en: 38.WEDDING FASHION MOSCOW
+      name_en: 38TH WEDDING FASHION MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -114,10 +95,10 @@ fairs:
       end_date: 2022-03-17
       name_tr: 16.DUBAI WOOD SHOW
       location_en: DUBAI, UAE
-      name_en: 16.DUBAI WOOD SHOW
+      name_en: 16TH DUBAI WOOD SHOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/woodlogo.png
+      background_image: /images/woodgorsel.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -127,18 +108,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: FASHION WEEK &WHITE GALLERY
+      description_tr: "GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI\t"
       sector: Moda ve Tekstil
       location_tr: LONDRA, İNGİLTERE
       start_date: 2022-03-20
-      description_en: FASHION WEEK &WHITE GALLERY
+      description_en: INTERNATIONAL BRIDAL FAIR
       end_date: 2022-03-22
-      name_tr: LONDON BRIDAL
-      location_en: LONDON, ENGLAND
-      name_en: LONDON BRIDAL
+      name_tr: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
+      location_en: LONDON, UK
+      name_en: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/takvim_lbfw.jpg
+      background_image: /images/image_1_48.webp
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -148,16 +129,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: BUILD YOUR HOUSE QATAR
-      name_en: BUILD YOUR HOUSE QATAR
-      start_date: 2022-03-28
-      end_date: 2022-03-30
-      location_tr: DOHA, KATAR
-      location_en: DOHA, QATAR
+      description_tr: İNŞAAT VE EKİPMANLARI FUARI
       sector: İnşaat
+      location_tr: DOHA, KATAR
+      start_date: 2022-03-28
+      description_en: CONSTRUCTION AND EQUIPMENT FAIR
+      end_date: 2022-03-30
+      name_tr: BUILD YOUR HOUSE
+      location_en: DOHA, QATAR
+      name_en: BUILD YOUR HOUSE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/buildyourlogo.jpg
+      background_image: /images/buildyourgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -167,16 +150,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: CIFF KIDS
-      name_en: CIFF KIDS
-      start_date: 2022-06-19
-      end_date: 2022-06-21
-      location_tr: COPENHAGEN, DANİMARKA
-      location_en: COPENHAGEN, DENMARK
+      description_tr: ÇOCUK MODASI FUARI
       sector: Moda ve Tekstil
+      location_tr: COPENHAGEN, DANİMARKA
+      start_date: 2022-06-19
+      description_en: CHILDREN'S FASHION FAIR
+      end_date: 2022-06-21
+      name_tr: CIFF KIDS
+      location_en: COPENHAGEN, DENMARK
+      name_en: CIFF KIDS
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/ciffkids.jpg
+      background_image: /images/ciffkidsgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -186,16 +171,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: WIRE & TUBE
-      name_en: WIRE & TUBE
-      start_date: 2022-06-20
-      end_date: 2022-06-24
-      location_tr: DUSSELDORF, ALMANYA
-      location_en: DUSSELDORF, GERMANY
+      description_tr: ULUSLARASI BORU VE TEL FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      location_tr: DUSSELDORF, ALMANYA
+      start_date: 2022-06-20
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF CABLE AND WIRE PRODUCTS
+      end_date: 2022-06-24
+      name_tr: WIRE & TUBE
+      location_en: DUSSELDORF, GERMANY
+      name_en: WIRE & TUBE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-wiretube.png
+      background_image: /images/fair-bg-wiretube.png
   - representative:
       hide_phone: true
       team_member: Gül Baykara
@@ -205,18 +192,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: ULUSLARASI DERİ VE MODA FUARI
-      sector: Moda ve Tekstil
+      description_tr: ULUSLARASI KIŞ MODA FUARI
+      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-06-28
-      description_en: " INT'L WINTER FASHION TRADE SHOW"
+      description_en: " INTERNATIONAL WINTER FASHION TRADE SHOW"
       end_date: 2022-06-30
-      name_tr: 25.LESHOW
+      name_tr: 25.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
-      name_en: 25.LESHOW
+      name_en: 25TH LESHOW MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/0161.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -226,18 +213,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: COPENHAGEN FASHION FAIR
+      description_tr: ULUSLARARASI MODA FUARI
       sector: Moda ve Tekstil
       location_tr: COPENHAGEN, DANİMARKA
       start_date: 2022-08-10
-      description_en: COPENHAGEN FASHION FAIR
+      description_en: INTERNATIONAL FASHION FAIR
       end_date: 2022-08-12
       name_tr: CIFF
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/cifflogo.jpg
+      background_image: /images/cıffgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -247,16 +234,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: PREVIEW IN SEOUL
-      name_en: PREVIEW IN SEOUL
-      start_date: 2022-08-24
-      end_date: 2022-08-26
+      description_tr: ULUSLARASI TEKSTİL FUARI
+      sector: Moda ve Tekstil
       location_tr: SEUL, G.KORE
+      start_date: 2022-08-24
+      description_en: INTERNATIONAL TEXTILE FAIR
+      end_date: 2022-08-26
+      name_tr: PREVIEW IN SEOUL
       location_en: SEOUL, S. KOREA
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      name_en: PREVIEW IN SEOUL
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/prewievlogo.png
+      background_image: /images/previewgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -266,18 +255,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: ULUSLARARASI ÇOCUK FUARI
+      description_tr: BEBEL - ÇOCUK GİYİM VE EKİPMANLARI FUARI
       sector: Moda ve Tekstil
       location_tr: KÖLN, ALMANYA
       start_date: 2022-09-08
-      description_en: THE TRADE SHOW FOR KIDS’ FIRST YEARS
+      description_en: BABY & KIDS CLOTHING AND PRODUCTS FAIR
       end_date: 2022-09-10
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/kind-logo-fair.png
+      background_image: /images/kidspacegorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -287,16 +276,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: BRIDAL WEEK HARROGATE
-      name_en: BRIDAL WEEK HARROGATE
-      start_date: 2022-09-11
-      end_date: 2022-09-13
-      location_tr: HARROGATE, İNGİLTERE
-      location_en: HARROGATE, ENGLAND
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
+      location_tr: HARROGATE, İNGİLTERE
+      start_date: 2022-09-11
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
+      end_date: 2022-09-13
+      name_tr: BRIDAL WEEK HARROGATE
+      location_en: HARROGATE, UK
+      name_en: BRIDAL WEEK HARROGATE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/takvim_lbfw.jpg
+      background_image: /images/edited_groupshot-1024x1024.jpg
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -306,16 +297,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: THE FLOORING SHOW
-      name_en: THE FLOORING SHOW
-      start_date: 2022-09-18
-      end_date: 2022-09-20
-      location_tr: HARROGATE, İNGİLTERE
-      location_en: HARROGATE, ENGLAND
+      description_tr: YER ZEMİNLERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
+      location_tr: HARROGATE, İNGİLTERE
+      start_date: 2022-09-18
+      description_en: FLOORING FAIR
+      end_date: 2022-09-20
+      name_tr: THE FLOORING SHOW
+      location_en: HARROGATE, ENGLAND
+      name_en: THE FLOORING SHOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/flooringshowlogo.png
+      background_image: /images/flooringshowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -325,16 +318,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: INTERLIGHT
-      name_en: INTERLIGHT
-      start_date: 2022-09-19
-      end_date: 2022-09-22
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2022-09-19
+      description_en: INTERNATIONAL TRADE FAIR FOT LIGHTING AND BUILDING SERVICES TECHNOLOGY
+      end_date: 2022-09-22
+      name_tr: INTERLIGHT
+      location_en: MOSCOW, RUSSIA
+      name_en: INTERLIGHT
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/ınterligthmoscowlogo.jpg
+      background_image: /images/ınterlightmoscowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -352,8 +347,8 @@ fairs:
       location_en: PARIS, FRANCE
       sector: Kalıp & Plastik, İhtisas, Havuz
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/equipmaglogo.png
+      background_image: /images/equipmaggorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -371,8 +366,8 @@ fairs:
       location_en: PARIS, FRANCE
       sector: Kalıp & Plastik, İhtisas, Havuz
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/equipautologo.png
+      background_image: /images/equipautogorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -382,37 +377,39 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: EGYPT ENERGY
-      name_en: EGYPT ENERGY
-      start_date: 2022-10-30
-      end_date: 2022-11-01
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: KAHİRE, MISIR
+      start_date: 2022-10-30
+      description_en: INTERNATIONAL ELECTRICITY, ENERGY AND LIGHTING FAIR
+      end_date: 2022-11-01
+      name_tr: EGYPT ENERGY
       location_en: CAIRO, EGYPT
-      sector: Enerji
+      name_en: EGYPT ENERGY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/egyptenergylogo.png
+      background_image: /images/egyptenergygorsel.jpg
   - representative:
       hide_phone: true
-      team_member: Arzu Günal
+      team_member: Ahmet Hilmi Çoruk
     settings:
       order: 20
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: 42. Uluslararası Otel Malzemeleri Fuarı
-      sector: Ev Tekstili ve Dekorasyon
+      description_tr: ULUSLARARASI OTEL MALZEMELERİ FUARI
+      sector: Diğer
       location_tr: KAHİRE, MISIR
       start_date: 2022-11-14
-      description_en: " 42nd International Hotel Supplies Exhibition"
+      description_en: INTERNATIONAL HOTEL SUPPLIES FAIR
       end_date: 2022-11-16
-      name_tr: HACE EXPO
+      name_tr: HACE HOTEL EXPO
       location_en: CAIRO, EGYPT
-      name_en: HACE EXPO
+      name_en: HACE HOTEL EXPO
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/hacehotel.png
+      background_image: /images/hotelexpo.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -422,16 +419,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: 33.MEBEL
-      name_en: 33.MEBEL
-      start_date: 2022-11-21
-      end_date: 2022-11-25
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2022-11-21
+      description_en: INTERNATIONAL EXHIBITION FOR FURNITURE FITTINGS AND UPHOLSTERY
+      end_date: 2022-11-25
+      name_tr: 33.MEBEL
+      location_en: MOSCOW, RUSSIA
+      name_en: 33.MEBEL
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-mebel.png
+      background_image: /images/gorsel-mebel.png
   - representative:
       hide_phone: false
       team_member: Arzu Günal
@@ -441,13 +440,15 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: FURNITURE 360
-      name_en: FURNITURE 360
-      start_date: 2022-11-29
-      end_date: 2022-12-04
+      description_tr: ULUSLARARASI EV MOBİLYALARI VE AKSESUARLARI FUARI
+      sector: Ev Tekstili ve Dekorasyon
       location_tr: SHARJAH, B.A.E
+      start_date: 2022-11-29
+      description_en: HOME FURNISHING EXHIBITION
+      end_date: 2022-12-04
+      name_tr: FURNITURE 360
       location_en: SHARJAH, U.A.E.
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      name_en: FURNITURE 360
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/firnuturelogo.png
+      background_image: /images/furnituregorsel.jpg
