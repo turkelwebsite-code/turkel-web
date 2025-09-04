@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
-import nodemailer from 'nodemailer';
+
+// Nodemailer require - ES modules uyumluluğu için
+const nodemailer = require('nodemailer');
 
 export const prerender = false;
 
