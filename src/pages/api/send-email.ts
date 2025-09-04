@@ -5,7 +5,9 @@ export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    console.log('🚀 GMAIL SMTP API: Request received');
     const formData = await request.formData();
+    console.log('📋 Form data keys:', Array.from(formData.keys()));
     
     // Form verileri
     const formType = formData.get('form-type') as string;
@@ -24,6 +26,8 @@ export const POST: APIRoute = async ({ request }) => {
     const subject = formData.get('subject') as string;
     const message = formData.get('message') as string;
     
+    console.log('📧 GMAIL SMTP: Creating transporter...');
+    
     // Gmail SMTP
     const transporter = nodemailer.createTransporter({
       service: 'gmail',
@@ -32,6 +36,8 @@ export const POST: APIRoute = async ({ request }) => {
         pass: 'bjrw glnk zvpc ltma' // Google App Password
       }
     });
+    
+    console.log('✅ GMAIL SMTP: Transporter created');
 
     // Email başlığı
     let emailSubject = '';
@@ -104,14 +110,24 @@ export const POST: APIRoute = async ({ request }) => {
       </html>
     `;
 
+    console.log('📤 GMAIL SMTP: Sending email...');
+    console.log('📧 Email details:', {
+      from: 'turkelwebsite@gmail.com',
+      to: 'info@turkel.com.tr',
+      cc: 'sezan1991@gmail.com',
+      subject: emailSubject
+    });
+    
     // Email gönder
-    await transporter.sendMail({
+    const emailResult = await transporter.sendMail({
       from: 'turkelwebsite@gmail.com',
       to: 'info@turkel.com.tr',
       cc: 'sezan1991@gmail.com',
       subject: emailSubject,
       html: htmlContent
     });
+    
+    console.log('✅ GMAIL SMTP: Email sent successfully!', emailResult.messageId);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
@@ -119,8 +135,19 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
   } catch (error) {
-    console.error('Email error:', error);
-    return new Response(JSON.stringify({ error: 'Email gönderilemedi' }), {
+    console.error('❌ GMAIL SMTP ERROR:', error);
+    console.error('❌ Error name:', error.name);
+    console.error('❌ Error message:', error.message);
+    console.error('❌ Error stack:', error.stack);
+    
+    return new Response(JSON.stringify({ 
+      error: 'Gmail SMTP hatası',
+      details: {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      }
+    }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

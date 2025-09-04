@@ -450,7 +450,7 @@ const legacyFairOptions = [
         console.log('📧 EmailJS: Sending email...', templateParams);
         
         // EmailJS gönderim (public key gerekli)
-        const response = await fetch('/api/send-email-simple', {
+        const response = await fetch('/api/send-email', {
           method: 'POST',
           body: formData
         });
@@ -465,10 +465,14 @@ const legacyFairOptions = [
           closeModal();
           showSuccessNotification();
           
-          // Manuel email gönderimi - temporary
-          alert(`📧 Email Bilgileri:\n\nGönderen: ${templateParams.first_name} ${templateParams.last_name}\nEmail: ${templateParams.email}\nŞirket: ${templateParams.company_name}\nFuar: ${templateParams.fair}\n\nBu bilgileri manuel olarak info@turkel.com.tr'ye gönder.`);
         } else {
-          alert(locale === 'tr' ? 'Form gönderilemedi!' : 'Form could not be sent!');
+          // Error response'u detaylı logla
+          const errorResult = await response.json();
+          console.error('❌ API Error Response:', errorResult);
+          console.error('❌ Status:', response.status);
+          console.error('❌ Status Text:', response.statusText);
+          
+          alert(`❌ Gmail SMTP Hatası:\n\n${errorResult.details?.message || 'Bilinmeyen hata'}\n\nDetaylar Console'da görülebilir.`);
         }
       } catch (error) {
         console.error('Form error:', error);
