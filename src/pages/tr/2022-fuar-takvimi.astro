@@ -161,6 +161,7 @@ try {
       date: displayDate,
       startDate: fair.basic_info.start_date || null, // For sorting (Date object)
       endDate: fair.basic_info.end_date || null, // For sorting (Date object)
+      hide_dates: hideDates, // For sorting logic
       image: fair.visuals?.background_image || "/images/fuarlar-arkaplan.jpg",
       logo: fair.visuals?.logo || "/images/fuarlar-logo.png",
       representative: representativeData,
@@ -392,7 +393,7 @@ const debugInfo = {
             {Object.entries(fairsData).map(([sector, fairs]) => (
               <div class="sector-group" data-sector={sector}>
                 {fairs.map((fair) => (
-                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order} data-start-date={fair.startDate} data-end-date={fair.endDate}>
+                  <div class="fair-card bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8" data-order={fair.order} data-start-date={fair.startDate} data-end-date={fair.endDate} data-hide-dates={fair.hide_dates}>
                     <!-- Fair Image with Logo -->
                     <div class="relative h-64 bg-gradient-to-br from-gray-100 to-gray-300 overflow-hidden">
                       <img 
