@@ -480,120 +480,47 @@ const legacyFairOptions = [
         formData.append('from_name', 'Turkel Fuarcılık');
         formData.append('to_email', 'info@turkel.com.tr');
         
-        // Profesyonel HTML Email Template
-        const htmlTemplate = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yeni Katılımcı Formu</title>
-</head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa;">
-  
-  <!-- Email Container -->
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8f9fa; padding: 20px;">
-    <tr>
-      <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background-color: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
-          
-          <!-- Header -->
-          <tr>
-            <td style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); padding: 30px 20px; text-align: center;">
-              <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 600;">🎪 Yeni Katılımcı Formu</h1>
-              <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Turkel Fuarcılık - Website Form Bildirimi</p>
-            </td>
-          </tr>
-          
-          <!-- Content -->
-          <tr>
-            <td style="padding: 30px;">
-              
-              <!-- Personal Info -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background: #f8f9fa; border-left: 4px solid #17a2b8; border-radius: 8px; margin-bottom: 20px;">
-                <tr>
-                  <td style="padding: 20px;">
-                    <h3 style="color: #333; margin: 0 0 15px 0; font-size: 18px;">👤 Kişisel Bilgiler</h3>
-                    <table width="100%" cellpadding="8" cellspacing="0">
-                      <tr>
-                        <td style="font-weight: 600; color: #555; width: 120px;">Ad Soyad:</td>
-                        <td style="color: #333;">${formData.get('firstName')} ${formData.get('lastName')}</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight: 600; color: #555;">Email:</td>
-                        <td style="color: #333;"><a href="mailto:${formData.get('email')}" style="color: #17a2b8; text-decoration: none;">${formData.get('email')}</a></td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight: 600; color: #555;">Telefon:</td>
-                        <td style="color: #333;"><a href="tel:${formData.get('phone')}" style="color: #17a2b8; text-decoration: none;">${formData.get('phone')}</a></td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight: 600; color: #555;">Şirket:</td>
-                        <td style="color: #333;">${formData.get('companyName')}</td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              
-              <!-- Fair Info -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="background: #e1f5fe; border-left: 4px solid #007bff; border-radius: 8px; margin-bottom: 20px;">
-                <tr>
-                  <td style="padding: 20px;">
-                    <h3 style="color: #333; margin: 0 0 15px 0; font-size: 18px;">🎪 Fuar Bilgileri</h3>
-                    <table width="100%" cellpadding="8" cellspacing="0">
-                      <tr>
-                        <td style="font-weight: 600; color: #555; width: 120px;">Katılmak İstenilen Fuar:</td>
-                        <td style="color: #333; font-weight: 600;">${formData.get('fair')}</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight: 600; color: #555;">Form Tipi:</td>
-                        <td>
-                          <span style="background: #17a2b8; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
-                            🎪 KATILIMCI
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight: 600; color: #555;">Dil:</td>
-                        <td style="color: #333;">${formData.get('language') === 'tr' ? '🇹🇷 Türkçe' : '🇬🇧 English'}</td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              
-            </td>
-          </tr>
-          
-          <!-- Footer -->
-          <tr>
-            <td style="background: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #eee;">
-              <p style="margin: 0; color: #666; font-size: 14px;">
-                📅 <strong>Gönderim Zamanı:</strong> ${new Date().toLocaleString('tr-TR', { 
-                  weekday: 'long', 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}
-              </p>
-              <p style="margin: 10px 0 0 0; color: #999; font-size: 12px;">
-                Bu email <strong>Turkel Fuarcılık</strong> website'inden otomatik olarak gönderilmiştir.
-              </p>
-            </td>
-          </tr>
-          
-        </table>
-      </td>
-    </tr>
-  </table>
-  
-</body>
-</html>`;
+        // Basit ama profesyonel text template
+        const emailMessage = `
+🎪 YENİ KATILIMCI FORMU - TURKEL FUARCILIK
+
+═══════════════════════════════════════════
+
+👤 KİŞİSEL BİLGİLER:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Ad Soyad: ${formData.get('firstName')} ${formData.get('lastName')}
+• Email: ${formData.get('email')}
+• Telefon: ${formData.get('phone')}
+• Şirket: ${formData.get('companyName')}
+• İş Alanı: ${formData.get('businessArea') || 'Belirtilmedi'}
+• Website: ${formData.get('website') || 'Belirtilmedi'}
+
+🎪 FUAR BİLGİLERİ:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Katılmak İstenilen Fuar: ${formData.get('fair')}
+• Form Tipi: 🎪 KATILIMCI
+• Dil: ${formData.get('language') === 'tr' ? '🇹🇷 Türkçe' : '🇬🇧 English'}
+
+📝 EK BİLGİLER:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${formData.get('additionalInfo') || 'Ek bilgi bulunmuyor.'}
+
+═══════════════════════════════════════════
+
+📅 Gönderim Zamanı: ${new Date().toLocaleString('tr-TR', { 
+  weekday: 'long', 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+})}
+
+💻 Bu form Turkel Fuarcılık website'inden gönderilmiştir.
+🌐 Website: https://turkel2025.netlify.app
+        `;
         
-        formData.append('message', htmlTemplate);
+        formData.append('message', emailMessage);
         
         console.log('🔧 PARTICIPANT: Web3Forms data prepared, sending...');
         
