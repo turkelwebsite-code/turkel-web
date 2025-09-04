@@ -34,8 +34,8 @@ fairs:
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-boot.png
+      background_image: /images/gorsel-boot.avif
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -45,18 +45,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: "COPENHAGEN FASHION FAIR "
+      description_tr: |
+        ULUSLARARASI MODA FUARI
       sector: Moda ve Tekstil
       location_tr: KOPENHAG, DANİMARKA
       start_date: 2023-02-01
-      description_en: "COPENHAGEN FASHION FAIR "
+      description_en: "INTERNATIONAL FASHION FAIR "
       end_date: 2023-02-03
       name_tr: CIFF
       location_en: COPENHAGEN, DENMARK
       name_en: CIFF
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/cifflogo.jpg
+      background_image: /images/cıffgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -66,18 +67,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: " ULUSLARARASI GELİNLİK VE ABİYE GİYİM FUARI"
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-03-02
-      description_en: INTERNATIONAL WEDDING DRESS AND EVENING DRESS FAIR
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
       end_date: 2023-03-04
-      name_tr: 40.WEDDING
+      name_tr: 40. WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
-      name_en: 40.WEDDING
+      name_en: 40TH WEDDING FASHION MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -87,18 +88,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: " "
-      sector: Enerji
+      description_tr: " ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI"
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: DUBAİ, BAE
       start_date: 2023-03-07
-      description_en: " "
+      description_en: " INTERNATIONAL ELECTRICITY, ELECTRONIC AND LIGHTING FAIR"
       end_date: 2023-03-09
       name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
       name_en: MIDDLE EAST ENERGY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-mee.jpg
+      background_image: /images/fair-bg-mee.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -114,12 +115,12 @@ fairs:
       start_date: 2023-03-13
       description_en: INTERNATIONAL HOME TEXTILES, DECORATION AND GLASSWARE FAIR
       end_date: 2023-03-15
-      name_tr: 15.HOMEDECO
+      name_tr: 15.HOMEDECO KAZAKİSTAN
       location_en: ALMATY, KAZAKHSTAN
-      name_en: 15.HOMEDECO
+      name_en: 15.HOMEDECO KAZAKHSTAN
     visuals:
       logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      background_image: /images/homedeco-detail3.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -129,18 +130,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: FASHION WEEK &WHITE
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda ve Tekstil
       location_tr: LONDRA, İNGİLTERE
       start_date: 2023-03-19
-      description_en: FASHION WEEK &WHITE
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
       end_date: 2023-03-21
-      name_tr: LONDON BRIDAL
-      location_en: LONDON, ENGLAND
-      name_en: LONDON BRIDAL
+      name_tr: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
+      location_en: LONDON, UK
+      name_en: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-bridal.png
+      background_image: /images/image_1_48.webp
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -150,18 +151,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: " "
-      sector: İnşaat
+      description_tr: " ULUSLARARASI MOBİLYA VE DEKORASYON FUARI"
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: KÖLN, ALMANYA
       start_date: 2023-06-04
-      description_en: " "
+      description_en: " INTERNATIONAL FURNITURE AND DECORATION FAIR"
       end_date: 2023-06-07
       name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
       name_en: IMM COLOGNE
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/imm.png
+      background_image: /images/immgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -171,16 +172,19 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: ELECTRO
-      name_en: ELECTRO
-      start_date: 2023-06-06
-      end_date: 2023-06-09
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2023-06-06
+      description_en: INTERNATIONAL EXHIBITION FOR ELECTRICAL EQUIPMENT FOR POWER AND
+        ELECTRICAL ENGINEERING, AUTOMATION, LIGHTING ENGINEERING
+      end_date: 2023-06-09
+      name_tr: ELECTRO
+      location_en: MOSCOW, RUSSIA
+      name_en: ELECTRO
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-electro.png
+      background_image: /images/gorsel.jpg
   - representative:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
@@ -190,16 +194,20 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: ROSMOULD / ROSPLAST
-      name_en: ROSMOULD / ROSPLAST
-      start_date: 2023-06-06
-      end_date: 2023-06-08
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: |
+        INTERNATIONAL MOLD FAIR / INTERNATIONAL PLASTIC FAIR
       sector: Kalıp & Plastik, İhtisas, Havuz
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2023-06-06
+      description_en: |
+        INTERNATIONAL MOLD FAIR / INTERNATIONAL PLASTIC FAIR
+      end_date: 2023-06-08
+      name_tr: ROSMOULD / ROSPLAST
+      location_en: MOSCOW, RUSSIA
+      name_en: ROSMOULD / ROSPLAST
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/fair-logo-rosmould.png
+      background_image: /images/download.jpg
   - representative:
       hide_phone: true
       team_member: Gül Baykara
@@ -210,17 +218,17 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: "ULUSLARASI DERİ VE MODA FUARI "
-      sector: Moda ve Tekstil
+      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-06-06
-      description_en: INT'L WINTER FASHION TRADE SHOW
+      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
       end_date: 2023-06-08
-      name_tr: 26.LESHOW
+      name_tr: 26.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
-      name_en: 26.LESHOW
+      name_en: 26.LESHOW MOSCOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/leshow-gorsel-fair.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -230,16 +238,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: WOODEX FOR AFRICA
-      name_en: WOODEX FOR AFRICA
-      start_date: 2023-06-27
-      end_date: 2023-06-29
-      location_tr: JOHANNESBURG, GUNEY AFRİKA
-      location_en: JOHANNESBURG, SOUTH AFRICA
+      description_tr: ULUSLARARASI MOBİLYA YAN SANAYİ VE AĞAÇ İŞLEME MAKİNALARI FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: JOHANNESBURG, GUNEY AFRİKA
+      start_date: 2023-06-27
+      description_en: INTERNATIONAL FURNITURE SUPPLY INDUSTRY AND WOODWORKING MACHINERY FAIR
+      end_date: 2023-06-29
+      name_tr: WOODEX FOR AFRICA
+      location_en: JOHANNESBURG, SOUTH AFRICA
+      name_en: WOODEX FOR AFRICA
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/woodexlogo.png
+      background_image: /images/woodexafricagorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -249,16 +259,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: PREVIEW IN SEOUL
-      name_en: PREVIEW IN SEOUL
-      start_date: 2023-08-23
-      end_date: 2023-08-25
-      location_tr: SEUL, G.KORE
-      location_en: SEOUL, S. KOREA
+      description_tr: ULUSLARASI TEKSTİL FUARI
       sector: Moda ve Tekstil
+      location_tr: SEUL, G.KORE
+      start_date: 2023-08-23
+      description_en: INTERNATIONAL TEXTILE FAIR
+      end_date: 2023-08-25
+      name_tr: PREVIEW IN SEOUL
+      location_en: SEOUL, S. KOREA
+      name_en: PREVIEW IN SEOUL
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/prewievlogo.png
+      background_image: /images/previewgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -268,16 +280,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: SLEEP EXPO MIDDLE EAST
-      name_en: SLEEP EXPO MIDDLE EAST
-      start_date: 2023-09-05
-      end_date: 2023-09-07
-      location_tr: DUBAİ, BAE
-      location_en: DUBAI, UAE
+      description_tr: YATAK VE UYKU TEKNOLOJİLERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
+      location_tr: DUBAİ, BAE
+      start_date: 2023-09-05
+      description_en: BED AND SLEEP TECHNOLOGIES FAIR
+      end_date: 2023-09-07
+      name_tr: SLEEP EXPO MIDDLE EAST
+      location_en: DUBAI, UAE
+      name_en: SLEEP EXPO MIDDLE EAST
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/sleep-expo-middle.png
+      background_image: /images/sleepexpogorsel.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -287,18 +301,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: " ULUSLARARASI ÇOCUK FUARI "
+      description_tr: ULUSLARARASI BEBEK - ÇOCUK GİYİM VE SEKTÖREL TİCARET FUARI
       sector: Moda ve Tekstil
       location_tr: KÖLN, ALMANYA
       start_date: 2023-09-07
-      description_en: THE TRADE SHOW FOR KIDS’ FIRST YEARS
+      description_en: INTERNATIONAL BABY - CHILDREN'S CLOTHING AND SECTORAL TRADE FAIR
       end_date: 2023-09-09
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/kind-logo-fair.png
+      background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
   - representative:
       hide_phone: true
       team_member: Arzu Günal
@@ -308,18 +322,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: " "
-      sector: Ev Tekstili ve Dekorasyon
+      description_tr: " ZEMİN KAPLAMALARI FUARI"
+      sector: Diğer
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2023-09-17
-      description_en: " "
+      description_en: " FLOOR COVERINGS FAIR"
       end_date: 2023-09-19
       name_tr: THE FLOORING SHOW
-      location_en: HARROGATE, ENGLAND
+      location_en: HARROGATE, UK
       name_en: THE FLOORING SHOW
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/flooringshowlogo.png
+      background_image: /images/flooringshowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -329,16 +343,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: "INTERLIGHT "
-      name_en: INTERLIGHT
-      start_date: 2023-09-18
-      end_date: 2023-09-21
-      location_tr: MOSKOVA, RUSYA
-      location_en: MOSCOW, RUSSIA
+      description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2023-09-18
+      description_en: INTERNATIONAL LIGHTING AND SMART BUILDING TECHNOLOGIES FAIR
+      end_date: 2023-09-21
+      name_tr: "INTERLIGHT "
+      location_en: MOSCOW, RUSSIA
+      name_en: INTERLIGHT
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/ınterligthmoscowlogo.jpg
+      background_image: /images/ınterlightmoscowgorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -348,35 +364,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      name_tr: EGYPT ENERGY
-      name_en: EGYPT ENERGY
-      start_date: 2023-10-29
-      end_date: 2023-10-31
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: KAHİRE, MISIR
+      start_date: 2023-10-29
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY
+      end_date: 2023-10-31
+      name_tr: EGYPT ENERGY
       location_en: CAIRO, EGYPT
-      sector: İnşaat
+      name_en: EGYPT ENERGY
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 18
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      name_tr: ASFWADDIS ETHIOPIA MODA
-      name_en: ASFWADDIS ETHIOPIA MODA
-      start_date: 2023-11-03
-      end_date: 2023-11-06
-      location_tr: ADDIS ABABA, ETHIOPIA
-      location_en: ADDIS ABABA, ETHIOPIA
-      sector: Moda ve Tekstil
-    visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/egyptenergylogo.png
+      background_image: /images/egyptenergygorsel.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
@@ -386,15 +385,15 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: Uluslararası Mobilya, Bağlantı Elemanları ve Yan Sanayi Fuarı
+      description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-11-20
-      description_en: International Furniture, Fasteners and Sub-Industry Fair.
+      description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY
       end_date: 2023-11-24
       name_tr: 34.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 34.MEBEL
     visuals:
-      logo: /images/fuarlar-logo.png
-      background_image: /images/fuarlar-arkaplan.jpg
+      logo: /images/logo-mebel.png
+      background_image: /images/mebelgorsel.jpg
