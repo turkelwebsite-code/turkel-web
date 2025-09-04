@@ -791,10 +791,13 @@ const debugInfo = {
           console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
           allCards.sort((a: any, b: any) => {
             // Hide_dates items always go to bottom
-            console.log(`📅 Checking hide_dates: ${a.name} = ${a.hide_dates}, ${b.name} = ${b.hide_dates}`);
-            if (a.hide_dates && !b.hide_dates) return 1;
-            if (!a.hide_dates && b.hide_dates) return -1;
-            if (a.hide_dates && b.hide_dates) return 0; // Both hidden, keep original order
+            const aHidden = a.hide_dates === true || (a.date && a.date.includes('Tarih yakında açıklanacak'));
+            const bHidden = b.hide_dates === true || (b.date && b.date.includes('Tarih yakında açıklanacak'));
+            console.log(`📅 Checking hide_dates: ${a.name} = ${aHidden} (field: ${a.hide_dates}, text: ${a.date}), ${b.name} = ${bHidden} (field: ${b.hide_dates}, text: ${b.date})`);
+            
+            if (aHidden && !bHidden) return 1;  // a hidden, b normal -> a goes down
+            if (!aHidden && bHidden) return -1; // a normal, b hidden -> a goes up
+            if (aHidden && bHidden) return 0;   // Both hidden, keep original order
             
             // Use start_date for sorting if available, otherwise parse display date
             let dateA: Date, dateB: Date;
