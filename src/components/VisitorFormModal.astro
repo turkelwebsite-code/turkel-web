@@ -433,7 +433,24 @@ const legacyFairOptions = [
       const formData = new FormData(form);
       
       try {
-        const response = await fetch('/api/send-email', {
+        // EmailJS ile email gönder
+        const templateParams = {
+          form_type: 'visitor',
+          language: locale,
+          first_name: formData.get('firstName'),
+          last_name: formData.get('lastName'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          company_name: formData.get('companyName'),
+          fair: formData.get('fair'),
+          to_email: 'info@turkel.com.tr',
+          cc_email: 'sezan1991@gmail.com'
+        };
+        
+        console.log('📧 EmailJS: Sending email...', templateParams);
+        
+        // EmailJS gönderim (public key gerekli)
+        const response = await fetch('/api/send-email-simple', {
           method: 'POST',
           body: formData
         });
@@ -441,9 +458,15 @@ const legacyFairOptions = [
         console.log('📥 Response:', response.status, response.ok);
         
         if (response.ok) {
+          const result = await response.json();
+          console.log('✅ Email result:', result);
+          
           // Modal kapat ve notification göster
           closeModal();
           showSuccessNotification();
+          
+          // Manuel email gönderimi - temporary
+          alert(`📧 Email Bilgileri:\n\nGönderen: ${templateParams.first_name} ${templateParams.last_name}\nEmail: ${templateParams.email}\nŞirket: ${templateParams.company_name}\nFuar: ${templateParams.fair}\n\nBu bilgileri manuel olarak info@turkel.com.tr'ye gönder.`);
         } else {
           alert(locale === 'tr' ? 'Form gönderilemedi!' : 'Form could not be sent!');
         }
