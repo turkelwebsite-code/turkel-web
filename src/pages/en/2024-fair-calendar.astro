@@ -160,10 +160,17 @@ try {
       }
     }
 
-    // Generate date display from start_date and end_date
-    const displayDate = fair.basic_info.start_date && fair.basic_info.end_date 
-      ? formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en')
-      : fair.basic_info.date_en || '';
+    // Generate date display - hide_dates kontrolü (default: false)
+    const hideDates = fair.basic_info.hide_dates || false;
+    let displayDate = '';
+    
+    if (hideDates) {
+      displayDate = 'Date will be announced soon';
+    } else if (fair.basic_info.start_date && fair.basic_info.end_date) {
+      displayDate = formatDateRange(fair.basic_info.start_date, fair.basic_info.end_date, 'en');
+    } else {
+      displayDate = fair.basic_info.date_en || '';
+    }
 
     const fairItem = {
       id: fairsData[sector].length + 1,
