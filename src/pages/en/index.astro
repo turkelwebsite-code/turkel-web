@@ -195,17 +195,27 @@ const success = url.searchParams.get('success');
           <!-- Right Experience Card - Hidden on mobile -->
           <div class="hidden lg:flex lg:col-span-5 justify-end">
             <div class="mt-32 mr-8">
-              <div class="bg-[#CE1A28] rounded-[15px] text-center text-white relative overflow-hidden experience-card" style="width: 280px; height: 264px; transform: translateX(120px);">
-                <!-- 13.3 MacBook için responsive positioning -->
+              <div class="bg-[#CE1A28] rounded-[15px] text-center text-white relative overflow-hidden experience-card" style="width: 280px; height: 264px; transform: translateX(60px);">
+                <!-- Retina MacBook 13.3 için responsive positioning -->
                 <style>
-                  @media (min-width: 1280px) and (max-width: 1536px) {
+                  @media (min-width: 1280px) and (max-width: 1440px) {
+                    .experience-card {
+                      transform: translateX(40px) !important;
+                    }
+                  }
+                  @media (min-width: 1440px) and (max-width: 1728px) {
+                    .experience-card {
+                      transform: translateX(20px) !important;
+                    }
+                  }
+                  @media (min-width: 1728px) and (max-width: 1920px) {
                     .experience-card {
                       transform: translateX(80px) !important;
                     }
                   }
-                  @media (min-width: 1440px) and (max-width: 1536px) {
+                  @media (min-width: 1920px) {
                     .experience-card {
-                      transform: translateX(100px) !important;
+                      transform: translateX(120px) !important;
                     }
                   }
                 </style>
