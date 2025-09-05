@@ -169,7 +169,7 @@ const shuffledImages = shuffleArray(galleryImages);
         </div>
 
         <!-- Lightbox Modal -->
-        <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
           <div class="relative max-w-4xl max-h-full p-4">
             <!-- Close Button -->
             <button id="close-lightbox" class="absolute top-2 right-2 text-white hover:text-gray-300 z-10">
@@ -380,6 +380,7 @@ const shuffledImages = shuffleArray(galleryImages);
           (lightboxImage as HTMLImageElement).src = img.dataset.src || img.src;
           (lightboxImage as HTMLImageElement).alt = img.alt;
           lightboxModal.classList.remove('hidden');
+          lightboxModal.classList.add('flex');
           document.body.style.overflow = 'hidden';
         }
       });
@@ -388,6 +389,7 @@ const shuffledImages = shuffleArray(galleryImages);
     // Close lightbox
     closeLightbox?.addEventListener('click', () => {
       lightboxModal?.classList.add('hidden');
+      lightboxModal?.classList.remove('flex');
       document.body.style.overflow = 'auto';
     });
 
