@@ -22,6 +22,24 @@ editor:
 load_config_file: false
 
 collections:
+  # SEKTÖRLER - Sektör Yönetimi
+  - name: "sectors"
+    label: "Sektörler"
+    folder: "src/content/sectors"
+    create: true
+    slug: "{{slug}}"
+    extension: "yml"
+    identifier_field: "name_tr"
+    summary: "{{name_tr}} • {{name_en}}"
+    fields:
+      - {label: "Sektör Adı (TR)", name: "name_tr", widget: "string"}
+      - {label: "Sektör Adı (EN)", name: "name_en", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
+      - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 0}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+      - {label: "Açıklama (TR)", name: "description_tr", widget: "text", required: false}
+      - {label: "Açıklama (EN)", name: "description_en", widget: "text", required: false}
+
   # FUARLAR - Yıl Bazlı Yönetim (FOLDER COLLECTION - Dinamik Summary)
   - name: "fair_years"
     label: "Fuarlar"
@@ -69,7 +87,7 @@ collections:
               - {label: "📅 Tarihi Gizle", name: "hide_dates", widget: "boolean", default: false, hint: "İşaretlenirse frontend'te 'Tarih yakında açıklanacak' gösterilir"}
               - {label: "Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
               - {label: "Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
-              - {label: "Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true}
+              - {label: "Sektör", name: "sector", widget: "relation", collection: "sectors", search_fields: ["name_tr"], value_field: "name_tr", display_fields: ["name_tr"]}
               - {label: "Açıklama (TR)", name: "description_tr", widget: "text", required: false}
               - {label: "Açıklama (EN)", name: "description_en", widget: "text", required: false}
           - label: "Görseller"
@@ -201,7 +219,7 @@ collections:
           - {label: "🏙️ Şehir (İngilizce)", name: "city_en", widget: "string", hint: "Example: Moscow"}
           - {label: "🌍 Ülke (Türkçe)", name: "country_tr", widget: "string", hint: "Örnek: Rusya"}
           - {label: "🌍 Ülke (İngilizce)", name: "country_en", widget: "string", hint: "Example: Russia"}
-          - {label: "🏷️ Sektör", name: "sector", widget: "select", options: ["Moda ve Tekstil", "Ev Tekstili ve Dekorasyon", "Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları", "Kalıp & Plastik, İhtisas, Havuz", "Deri Fuarları & Güvenlik Sistemleri Fuarları", "Güzellik ve Kozmetik", "Enerji", "İnşaat", "Diğer"], allow_add: true, hint: "Fuarlardaki sektör listesinden seçin"}
+          - {label: "🏷️ Sektör", name: "sector", widget: "relation", collection: "sectors", search_fields: ["name_tr"], value_field: "name_tr", display_fields: ["name_tr"], hint: "Sektörler collection'ından seçin"}
           - {label: "📐 Alan (m²)", name: "area", widget: "string", required: false, hint: "Örnek: 15,000 m² - Boş bırakılırsa gösterilmez"}
           - {label: "👥 Katılımcı Sayısı", name: "participants", widget: "string", required: false, hint: "Örnek: 450 - Boş bırakılırsa gösterilmez"}
           - {label: "📝 Açıklama (Türkçe)", name: "description_tr", widget: "text", required: false, hint: "Türkçe açıklama"}
@@ -251,15 +269,3 @@ collections:
       - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Slider gösterim sırası"}
       - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, hint: "Slider'da gösterilsin mi?"}
 
-  # SEKTÖR YÖNETİMİ
-  - name: "sector_management"
-    label: "Sektör Yönetimi"
-    files:
-      - label: "Sektör Listesi"
-        name: "sectors"
-        file: "src/content/settings/sectors.yml"
-        fields:
-          - label: "Sektörler"
-            name: "sectors"
-            widget: "list"
-            field: {label: "Sektör Adı", name: "name", widget: "string"}

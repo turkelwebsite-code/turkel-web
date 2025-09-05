@@ -1,0 +1,7 @@
+name_tr: "Enerji"
+name_en: "Energy"
+slug: "enerji"
+order: 7
+is_active: true
+description_tr: "Enerji, elektrik ve yenilenebilir enerji fuarları"
+description_en: "Energy, electrical and renewable energy fairs"

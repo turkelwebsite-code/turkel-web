@@ -1,0 +1,7 @@
+name_tr: "Diğer"
+name_en: "Other"
+slug: "diger"
+order: 9
+is_active: true
+description_tr: "Diğer sektör fuarları"
+description_en: "Other sector fairs"

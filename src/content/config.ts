@@ -1,5 +1,18 @@
 import { defineCollection, z } from "astro:content";
 
+const sectors = defineCollection({
+  type: "data",
+  schema: z.object({
+    name_tr: z.string(),
+    name_en: z.string(),
+    slug: z.string(),
+    order: z.number().default(0),
+    is_active: z.boolean().default(true),
+    description_tr: z.string().optional(),
+    description_en: z.string().optional(),
+  }),
+});
+
 const home = defineCollection({
   type: "data",
   schema: z.object({
@@ -284,5 +297,6 @@ export const collections = {
   'team-members': teamMembers,
   'hero-slides': heroSlides,
   slider,
-  'fair-years': fairYears
+  'fair-years': fairYears,
+  sectors
 };
