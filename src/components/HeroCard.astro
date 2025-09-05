@@ -21,7 +21,7 @@ interface Props {
 const { locale, card } = Astro.props;
 ---
 
-<div class="hero-card bg-[#1B1C1B] rounded-[15px] sm:rounded-[20px] shadow-lg relative z-10 overflow-hidden w-[280px] h-[400px] sm:w-[350px] sm:h-[500px] lg:w-[484px] lg:h-[688px]" id="hero-card">
+<div class="hero-card bg-[#1B1C1B] rounded-[15px] sm:rounded-[20px] shadow-lg relative z-10 overflow-hidden w-[280px] h-[450px] sm:w-[350px] sm:h-[520px] lg:w-[484px] lg:h-[688px]" id="hero-card">
   
   <!-- Main Content View -->
   <div class="card-content main-view absolute inset-0">
@@ -409,15 +409,15 @@ const { locale, card } = Astro.props;
       margin-top: 2rem;
       width: 350px !important;
       max-width: 90vw !important;
-      height: 500px !important;
-      min-height: 500px !important;
+      height: 520px !important;
+      min-height: 520px !important;
     }
     
     /* Override Tailwind classes */
     #hero-card {
       width: 350px !important;
       max-width: 90vw !important;
-      height: 500px !important;
+      height: 520px !important;
     }
     
     .detail-view {
@@ -438,17 +438,17 @@ const { locale, card } = Astro.props;
   
   @media (max-width: 640px) {
     .hero-card {
-      width: 260px !important;
-      max-width: 75vw !important;
-      height: 380px !important;
-      min-height: 380px !important;
+      width: 280px !important;
+      max-width: 85vw !important;
+      height: 450px !important;
+      min-height: 450px !important;
     }
     
     /* Override Tailwind classes for mobile */
     #hero-card {
-      width: 260px !important;
-      max-width: 75vw !important;
-      height: 380px !important;
+      width: 280px !important;
+      max-width: 85vw !important;
+      height: 450px !important;
     }
     
     /* Mobile button styling */
