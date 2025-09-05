@@ -58,9 +58,9 @@ const { locale, heroData } = Astro.props;
   </div>
 
   <!-- Content -->
-  <div class="absolute left-1/2 transform -translate-x-1/2 sm:left-8 sm:transform-none lg:left-[420px] top-1/2 -translate-y-1/2 z-10">
+  <div class="absolute left-1/2 transform -translate-x-1/2 sm:left-8 sm:transform-none lg:left-[320px] xl:left-[420px] top-1/2 -translate-y-1/2 z-10">
     <!-- Hero Card -->
-    <div class="max-w-xs sm:max-w-sm lg:max-w-md">
+    <div class="max-w-xs sm:max-w-sm lg:max-w-lg xl:max-w-md">
       <div id="hero-card-container">
         <HeroCard locale={locale} card={heroData.slides[0].card} />
       </div>
