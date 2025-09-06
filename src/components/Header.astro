@@ -438,27 +438,56 @@ const currentPath = Astro.url.pathname;
     color: white !important;
   }
 
-  /* Modern fluid header optimization */
-  @media (min-width: 1024px) {
+  /* Small laptop optimization (1366x768 etc) */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    /* Compact navigation for small laptops */
+    .lg\\:flex .text-sm {
+      font-size: 0.75rem !important; /* 12px */
+    }
+    
+    /* Tighter navigation spacing */
+    .lg\\:space-x-8 > * + * {
+      margin-left: 1rem !important; /* 16px */
+    }
+    
+    /* Smaller CTA buttons */
+    .lg\\:space-x-3 .btn {
+      padding: 0.4rem 0.8rem !important;
+      font-size: 0.7rem !important;
+    }
+    
+    /* Compact logo */
+    .lg\\:w-\\[200px\\] {
+      width: 160px !important;
+    }
+    
+    /* Language switcher compact */
+    .lg\\:ml-4 {
+      margin-left: 0.5rem !important;
+    }
+  }
+
+  /* Modern fluid header optimization for larger screens */
+  @media (min-width: 1440px) {
     /* Fluid font sizing for navigation */
     .lg\\:flex .text-sm {
-      font-size: clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
+      font-size: clamp(0.8rem, 0.7rem + 0.3vw, 1rem);
     }
     
     /* Fluid spacing for navigation */
     .lg\\:space-x-8 > * + * {
-      margin-left: clamp(1rem, 2vw, 2rem);
+      margin-left: clamp(1.5rem, 2vw, 2rem);
     }
     
     /* Fluid CTA button sizing */
     .lg\\:space-x-3 .btn {
-      padding: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem) clamp(1rem, 0.8rem + 0.5vw, 1.5rem);
-      font-size: clamp(0.75rem, 0.6rem + 0.3vw, 0.875rem);
+      padding: clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem) clamp(1.2rem, 1rem + 0.3vw, 1.5rem);
+      font-size: clamp(0.8rem, 0.7rem + 0.2vw, 0.875rem);
     }
     
     /* Fluid logo sizing */
     .lg\\:w-\\[200px\\] {
-      width: clamp(160px, 15vw, 200px);
+      width: clamp(180px, 16vw, 200px);
     }
   }
   

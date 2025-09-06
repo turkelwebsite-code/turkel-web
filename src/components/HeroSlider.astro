@@ -61,18 +61,21 @@ const { locale, heroData } = Astro.props;
   <div class="absolute left-1/2 transform -translate-x-1/2 sm:left-8 sm:transform-none lg:left-[clamp(200px,20vw,400px)] top-1/2 -translate-y-1/2 z-10">
     <!-- Hero Card -->
     <div class="max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-md">
-      <!-- Modern fluid responsive sizing -->
+      <!-- Modern responsive sizing -->
       <style>
-        #hero-card-container {
-          /* Fluid scaling based on viewport width */
-          transform: scale(clamp(0.75, 0.5 + 50vw / 1920, 1.1));
-          transform-origin: left center;
+        /* Small laptop specific (1366x768, 1440x900) */
+        @media (min-width: 1024px) and (max-width: 1440px) {
+          #hero-card-container {
+            transform: scale(0.7);
+            transform-origin: left center;
+          }
         }
         
-        /* Container-based responsive positioning */
-        @container (min-width: 1200px) {
+        /* Large screens fluid scaling */
+        @media (min-width: 1440px) {
           #hero-card-container {
-            transform: scale(clamp(0.8, 0.6 + 40vw / 1920, 1));
+            transform: scale(clamp(0.8, 0.6 + 30vw / 1920, 1));
+            transform-origin: left center;
           }
         }
       </style>

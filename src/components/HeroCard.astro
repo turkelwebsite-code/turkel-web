@@ -61,8 +61,8 @@ const { locale, card } = Astro.props;
     )}
 
     <!-- Date and Location Buttons (Moved between logo and description) -->
-    <div class="px-[15px] sm:px-[25px] lg:px-[50px] mb-2 sm:mb-3 lg:mb-4">
-      <div class="grid grid-cols-2 gap-1.5 sm:gap-2.5 lg:gap-3">
+    <div class="px-[15px] sm:px-[25px] lg:px-[50px] mb-1 sm:mb-2 lg:mb-3">
+      <div class="grid grid-cols-2 gap-1 sm:gap-2 lg:gap-3">
         {card.dateText && (
           <button class="bg-[#CE1A28] text-white px-1.5 sm:px-3 lg:px-4 py-1 sm:py-2.5 lg:py-3 rounded text-sm font-medium hover:bg-[#B01625] transition-colors">
             <div class="flex items-center justify-center gap-0.5 sm:gap-1.5 lg:gap-2">
@@ -85,8 +85,8 @@ const { locale, card } = Astro.props;
 
     <!-- Description -->
     {card.description && (
-      <div class="px-[15px] sm:px-[20px] lg:px-[29px] mb-4 sm:mb-6 lg:mb-8">
-        <p class="text-white text-[12px] sm:text-[15px] lg:text-[18px] leading-[16px] sm:leading-[20px] lg:leading-[24px] text-center font-normal">
+      <div class="px-[15px] sm:px-[20px] lg:px-[29px] mb-3 sm:mb-4 lg:mb-6 max-h-[60px] sm:max-h-[80px] lg:max-h-[100px] overflow-hidden">
+        <p class="text-white text-[10px] sm:text-[13px] lg:text-[16px] leading-[13px] sm:leading-[17px] lg:leading-[20px] text-center font-normal">
           {card.description}
         </p>
       </div>
@@ -404,6 +404,32 @@ const { locale, card } = Astro.props;
     display: block;
   }
   
+  /* Small laptop optimization */
+  @media (min-width: 1024px) and (max-width: 1440px) {
+    .hero-card {
+      /* Compact sizing for small laptops */
+      width: 320px !important;
+      height: 450px !important;
+    }
+    
+    #hero-card {
+      width: 320px !important;
+      height: 450px !important;
+    }
+    
+    /* Tighter spacing */
+    .hero-card .px-\\[15px\\] {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+    }
+    
+    /* Smaller buttons */
+    .hero-card button {
+      padding: 4px 8px !important;
+      font-size: 9px !important;
+    }
+  }
+
   @media (max-width: 1024px) {
     .hero-card {
       margin-top: 2rem;
