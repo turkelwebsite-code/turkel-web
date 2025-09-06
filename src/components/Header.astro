@@ -437,6 +437,41 @@ const currentPath = Astro.url.pathname;
     background-color: #CE1A28 !important;
     color: white !important;
   }
+
+  /* 2560x1600 Resolution Optimization */
+  @media (min-width: 2560px) and (max-width: 3456px) {
+    /* Header navigation links smaller font */
+    .lg\\:flex .text-sm {
+      font-size: 0.75rem !important; /* 12px instead of 14px */
+    }
+    
+    /* Header navigation spacing */
+    .lg\\:space-x-8 > * + * {
+      margin-left: 1.5rem !important; /* 24px instead of 32px */
+    }
+    
+    /* Language switcher optimization */
+    .lg\\:ml-4 {
+      margin-left: 0.75rem !important; /* 12px instead of 16px */
+    }
+    
+    /* CTA buttons smaller */
+    .lg\\:space-x-3 .btn {
+      padding: 0.5rem 1rem !important; /* Smaller padding */
+      font-size: 0.75rem !important; /* Smaller text */
+    }
+    
+    /* Logo smaller */
+    .lg\\:w-\\[200px\\] {
+      width: 180px !important;
+    }
+    
+    /* Container padding adjustment */
+    .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
   
   /* Strong dropdown visibility rules */
   .group:hover > div[class*="absolute"] {
