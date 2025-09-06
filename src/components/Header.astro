@@ -438,38 +438,27 @@ const currentPath = Astro.url.pathname;
     color: white !important;
   }
 
-  /* 2560x1600 Resolution Optimization */
-  @media (min-width: 2560px) and (max-width: 3456px) {
-    /* Header navigation links smaller font */
+  /* Modern fluid header optimization */
+  @media (min-width: 1024px) {
+    /* Fluid font sizing for navigation */
     .lg\\:flex .text-sm {
-      font-size: 0.75rem !important; /* 12px instead of 14px */
+      font-size: clamp(0.75rem, 0.5rem + 0.5vw, 1rem);
     }
     
-    /* Header navigation spacing */
+    /* Fluid spacing for navigation */
     .lg\\:space-x-8 > * + * {
-      margin-left: 1.5rem !important; /* 24px instead of 32px */
+      margin-left: clamp(1rem, 2vw, 2rem);
     }
     
-    /* Language switcher optimization */
-    .lg\\:ml-4 {
-      margin-left: 0.75rem !important; /* 12px instead of 16px */
-    }
-    
-    /* CTA buttons smaller */
+    /* Fluid CTA button sizing */
     .lg\\:space-x-3 .btn {
-      padding: 0.5rem 1rem !important; /* Smaller padding */
-      font-size: 0.75rem !important; /* Smaller text */
+      padding: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem) clamp(1rem, 0.8rem + 0.5vw, 1.5rem);
+      font-size: clamp(0.75rem, 0.6rem + 0.3vw, 0.875rem);
     }
     
-    /* Logo smaller */
+    /* Fluid logo sizing */
     .lg\\:w-\\[200px\\] {
-      width: 180px !important;
-    }
-    
-    /* Container padding adjustment */
-    .container {
-      padding-left: 1rem !important;
-      padding-right: 1rem !important;
+      width: clamp(160px, 15vw, 200px);
     }
   }
   
