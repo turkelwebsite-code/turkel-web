@@ -469,39 +469,66 @@ const currentPath = Astro.url.pathname;
 
   /* 1440x900 specific optimization */
   @media (min-width: 1366px) and (max-width: 1440px) {
-    /* Much smaller logo */
-    .hidden.lg\\:flex.flex-shrink-0 img {
+    /* Much smaller logo - more specific selector */
+    header img[alt="Türkel Fuarcılık"] {
       width: 130px !important;
       height: auto !important;
       margin-left: 15px !important;
     }
     
-    /* Very compact menu text */
-    .lg\\:flex .text-sm {
+    /* Very compact menu text - target navigation links */
+    header nav a {
       font-size: 0.6rem !important; /* 9.6px - ultra small */
+      padding: 0.25rem 0.5rem !important;
     }
     
-    /* Very tight menu spacing */
-    .lg\\:space-x-8 > * + * {
-      margin-left: 0.5rem !important; /* 8px - very tight */
+    /* Navigation container spacing */
+    header nav {
+      gap: 0.5rem !important;
     }
     
-    /* Much smaller form buttons */
-    .lg\\:flex.items-center.gap-3 .btn {
+    /* Much smaller form buttons - target specific buttons */
+    header button[onclick*="Modal"] {
       padding: 0.25rem 0.5rem !important; /* 4px 8px */
       font-size: 0.55rem !important; /* 8.8px */
       min-height: auto !important;
+      white-space: nowrap !important;
     }
     
-    /* Compact button container */
-    .lg\\:flex.items-center.gap-3 {
+    /* Right side button container */
+    header .hidden.lg\\:flex.items-center {
       gap: 0.375rem !important; /* 6px */
       margin-right: 10px !important;
     }
     
-    /* Language switcher area */
-    .lg\\:flex.items-center.gap-3 .ml-3 {
-      margin-left: 0.5rem !important; /* 8px */
+    /* Header padding adjustment */
+    header .flex.items-center.py-2 {
+      padding-top: 0.375rem !important;
+      padding-bottom: 0.375rem !important;
+    }
+    
+    /* Force all navigation text to be smaller */
+    header nav a span,
+    header nav a,
+    header nav button span,
+    header nav button {
+      font-size: 0.6rem !important;
+    }
+    
+    /* Dropdown menu items smaller */
+    header .absolute.bg-white a {
+      font-size: 0.55rem !important;
+      padding: 0.25rem 0.5rem !important;
+    }
+    
+    /* Force button text smaller */
+    header button span {
+      font-size: 0.55rem !important;
+    }
+    
+    /* Logo container smaller */
+    header .flex-shrink-0 {
+      flex-shrink: 1 !important;
     }
   }
 
