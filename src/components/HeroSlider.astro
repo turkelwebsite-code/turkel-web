@@ -69,7 +69,13 @@ const { locale, heroData } = Astro.props;
             transform-origin: left center;
           }
         }
-        @media (min-width: 2560px) {
+        @media (min-width: 2560px) and (max-width: 3456px) {
+          #hero-card-container {
+            transform: scale(0.9);
+            transform-origin: left center;
+          }
+        }
+        @media (min-width: 3456px) {
           #hero-card-container {
             transform: scale(1);
           }
