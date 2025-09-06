@@ -349,3 +349,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+
+<style>
+  /* 1440x900 specific footer newsletter optimization */
+  @media (min-width: 1366px) and (max-width: 1440px) {
+    /* Newsletter title smaller */
+    footer h2 {
+      font-size: 1.5rem !important; /* 24px instead of 32px/42px */
+      line-height: 1.8rem !important; /* 28.8px */
+      margin-bottom: 0.5rem !important; /* 8px */
+    }
+    
+    /* Newsletter description smaller */
+    footer .lg\\:col-span-4 p {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1rem !important; /* 16px */
+      margin-bottom: 0.75rem !important; /* 12px */
+    }
+    
+    /* Newsletter form container tighter */
+    footer .lg\\:col-span-8 {
+      padding-left: 1rem !important;
+    }
+    
+    /* Form input smaller */
+    footer form input[type="email"] {
+      font-size: 0.75rem !important; /* 12px */
+      padding: 0.75rem 1rem !important; /* 12px 16px */
+    }
+    
+    /* Form button smaller */
+    footer form button[type="submit"] {
+      font-size: 0.7rem !important; /* 11.2px */
+      padding: 0.75rem 1.25rem !important; /* 12px 20px */
+    }
+    
+    /* Footer container height adjustment */
+    footer .sm\\:h-\\[220px\\] {
+      height: 180px !important;
+    }
+    
+    /* Overall footer content padding */
+    footer .lg\\:py-12 {
+      padding-top: 1.5rem !important; /* 24px */
+      padding-bottom: 1.5rem !important; /* 24px */
+    }
+  }
+</style>
