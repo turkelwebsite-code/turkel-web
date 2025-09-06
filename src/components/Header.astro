@@ -439,7 +439,7 @@ const currentPath = Astro.url.pathname;
   }
 
   /* Small laptop optimization (1366x768 etc) */
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  @media (min-width: 1024px) and (max-width: 1366px) {
     /* Compact navigation for small laptops */
     .lg\\:flex .text-sm {
       font-size: 0.75rem !important; /* 12px */
@@ -464,6 +464,35 @@ const currentPath = Astro.url.pathname;
     /* Language switcher compact */
     .lg\\:ml-4 {
       margin-left: 0.5rem !important;
+    }
+  }
+
+  /* 1440x900 specific optimization */
+  @media (min-width: 1366px) and (max-width: 1440px) {
+    /* Very compact for 1440x900 */
+    .lg\\:flex .text-sm {
+      font-size: 0.65rem !important; /* 10px - very small */
+    }
+    
+    /* Very tight spacing */
+    .lg\\:space-x-8 > * + * {
+      margin-left: 0.75rem !important; /* 12px */
+    }
+    
+    /* Tiny CTA buttons */
+    .lg\\:space-x-3 .btn {
+      padding: 0.3rem 0.6rem !important;
+      font-size: 0.6rem !important;
+    }
+    
+    /* Very compact logo */
+    .lg\\:w-\\[200px\\] {
+      width: 140px !important;
+    }
+    
+    /* Language switcher very compact */
+    .lg\\:ml-4 {
+      margin-left: 0.25rem !important;
     }
   }
 

@@ -63,10 +63,18 @@ const { locale, heroData } = Astro.props;
     <div class="max-w-xs sm:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-md">
       <!-- Modern responsive sizing -->
       <style>
-        /* Small laptop specific (1366x768, 1440x900) */
-        @media (min-width: 1024px) and (max-width: 1440px) {
+        /* Small laptop (1366x768) */
+        @media (min-width: 1024px) and (max-width: 1366px) {
           #hero-card-container {
             transform: scale(0.7);
+            transform-origin: left center;
+          }
+        }
+        
+        /* 1440x900 specific - very compact */
+        @media (min-width: 1366px) and (max-width: 1440px) {
+          #hero-card-container {
+            transform: scale(0.6);
             transform-origin: left center;
           }
         }

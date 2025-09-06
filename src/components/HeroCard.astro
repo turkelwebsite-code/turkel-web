@@ -404,8 +404,8 @@ const { locale, card } = Astro.props;
     display: block;
   }
   
-  /* Small laptop optimization */
-  @media (min-width: 1024px) and (max-width: 1440px) {
+  /* Small laptop optimization (1366x768) */
+  @media (min-width: 1024px) and (max-width: 1366px) {
     .hero-card {
       /* Compact sizing for small laptops */
       width: 320px !important;
@@ -427,6 +427,38 @@ const { locale, card } = Astro.props;
     .hero-card button {
       padding: 4px 8px !important;
       font-size: 9px !important;
+    }
+  }
+
+  /* 1440x900 specific - very compact */
+  @media (min-width: 1366px) and (max-width: 1440px) {
+    .hero-card {
+      /* Very compact for 1440x900 */
+      width: 280px !important;
+      height: 400px !important;
+    }
+    
+    #hero-card {
+      width: 280px !important;
+      height: 400px !important;
+    }
+    
+    /* Very tight spacing */
+    .hero-card .px-\\[15px\\] {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    
+    /* Very small buttons */
+    .hero-card button {
+      padding: 3px 6px !important;
+      font-size: 8px !important;
+    }
+    
+    /* Compact text */
+    .hero-card p {
+      font-size: 9px !important;
+      line-height: 12px !important;
     }
   }
 
