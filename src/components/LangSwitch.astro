@@ -125,4 +125,31 @@ const languages = {
   .language-switcher button[aria-expanded="true"] svg {
     transform: rotate(180deg);
   }
+  
+  /* 1440x900 specific - much smaller language switcher */
+  @media (min-width: 1366px) and (max-width: 1440px) {
+    .language-switcher button {
+      padding: 0.25rem 0.5rem !important; /* 4px 8px */
+      font-size: 0.6rem !important; /* 9.6px */
+    }
+    
+    .language-switcher button span {
+      font-size: 0.6rem !important;
+    }
+    
+    .language-switcher button svg {
+      width: 0.75rem !important; /* 12px */
+      height: 0.75rem !important; /* 12px */
+    }
+    
+    .language-switcher .text-lg {
+      font-size: 0.8rem !important; /* smaller flag */
+    }
+    
+    /* Dropdown menu smaller */
+    .language-switcher #lang-switch-menu a {
+      padding: 0.25rem 0.5rem !important;
+      font-size: 0.6rem !important;
+    }
+  }
 </style>

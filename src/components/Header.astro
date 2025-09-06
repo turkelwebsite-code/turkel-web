@@ -469,30 +469,39 @@ const currentPath = Astro.url.pathname;
 
   /* 1440x900 specific optimization */
   @media (min-width: 1366px) and (max-width: 1440px) {
-    /* Very compact for 1440x900 */
+    /* Much smaller logo */
+    .hidden.lg\\:flex.flex-shrink-0 img {
+      width: 130px !important;
+      height: auto !important;
+      margin-left: 15px !important;
+    }
+    
+    /* Very compact menu text */
     .lg\\:flex .text-sm {
-      font-size: 0.65rem !important; /* 10px - very small */
+      font-size: 0.6rem !important; /* 9.6px - ultra small */
     }
     
-    /* Very tight spacing */
+    /* Very tight menu spacing */
     .lg\\:space-x-8 > * + * {
-      margin-left: 0.75rem !important; /* 12px */
+      margin-left: 0.5rem !important; /* 8px - very tight */
     }
     
-    /* Tiny CTA buttons */
-    .lg\\:space-x-3 .btn {
-      padding: 0.3rem 0.6rem !important;
-      font-size: 0.6rem !important;
+    /* Much smaller form buttons */
+    .lg\\:flex.items-center.gap-3 .btn {
+      padding: 0.25rem 0.5rem !important; /* 4px 8px */
+      font-size: 0.55rem !important; /* 8.8px */
+      min-height: auto !important;
     }
     
-    /* Very compact logo */
-    .lg\\:w-\\[200px\\] {
-      width: 140px !important;
+    /* Compact button container */
+    .lg\\:flex.items-center.gap-3 {
+      gap: 0.375rem !important; /* 6px */
+      margin-right: 10px !important;
     }
     
-    /* Language switcher very compact */
-    .lg\\:ml-4 {
-      margin-left: 0.25rem !important;
+    /* Language switcher area */
+    .lg\\:flex.items-center.gap-3 .ml-3 {
+      margin-left: 0.5rem !important; /* 8px */
     }
   }
 
