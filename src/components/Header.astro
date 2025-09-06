@@ -467,68 +467,70 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  /* 1440x900 specific optimization */
+  /* 1440x900 specific optimization - balanced sizing */
   @media (min-width: 1366px) and (max-width: 1440px) {
-    /* Much smaller logo - more specific selector */
+    /* Smaller logo with closer positioning */
     header img[alt="Türkel Fuarcılık"] {
-      width: 130px !important;
+      width: 140px !important;
       height: auto !important;
-      margin-left: 15px !important;
+      margin-left: 8px !important; /* Closer to edge */
     }
     
-    /* Very compact menu text - target navigation links */
+    /* Compact but readable menu text */
     header nav a {
-      font-size: 0.6rem !important; /* 9.6px - ultra small */
-      padding: 0.25rem 0.5rem !important;
+      font-size: 0.75rem !important; /* 12px - readable */
+      padding: 0.375rem 0.625rem !important; /* 6px 10px */
     }
     
-    /* Navigation container spacing */
+    /* Tighter navigation container spacing */
     header nav {
-      gap: 0.5rem !important;
+      gap: 0.25rem !important; /* Very tight */
+      margin-left: -1rem !important; /* Pull closer to logo */
     }
     
-    /* Much smaller form buttons - target specific buttons */
+    /* Compact form buttons */
     header button[onclick*="Modal"] {
-      padding: 0.25rem 0.5rem !important; /* 4px 8px */
-      font-size: 0.55rem !important; /* 8.8px */
+      padding: 0.375rem 0.75rem !important; /* 6px 12px */
+      font-size: 0.7rem !important; /* 11.2px */
       min-height: auto !important;
       white-space: nowrap !important;
     }
     
-    /* Right side button container */
+    /* Right side button container - closer spacing */
     header .hidden.lg\\:flex.items-center {
-      gap: 0.375rem !important; /* 6px */
-      margin-right: 10px !important;
+      gap: 0.5rem !important; /* 8px */
+      margin-right: 8px !important;
     }
     
-    /* Header padding adjustment */
+    /* Slightly tighter header padding */
     header .flex.items-center.py-2 {
-      padding-top: 0.375rem !important;
-      padding-bottom: 0.375rem !important;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
     }
     
-    /* Force all navigation text to be smaller */
+    /* Force navigation text to be readable */
     header nav a span,
     header nav a,
     header nav button span,
     header nav button {
-      font-size: 0.6rem !important;
+      font-size: 0.75rem !important; /* 12px */
     }
     
-    /* Dropdown menu items smaller */
+    /* Dropdown menu items compact but readable */
     header .absolute.bg-white a {
-      font-size: 0.55rem !important;
-      padding: 0.25rem 0.5rem !important;
+      font-size: 0.7rem !important; /* 11.2px */
+      padding: 0.375rem 0.625rem !important;
     }
     
-    /* Force button text smaller */
+    /* Button text readable */
     header button span {
-      font-size: 0.55rem !important;
+      font-size: 0.7rem !important; /* 11.2px */
     }
     
-    /* Logo container smaller */
-    header .flex-shrink-0 {
-      flex-shrink: 1 !important;
+    /* Navigation center adjustment */
+    header nav.hidden.lg\\:flex {
+      justify-content: flex-start !important;
+      margin-left: 1rem !important; /* Start closer to logo */
     }
   }
 
