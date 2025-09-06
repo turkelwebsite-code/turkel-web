@@ -351,48 +351,82 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <style>
-  /* 1440x900 specific footer newsletter optimization */
+  /* 1440x900 specific footer optimization - comprehensive */
   @media (min-width: 1366px) and (max-width: 1440px) {
-    /* Newsletter title smaller */
+    /* White newsletter section - much smaller */
     footer h2 {
-      font-size: 1.5rem !important; /* 24px instead of 32px/42px */
-      line-height: 1.8rem !important; /* 28.8px */
+      font-size: 1.25rem !important; /* 20px - much smaller */
+      line-height: 1.5rem !important; /* 24px */
+      margin-bottom: 0.25rem !important; /* 4px */
+    }
+    
+    /* Newsletter description much smaller */
+    footer .lg\\:col-span-4 p {
+      font-size: 0.625rem !important; /* 10px - very small */
+      line-height: 0.875rem !important; /* 14px */
       margin-bottom: 0.5rem !important; /* 8px */
     }
     
-    /* Newsletter description smaller */
-    footer .lg\\:col-span-4 p {
-      font-size: 0.75rem !important; /* 12px */
-      line-height: 1rem !important; /* 16px */
+    /* Form elements smaller */
+    footer form input[type="email"] {
+      font-size: 0.625rem !important; /* 10px */
+      padding: 0.5rem 0.75rem !important; /* 8px 12px */
+    }
+    
+    footer form button[type="submit"] {
+      font-size: 0.625rem !important; /* 10px */
+      padding: 0.5rem 1rem !important; /* 8px 16px */
+    }
+    
+    /* White container height much smaller */
+    footer .sm\\:h-\\[220px\\] {
+      height: 140px !important; /* Much shorter */
+    }
+    
+    footer .lg\\:py-12 {
+      padding-top: 1rem !important; /* 16px */
+      padding-bottom: 1rem !important; /* 16px */
+    }
+    
+    /* Dark footer section - menu titles smaller */
+    footer h3,
+    footer .text-white.font-semibold {
+      font-size: 0.875rem !important; /* 14px - smaller menu titles */
       margin-bottom: 0.75rem !important; /* 12px */
     }
     
-    /* Newsletter form container tighter */
-    footer .lg\\:col-span-8 {
-      padding-left: 1rem !important;
-    }
-    
-    /* Form input smaller */
-    footer form input[type="email"] {
+    /* Menu links smaller */
+    footer .text-white.hover\\:text-primary {
       font-size: 0.75rem !important; /* 12px */
-      padding: 0.75rem 1rem !important; /* 12px 16px */
+      line-height: 1.25rem !important; /* 20px */
+      margin-bottom: 0.25rem !important; /* 4px */
     }
     
-    /* Form button smaller */
-    footer form button[type="submit"] {
-      font-size: 0.7rem !important; /* 11.2px */
-      padding: 0.75rem 1.25rem !important; /* 12px 20px */
+    /* Company description in footer smaller */
+    footer .max-w-full p {
+      font-size: 0.625rem !important; /* 10px */
+      line-height: 1rem !important; /* 16px */
     }
     
-    /* Footer container height adjustment */
-    footer .sm\\:h-\\[220px\\] {
-      height: 180px !important;
+    /* Logo in footer smaller */
+    footer .w-\\[200px\\],
+    footer .sm\\:w-\\[240px\\],
+    footer .lg\\:w-\\[271px\\] {
+      width: 180px !important;
     }
     
-    /* Overall footer content padding */
-    footer .lg\\:py-12 {
-      padding-top: 1.5rem !important; /* 24px */
-      padding-bottom: 1.5rem !important; /* 24px */
+    /* Footer sections spacing tighter */
+    footer .grid.gap-8 {
+      gap: 1rem !important; /* 16px instead of 32px */
+    }
+    
+    /* Contact info smaller */
+    footer .flex.items-center.gap-3 {
+      gap: 0.5rem !important; /* 8px */
+    }
+    
+    footer .flex.items-center.gap-3 span {
+      font-size: 0.75rem !important; /* 12px */
     }
   }
 </style>
