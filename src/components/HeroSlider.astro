@@ -71,10 +71,10 @@ const { locale, heroData } = Astro.props;
           }
         }
         
-        /* 1440x900 specific - much larger content */
+        /* 1440x900 specific - normal scale for 350x400 card */
         @media (min-width: 1366px) and (max-width: 1440px) {
           #hero-card-container {
-            transform: scale(1.3);
+            transform: scale(1.0);
             transform-origin: left center;
           }
         }
