@@ -47,6 +47,10 @@ console.log('🎪 FAIR YEARS EN: Loading CMS fair years for cards...');
 // Get all fairs from all active years for display
 var allFairsData: Record<string, any[]> = {};
 
+// Get dynamic sector translations from CMS
+const { getSectorTranslations } = await import('../../lib/sector-translations');
+const sectorTranslations = await getSectorTranslations();
+
 // Process CMS fair years
 fairYearsCollection.forEach(yearData => {
   const yearFairs = yearData.data.fairs || [];
@@ -54,11 +58,6 @@ fairYearsCollection.forEach(yearData => {
   
   yearFairs.forEach((fair: any) => {
     const sector = fair.basic_info?.sector || 'Other';
-    
-    // Get dynamic sector translations from CMS
-    const { getSectorTranslations } = await import('../../lib/sector-translations');
-    const sectorTranslations = await getSectorTranslations();
-    
     const translatedSector = sectorTranslations[sector] || sector;
     
     if (!allFairsData[translatedSector]) {
