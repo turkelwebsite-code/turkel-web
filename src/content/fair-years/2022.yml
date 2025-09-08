@@ -69,7 +69,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-03-10
@@ -91,7 +91,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI AHŞAP VE AĞAÇ İŞLEME MAKİNELERİ ENDÜSTRİSİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: false
       location_tr: DUBAI, BAE
       start_date: 2022-03-15
@@ -113,7 +113,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: "GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI\t"
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: LONDRA, İNGİLTERE
       start_date: 2022-03-20
@@ -135,7 +135,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: İNŞAAT VE EKİPMANLARI FUARI
-      sector: İnşaat
+      sector: Yapı ve İnşaat
       hide_dates: false
       location_tr: DOHA, KATAR
       start_date: 2022-03-28
@@ -157,7 +157,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ÇOCUK MODASI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: COPENHAGEN, DANİMARKA
       start_date: 2022-06-19
@@ -179,7 +179,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI BORU VE TEL FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tel, Boru, Kalıp ve Plastik
       hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2022-06-20
@@ -201,7 +201,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI KIŞ MODA FUARI
-      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      sector: Moda
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-06-28
@@ -223,7 +223,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MODA FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: COPENHAGEN, DANİMARKA
       start_date: 2022-08-10
@@ -245,7 +245,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI TEKSTİL FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: SEUL, G.KORE
       start_date: 2022-08-24
@@ -267,7 +267,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: BEBEL - ÇOCUK GİYİM VE EKİPMANLARI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: KÖLN, ALMANYA
       start_date: 2022-09-08
@@ -289,7 +289,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2022-09-11
@@ -333,7 +333,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-09-19
@@ -360,7 +360,7 @@ fairs:
       end_date: 2025-09-22
       location_tr: PARİS, FRANSA
       location_en: PARIS, FRANCE
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tekne, Havuz ve Yan Sanayi
       hide_dates: false
     visuals:
       logo: /images/equipmaglogo.png
@@ -380,7 +380,7 @@ fairs:
       end_date: 2025-10-22
       location_tr: PARİS, FRANSA
       location_en: PARIS, FRANCE
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tekne, Havuz ve Yan Sanayi
       hide_dates: false
     visuals:
       logo: /images/equipautologo.png
@@ -395,7 +395,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: KAHİRE, MISIR
       start_date: 2022-10-30
@@ -439,7 +439,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2022-11-21
@@ -461,7 +461,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI EV MOBİLYALARI VE AKSESUARLARI FUARI
-      sector: Ev Tekstili ve Dekorasyon
+      sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: false
       location_tr: SHARJAH, B.A.E
       start_date: 2022-11-29
