@@ -55,18 +55,9 @@ fairYearsCollection.forEach(yearData => {
   yearFairs.forEach((fair: any) => {
     const sector = fair.basic_info?.sector || 'Other';
     
-    // Translate sector to English
-    const sectorTranslations: Record<string, string> = {
-      'Moda ve Tekstil': 'Fashion & Textile',
-      'Ev Tekstili ve Dekorasyon': 'Home Textile & Decoration',
-      'Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları': 'Furniture & Lighting',
-      'Kalıp & Plastik, İhtisas, Havuz': 'Mold & Plastic',
-      'Deri Fuarları & Güvenlik Sistemleri Fuarları': 'Leather & Security Systems',
-      'Güzellik ve Kozmetik': 'Beauty & Cosmetics',
-      'Enerji': 'Energy',
-      'İnşaat': 'Construction',
-      'Diğer': 'Other'
-    };
+    // Get dynamic sector translations from CMS
+    const { getSectorTranslations } = await import('../../lib/sector-translations');
+    const sectorTranslations = await getSectorTranslations();
     
     const translatedSector = sectorTranslations[sector] || sector;
     

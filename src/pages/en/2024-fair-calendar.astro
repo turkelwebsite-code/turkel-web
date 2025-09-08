@@ -93,24 +93,9 @@ console.log('📝 DYNAMIC PAGE EN: Description:', pageDescription);
 
 try {
   
-  // Sector translation mapping
-  const sectorTranslations: Record<string, string> = {
-    "Moda ve Tekstil": "Fashion & Textile",
-    "Ev Tekstili ve Dekorasyon": "Home Textile & Decoration", 
-    "Mobilya ve Aydınlatma": "Furniture & Lighting",
-    "Gıda ve İçecek": "Food & Beverage",
-    "Teknoloji": "Technology",
-    "İnşaat": "Construction",
-    "Otomotiv": "Automotive",
-    "Sağlık": "Healthcare",
-    "Güzellik ve Kozmetik": "Beauty & Cosmetics",
-    "Spor ve Fitness": "Sports & Fitness",
-    "Eğitim": "Education",
-    "Turizm": "Tourism",
-    "Enerji": "Energy",
-    "Çevre": "Environment",
-    "Diğer": "Other"
-  };
+  // Get dynamic sector translations from CMS
+  const { getSectorTranslations } = await import('../../lib/sector-translations');
+  const sectorTranslations = await getSectorTranslations();
 
   // Convert CMS data to page format
   var fairsData: Record<string, any[]> = {};
