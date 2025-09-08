@@ -6,7 +6,7 @@ title:
 department:
   tr: Teknik Proje
   en: Technical Project
-email: oznur@turkel.com.tr
+email: ecenur@turkel.com.tr
 phone: ""
 order: 4
 is_active: true
