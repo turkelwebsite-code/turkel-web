@@ -1,13 +1,13 @@
 ---
-name: "Neval Dakul"
+name: Neval Özkul
 title:
-  tr: "Muhasebe Müdürü"
-  en: "Accounting Manager"
+  tr: Finans & Muhasebe
+  en: Finance & Accounting
 department:
-  tr: "Finans & Muhasebe"
-  en: "Finance & Accounting"
-email: "neval@turkel.com.tr"
-phone: "+90 216 123 45 88"
+  tr: Finans & Muhasebe
+  en: Finance & Accounting
+email: neval@turkel.com.tr
+phone: ""
 order: 3
 is_active: true
 is_fair_representative: false
