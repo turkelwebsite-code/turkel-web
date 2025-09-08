@@ -84,7 +84,7 @@ collections:
               - {label: "Fuar Adı (EN)", name: "name_en", widget: "string", hint: "İngilizce fuar adı"}
               - {label: "📅 Başlangıç Tarihi", name: "start_date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false, hint: "Fuar başlangıç tarihi (isteğe bağlı)"}
               - {label: "📅 Bitiş Tarihi", name: "end_date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false, hint: "Fuar bitiş tarihi (isteğe bağlı)"}
-              - {label: "📅 Tarihi Gizle", name: "hide_dates", widget: "boolean", default: false, hint: "İşaretlenirse frontend'te 'Tarih yakında açıklanacak' gösterilir"}
+              - {label: "📅 Tarihi Gizle", name: "hide_dates", widget: "boolean", default: false, required: false, hint: "İşaretlenirse frontend'te 'Tarih yakında açıklanacak' gösterilir"}
               - {label: "Konum (TR)", name: "location_tr", widget: "string", hint: "Şehir, Ülke formatında"}
               - {label: "Konum (EN)", name: "location_en", widget: "string", hint: "City, Country formatında"}
               - {label: "Sektör", name: "sector", widget: "relation", collection: "sectors", search_fields: ["name_tr"], value_field: "name_tr", display_fields: ["name_tr"]}
