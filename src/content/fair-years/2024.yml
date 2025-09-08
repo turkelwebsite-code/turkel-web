@@ -25,7 +25,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA VE DEKORASYON FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
+      hide_dates: false
       location_tr: KOLN, ALMANYA
       start_date: 2024-01-14
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF INTERIOR DESIGN
@@ -33,7 +34,6 @@ fairs:
       name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
       name_en: IMM COLOGNE
-      hide_dates: false
     visuals:
       logo: /images/imm.png
       background_image: /images/immgorsel.jpg
@@ -47,7 +47,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI  TEKNE VE SU SPORLARI FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tekne, Havuz ve Yan Sanayi
+      hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2024-01-20
       description_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
@@ -55,7 +56,6 @@ fairs:
       name_tr: BOOT DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
-      hide_dates: false
     visuals:
       logo: /images/logo-boot.png
       background_image: /images/fair-bg-boot.png
@@ -91,7 +91,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-03-21
       description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
@@ -99,7 +100,6 @@ fairs:
       name_tr: 40.WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       name_en: 40TH WEDDING FASHION MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -114,6 +114,7 @@ fairs:
     basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2024-03-22
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BEAUTY INDUSTRY AND PRODUCTS
@@ -121,7 +122,6 @@ fairs:
       name_tr: BEAUTY DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BEAUTY DUSSELDORF
-      hide_dates: false
     visuals:
       logo: /images/ekran-resmi-2025-09-03-21.23.28.png
       background_image: /images/fair-bg-beauty.png
@@ -135,7 +135,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2024-03-24
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BRIDAL FASHION INDUSTRY
@@ -143,7 +144,6 @@ fairs:
       name_tr: BRIDAL WEEK HARROGATE
       location_en: HARROGATE, UK
       name_en: BRIDAL WEEK HARROGATE
-      hide_dates: false
     visuals:
       logo: /images/bridal-week.png
       background_image: /images/fair-bg-wedding.png
@@ -158,6 +158,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARASI BORU VE TEL FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2024-04-15
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF CABLE AND WIRE PRODUCTS
@@ -165,7 +166,6 @@ fairs:
       name_tr: WIRE & TUBE
       location_en: DUSSELDORF, GERMANY
       name_en: "WIRE & TUBE "
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-wiretube.png
       background_image: /images/fair-bg-wiretube.png
@@ -224,6 +224,7 @@ fairs:
     basic_info:
       description_tr: TASARIM, GELİNLİK VE AKSESUAR FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: LONDRA, İNGİLTERE
       start_date: 2024-05-08
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF THE BRIDAL FASHION INDUSTRY
@@ -231,7 +232,6 @@ fairs:
       name_tr: WHITE GALLERY LONDON
       location_en: LONDON, UK
       name_en: WHITE GALLERY LONDON
-      hide_dates: false
     visuals:
       logo: /images/white-gallery.jpg
       background_image: /images/whitegallery.jpg
@@ -246,6 +246,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI TİCARİ ARAÇLAR VE TEKNOLOJİLERİ FUARI
       sector: Diğer
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-05-28
       description_en: INTERNATIONAL TRADE FAIR FOR COMMERCIAL VEHICLES AND TECHNOLOGIES
@@ -253,7 +254,6 @@ fairs:
       name_tr: COMVEX
       location_en: MOSCOW, RUSSIA
       name_en: COMVEX
-      hide_dates: false
     visuals:
       logo: /images/comwex.jpg
       background_image: /images/comwexgorsel.png
@@ -290,6 +290,7 @@ fairs:
     basic_info:
       description_tr: "ULUSLARASI KIŞ MODA FUARI "
       sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-04
       description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
@@ -297,7 +298,6 @@ fairs:
       name_tr: 27.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 27.LESHOW MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshowgorsel.jpeg
@@ -312,6 +312,7 @@ fairs:
     basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: DUBAI, BAE
       start_date: 2024-06-04
       description_en: BABY & CHILDREN'S CLOTHING AND EQUIPMENT FAIR
@@ -319,7 +320,6 @@ fairs:
       name_tr: KIDSPACE
       location_en: DUBAI, UAE
       name_en: KIDSPACE
-      hide_dates: false
     visuals:
       logo: /images/kids-space.png
       background_image: /images/kidspacegorsel.jpg
@@ -334,6 +334,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Kalıp & Plastik, İhtisas, Havuz
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-18
       description_en: ROSMOULD INTERNATIONAL MOLD FAIR / ROSPLAST INTERNATIONAL PLASTIC FAIR
@@ -341,7 +342,6 @@ fairs:
       name_tr: ROSMOULD / ROSPLAST
       location_en: MOSCOW, RUSSIA
       name_en: ROSMOULD / ROSPLAST
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-rosmould.png
       background_image: /images/download.jpg
@@ -401,6 +401,7 @@ fairs:
     basic_info:
       description_tr: ZEMİN KAPLAMALARI FUARI
       sector: Diğer
+      hide_dates: false
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2024-09-15
       description_en: FLOOR COVERINGS FAIR
@@ -408,7 +409,6 @@ fairs:
       name_tr: THE FLOORING SHOW
       location_en: HARROGATE, UK
       name_en: THE FLOORING SHOW
-      hide_dates: false
     visuals:
       logo: /images/flooringshowlogo.png
       background_image: /images/flooringshowgorsel.jpg
@@ -423,6 +423,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-09-17
       description_en: INTERNATIONAL LIGHTING AND SMART BUILDING TECHNOLOGIES FAIR
@@ -430,7 +431,6 @@ fairs:
       name_tr: INTERLIGHT
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT
-      hide_dates: false
     visuals:
       logo: /images/ınterligthmoscowlogo.jpg
       background_image: /images/ınterlightmoscowgorsel.jpg
@@ -489,6 +489,7 @@ fairs:
     basic_info:
       description_tr: TEKSTİL FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
       description_en: TEXTILE FAIR
@@ -496,7 +497,6 @@ fairs:
       name_tr: "APPAREL SOURCING TASKENT "
       location_en: TASHKENT, UZBEKISTAN
       name_en: APPAREL SOURCING TASHKENT
-      hide_dates: false
     visuals:
       logo: /images/apparellogo.png
       background_image: /images/apparelgorsel.png
@@ -533,6 +533,7 @@ fairs:
     basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
+      hide_dates: false
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-21
       description_en: INTERNATIONAL BEAUTY, COSMETIC AND PERSONAL CARE FAIR
@@ -540,7 +541,6 @@ fairs:
       name_tr: BEAUTY WORLD CENTRAL ASIA
       location_en: TASHKENT, UZBEKISTAN
       name_en: BEAUTY WORLD CENTRAL ASIA
-      hide_dates: false
     visuals:
       logo: /images/beautyworldlogo.png
       background_image: /images/beautyworldgorsel.png
@@ -555,6 +555,7 @@ fairs:
     basic_info:
       description_tr: KUMAŞ, İPLİK VE TEKSTİL AKSESUARLARI FUARI
       sector: Moda ve Tekstil
+      hide_dates: false
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
       description_en: FABRIC, YARN AND TEXTILE ACCESSORIES FAIR
@@ -562,7 +563,6 @@ fairs:
       name_tr: TEXWORLD TASHKENT
       location_en: TASHKENT, UZBEKISTAN
       name_en: TEXWORLD TASHKENT
-      hide_dates: false
     visuals:
       logo: /images/texworldlogo.png
       background_image: /images/texworldgorsel.png
@@ -577,6 +577,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARASI OTEL MALZEMELERİ FUARI
       sector: Diğer
+      hide_dates: false
       location_tr: KAHİRE, MISIR
       start_date: 2024-09-02
       description_en: INTERNATIONAL HOTEL SUPPLIES FAIR
@@ -584,7 +585,6 @@ fairs:
       name_tr: HACE HOTEL EXPO
       location_en: KAHIRE, EGYPT
       name_en: HACE HOTEL EXPO
-      hide_dates: false
     visuals:
       logo: /images/hacehotel.png
       background_image: /images/hotelexpo.jpg
