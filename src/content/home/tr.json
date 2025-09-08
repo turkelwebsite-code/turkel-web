@@ -67,14 +67,20 @@
     "kosgebText": "Kosgeb Kanunu uyarınca. 18.11.2005 tarih ve 25997 sayılı Resmi Gazete'de yayınlanan KOBİ tanımı ve sınıflandırması hakkındaki Yönetmenlik ile tanımlanan küçük ve orta ölçekli işletmelere çok yönlü geliştirme ve destekleme programları uygulanmaktadır.",
     "html": "Devlet destekleri ile fuarlara katılım avantajları"
   },
-  "instagram": [
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" }
-  ],
+  "instagram": {
+    "homedeco": {
+      "title": "Homedeco Kazakhstan",
+      "username": "@homedecokazakhstan",
+      "instagram_url": "https://instagram.com/homedecokazakhstan",
+      "image": "/images/homedeco-instagram.jpg"
+    },
+    "leshow": {
+      "title": "Leshow Moskova",
+      "username": "@leshowmoscow",
+      "instagram_url": "https://instagram.com/leshowmoscow",
+      "image": "/images/leshow-instagram.jpg"
+    }
+  },
   "newsletter": {
     "title": "Bültenimize Abone Olun",
     "placeholder": "Mail Adresiniz",

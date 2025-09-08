@@ -22,6 +22,59 @@ editor:
 load_config_file: false
 
 collections:
+  # ANASAYFA İÇERİKLERİ
+  - name: "home"
+    label: "🏠 Anasayfa İçerikleri"
+    files:
+      - label: "Türkçe Anasayfa"
+        name: "tr"
+        file: "src/content/home/tr.json"
+        fields:
+          - label: "📱 Instagram Bölümü"
+            name: "instagram"
+            widget: "object"
+            fields:
+              - label: "🏠 Homedeco Kazakhstan"
+                name: "homedeco"
+                widget: "object"
+                fields:
+                  - {label: "Başlık", name: "title", widget: "string", default: "Homedeco Kazakhstan"}
+                  - {label: "Kullanıcı Adı", name: "username", widget: "string", default: "@homedecokazakhstan"}
+                  - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/homedecokazakhstan"}
+                  - {label: "Görsel", name: "image", widget: "image"}
+              - label: "🎭 Leshow Moscow"
+                name: "leshow"
+                widget: "object"
+                fields:
+                  - {label: "Başlık", name: "title", widget: "string", default: "Leshow Moskova"}
+                  - {label: "Kullanıcı Adı", name: "username", widget: "string", default: "@leshowmoscow"}
+                  - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/leshowmoscow"}
+                  - {label: "Görsel", name: "image", widget: "image"}
+      - label: "İngilizce Anasayfa"
+        name: "en"
+        file: "src/content/home/en.json"
+        fields:
+          - label: "📱 Instagram Section"
+            name: "instagram"
+            widget: "object"
+            fields:
+              - label: "🏠 Homedeco Kazakhstan"
+                name: "homedeco"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", default: "Homedeco Kazakhstan"}
+                  - {label: "Username", name: "username", widget: "string", default: "@homedecokazakhstan"}
+                  - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/homedecokazakhstan"}
+                  - {label: "Image", name: "image", widget: "image"}
+              - label: "🎭 Leshow Moscow"
+                name: "leshow"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", default: "Leshow Moscow"}
+                  - {label: "Username", name: "username", widget: "string", default: "@leshowmoscow"}
+                  - {label: "Instagram URL", name: "instagram_url", widget: "string", default: "https://instagram.com/leshowmoscow"}
+                  - {label: "Image", name: "image", widget: "image"}
+
   # SEKTÖRLER - Sektör Yönetimi
   - name: "sectors"
     label: "Sektörler"

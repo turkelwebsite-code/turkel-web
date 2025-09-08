@@ -67,14 +67,20 @@
     "kosgebText": "In accordance with the Kosgeb Law, multi-faceted development and support programs are implemented for small and medium-sized enterprises defined by the Regulation on SME definition and classification published in the Official Gazette dated 18.11.2005 and numbered 25997.",
     "html": "Advantages of participating in fairs with government support"
   },
-  "instagram": [
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" },
-    { "image": "/images/instagram-post.jpg", "link": "https://instagram.com" }
-  ],
+  "instagram": {
+    "homedeco": {
+      "title": "Homedeco Kazakhstan",
+      "username": "@homedecokazakhstan",
+      "instagram_url": "https://instagram.com/homedecokazakhstan",
+      "image": "/images/homedeco-instagram-en.jpg"
+    },
+    "leshow": {
+      "title": "Leshow Moscow",
+      "username": "@leshowmoscow",
+      "instagram_url": "https://instagram.com/leshowmoscow",
+      "image": "/images/leshow-instagram-en.jpg"
+    }
+  },
   "newsletter": {
     "title": "Subscribe to Our Newsletter",
     "placeholder": "Your Email Address",

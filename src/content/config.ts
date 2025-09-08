@@ -59,10 +59,20 @@ const home = defineCollection({
       governmentText: z.string().optional(),
       kosgebText: z.string().optional()
     }),
-    instagram: z.array(z.object({ 
-      image: z.string(), 
-      link: z.string().url().optional() 
-    })).max(8),
+    instagram: z.object({
+      homedeco: z.object({
+        title: z.string(),
+        username: z.string(),
+        instagram_url: z.string().url(),
+        image: z.string()
+      }),
+      leshow: z.object({
+        title: z.string(),
+        username: z.string(),
+        instagram_url: z.string().url(),
+        image: z.string()
+      })
+    }),
     newsletter: z.object({ 
       title: z.string(), 
       placeholder: z.string(), 

@@ -1,16 +1,26 @@
 ---
 import { Play } from 'lucide-astro';
 
-interface InstagramItem {
-  image: string;
-  link?: string;
+interface InstagramData {
+  homedeco: {
+    title: string;
+    username: string;
+    instagram_url: string;
+    image: string;
+  };
+  leshow: {
+    title: string;
+    username: string;
+    instagram_url: string;
+    image: string;
+  };
 }
 
 interface Props {
-  items: InstagramItem[];
+  instagram: InstagramData;
 }
 
-const { items } = Astro.props;
+const { instagram } = Astro.props;
 ---
 
 <section class="instagram-grid py-16 bg-white">
@@ -22,14 +32,14 @@ const { items } = Astro.props;
       <!-- Left Side - Homedeco Kazakhstan -->
       <div class="instagram-section">
         <div class="text-center mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Homedeco Kazakhstan</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{instagram.homedeco.title}</h3>
           <a 
-            href="https://instagram.com/homedecokazakhstan" 
+            href={instagram.homedeco.instagram_url} 
             target="_blank" 
             rel="noopener noreferrer"
             class="text-gray-600 hover:text-primary transition-colors"
           >
-            @homedecokazakhstan
+            {instagram.homedeco.username}
           </a>
         </div>
         
@@ -39,8 +49,8 @@ const { items } = Astro.props;
             class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer w-64 h-64"
           >
             <img 
-              src="/images/homedeco-instagram.jpg"
-              alt="Homedeco Kazakhstan Instagram"
+              src={instagram.homedeco.image}
+              alt={`${instagram.homedeco.title} Instagram`}
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
               width="256"
@@ -58,11 +68,11 @@ const { items } = Astro.props;
             
             <!-- Link overlay -->
             <a 
-              href="https://instagram.com/homedecokazakhstan"
+              href={instagram.homedeco.instagram_url}
               target="_blank"
               rel="noopener noreferrer"
               class="absolute inset-0 z-10"
-              aria-label="View Homedeco Kazakhstan Instagram"
+              aria-label={`View ${instagram.homedeco.title} Instagram`}
             >
               <span class="sr-only">View Instagram</span>
             </a>
@@ -70,17 +80,17 @@ const { items } = Astro.props;
         </div>
       </div>
 
-      <!-- Right Side - Leshow Moskova -->
+      <!-- Right Side - Leshow Moscow -->
       <div class="instagram-section">
         <div class="text-center mb-8">
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Leshow Moskova</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">{instagram.leshow.title}</h3>
           <a 
-            href="https://instagram.com/leshowmoscow" 
+            href={instagram.leshow.instagram_url} 
             target="_blank" 
             rel="noopener noreferrer"
             class="text-gray-600 hover:text-primary transition-colors"
           >
-            @leshowmoscow
+            {instagram.leshow.username}
           </a>
         </div>
         
@@ -90,8 +100,8 @@ const { items } = Astro.props;
             class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer w-64 h-64"
           >
             <img 
-              src="/images/leshow-instagram.jpg"
-              alt="Leshow Moscow Instagram"
+              src={instagram.leshow.image}
+              alt={`${instagram.leshow.title} Instagram`}
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
               width="256"
@@ -109,11 +119,11 @@ const { items } = Astro.props;
             
             <!-- Link overlay -->
             <a 
-              href="https://instagram.com/leshowmoscow"
+              href={instagram.leshow.instagram_url}
               target="_blank"
               rel="noopener noreferrer"
               class="absolute inset-0 z-10"
-              aria-label="View Leshow Moscow Instagram"
+              aria-label={`View ${instagram.leshow.title} Instagram`}
             >
               <span class="sr-only">View Instagram</span>
             </a>
