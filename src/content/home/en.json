@@ -43,9 +43,18 @@
     ]
   },
   "metrics": [
-    { "value": "450+", "label": "Fairs" },
-    { "value": "200+", "label": "Partners" },
-    { "value": "50+", "label": "Locations" }
+    {
+      "value": "450+",
+      "label": "Fairs"
+    },
+    {
+      "value": "200+",
+      "label": "Partners"
+    },
+    {
+      "value": "50+",
+      "label": "Locations"
+    }
   ],
   "about": {
     "title": "Achieve global success with Türkel Fair Organization",
@@ -53,12 +62,30 @@
     "ctaText": "Learn More"
   },
   "partners": [
-    { "name": "Partner 1", "logo": "/images/partner01.png" },
-    { "name": "Partner 2", "logo": "/images/partner02.png" },
-    { "name": "Partner 3", "logo": "/images/partner03.png" },
-    { "name": "Partner 4", "logo": "/images/partner04.png" },
-    { "name": "Partner 5", "logo": "/images/partner05.png" },
-    { "name": "Partner 6", "logo": "/images/partner06.png" }
+    {
+      "name": "Partner 1",
+      "logo": "/images/partner01.png"
+    },
+    {
+      "name": "Partner 2",
+      "logo": "/images/partner02.png"
+    },
+    {
+      "name": "Partner 3",
+      "logo": "/images/partner03.png"
+    },
+    {
+      "name": "Partner 4",
+      "logo": "/images/partner04.png"
+    },
+    {
+      "name": "Partner 5",
+      "logo": "/images/partner05.png"
+    },
+    {
+      "name": "Partner 6",
+      "logo": "/images/partner06.png"
+    }
   ],
   "fairSupport": {
     "title": "EXPAND TO THE WORLD WITH FAIR SUPPORT",
@@ -91,7 +118,7 @@
     "sections": {
       "contact": "CONTACT",
       "calendar": "FAIR CALENDAR",
-      "links": "USEFUL LINKS", 
+      "links": "USEFUL LINKS",
       "fairs": "OUR FAIRS"
     },
     "links": {
@@ -102,7 +129,7 @@
         "2023 Fair Calendar",
         "2022 Fair Calendar"
       ],
-            "useful": [
+      "useful": [
         "Ministry of Trade Support",
         "KOSGEB Support",
         "Fair Participation Planning",
@@ -111,7 +138,7 @@
       ],
       "fairs": [
         "www.leshowistanbul.com",
-        "www.leshow.ru", 
+        "www.leshow.ru",
         "www.homedecofair.com"
       ]
     },
