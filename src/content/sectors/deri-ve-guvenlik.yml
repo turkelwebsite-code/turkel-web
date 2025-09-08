@@ -1,7 +1,7 @@
-name_tr: "Deri Fuarları & Güvenlik Sistemleri Fuarları"
-name_en: "Leather & Security Systems"
-slug: "deri-ve-guvenlik"
-order: 5
+name_tr: Moda
+name_en: Fashion
+slug: moda
+order: 1
 is_active: true
-description_tr: "Deri ürünleri ve güvenlik sistemleri fuarları"
-description_en: "Leather products and security systems fairs"
+description_tr: ""
+description_en: ""
