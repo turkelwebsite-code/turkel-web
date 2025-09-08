@@ -21,7 +21,7 @@ fairs:
       order: 1
     basic_info:
       description_tr: ULUSLARARASI TEKNE VE SU SPORLARI FUARI
-      sector: Diğer
+      sector: Tekne, Havuz ve Yan Sanayi
       hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-01-17
@@ -84,7 +84,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI GELİNLİK FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: PARİS, FRANSA
       start_date: 2026-03-08
@@ -102,7 +102,7 @@ fairs:
       order: 4
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-03-27
@@ -189,7 +189,7 @@ fairs:
       order: 7
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: DUBAİ, BAE
       start_date: 2026-04-07
@@ -218,7 +218,7 @@ fairs:
       order: 8
     basic_info:
       description_tr: ULUSLARARASI BORU VE TEL FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tel, Boru, Kalıp ve Plastik
       hide_dates: false
       location_tr: DÜSSELDORF, ALMANYA
       start_date: 2026-04-15
@@ -247,7 +247,7 @@ fairs:
       order: 9
     basic_info:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
-      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      sector: Diğer
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-04-22
@@ -280,7 +280,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI KIŞ MODA FUARI
-      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      sector: Moda
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-23
@@ -327,7 +327,7 @@ fairs:
       order: 12
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-08
@@ -356,7 +356,7 @@ fairs:
       order: 13
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
-      sector: Enerji
+      sector: Tel, Boru, Kalıp ve Plastik
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-16
@@ -389,7 +389,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI BEBEK GİYİM VE ARAÇ GEREÇLERİ FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: true
       location_tr: KÖLN, ALMANYA
       start_date: 1901-01-01
@@ -411,7 +411,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI GELİNLİK FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: true
       location_tr: HARROGATE, İNGİLTERE
       start_date: 1901-01-01
@@ -433,7 +433,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
-      sector: Diğer
+      sector: Moda
       hide_dates: true
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 1901-01-01
@@ -456,7 +456,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA, ELEKTRİK MÜHENDİSLİĞİ VE GÜVENLİK
         SİSTEMLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: true
       location_tr: ASTANA, KAZAKİSTAN
       start_date: 1901-01-01
@@ -478,7 +478,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MODA FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: true
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 1901-01-01
@@ -524,7 +524,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
@@ -546,7 +546,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI HAVUZ, SAĞLIK VE AÇIK HAVA FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tekne, Havuz ve Yan Sanayi
       hide_dates: true
       location_tr: BARSELONA, İSPANYA
       start_date: 1901-01-01
@@ -568,7 +568,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, BAĞLANTI ELEMANLARI VE YAN SANAYİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
@@ -591,7 +591,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI AĞAÇ İŞLEME VE MOBİLYA ENDÜSTRİSİ İÇİN EKİPMAN,
         MALZEME VE BİLEŞENLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: true
       location_tr: MOSKOVA, RUSYA
       start_date: 1901-01-01
