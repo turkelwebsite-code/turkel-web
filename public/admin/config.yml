@@ -36,7 +36,7 @@ collections:
       - {label: "Sektör Adı (EN)", name: "name_en", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", default: 0}
-      - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true, required: false}
       - {label: "Açıklama (TR)", name: "description_tr", widget: "text", required: false}
       - {label: "Açıklama (EN)", name: "description_en", widget: "text", required: false}
 
@@ -54,7 +54,7 @@ collections:
       - {label: "Yıl", name: "year", widget: "number"}
       - {label: "Sayfa Slug (TR)", name: "page_slug", widget: "string", pattern: ['^[a-z0-9-]+$', "Sadece küçük harf, rakam ve tire"]}
       - {label: "Sayfa Slug (EN)", name: "page_slug_en", widget: "string", pattern: ['^[a-z0-9-]+$', "Only lowercase, numbers and dash"]}
-      - {label: "Aktif", name: "is_active", widget: "boolean", default: false}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: false, required: false}
       - {label: "Görüntüleme Durumu", name: "display_status", widget: "select", options: ["Aktif Fuarlar", "Kronoloji"], default: "Aktif Fuarlar"}
       - {label: "Menü Sırası", name: "menu_order", widget: "number", value_type: "int", default: 0}
       - label: "Sayfa İçeriği"
@@ -176,7 +176,7 @@ collections:
       - {label: "📞 Telefon", name: "phone", widget: "string", required: false, hint: "Opsiyonel"}
       - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", default: 1}
       - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true}
-      - {label: "🎪 Fuar Temsilcisi", name: "is_fair_representative", widget: "boolean", default: false}
+      - {label: "🎪 Fuar Temsilcisi", name: "is_fair_representative", widget: "boolean", default: false, required: false}
 
   # PARTNERLER
   - name: "partners"
@@ -191,7 +191,7 @@ collections:
       - {label: "Logo", name: "logo", widget: "image", hint: "Partner logosu (PNG/SVG önerilir)"}
       - {label: "Website", name: "website", widget: "string", required: false, hint: "Partner website linki (opsiyonel)"}
       - {label: "Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Gösterim sırası"}
-      - {label: "Aktif", name: "is_active", widget: "boolean", default: true, hint: "Partner gösterilsin mi?"}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true, required: false, hint: "Partner gösterilsin mi?"}
 
   # KRONOLOJİ YÖNETİMİ (FOLDER COLLECTION - 12 YIL)
   - name: "chronology_years"
@@ -205,7 +205,7 @@ collections:
     fields:
       - {label: "CMS Buton Adı", name: "cms_button_label", widget: "string", hint: "Bu isim sidebar'da gözükecek"}
       - {label: "Yıl", name: "year", widget: "number"}
-      - {label: "Aktif", name: "is_active", widget: "boolean", default: true}
+      - {label: "Aktif", name: "is_active", widget: "boolean", default: true, required: false}
       - label: "Kronoloji Fuarları"
         name: "fairs"
         widget: "list"
@@ -267,5 +267,5 @@ collections:
         hint: "İdeal Ölçü: 400x400px | Slider içinde küçük görseller"
       - {label: "🗺️ Google Maps Embed", name: "maps_embed", widget: "text", required: false, hint: "Google Maps iframe kodu"}
       - {label: "🔢 Sıralama", name: "order", widget: "number", value_type: "int", min: 1, default: 1, hint: "Slider gösterim sırası"}
-      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, hint: "Slider'da gösterilsin mi?"}
+      - {label: "✅ Aktif", name: "is_active", widget: "boolean", default: true, required: false, hint: "Slider'da gösterilsin mi?"}
 
