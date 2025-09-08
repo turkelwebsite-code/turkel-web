@@ -25,7 +25,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: " ULUSLARARASI  TEKNE VE SU SPORLARI FUARI"
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tekne, Havuz ve Yan Sanayi
+      hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2023-01-21
       description_en: INTERNATIONAL BOAT AND WATER SPORTS FAIR
@@ -33,7 +34,6 @@ fairs:
       name_tr: BOOT DUSSELDORF
       location_en: DUSSELDORF, GERMANY
       name_en: BOOT DUSSELDORF
-      hide_dates: false
     visuals:
       logo: /images/logo-boot.png
       background_image: /images/gorsel-boot.avif
@@ -48,7 +48,7 @@ fairs:
     basic_info:
       description_tr: |
         ULUSLARARASI MODA FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       location_tr: KOPENHAG, DANİMARKA
       start_date: 2023-02-01
       description_en: "INTERNATIONAL FASHION FAIR "
@@ -69,7 +69,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-03-02
       description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
@@ -77,7 +78,6 @@ fairs:
       name_tr: 40. WEDDING FASHION MOSCOW
       location_en: MOSCOW, RUSSIA
       name_en: 40TH WEDDING FASHION MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-wedding.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
@@ -91,7 +91,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: " ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI"
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
+      hide_dates: false
       location_tr: DUBAİ, BAE
       start_date: 2023-03-07
       description_en: " INTERNATIONAL ELECTRICITY, ELECTRONIC AND LIGHTING FAIR"
@@ -99,7 +100,6 @@ fairs:
       name_tr: MIDDLE EAST ENERGY
       location_en: DUBAI, UAE
       name_en: MIDDLE EAST ENERGY
-      hide_dates: false
     visuals:
       logo: /images/fair-logo-mee.jpg
       background_image: /images/fair-bg-mee.png
@@ -114,6 +114,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI EV TEKSTİLİ, DEKORASYON ve ZÜCCACİYE FUARI
       sector: Ev Tekstili ve Dekorasyon
+      hide_dates: false
       location_tr: ALMATI, KAZAKİSTAN
       start_date: 2023-03-13
       description_en: INTERNATIONAL HOME TEXTILES, DECORATION AND GLASSWARE FAIR
@@ -121,7 +122,6 @@ fairs:
       name_tr: 15.HOMEDECO KAZAKİSTAN
       location_en: ALMATY, KAZAKHSTAN
       name_en: 15.HOMEDECO KAZAKHSTAN
-      hide_dates: false
     visuals:
       logo: /images/fuarlar-logo.png
       background_image: /images/homedeco-detail3.png
@@ -135,7 +135,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: LONDRA, İNGİLTERE
       start_date: 2023-03-19
       description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
@@ -143,7 +144,6 @@ fairs:
       name_tr: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
       location_en: LONDON, UK
       name_en: LONDON BRIDAL FASHION WEEK & WHITE GALLERY
-      hide_dates: false
     visuals:
       logo: /images/logo-bridal.png
       background_image: /images/image_1_48.webp
@@ -157,7 +157,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: " ULUSLARARASI MOBİLYA VE DEKORASYON FUARI"
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
+      hide_dates: false
       location_tr: KÖLN, ALMANYA
       start_date: 2023-06-04
       description_en: " INTERNATIONAL FURNITURE AND DECORATION FAIR"
@@ -165,7 +166,6 @@ fairs:
       name_tr: IMM COLOGNE
       location_en: COLOGNE, GERMANY
       name_en: IMM COLOGNE
-      hide_dates: false
     visuals:
       logo: /images/imm.png
       background_image: /images/immgorsel.jpg
@@ -179,7 +179,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-06-06
       description_en: INTERNATIONAL EXHIBITION FOR ELECTRICAL EQUIPMENT FOR POWER AND
@@ -202,7 +202,7 @@ fairs:
     basic_info:
       description_tr: |
         INTERNATIONAL MOLD FAIR / INTERNATIONAL PLASTIC FAIR
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tel, Boru, Kalıp ve Plastik
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-06-06
       description_en: |
@@ -224,7 +224,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: "ULUSLARASI DERİ VE MODA FUARI "
-      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      sector: Moda
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-06-06
       description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
@@ -232,7 +233,6 @@ fairs:
       name_tr: 26.LESHOW MOSKOVA
       location_en: MOSCOW, RUSSIA
       name_en: 26.LESHOW MOSCOW
-      hide_dates: false
     visuals:
       logo: /images/leshow-logo-fair.png
       background_image: /images/leshow-gorsel-fair.jpg
@@ -246,7 +246,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA YAN SANAYİ VE AĞAÇ İŞLEME MAKİNALARI FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
+      hide_dates: false
       location_tr: JOHANNESBURG, GUNEY AFRİKA
       start_date: 2023-06-27
       description_en: INTERNATIONAL FURNITURE SUPPLY INDUSTRY AND WOODWORKING MACHINERY FAIR
@@ -254,7 +255,6 @@ fairs:
       name_tr: WOODEX FOR AFRICA
       location_en: JOHANNESBURG, SOUTH AFRICA
       name_en: WOODEX FOR AFRICA
-      hide_dates: false
     visuals:
       logo: /images/woodexlogo.png
       background_image: /images/woodexafricagorsel.jpg
@@ -268,7 +268,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI TEKSTİL FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: SEUL, G.KORE
       start_date: 2023-08-23
       description_en: INTERNATIONAL TEXTILE FAIR
@@ -276,7 +277,6 @@ fairs:
       name_tr: PREVIEW IN SEOUL
       location_en: SEOUL, S. KOREA
       name_en: PREVIEW IN SEOUL
-      hide_dates: false
     visuals:
       logo: /images/prewievlogo.png
       background_image: /images/previewgorsel.jpg
@@ -290,7 +290,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: YATAK VE UYKU TEKNOLOJİLERİ FUARI
-      sector: Ev Tekstili ve Dekorasyon
+      sector: Diğer
+      hide_dates: false
       location_tr: DUBAİ, BAE
       start_date: 2023-09-05
       description_en: BED AND SLEEP TECHNOLOGIES FAIR
@@ -298,7 +299,6 @@ fairs:
       name_tr: SLEEP EXPO MIDDLE EAST
       location_en: DUBAI, UAE
       name_en: SLEEP EXPO MIDDLE EAST
-      hide_dates: false
     visuals:
       logo: /images/sleep-expo-middle.png
       background_image: /images/sleepexpogorsel.jpg
@@ -312,7 +312,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI BEBEK - ÇOCUK GİYİM VE SEKTÖREL TİCARET FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
+      hide_dates: false
       location_tr: KÖLN, ALMANYA
       start_date: 2023-09-07
       description_en: INTERNATIONAL BABY - CHILDREN'S CLOTHING AND SECTORAL TRADE FAIR
@@ -320,7 +321,6 @@ fairs:
       name_tr: KIND+JUGEND
       location_en: COLOGNE, GERMANY
       name_en: KIND+JUGEND
-      hide_dates: false
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
@@ -334,7 +334,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: " ZEMİN KAPLAMALARI FUARI"
-      sector: Diğer
+      sector: Ev Tekstili ve Dekorasyon
+      hide_dates: false
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2023-09-17
       description_en: " FLOOR COVERINGS FAIR"
@@ -342,7 +343,6 @@ fairs:
       name_tr: THE FLOORING SHOW
       location_en: HARROGATE, UK
       name_en: THE FLOORING SHOW
-      hide_dates: false
     visuals:
       logo: /images/flooringshowlogo.png
       background_image: /images/flooringshowgorsel.jpg
@@ -356,7 +356,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-09-18
       description_en: INTERNATIONAL LIGHTING AND SMART BUILDING TECHNOLOGIES FAIR
@@ -364,7 +365,6 @@ fairs:
       name_tr: "INTERLIGHT "
       location_en: MOSCOW, RUSSIA
       name_en: INTERLIGHT
-      hide_dates: false
     visuals:
       logo: /images/ınterligthmoscowlogo.jpg
       background_image: /images/ınterlightmoscowgorsel.jpg
@@ -378,7 +378,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
+      hide_dates: false
       location_tr: KAHİRE, MISIR
       start_date: 2023-10-29
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY
@@ -386,7 +387,6 @@ fairs:
       name_tr: EGYPT ENERGY
       location_en: CAIRO, EGYPT
       name_en: EGYPT ENERGY
-      hide_dates: false
     visuals:
       logo: /images/egyptenergylogo.png
       background_image: /images/egyptenergygorsel.jpg
@@ -400,7 +400,8 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2023-11-20
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY
@@ -408,7 +409,6 @@ fairs:
       name_tr: 34.MEBEL
       location_en: MOSCOW, RUSSIA
       name_en: 34.MEBEL
-      hide_dates: false
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/mebelgorsel.jpg
