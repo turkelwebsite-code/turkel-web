@@ -1,7 +1,7 @@
-name_tr: "Enerji"
-name_en: "Energy"
-slug: "enerji"
-order: 7
+name_tr: Elektrik, Enerji ve Aydınlatma
+name_en: Electrical, Energy and Lighting
+slug: elektrik-enerji-aydinlatma
+order: 2
 is_active: true
-description_tr: "Enerji, elektrik ve yenilenebilir enerji fuarları"
-description_en: "Energy, electrical and renewable energy fairs"
+description_tr: ""
+description_en: ""
