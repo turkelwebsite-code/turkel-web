@@ -157,7 +157,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARASI BORU VE TEL FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tel, Boru, Kalıp ve Plastik
       hide_dates: false
       location_tr: DUSSELDORF, ALMANYA
       start_date: 2024-04-15
@@ -179,7 +179,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       location_tr: DUBAİ, BAE
       start_date: 2024-04-16
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF ENERGY INDUSTRY AND
@@ -223,7 +223,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: TASARIM, GELİNLİK VE AKSESUAR FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: LONDRA, İNGİLTERE
       start_date: 2024-05-08
@@ -245,7 +245,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI TİCARİ ARAÇLAR VE TEKNOLOJİLERİ FUARI
-      sector: Diğer
+      sector: Tekne, Havuz ve Yan Sanayi
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-05-28
@@ -267,7 +267,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-04
       description_en: NTERNATIONAL EXHIBITION FOR ELECTRICAL EQUIPMENT FOR POWER AND
@@ -289,7 +289,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: "ULUSLARASI KIŞ MODA FUARI "
-      sector: Deri Fuarları & Güvenlik Sistemleri Fuarları
+      sector: Moda
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-04
@@ -311,7 +311,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: DUBAI, BAE
       start_date: 2024-06-04
@@ -333,7 +333,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
-      sector: Kalıp & Plastik, İhtisas, Havuz
+      sector: Tel, Boru, Kalıp ve Plastik
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-06-18
@@ -378,7 +378,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: "ULUSLARARASI BEBEK - ÇOCUK GİYİM VE SEKTÖREL TİCARET FUARI "
-      sector: Moda ve Tekstil
+      sector: Moda
       location_tr: KÖLN, ALMANYA
       start_date: 2024-09-03
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BABY AND TODDLER
@@ -400,7 +400,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ZEMİN KAPLAMALARI FUARI
-      sector: Diğer
+      sector: Ev Tekstili ve Dekorasyon
       hide_dates: false
       location_tr: HARROGATE, İNGİLTERE
       start_date: 2024-09-15
@@ -422,7 +422,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-09-17
@@ -444,7 +444,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI OFİS MOBİLYALARI VE DONANIMLARI FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
+      sector: Mobilya ve Mobilya Yan Sanayi
       location_tr: KÖLN, ALMANYA
       start_date: 2024-10-22
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF OFFICE-FACILITY
@@ -466,7 +466,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI EV TEKSTİLİ, TEKSTİL İŞLEMLERİ VE MALZEMELERİ TİCARET FUARI
-      sector: Moda ve Tekstil
+      sector: Ev Tekstili ve Dekorasyon
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
       description_en: INTERNATIONAL TRADE FAIR OF HOME TEXTILES, CLOTHING CARE,
@@ -488,7 +488,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: TEKSTİL FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
@@ -510,7 +510,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, MOBİLYA YAN SANAYİ VE DÖŞEMELİK KUMAŞ FUARI
-      sector: Güzellik ve Kozmetik
+      sector: Mobilya ve Mobilya Yan Sanayi
       location_tr: MOSKOVA, RUSYA
       start_date: 2024-11-18
       description_en: INTERNATIONAL FURNITURE, FURNITURE SUB-INDUSTRY AND UPHOLSTERY
@@ -554,7 +554,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: KUMAŞ, İPLİK VE TEKSTİL AKSESUARLARI FUARI
-      sector: Moda ve Tekstil
+      sector: Moda
       hide_dates: false
       location_tr: TAŞKENT, ÖZBEKİSTAN
       start_date: 2024-11-06
@@ -598,7 +598,7 @@ fairs:
       show_in_chronology: false
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI
-      sector: Moda ve Tekstil
+      sector: Moda
       location_tr: LAS VEGAS, AMERİKA
       start_date: 2024-08-11
       description_en: INTERNATIONAL SECTORAL TRADE EXHIBITION OF BRIDAL FASHION &
