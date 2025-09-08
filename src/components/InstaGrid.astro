@@ -23,99 +23,49 @@ const { items } = Astro.props;
       <div class="instagram-section">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Homedeco Kazakhstan</h3>
-          <p class="text-gray-600">@homedecokazakhstan</p>
+          <a 
+            href="https://instagram.com/homedecokazakhstan" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-gray-600 hover:text-primary transition-colors"
+          >
+            @homedecokazakhstan
+          </a>
         </div>
         
-        <!-- Mobile Slider (2 visible) / Desktop Grid (3 visible) -->
-        <div class="relative">
-          <!-- Mobile Slider Container -->
-          <div class="md:hidden overflow-hidden">
-            <div class="flex transition-transform duration-300 ease-in-out" id="homedeco-slider">
-              {items.slice(0, 4).map((item, index) => (
-                <div class="flex-shrink-0 w-1/2 px-1">
-                  <div 
-                    class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
-                    style={`animation-delay: ${index * 0.1}s`}
-                  >
-                    <img 
-                      src={item.image}
-                      alt={`Homedeco Kazakhstan post ${index + 1}`}
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                      width="200"
-                      height="200"
-                    />
-                    
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                      {index === 1 && (
-                        <div class="absolute inset-0 flex items-center justify-center">
-                          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                            <Play size={16} class="text-primary ml-1" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <!-- Link overlay -->
-                    {item.link && (
-                      <a 
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="absolute inset-0 z-10"
-                        aria-label={`View Homedeco Kazakhstan post ${index + 1}`}
-                      >
-                        <span class="sr-only">View post</span>
-                      </a>
-                    )}
-                  </div>
+        <!-- Single Center Image -->
+        <div class="flex justify-center">
+          <div 
+            class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer w-64 h-64"
+          >
+            <img 
+              src="/images/homedeco-instagram.jpg"
+              alt="Homedeco Kazakhstan Instagram"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              width="256"
+              height="256"
+            />
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                  <Play size={16} class="text-primary ml-1" />
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <!-- Desktop Grid -->
-          <div class="hidden md:grid grid-cols-3 gap-3">
-            {items.slice(0, 3).map((item, index) => (
-              <div 
-                class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
-                style={`animation-delay: ${index * 0.1}s`}
-              >
-              <img 
-                src={item.image}
-                alt={`Homedeco Kazakhstan post ${index + 1}`}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-                width="200"
-                height="200"
-              />
-              
-              <!-- Overlay -->
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                {index === 1 && (
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                      <Play size={16} class="text-primary ml-1" />
-                    </div>
-                  </div>
-                )}
               </div>
-              
-              <!-- Link overlay -->
-              {item.link && (
-                <a 
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="absolute inset-0 z-10"
-                  aria-label={`View Homedeco Kazakhstan post ${index + 1}`}
-                >
-                  <span class="sr-only">View post</span>
-                </a>
-              )}
             </div>
-          ))}
+            
+            <!-- Link overlay -->
+            <a 
+              href="https://instagram.com/homedecokazakhstan"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute inset-0 z-10"
+              aria-label="View Homedeco Kazakhstan Instagram"
+            >
+              <span class="sr-only">View Instagram</span>
+            </a>
           </div>
         </div>
       </div>
@@ -124,99 +74,49 @@ const { items } = Astro.props;
       <div class="instagram-section">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Leshow Moskova</h3>
-          <p class="text-gray-600">@leshowmoscow</p>
+          <a 
+            href="https://instagram.com/leshowmoscow" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-gray-600 hover:text-primary transition-colors"
+          >
+            @leshowmoscow
+          </a>
         </div>
         
-        <!-- Mobile Slider (2 visible) / Desktop Grid (3 visible) -->
-        <div class="relative">
-          <!-- Mobile Slider Container -->
-          <div class="md:hidden overflow-hidden">
-            <div class="flex transition-transform duration-300 ease-in-out" id="leshow-slider">
-              {items.slice(3, 7).map((item, index) => (
-                <div class="flex-shrink-0 w-1/2 px-1">
-                  <div 
-                    class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
-                    style={`animation-delay: ${(index + 3) * 0.1}s`}
-                  >
-                    <img 
-                      src={item.image}
-                      alt={`Leshow Moskova post ${index + 1}`}
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                      width="200"
-                      height="200"
-                    />
-                    
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                      {index === 2 && (
-                        <div class="absolute inset-0 flex items-center justify-center">
-                          <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                            <Play size={16} class="text-primary ml-1" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <!-- Link overlay -->
-                    {item.link && (
-                      <a 
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="absolute inset-0 z-10"
-                        aria-label={`View Leshow Moskova post ${index + 1}`}
-                      >
-                        <span class="sr-only">View post</span>
-                      </a>
-                    )}
-                  </div>
+        <!-- Single Center Image -->
+        <div class="flex justify-center">
+          <div 
+            class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer w-64 h-64"
+          >
+            <img 
+              src="/images/leshow-instagram.jpg"
+              alt="Leshow Moscow Instagram"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              width="256"
+              height="256"
+            />
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                  <Play size={16} class="text-primary ml-1" />
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <!-- Desktop Grid -->
-          <div class="hidden md:grid grid-cols-3 gap-3">
-            {items.slice(3, 6).map((item, index) => (
-              <div 
-                class="instagram-item aspect-square relative overflow-hidden rounded-md bg-gray-200 group cursor-pointer"
-                style={`animation-delay: ${(index + 3) * 0.1}s`}
-              >
-              <img 
-                src={item.image}
-                alt={`Leshow Moskova post ${index + 1}`}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-                width="200"
-                height="200"
-              />
-              
-              <!-- Overlay -->
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                {index === 2 && (
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                      <Play size={16} class="text-primary ml-1" />
-                    </div>
-                  </div>
-                )}
               </div>
-              
-              <!-- Link overlay -->
-              {item.link && (
-                <a 
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="absolute inset-0 z-10"
-                  aria-label={`View Leshow Moskova post ${index + 1}`}
-                >
-                  <span class="sr-only">View post</span>
-                </a>
-              )}
             </div>
-          ))}
+            
+            <!-- Link overlay -->
+            <a 
+              href="https://instagram.com/leshowmoscow"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute inset-0 z-10"
+              aria-label="View Leshow Moscow Instagram"
+            >
+              <span class="sr-only">View Instagram</span>
+            </a>
           </div>
         </div>
       </div>
