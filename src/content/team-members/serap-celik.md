@@ -1,8 +1,8 @@
 ---
 name: Serap Bayru
 title:
-  tr: Kalıp & Plastik, İhtisas, Havuz
-  en: Mold & Plastic, Specialty, Pool
+  tr: Satış Sorumlusu
+  en: Sales Representative
 department:
   tr: Kalıp & Plastik, İhtisas, Havuz
   en: Mold & Plastic, Specialty, Pool
