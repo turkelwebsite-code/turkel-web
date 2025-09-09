@@ -1,0 +1,88 @@
+---
+// Google Analytics 4 (GA4) Integration
+// Measurement ID: G-M2MWY376XQ
+// Stream ID: 5171411281
+
+interface Props {
+  measurementId?: string;
+}
+
+const { measurementId = 'G-M2MWY376XQ' } = Astro.props;
+
+// Only load in production
+const isProduction = import.meta.env.PROD;
+---
+
+{isProduction && (
+  <>
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M2MWY376XQ', {
+        // Enhanced measurement settings
+        page_title: document.title,
+        page_location: window.location.href,
+        // Privacy settings
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+
+      // Custom events for better tracking
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        content_group1: document.documentElement.lang || 'tr'
+      });
+
+      // Track scroll depth
+      let scrollDepth = 0;
+      window.addEventListener('scroll', () => {
+        const currentScroll = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (currentScroll > scrollDepth && currentScroll % 25 === 0) {
+          scrollDepth = currentScroll;
+          gtag('event', 'scroll', {
+            event_category: 'engagement',
+            event_label: `${scrollDepth}%`,
+            value: scrollDepth
+          });
+        }
+      });
+
+      // Track outbound links
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.hostname !== window.location.hostname) {
+          gtag('event', 'click', {
+            event_category: 'outbound',
+            event_label: link.href,
+            transport_type: 'beacon'
+          });
+        }
+      });
+
+      // Track form submissions
+      document.addEventListener('submit', (e) => {
+        const form = e.target;
+        if (form.tagName === 'FORM') {
+          gtag('event', 'form_submit', {
+            event_category: 'engagement',
+            event_label: form.name || form.id || 'unnamed_form'
+          });
+        }
+      });
+    </script>
+  </>
+)}
+
+<!-- Development mode indicator -->
+{!isProduction && (
+  <script>
+    console.log('🔍 Google Analytics: Development mode - tracking disabled');
+    console.log('📊 Measurement ID: G-M2MWY376XQ');
+    console.log('🎯 Stream ID: 5171411281');
+  </script>
+)}

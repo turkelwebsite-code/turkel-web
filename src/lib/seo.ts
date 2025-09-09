@@ -15,11 +15,11 @@ export function generateSEOTags({
   description,
   locale,
   canonical,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/images/turkel-og-image.jpg',
   ogType = 'website',
   twitterCard = 'summary_large_image'
 }: SEOProps) {
-  const siteUrl = 'https://turkel2025.netlify.app';
+  const siteUrl = 'https://turkel.com.tr';
   const fullTitle = title.includes('Türkel') ? title : `${title} | Türkel Fuarcılık`;
   
   return {

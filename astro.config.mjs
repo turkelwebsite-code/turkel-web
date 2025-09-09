@@ -7,7 +7,7 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://turkel2025.netlify.app',
+  site: 'https://turkel.com.tr',
   trailingSlash: 'always',
   output: 'server', // API routes için SSR
 

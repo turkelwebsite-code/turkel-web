@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { generateSEOTags, generateHreflang, generateStructuredData, type SEOProps } from '../lib/seo';
 import { getLocaleFromUrl, type Locale } from '../lib/i18n';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props extends SEOProps {
   class?: string;
@@ -69,6 +70,9 @@ const structuredData = generateStructuredData(locale);
     <!-- Performance Optimizations -->
     <meta name="theme-color" content="#CE1A28" />
     <meta name="color-scheme" content="light" />
+    
+    <!-- Google Analytics -->
+    <GoogleAnalytics />
   </head>
   <body class={`${className || ''} pt-0`}>
     <slot />
