@@ -1,8 +1,8 @@
 ---
 name: Neval Özkul
 title:
-  tr: Finans & Muhasebe
-  en: Finance & Accounting
+  tr: Muhasebe Müdürü
+  en: Accounting Manager
 department:
   tr: Finans & Muhasebe
   en: Finance & Accounting
