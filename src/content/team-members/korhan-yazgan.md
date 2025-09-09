@@ -2,7 +2,7 @@
 name: Korhan Yazgan
 title:
   tr: Yönetim Kurulu Başkanı
-  en: Chairman
+  en: Chairman of the Board
 department:
   tr: Yönetim Kurulu
   en: Board of Directors
