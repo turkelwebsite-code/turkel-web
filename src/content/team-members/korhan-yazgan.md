@@ -6,7 +6,7 @@ title:
 department:
   tr: Yönetim Kurulu
   en: Board of Directors
-email: korhan@turkel.com.tr
+email: korhany@turkel.com.tr
 phone: ""
 order: 1
 is_active: true
