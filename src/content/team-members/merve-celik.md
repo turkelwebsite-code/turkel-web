@@ -1,8 +1,8 @@
 ---
 name: Merve Cellek
 title:
-  tr: Finans & Muhasebe
-  en: Finance & Accounting
+  tr: Muhasebe Sorumlusu
+  en: Accounting Representative
 department:
   tr: Finans & Muhasebe
   en: Finance & Accounting
