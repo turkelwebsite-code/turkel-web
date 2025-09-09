@@ -1,8 +1,8 @@
 ---
 name: Ecenur Akpınar
 title:
-  tr: Teknik Proje
-  en: Technical Project
+  tr: Teknik Proje Sorumlusu
+  en: Technical Project Representative
 department:
   tr: Teknik Proje
   en: Technical Project
