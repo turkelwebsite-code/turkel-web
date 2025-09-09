@@ -1,13 +1,13 @@
 ---
-name: "Zeynep Cansız"
+name: Zeynep Cansız
 title:
-  tr: "Satış Temsilcisi"
-  en: "Sales Representative"
+  tr: Teknik Proje Sorumlusu
+  en: Technical Project Representative
 department:
-  tr: "Teknik Proje"
-  en: "Technical Project"
-email: "zeynep@turkel.com.tr"
-phone: "+90 216 123 45 82"
+  tr: Teknik Proje
+  en: Technical Project
+email: zeynep@turkel.com.tr
+phone: +90 216 123 45 82
 order: 3
 is_active: true
 is_fair_representative: false
