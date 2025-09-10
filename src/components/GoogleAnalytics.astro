@@ -17,9 +17,13 @@ const isProduction = import.meta.env.PROD;
   <>
     <!-- Google tag (gtag.js) -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
-    <script>
+    <script is:inline>
+      // TypeScript-safe Google Analytics setup
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      
       gtag('js', new Date());
       gtag('config', 'G-M2MWY376XQ', {
         // Enhanced measurement settings
@@ -40,37 +44,39 @@ const isProduction = import.meta.env.PROD;
 
       // Track scroll depth
       let scrollDepth = 0;
-      window.addEventListener('scroll', () => {
+      window.addEventListener('scroll', function() {
         const currentScroll = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
         if (currentScroll > scrollDepth && currentScroll % 25 === 0) {
           scrollDepth = currentScroll;
           gtag('event', 'scroll', {
             event_category: 'engagement',
-            event_label: `${scrollDepth}%`,
+            event_label: scrollDepth + '%',
             value: scrollDepth
           });
         }
       });
 
       // Track outbound links
-      document.addEventListener('click', (e) => {
-        const link = e.target.closest('a');
-        if (link && link.hostname !== window.location.hostname) {
-          gtag('event', 'click', {
-            event_category: 'outbound',
-            event_label: link.href,
-            transport_type: 'beacon'
-          });
+      document.addEventListener('click', function(e) {
+        if (e.target && typeof e.target.closest === 'function') {
+          const link = e.target.closest('a');
+          if (link && link.hostname !== window.location.hostname) {
+            gtag('event', 'click', {
+              event_category: 'outbound',
+              event_label: link.href,
+              transport_type: 'beacon'
+            });
+          }
         }
       });
 
       // Track form submissions
-      document.addEventListener('submit', (e) => {
+      document.addEventListener('submit', function(e) {
         const form = e.target;
-        if (form.tagName === 'FORM') {
+        if (form && form.tagName === 'FORM') {
           gtag('event', 'form_submit', {
             event_category: 'engagement',
-            event_label: form.name || form.id || 'unnamed_form'
+            event_label: (form.name || form.id || 'unnamed_form')
           });
         }
       });
