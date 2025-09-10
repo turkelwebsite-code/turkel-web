@@ -502,4 +502,88 @@ document.addEventListener('DOMContentLoaded', () => {
       margin-top: 0.5rem !important;
     }
   }
+
+  /* Ultra-wide and high resolution screens (3456x2234, 4K, 5K, etc.) */
+  @media (min-width: 2560px) {
+    /* Much smaller section titles for ultra-wide screens */
+    footer h3 {
+      font-size: 0.875rem !important; /* 14px - much smaller */
+      line-height: 1.25rem !important; /* 20px */
+      margin-bottom: 1rem !important; /* 16px */
+      font-weight: 600 !important; /* Semi-bold instead of bold */
+    }
+    
+    /* Specific ultra-small title for Faydalı Linkler */
+    footer .hidden.sm\\:block.sm\\:col-span-1.lg\\:col-span-2 h3 {
+      font-size: 0.8rem !important; /* 12.8px - very small */
+      line-height: 1.2rem !important; /* 19.2px */
+      letter-spacing: 0.025em !important; /* Slightly more letter spacing */
+      word-spacing: 0.15em !important; /* More word spacing */
+    }
+    
+    /* All footer links smaller */
+    footer a {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1.5rem !important; /* 24px */
+    }
+    
+    /* Company description smaller */
+    footer .max-w-full p,
+    footer .max-w-full.sm\\:w-\\[361px\\] p {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1.25rem !important; /* 20px */
+    }
+    
+    /* Contact info smaller */
+    footer .flex.items-center p,
+    footer .flex.items-start p {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1.25rem !important; /* 20px */
+    }
+    
+    /* Logo smaller for ultra-wide */
+    footer img[alt="Türkel Fuarcılık"] {
+      width: 200px !important;
+      height: auto !important;
+    }
+    
+    /* Newsletter section much smaller */
+    footer h2 {
+      font-size: 1.5rem !important; /* 24px */
+      line-height: 1.75rem !important; /* 28px */
+      margin-bottom: 0.5rem !important; /* 8px */
+    }
+    
+    footer .lg\\:col-span-4 p {
+      font-size: 0.75rem !important; /* 12px */
+      line-height: 1rem !important; /* 16px */
+      margin-bottom: 0.75rem !important; /* 12px */
+    }
+    
+    /* Form elements smaller */
+    footer form input[type="email"] {
+      font-size: 0.75rem !important; /* 12px */
+      padding: 0.75rem 1rem !important; /* 12px 16px */
+    }
+    
+    footer form button[type="submit"] {
+      font-size: 0.75rem !important; /* 12px */
+      padding: 0.75rem 1.25rem !important; /* 12px 20px */
+    }
+    
+    /* White container height adjustment */
+    footer .sm\\:h-\\[220px\\] {
+      height: 160px !important; /* Shorter for ultra-wide */
+    }
+    
+    /* Tighter grid spacing */
+    footer .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-12 {
+      gap: 1rem !important; /* 16px gap */
+    }
+    
+    /* Copyright smaller */
+    footer .text-white.text-sm {
+      font-size: 0.75rem !important; /* 12px */
+    }
+  }
 </style>
