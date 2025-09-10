@@ -282,7 +282,7 @@ const { locale, content } = Astro.props;
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('newsletter-footer-form');
+  const form = document.getElementById('newsletter-footer-form') as HTMLFormElement;
   
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         if (response.ok) {
-          form.reset();
+          (form as HTMLFormElement).reset();
           showNewsletterNotification();
         } else {
           alert(currentLang === 'tr' ? '❌ Abonelik başarısız!' : '❌ Subscription failed!');
@@ -427,6 +427,69 @@ document.addEventListener('DOMContentLoaded', () => {
     
     footer .flex.items-center.gap-3 span {
       font-size: 0.75rem !important; /* 12px */
+    }
+  }
+
+  /* 1920x1080 specific footer optimization */
+  @media (min-width: 1920px) {
+    /* Section titles smaller for better proportions */
+    footer h3 {
+      font-size: 1rem !important; /* 16px instead of 18-20px */
+      line-height: 1.25rem !important; /* 20px */
+      margin-bottom: 1.5rem !important; /* 24px */
+    }
+    
+    /* Grid layout optimization - better column distribution */
+    footer .lg\\:col-span-3 {
+      flex: 0 0 20% !important; /* Logo section - 20% */
+      max-width: 20% !important;
+    }
+    
+    footer .lg\\:col-span-2 {
+      flex: 0 0 18% !important; /* Other sections - 18% each */
+      max-width: 18% !important;
+    }
+    
+    /* Specific fix for Faydalı Linkler section */
+    footer .hidden.sm\\:block.sm\\:col-span-1.lg\\:col-span-2 {
+      flex: 0 0 16% !important; /* Faydalı Linkler - 16% */
+      max-width: 16% !important;
+      padding-right: 1rem !important; /* Add right padding */
+    }
+    
+    /* Grid container improvements */
+    footer .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-12 {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 1.5rem !important; /* 24px gap */
+      align-items: flex-start !important;
+    }
+    
+    /* Links styling improvements */
+    footer a {
+      font-size: 0.875rem !important; /* 14px */
+      line-height: 1.75rem !important; /* 28px - better spacing */
+    }
+    
+    /* Company description width control */
+    footer .max-w-full.sm\\:w-\\[361px\\] {
+      max-width: 280px !important; /* Narrower description */
+    }
+    
+    /* Contact section width control */
+    footer .sm\\:col-span-2.lg\\:col-span-3:nth-child(2) {
+      max-width: 250px !important; /* Contact section narrower */
+    }
+    
+    /* Better text wrapping for long links */
+    footer .block.text-white {
+      word-break: break-word !important;
+      hyphens: auto !important;
+    }
+    
+    /* Ensure proper spacing between sections */
+    footer .space-y-0 {
+      margin-top: 0.5rem !important;
     }
   }
 </style>
