@@ -1,6 +1,7 @@
 ---
 import { NAVIGATION_ITEMS, SITE_CONFIG } from '../lib/constants';
-import { getLocaleFromUrl, type Locale } from '../lib/i18n';
+import { getLocaleFromUrl, type Locale, LOCALES } from '../lib/i18n';
+import { getTargetUrl } from '../lib/url-mapping';
 import { Phone, Mail, Facebook, Youtube, Instagram, Linkedin } from 'lucide-astro';
 import LangSwitch from './LangSwitch.astro';
 import VisitorFormModal from './VisitorFormModal.astro';
@@ -370,8 +371,42 @@ const currentPath = Astro.url.pathname;
           </div>
         ))}
         
+        <!-- Mobile Language Switcher -->
+        <div class="pt-6 border-t border-gray-200">
+          <div class="px-4 mb-4">
+            <h3 class="text-sm font-medium text-gray-700 mb-3">
+              {locale === 'tr' ? 'Dil Seçimi' : 'Language'}
+            </h3>
+            <div class="flex gap-2">
+              {LOCALES.map((lang) => {
+                const isActive = lang === locale;
+                const targetUrl = lang === locale ? '#' : getTargetUrl(locale, lang, currentPath);
+                const languages = {
+                  tr: { name: 'Türkçe', flag: '🇹🇷' },
+                  en: { name: 'English', flag: '🇺🇸' }
+                };
+                
+                return (
+                  <a 
+                    href={targetUrl}
+                    class={`flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors ${
+                      isActive 
+                        ? 'bg-primary text-white' 
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                    hreflang={lang}
+                  >
+                    <span class="text-base">{languages[lang].flag}</span>
+                    <span class="font-medium">{languages[lang].name}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         <!-- Mobile CTA Buttons -->
-        <div class="flex flex-row gap-3 pt-6 border-t border-gray-200 pb-8 px-4">
+        <div class="flex flex-row gap-3 pt-4 border-t border-gray-200 pb-8 px-4">
           <button 
             onclick="openVisitorModal()"
             class="btn btn-primary text-xs px-4 py-2 whitespace-nowrap flex-1 text-center"
@@ -619,6 +654,44 @@ const currentPath = Astro.url.pathname;
   /* Mobile dropdown active state */
   .mobile-nav-item span:active {
     background-color: rgba(206, 26, 40, 0.1) !important;
+  }
+  
+  /* Mobile language switcher styles */
+  .mobile-lang-switcher {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .mobile-lang-switcher h3 {
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .mobile-lang-switcher a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .mobile-lang-switcher a.active {
+    background-color: #CE1A28 !important;
+    color: white !important;
+  }
+  
+  .mobile-lang-switcher a:not(.active) {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  .mobile-lang-switcher a:not(.active):hover {
+    background-color: #d1d5db;
   }
 </style>
 
