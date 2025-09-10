@@ -435,26 +435,36 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Section titles smaller for better proportions */
     footer h3 {
       font-size: 1rem !important; /* 16px instead of 18-20px */
-      line-height: 1.25rem !important; /* 20px */
+      line-height: 1.5rem !important; /* 24px - increased from 20px */
       margin-bottom: 1.5rem !important; /* 24px */
+      white-space: nowrap !important; /* Prevent text wrapping */
+    }
+    
+    /* Specific fix for Faydalı Linkler title */
+    footer .hidden.sm\\:block.sm\\:col-span-1.lg\\:col-span-2 h3 {
+      font-size: 0.9rem !important; /* 14.4px - slightly smaller */
+      line-height: 1.6rem !important; /* 25.6px - more line height */
+      letter-spacing: 0.02em !important; /* Better letter spacing */
+      word-spacing: 0.1em !important; /* Better word spacing */
     }
     
     /* Grid layout optimization - better column distribution */
     footer .lg\\:col-span-3 {
-      flex: 0 0 20% !important; /* Logo section - 20% */
-      max-width: 20% !important;
+      flex: 0 0 19% !important; /* Logo section - 19% */
+      max-width: 19% !important;
     }
     
     footer .lg\\:col-span-2 {
-      flex: 0 0 18% !important; /* Other sections - 18% each */
-      max-width: 18% !important;
+      flex: 0 0 17% !important; /* Other sections - 17% each */
+      max-width: 17% !important;
     }
     
     /* Specific fix for Faydalı Linkler section */
     footer .hidden.sm\\:block.sm\\:col-span-1.lg\\:col-span-2 {
-      flex: 0 0 16% !important; /* Faydalı Linkler - 16% */
-      max-width: 16% !important;
+      flex: 0 0 18% !important; /* Faydalı Linkler - increased to 18% */
+      max-width: 18% !important; /* More space for the title */
       padding-right: 1rem !important; /* Add right padding */
+      min-width: 180px !important; /* Minimum width to prevent squashing */
     }
     
     /* Grid container improvements */
