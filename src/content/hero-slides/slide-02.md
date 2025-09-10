@@ -1,6 +1,6 @@
 ---
 title_tr: 29. LESHOW MOSKOVA
-title_en: 29th Leshow Moscow
+title_en: 29th Leshow Mosco
 date_tr: 23-25 JUNE 2026
 date_en: 16-18 FEBRUARY 2026
 location_tr: Moskova, Rusya
