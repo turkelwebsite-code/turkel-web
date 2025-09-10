@@ -22,10 +22,7 @@ const offices = [
     name: 'Türkel Merkez Ofis',
     address: 'Huzur Mah. Fatih Cad. 4.Levent Plaza 67/6\n4.Levent, Sarıyer 34396 / İstanbul – Türkiye',
     phones: [
-      { label: 'Telefon', number: '+90 (212) 284 23 00' },
-      { label: 'Proje', number: '+90 (212) 270 07 28' },
-      { label: 'Faks', number: '+90 (212) 283 00 74-75-76' },
-      { label: 'Faks', number: '+90 (212) 278 64 02' }
+      { label: 'Telefon', number: '+90 (212) 284 23 00' }
     ],
     email: 'info@turkel.com.tr',
     country: 'Türkiye',
@@ -369,7 +366,7 @@ const offices = [
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement;
   
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -403,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         if (response.ok) {
-          form.reset();
+          (form as HTMLFormElement).reset();
           showContactNotification();
         } else {
           alert('❌ Form gönderilemedi!');
