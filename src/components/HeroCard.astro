@@ -102,7 +102,7 @@ const { locale, card } = Astro.props;
         aria-label={locale === 'tr' ? 'Fuarın web sitesine git' : 'Go to fair website'}
       >
         <span class="text-white font-normal text-[9px] sm:text-[11px] lg:text-[13px] leading-[11px] sm:leading-[13px] lg:leading-[15px] uppercase">
-          {card.fairName || 'HOMEDECO KAZAKİSTAN'}
+          {card.fairName}
         </span>
         {card.fairWebsite && (
           <ExternalLink size={12} class="text-[#CE1A28] inline-block ml-1 w-3 h-3 align-middle" />
@@ -125,11 +125,13 @@ const { locale, card } = Astro.props;
     <!-- Fair Venue Name -->
     <div class="pt-[40px] sm:pt-[50px] lg:pt-[60px] px-[15px] sm:px-[20px] lg:px-[30px] mb-4 sm:mb-5 lg:mb-6">
       <h3 class="text-white font-semibold text-[14px] sm:text-[16px] lg:text-[18px] text-center uppercase">
-        FUAR ALANI
+        {locale === 'tr' ? 'FUAR ALANI' : 'VENUE'}
       </h3>
-      <p class="text-white/70 text-[11px] sm:text-[12px] lg:text-sm text-center mt-1 sm:mt-1.5 lg:mt-2">
-        KTSDS "Atakent", Almaty, pavilion 09,10
-      </p>
+      {card.location && (
+        <p class="text-white/70 text-[11px] sm:text-[12px] lg:text-sm text-center mt-1 sm:mt-1.5 lg:mt-2">
+          {card.location}
+        </p>
+      )}
     </div>
 
     <!-- Fair Images Grid (3 yan yana) -->
@@ -180,7 +182,7 @@ const { locale, card } = Astro.props;
     <!-- Location Section -->
     <div class="px-[15px] sm:px-[20px] lg:px-[30px] mb-4 sm:mb-5 lg:mb-6">
       <h3 class="text-white font-semibold text-[14px] sm:text-[16px] lg:text-[18px] text-center uppercase">
-        LOKASYON
+        {locale === 'tr' ? 'LOKASYON' : 'LOCATION'}
       </h3>
     </div>
 
