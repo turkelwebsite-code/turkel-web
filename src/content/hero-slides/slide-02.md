@@ -14,5 +14,5 @@ background_image: /images/leshow_kapak.jpg
 logo: /images/leshowlogo_beyaz.png
 website_url: ""
 order: 2
-is_active: false
+is_active: true
 ---
