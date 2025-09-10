@@ -371,51 +371,65 @@ const currentPath = Astro.url.pathname;
           </div>
         ))}
         
-        <!-- Mobile Language Switcher -->
-        <div class="pt-6 border-t border-gray-200">
-          <div class="px-4 mb-4">
-            <h3 class="text-sm font-medium text-gray-700 mb-3">
-              {locale === 'tr' ? 'Dil Seçimi' : 'Language'}
-            </h3>
-            <div class="flex gap-2">
-              {LOCALES.map((lang) => {
-                const isActive = lang === locale;
-                const targetUrl = lang === locale ? '#' : getTargetUrl(locale, lang, currentPath);
-                const languages = {
-                  tr: { name: 'Türkçe', flag: '🇹🇷' },
-                  en: { name: 'English', flag: '🇺🇸' }
-                };
-                
-                return (
-                  <a 
-                    href={targetUrl}
-                    class={`flex items-center gap-2 px-3 py-2 text-sm rounded-md transition-colors ${
-                      isActive 
-                        ? 'bg-primary text-white' 
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                    hreflang={lang}
-                  >
-                    <span class="text-base">{languages[lang].flag}</span>
-                    <span class="font-medium">{languages[lang].name}</span>
-                  </a>
-                );
-              })}
-            </div>
+        <!-- Mobile Language Switcher (Dropdown Style) -->
+        <div class="mobile-nav-item">
+          <div class="flex items-center justify-between">
+            <span 
+              class="text-base font-normal text-text-primary hover:text-primary transition-colors uppercase tracking-wide py-2 flex-1 cursor-pointer"
+              onclick="toggleMobileDropdown('dil-secimi')"
+            >
+              {locale === 'tr' ? 'DİL SEÇİMİ' : 'LANGUAGE'}
+            </span>
+            <button 
+              class="mobile-dropdown-toggle p-2 text-gray-400 hover:text-primary transition-colors"
+              onclick="toggleMobileDropdown('dil-secimi')"
+            >
+              <svg class="w-4 h-4 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Mobile Language Dropdown -->
+          <div id="mobile-dropdown-dil-secimi" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
+            {LOCALES.map((lang) => {
+              const isActive = lang === locale;
+              const targetUrl = lang === locale ? '#' : getTargetUrl(locale, lang, currentPath);
+              const languages = {
+                tr: { name: 'Türkçe', flag: '🇹🇷' },
+                en: { name: 'English', flag: '🇺🇸' }
+              };
+              
+              return (
+                <a 
+                  href={targetUrl}
+                  class={`flex items-center gap-2 py-2 text-sm transition-colors ${
+                    isActive 
+                      ? 'text-primary font-medium' 
+                      : 'text-gray-600 hover:text-primary'
+                  }`}
+                  hreflang={lang}
+                >
+                  <span class="text-base">{languages[lang].flag}</span>
+                  <span>{languages[lang].name}</span>
+                  {isActive && <span class="text-xs text-primary ml-auto">✓</span>}
+                </a>
+              );
+            })}
           </div>
         </div>
 
         <!-- Mobile CTA Buttons -->
-        <div class="flex flex-row gap-3 pt-4 border-t border-gray-200 pb-8 px-4">
+        <div class="flex flex-col gap-4 pt-6 border-t border-gray-200 pb-8 px-4">
           <button 
             onclick="openVisitorModal()"
-            class="btn btn-primary text-xs px-4 py-2 whitespace-nowrap flex-1 text-center"
+            class="btn btn-primary text-sm px-6 py-4 whitespace-nowrap w-full text-center font-medium"
           >
             {locale === 'tr' ? 'Ziyaretçi Formu' : 'Visitor Form'}
           </button>
           <button 
             onclick="openParticipantModal()"
-            class="btn btn-outline text-xs px-4 py-2 whitespace-nowrap flex-1 text-center"
+            class="btn btn-outline text-sm px-6 py-4 whitespace-nowrap w-full text-center font-medium"
           >
             {locale === 'tr' ? 'Katılımcı Formu' : 'Participant Form'}
           </button>
@@ -656,42 +670,42 @@ const currentPath = Astro.url.pathname;
     background-color: rgba(206, 26, 40, 0.1) !important;
   }
   
-  /* Mobile language switcher styles */
-  .mobile-lang-switcher {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  
-  .mobile-lang-switcher h3 {
-    color: #374151;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-  
-  .mobile-lang-switcher a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .mobile-lang-switcher a.active {
+  /* Mobile form buttons - enhanced styling */
+  .btn.btn-primary {
     background-color: #CE1A28 !important;
     color: white !important;
+    border: 2px solid #CE1A28 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
   }
   
-  .mobile-lang-switcher a:not(.active) {
-    background-color: #e5e7eb;
-    color: #374151;
+  .btn.btn-primary:hover {
+    background-color: #B01525 !important;
+    border-color: #B01525 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(206, 26, 40, 0.3) !important;
   }
   
-  .mobile-lang-switcher a:not(.active):hover {
-    background-color: #d1d5db;
+  .btn.btn-outline {
+    background-color: transparent !important;
+    color: #CE1A28 !important;
+    border: 2px solid #CE1A28 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn.btn-outline:hover {
+    background-color: #CE1A28 !important;
+    color: white !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(206, 26, 40, 0.3) !important;
+  }
+  
+  /* Mobile language dropdown active state */
+  .mobile-nav-item #mobile-dropdown-dil-secimi a.text-primary {
+    font-weight: 600 !important;
   }
 </style>
 
