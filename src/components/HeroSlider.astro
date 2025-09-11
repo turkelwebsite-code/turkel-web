@@ -141,6 +141,8 @@ const { locale, heroData } = Astro.props;
       location: string;
       description: string;
       fairName: string;
+      fairLogo?: string;
+      fairWebsite?: string;
     };
   }
 
@@ -220,17 +222,55 @@ const { locale, heroData } = Astro.props;
     heroCardContainer.style.opacity = '0';
     
     setTimeout(() => {
-      const fairNameElement = heroCardContainer.querySelector('.inline-block.px-4.py-2');
-      const titleElement = heroCardContainer.querySelector('h2');
-      const dateElement = heroCardContainer.querySelector('.flex.items-center.gap-3:first-of-type span');
-      const locationElement = heroCardContainer.querySelector('.flex.items-center.gap-3:last-of-type span');
-      const descriptionElement = heroCardContainer.querySelector('p.text-text-secondary');
+      // HeroCard component'indeki unique ID'ler ile güvenli selector'lar
+      const fairNameElement = heroCardContainer.querySelector('#hero-card-fairname');
+      const titleElement = heroCardContainer.querySelector('#hero-card-title');
+      const dateElement = heroCardContainer.querySelector('#hero-card-date');
+      const locationElement = heroCardContainer.querySelector('#hero-card-location');
+      const descriptionElement = heroCardContainer.querySelector('#hero-card-description');
+      const logoElement = heroCardContainer.querySelector('#hero-card-logo');
 
-      if (fairNameElement) fairNameElement.textContent = slideData.card.fairName;
-      if (titleElement) titleElement.textContent = slideData.card.title;
-      if (dateElement) dateElement.textContent = slideData.card.dateText;
-      if (locationElement) locationElement.textContent = slideData.card.location;
-      if (descriptionElement) descriptionElement.textContent = slideData.card.description;
+      console.log('🔄 Updating hero card elements with IDs:', {
+        fairNameElement: !!fairNameElement,
+        titleElement: !!titleElement,
+        dateElement: !!dateElement,
+        locationElement: !!locationElement,
+        descriptionElement: !!descriptionElement,
+        logoElement: !!logoElement,
+        slideData: slideData.card
+      });
+
+      if (fairNameElement && slideData.card.fairName) {
+        fairNameElement.textContent = slideData.card.fairName;
+        console.log('✅ Fair name updated:', slideData.card.fairName);
+      }
+      
+      if (titleElement && slideData.card.title) {
+        titleElement.textContent = slideData.card.title;
+        console.log('✅ Title updated:', slideData.card.title);
+      }
+      
+      if (dateElement && slideData.card.dateText) {
+        dateElement.textContent = slideData.card.dateText;
+        console.log('✅ Date updated:', slideData.card.dateText);
+      }
+      
+      if (locationElement && slideData.card.location) {
+        locationElement.textContent = slideData.card.location;
+        console.log('✅ Location updated:', slideData.card.location);
+      }
+      
+      if (descriptionElement && slideData.card.description) {
+        descriptionElement.textContent = slideData.card.description;
+        console.log('✅ Description updated:', slideData.card.description);
+      }
+
+      // Update logo if available
+      if (logoElement && slideData.card.fairLogo) {
+        (logoElement as HTMLImageElement).src = slideData.card.fairLogo;
+        (logoElement as HTMLImageElement).alt = slideData.card.fairName + ' Logo';
+        console.log('✅ Logo updated:', slideData.card.fairLogo);
+      }
 
       heroCardContainer.style.opacity = '1';
     }, 300);

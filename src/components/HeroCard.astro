@@ -44,7 +44,7 @@ const { locale, card } = Astro.props;
     
     <!-- Fair Title (Centered) -->
     <div class="pt-[50px] sm:pt-[65px] lg:pt-[82px] px-[15px] sm:px-[20px] lg:px-[30px]">
-      <h2 class="text-white font-semibold text-[14px] sm:text-[17px] lg:text-[20px] leading-tight uppercase text-center mb-3 sm:mb-4 lg:mb-6">
+      <h2 id="hero-card-title" class="text-white font-semibold text-[14px] sm:text-[17px] lg:text-[20px] leading-tight uppercase text-center mb-3 sm:mb-4 lg:mb-6">
         {card.title}
       </h2>
     </div>
@@ -53,6 +53,7 @@ const { locale, card } = Astro.props;
     {card.fairLogo && (
       <div class="px-[25px] sm:px-[35px] lg:px-[50px] mb-3 sm:mb-4 lg:mb-6 text-center">
         <img 
+          id="hero-card-logo"
           src={card.fairLogo}
           alt={card.fairName || 'Fair Logo'}
           class="h-8 sm:h-10 lg:h-12 w-auto mx-auto"
@@ -67,7 +68,7 @@ const { locale, card } = Astro.props;
           <button class="bg-[#CE1A28] text-white px-1.5 sm:px-3 lg:px-4 py-1 sm:py-2.5 lg:py-3 rounded text-sm font-medium hover:bg-[#B01625] transition-colors">
             <div class="flex items-center justify-center gap-0.5 sm:gap-1.5 lg:gap-2">
               <Calendar size={10} class="sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
-              <span class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.dateText}</span>
+              <span id="hero-card-date" class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.dateText}</span>
             </div>
           </button>
         )}
@@ -76,7 +77,7 @@ const { locale, card } = Astro.props;
           <button class="bg-[#CE1A28] text-white px-1.5 sm:px-3 lg:px-4 py-1 sm:py-2.5 lg:py-3 rounded text-sm font-medium hover:bg-[#B01625] transition-colors">
             <div class="flex items-center justify-center gap-0.5 sm:gap-1.5 lg:gap-2">
               <MapPin size={10} class="sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
-              <span class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.location}</span>
+              <span id="hero-card-location" class="text-[8px] sm:text-[11px] lg:text-xs uppercase font-medium">{card.location}</span>
             </div>
           </button>
         )}
@@ -86,7 +87,7 @@ const { locale, card } = Astro.props;
     <!-- Description (Moved up closer) -->
     {card.description && (
       <div class="px-[15px] sm:px-[20px] lg:px-[29px] mb-2 sm:mb-3 lg:mb-4 max-h-[60px] sm:max-h-[80px] lg:max-h-[100px] overflow-hidden">
-        <p class="text-white text-[10px] sm:text-[13px] lg:text-[16px] leading-[13px] sm:leading-[17px] lg:leading-[20px] text-center font-normal">
+        <p id="hero-card-description" class="text-white text-[10px] sm:text-[13px] lg:text-[16px] leading-[13px] sm:leading-[17px] lg:leading-[20px] text-center font-normal">
           {card.description}
         </p>
       </div>
@@ -101,7 +102,7 @@ const { locale, card } = Astro.props;
         class="block border border-[#CE1A28] rounded-[100px] px-2 sm:px-2 lg:px-3 py-2 sm:py-2 lg:py-2.5 text-center hover:bg-[#CE1A28]/10 transition-colors duration-300 cursor-pointer"
         aria-label={locale === 'tr' ? 'Fuarın web sitesine git' : 'Go to fair website'}
       >
-        <span class="text-white font-normal text-[9px] sm:text-[11px] lg:text-[13px] leading-[11px] sm:leading-[13px] lg:leading-[15px] uppercase">
+        <span id="hero-card-fairname" class="text-white font-normal text-[9px] sm:text-[11px] lg:text-[13px] leading-[11px] sm:leading-[13px] lg:leading-[15px] uppercase">
           {card.fairName}
         </span>
         {card.fairWebsite && (
