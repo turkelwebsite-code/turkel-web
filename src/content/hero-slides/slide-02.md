@@ -11,7 +11,7 @@ description_en: The main winter fashion event! LeShow is the prestigious
   leather, fur and winter fashion fair, which has been held for 29 years without
   fail.
 background_image: /images/leshow_kapak.jpg
-logo: /images/leshowlogo_beyaz.png
+logo: /images/unnamed-1-.png
 website_url: ""
 order: 2
 is_active: true
