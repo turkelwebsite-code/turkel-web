@@ -12,7 +12,11 @@ description_en: The main winter fashion event! LeShow is the prestigious
   fail.
 background_image: /images/leshow_kapak.jpg
 logo: /images/unnamed-1-.png
-website_url: ""
+website_url: https://en.leshow.ru/
+mini_images:
+  - /images/lsm-detail1.png
+  - /images/lsm-detail2.png
+  - /images/lsm-detail3.png
 order: 2
 is_active: true
 ---
