@@ -261,6 +261,13 @@ const { locale, heroData } = Astro.props;
         locationElement.textContent = slideData.card.location;
         console.log('✅ Location updated:', slideData.card.location);
       }
+
+      // Update detail view location (Fuar Alanı altındaki lokasyon)
+      const detailLocationElement = heroCardContainer.querySelector('#hero-card-detail-location');
+      if (detailLocationElement && slideData.card.location) {
+        detailLocationElement.textContent = slideData.card.location;
+        console.log('✅ Detail location updated:', slideData.card.location);
+      }
       
       if (descriptionElement && slideData.card.description) {
         descriptionElement.textContent = slideData.card.description;

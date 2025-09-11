@@ -129,7 +129,7 @@ const { locale, card } = Astro.props;
         {locale === 'tr' ? 'FUAR ALANI' : 'VENUE'}
       </h3>
       {card.location && (
-        <p class="text-white/70 text-[11px] sm:text-[12px] lg:text-sm text-center mt-1 sm:mt-1.5 lg:mt-2">
+        <p id="hero-card-detail-location" class="text-white/70 text-[11px] sm:text-[12px] lg:text-sm text-center mt-1 sm:mt-1.5 lg:mt-2">
           {card.location}
         </p>
       )}
