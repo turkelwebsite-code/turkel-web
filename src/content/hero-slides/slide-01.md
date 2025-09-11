@@ -18,7 +18,7 @@ mini_images:
   - /images/homedeco-detail2.png
   - /images/homedeco-detail2.png
   - /images/homedeco-detail3.png
-maps_embed: https://www.google.com/maps?ll=43.224753,76.905088&z=15&t=m&hl=tr&gl=TR&mapclient=embed&cid=1171282945439682506
+maps_embed: ""
 order: 1
 is_active: true
 ---
