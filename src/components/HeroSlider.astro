@@ -143,6 +143,8 @@ const { locale, heroData } = Astro.props;
       fairName: string;
       fairLogo?: string;
       fairWebsite?: string;
+      miniImages?: string[];
+      mapsEmbed?: string;
     };
   }
 
@@ -270,6 +272,38 @@ const { locale, heroData } = Astro.props;
         (logoElement as HTMLImageElement).src = slideData.card.fairLogo;
         (logoElement as HTMLImageElement).alt = slideData.card.fairName + ' Logo';
         console.log('✅ Logo updated:', slideData.card.fairLogo);
+      }
+
+      // Update website link
+      const websiteLinkElement = heroCardContainer.querySelector('#hero-card-fairname')?.closest('a');
+      if (websiteLinkElement && slideData.card.fairWebsite) {
+        (websiteLinkElement as HTMLAnchorElement).href = slideData.card.fairWebsite;
+        (websiteLinkElement as HTMLAnchorElement).target = slideData.card.fairWebsite ? "_blank" : "_self";
+        (websiteLinkElement as HTMLAnchorElement).rel = slideData.card.fairWebsite ? "noopener noreferrer" : "";
+        console.log('✅ Website link updated:', slideData.card.fairWebsite);
+      }
+
+      // Update mini images in detail view
+      const miniImagesContainer = heroCardContainer.querySelector('.detail-view .grid.grid-cols-3');
+      if (miniImagesContainer && slideData.card.miniImages && slideData.card.miniImages.length > 0) {
+        miniImagesContainer.innerHTML = '';
+        slideData.card.miniImages.forEach((image: string, index: number) => {
+          const imageDiv = document.createElement('div');
+          imageDiv.className = 'aspect-square';
+          imageDiv.innerHTML = `<img src="${image}" alt="Fuar Görseli ${index + 1}" class="w-full h-full object-cover rounded-[4px] sm:rounded-[5px] lg:rounded-[6px]" loading="lazy" />`;
+          miniImagesContainer.appendChild(imageDiv);
+        });
+        console.log('✅ Mini images updated:', slideData.card.miniImages.length, 'images');
+      }
+
+      // Update Google Maps embed
+      const mapsContainer = heroCardContainer.querySelector('.detail-view [set\\:html]')?.parentElement;
+      if (mapsContainer && slideData.card.mapsEmbed) {
+        const mapsDiv = mapsContainer.querySelector('div');
+        if (mapsDiv) {
+          mapsDiv.innerHTML = slideData.card.mapsEmbed;
+          console.log('✅ Maps embed updated');
+        }
       }
 
       heroCardContainer.style.opacity = '1';
