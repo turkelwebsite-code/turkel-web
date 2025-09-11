@@ -2,7 +2,7 @@
 name: Sibel Akar
 title:
   tr: Yönetim Kurulu Başkan Asistanı
-  en: Chairman Assistant
+  en: Board Chairman Assistant
 department:
   tr: Yönetim Kurulu Başkan Asistanı
   en: Board Chairman Assistant
