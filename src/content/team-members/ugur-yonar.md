@@ -7,7 +7,7 @@ department:
   tr: Finans & Muhasebe
   en: Finance & Accounting
 email: yonar@turkel.com.tr
-phone: +90 216 123 45 90
+phone: ""
 order: 3
 is_active: true
 is_fair_representative: false
