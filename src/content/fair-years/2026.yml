@@ -488,7 +488,7 @@ fairs:
       location_en: RIYADH, SAUDI ARABIA
       name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
     visuals:
-      logo: /images/logo-saudi.jpg
+      logo: /images/saudilifestyleweek.png
       background_image: /images/gorsel-saudi.jpg
   - representative:
       hide_phone: true
