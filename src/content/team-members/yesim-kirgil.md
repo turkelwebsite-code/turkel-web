@@ -1,5 +1,5 @@
 ---
-name: Yeşim Kırgıl
+name: Yeşim Kırgül
 title:
   tr: Departman Asistanı
   en: Department Assistant
