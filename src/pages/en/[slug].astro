@@ -480,29 +480,59 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
       });
     });
     
-    // Sorting functionality
+    // Apply initial default sorting on page load
+    setTimeout(() => {
+      sortFairs('order');
+    }, 100);
+    
+    // Sorting functionality - GLOBAL sorting across all cards
     function sortFairs(sortType: string) {
-      const sortedFairs = [...fairsData];
+      console.log('🔄 SORTING: Starting sort with type:', sortType);
+      
+      // Use the global fairsData array directly (all cards together)
+      const allCards = [...fairsData];
+      
+      console.log('🔄 SORTING: Total cards to sort:', allCards.length);
+      console.log('🔄 SORTING: Sample card names:', allCards.slice(0, 3).map((f: any) => f.name));
       
       switch(sortType) {
         case 'name':
-          sortedFairs.sort((a, b) => a.name.localeCompare(b.name, 'en'));
+          console.log('🔤 A-Z SORTING: Before sort:', allCards.map((f: any) => f.name));
+          allCards.sort((a: any, b: any) => {
+            // Remove number prefixes for proper alphabetical sorting
+            const cleanNameA = a.name.replace(/^\d+\.\s*/, '').trim();
+            const cleanNameB = b.name.replace(/^\d+\.\s*/, '').trim();
+            console.log(`🔤 Comparing clean names: "${cleanNameA}" vs "${cleanNameB}"`);
+            const result = cleanNameA.localeCompare(cleanNameB, 'en');
+            return result;
+          });
+          console.log('🔤 A-Z SORTING: After sort:', allCards.map((f: any) => f.name));
           break;
         case 'date':
-          sortedFairs.sort((a, b) => {
+          console.log('📅 DATE SORTING: Before sort:', allCards.map((f: any) => f.date));
+          allCards.sort((a: any, b: any) => {
             // English month names to numbers
-            const englishMonths = {
+            const englishMonths: Record<string, string> = {
               'JANUARY': '01', 'FEBRUARY': '02', 'MARCH': '03', 'APRIL': '04',
               'MAY': '05', 'JUNE': '06', 'JULY': '07', 'AUGUST': '08',
               'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
             };
             
             function parseDate(dateStr: string): Date {
+              // Check for "To be announced" or similar phrases - put them at the end
+              if (dateStr.toLowerCase().includes('announced') || 
+                  dateStr.toLowerCase().includes('coming') || 
+                  dateStr.toLowerCase().includes('soon') ||
+                  dateStr.toLowerCase().includes('tba') ||
+                  dateStr.toLowerCase().includes('2026')) {
+                return new Date(2099, 11, 31); // Far future date
+              }
+              
               // Handle formats like "17-25 JANUARY 2026" or "16 - 18 FEBRUARY 2026"
               const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
                 const day = match[1];
-                const month = englishMonths[match[2] as keyof typeof englishMonths] || '01';
+                const month = englishMonths[match[2]] || '01';
                 const year = match[3];
                 return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
               }
@@ -511,19 +541,27 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
             
             const dateA = parseDate(a.date);
             const dateB = parseDate(b.date);
+            console.log(`📅 Comparing: "${a.date}" (${dateA.toISOString()}) vs "${b.date}" (${dateB.toISOString()})`);
             return dateA.getTime() - dateB.getTime();
           });
+          console.log('📅 DATE SORTING: After sort:', allCards.map((f: any) => f.date));
           break;
         case 'order':
         default:
-          sortedFairs.sort((a, b) => a.order - b.order);
+          console.log('🔢 ORDER SORTING: Before sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
+          allCards.sort((a: any, b: any) => a.order - b.order);
+          console.log('🔢 ORDER SORTING: After sort:', allCards.map((f: any) => `${f.name} (${f.order})`));
           break;
       }
       
-      // Reorder DOM elements
-      sortedFairs.forEach(fair => {
-        fairsContainer?.appendChild(fair.element as Node);
+      // Apply CSS order to ALL cards globally
+      allCards.forEach((fair: any, index: number) => {
+        const cardElement = fair.element as HTMLElement;
+        cardElement.style.order = index.toString();
+        console.log(`🎯 Setting order ${index} for: ${fair.name}`);
       });
+      
+      console.log('✅ SORTING: Complete!');
     }
     
     // Sort button functionality
