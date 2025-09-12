@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
     facebook: 'https://www.facebook.com/TurkelFairOrganizations/',
     youtube: 'https://www.youtube.com/user/turkelfair',
     instagram: 'https://www.instagram.com/turkelfair/',
-    linkedin: 'https://www.linkedin.com/company/türkel-fuarcilik-a-ş'
+    linkedin: 'https://www.linkedin.com/company/turkelfuarcilik'
   }
 } as const;
 
