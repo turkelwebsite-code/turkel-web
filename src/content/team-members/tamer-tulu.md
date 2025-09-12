@@ -1,5 +1,5 @@
 ---
-name: Tamer Tulü
+name: Tamer Tülü
 title:
   tr: Ulaşım Görevlisi
   en: Transportation Officer
