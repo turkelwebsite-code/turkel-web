@@ -452,7 +452,16 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     const fairsContainer = document.querySelector('.fairs-container');
     
     // Store original fair data for sorting
-    const fairsData = [];
+    interface FairData {
+      element: Element;
+      name: string;
+      date: string;
+      order: number;
+      sector: string;
+      startDate: string | null;
+      endDate: string | null;
+    }
+    const fairsData: FairData[] = [];
     
     // Parse fair data from DOM
     fairCards.forEach(card => {
@@ -472,7 +481,7 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
     });
     
     // Sorting functionality
-    function sortFairs(sortType) {
+    function sortFairs(sortType: string) {
       const sortedFairs = [...fairsData];
       
       switch(sortType) {
@@ -488,12 +497,12 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
               'SEPTEMBER': '09', 'OCTOBER': '10', 'NOVEMBER': '11', 'DECEMBER': '12'
             };
             
-            function parseDate(dateStr) {
+            function parseDate(dateStr: string): Date {
               // Handle formats like "17-25 JANUARY 2026" or "16 - 18 FEBRUARY 2026"
               const match = dateStr.match(/(\d{1,2})\s*-\s*\d{1,2}\s+(\w+)\s+(\d{4})/);
               if (match) {
                 const day = match[1];
-                const month = englishMonths[match[2]] || '01';
+                const month = englishMonths[match[2] as keyof typeof englishMonths] || '01';
                 const year = match[3];
                 return new Date(`${year}-${month}-${day.padStart(2, '0')}`);
               }
@@ -502,7 +511,7 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
             
             const dateA = parseDate(a.date);
             const dateB = parseDate(b.date);
-            return dateA - dateB;
+            return dateA.getTime() - dateB.getTime();
           });
           break;
         case 'order':
@@ -513,13 +522,13 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
       
       // Reorder DOM elements
       sortedFairs.forEach(fair => {
-        fairsContainer.appendChild(fair.element);
+        fairsContainer?.appendChild(fair.element as Node);
       });
     }
     
     // Sort button functionality
     sortButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(this: HTMLElement) {
         const sortType = this.dataset.sort;
         
         // Update active button
@@ -534,7 +543,7 @@ console.log('✅', currentYear, 'Fairs sorted by order within each sector');
         this.classList.add('bg-[#CE1A28]', 'text-white', 'border-[#CE1A28]');
         
         // Apply sorting
-        sortFairs(sortType);
+        sortFairs(sortType || 'order');
       });
     });
     
