@@ -299,7 +299,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
-      hide_dates: false
+      hide_dates: true
       location_tr: KAZAN, TATARİSTAN
       start_date: 1901-01-01
       description_en: INTERNATIONAL TRADE FAIR
