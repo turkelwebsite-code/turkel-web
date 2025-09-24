@@ -301,10 +301,10 @@ fairs:
       sector: Diğer
       hide_dates: false
       location_tr: KAZAN, TATARİSTAN
-      start_date: 2025-05-14
+      start_date: ""
       description_en: INTERNATIONAL TRADE FAIR
       date_tr: 14 - 16 MAYIS 2025
-      end_date: 2025-05-16
+      end_date: ""
       name_tr: KAZAN FORUM & RUSYA HELAL EXPO
       location_en: KAZAN, TATARSTAN
       date_en: 14 - 16 MAY 2025
