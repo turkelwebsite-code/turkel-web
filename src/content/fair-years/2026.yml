@@ -74,28 +74,6 @@ fairs:
       title_en: Sales Director
       team_member: Arzu Günal
       hide_phone: true
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 3
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI GELİNLİK FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: PARİS, FRANSA
-      start_date: 2026-03-08
-      description_en: INTERNATIONAL BRIDAL SHOW
-      end_date: 2026-03-09
-      name_tr: PARIS BRIDAL FAIR
-      location_en: PARIS, FRANCE
-      name_en: PARIS BRIDAL FAIR
-    visuals:
-      logo: /images/logo-parisbridal.jpg
-      background_image: /images/image_1_48.webp
   - settings:
       show_in_slider: false
       show_in_forms: true
