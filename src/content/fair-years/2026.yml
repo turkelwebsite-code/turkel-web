@@ -583,28 +583,6 @@ fairs:
       logo: /images/logo-woodex.png
       background_image: /images/gorsel-woodex.png
   - basic_info:
-      description_tr: GELİNLİK VE MODA FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MILANO, ITALYA
-      start_date: 2026-02-21
-      description_en: BRIDAL & FASHION TRADE SHOW
-      end_date: 2026-02-23
-      name_tr: SI SPOSAITALIA COLLEZIONI
-      location_en: MILAN, ITALY
-      name_en: SI SPOSAITALIA COLLEZIONI
-    representative:
-      hide_phone: false
-      team_member: Seval Arslan
-    settings:
-      order: 1
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      logo: /images/ekran-resmi-2025-09-24-14.32.50.png
-      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
-  - basic_info:
       description_tr: TARIM, TARIM TEKNOLOJİLERİ VE HAYVANCILIK FUARI
       sector: Diğer
       hide_dates: false
