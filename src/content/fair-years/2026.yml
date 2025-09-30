@@ -277,16 +277,16 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
-      hide_dates: true
+      hide_dates: false
       location_tr: KAZAN, TATARİSTAN
-      start_date: 1901-01-01
+      start_date: 2026-05-13
       description_en: INTERNATIONAL TRADE FAIR
       date_tr: 14 - 16 MAYIS 2025
-      end_date: 1901-01-01
-      name_tr: KAZAN FORUM & RUSYA HELAL EXPO
+      end_date: 2026-05-15
+      name_tr: " RUSSIAN & ISLAMIC WORLD COOPERATION EXPO"
       location_en: KAZAN, TATARSTAN
       date_en: 14 - 16 MAY 2025
-      name_en: KAZAN FORUM & RUSYA HELAL EXPO
+      name_en: " RUSSIAN & ISLAMIC WORLD COOPERATION EXPO"
     visuals:
       logo: /images/fair-logo-kazan.jpg
       background_image: /images/fair-bg-kazan.png
