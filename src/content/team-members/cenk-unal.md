@@ -6,7 +6,7 @@ title:
 department:
   tr: Dış İlişkiler ve Uluslararası Satış
   en: Foreign Relations and International Sales
-email: cenk@turkel.com.tr
+email: cenkunal@turkel.com.tr
 phone: ""
 order: 1
 is_active: true
