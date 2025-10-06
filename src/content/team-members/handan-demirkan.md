@@ -1,8 +1,8 @@
 ---
 name: Handan Demirkan
 title:
-  tr: Satış Temsilcisi
-  en: Sales Representative
+  tr: Satış ve İletişim Sorumlusu
+  en: Sales and Communication Representative
 department:
   tr: Kalıp & Plastik, İhtisas, Havuz
   en: Mold & Plastic, Specialty, Pool
