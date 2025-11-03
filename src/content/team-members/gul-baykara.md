@@ -1,7 +1,7 @@
 ---
 name: Gül Baykara
 title:
-  tr: Satış Yöneticisi
+  tr: Satış Direktörü
   en: Sales Director
 department:
   tr: Deri Fuarları & Güvenlik Sistemleri Fuarları
