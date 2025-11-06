@@ -626,3 +626,25 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2025-11-03-17.00.14.png
       background_image: /images/immagine2.jpg
+  - basic_info:
+      description_tr: ULUSLARARASI MODA VE MÜCEVHER FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MİLANO, İTALYA
+      start_date: 2026-02-21
+      description_en: INTERNATIONAL FASHION AND JEWELRY FAIR
+      end_date: 2026-02-23
+      name_tr: MILANO FASHION & JEWELS
+      location_en: MILAN, ITALY
+      name_en: MILANO FASHION & JEWELS
+    representative:
+      hide_phone: false
+      team_member: Seval Arslan
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2025-11-06-10.22.27.png
+      background_image: /images/ekran-resmi-2025-11-06-10.22.56.png
