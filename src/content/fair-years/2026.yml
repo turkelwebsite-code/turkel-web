@@ -648,3 +648,25 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2025-11-06-10.22.27.png
       background_image: /images/ekran-resmi-2025-11-06-10.22.56.png
+  - basic_info:
+      description_tr: Uluslararası Dış Giyim Fuarı
+      sector: Moda
+      hide_dates: false
+      location_tr: MİLANO, İTALYA
+      start_date: 2026-02-23
+      description_en: International Outerwear Fair
+      end_date: 2026-02-25
+      name_tr: THE ONE MILANO
+      location_en: MILAN, ITALY
+      name_en: THE ONE MILANO
+    representative:
+      hide_phone: false
+      team_member: Yeşim Kırgül
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2025-11-06-10.35.43.png
+      background_image: /images/ekran-resmi-2025-11-06-10.35.47.png
