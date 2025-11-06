@@ -74,29 +74,73 @@ fairs:
       title_en: Sales Director
       team_member: Arzu Günal
       hide_phone: true
+  - basic_info:
+      description_tr: ULUSLARARASI GELİNLİK FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MİLANO, İTALYA
+      start_date: 2026-02-21
+      description_en: INTERNATIONAL BRIDAL FAIR
+      end_date: 2026-02-23
+      name_tr: SI SPOSAITALIA COLLEZIONI
+      location_en: MILAN, ITALY
+      name_en: SI SPOSAITALIA COLLEZIONI
+    representative:
+      hide_phone: false
+      team_member: Seval Arslan
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2025-11-03-17.00.14.png
+      background_image: /images/immagine2.jpg
+  - basic_info:
+      description_tr: Uluslararası Dış Giyim Fuarı
+      sector: Moda
+      hide_dates: false
+      location_tr: MİLANO, İTALYA
+      start_date: 2026-02-23
+      description_en: International Outerwear Fair
+      end_date: 2026-02-25
+      name_tr: THE ONE MILANO
+      location_en: MILAN, ITALY
+      name_en: THE ONE MILANO
+    representative:
+      hide_phone: false
+      team_member: Yeşim Kırgül
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2025-11-06-10.35.43.png
+      background_image: /images/ekran-resmi-2025-11-06-10.35.47.png
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 4
+      order: 6
     basic_info:
-      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda
+      description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
+      sector: Güzellik ve Kozmetik
       hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-03-27
-      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
-      date_tr: 27 - 28 MART 2026
-      end_date: 2026-03-28
-      name_tr: 43. WEDDING FASHION MOSCOW
-      location_en: MOSCOW, RUSSIA
-      date_en: 27 - 28 MARCH 2026
-      name_en: 43. WEDDING FASHION MOSCOW
+      location_tr: DÜSSELDORF, ALMANYA
+      start_date: 2026-03-21
+      description_en: INTERNATIONAL HAIR PRODUCTS FAIR
+      date_tr: 21 - 22 MART 2026
+      end_date: 2026-03-22
+      name_tr: TOP HAIR
+      location_en: DUSSELDORF, GERMANY
+      date_en: 21 - 22 MARCH 2026
+      name_en: TOP HAIR
     visuals:
-      logo: /images/fair-logo-wedding.png
-      background_image: /images/fair-bg-wedding.png
+      logo: /images/th_messe_logo_2026-rgb-20mm.png
+      background_image: /images/fair-bg-tophair.jpg
     representative:
       name: Seval ARSLAN
-      title: Satış Direktörü
+      title: ""
       email: seval@turkel.com.tr
       phone: ""
       title_tr: Satış Direktörü
@@ -135,26 +179,26 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 6
+      order: 4
     basic_info:
-      description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
-      sector: Güzellik ve Kozmetik
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
+      sector: Moda
       hide_dates: false
-      location_tr: DÜSSELDORF, ALMANYA
-      start_date: 2026-03-21
-      description_en: INTERNATIONAL HAIR PRODUCTS FAIR
-      date_tr: 21 - 22 MART 2026
-      end_date: 2026-03-22
-      name_tr: TOP HAIR
-      location_en: DUSSELDORF, GERMANY
-      date_en: 21 - 22 MARCH 2026
-      name_en: TOP HAIR
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2026-03-27
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
+      date_tr: 27 - 28 MART 2026
+      end_date: 2026-03-28
+      name_tr: 43. WEDDING FASHION MOSCOW
+      location_en: MOSCOW, RUSSIA
+      date_en: 27 - 28 MARCH 2026
+      name_en: 43. WEDDING FASHION MOSCOW
     visuals:
-      logo: /images/th_messe_logo_2026-rgb-20mm.png
-      background_image: /images/fair-bg-tophair.jpg
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/fair-bg-wedding.png
     representative:
       name: Seval ARSLAN
-      title: ""
+      title: Satış Direktörü
       email: seval@turkel.com.tr
       phone: ""
       title_tr: Satış Direktörü
@@ -605,28 +649,6 @@ fairs:
       background_image: /images/ekran-resmi-2025-09-25-09.56.32.png
       logo: /images/ekran-resmi-2025-09-25-09.57.28.png
   - basic_info:
-      description_tr: ULUSLARARASI GELİNLİK FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MİLANO, İTALYA
-      start_date: 2026-02-21
-      description_en: INTERNATIONAL BRIDAL FAIR
-      end_date: 2026-02-23
-      name_tr: SI SPOSAITALIA COLLEZIONI
-      location_en: MILAN, ITALY
-      name_en: SI SPOSAITALIA COLLEZIONI
-    representative:
-      hide_phone: false
-      team_member: Seval Arslan
-    settings:
-      order: 1
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      logo: /images/ekran-resmi-2025-11-03-17.00.14.png
-      background_image: /images/immagine2.jpg
-  - basic_info:
       description_tr: ULUSLARARASI MODA VE MÜCEVHER FUARI
       sector: Moda
       hide_dates: false
@@ -648,25 +670,3 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2025-11-06-10.22.27.png
       background_image: /images/ekran-resmi-2025-11-06-10.22.56.png
-  - basic_info:
-      description_tr: Uluslararası Dış Giyim Fuarı
-      sector: Moda
-      hide_dates: false
-      location_tr: MİLANO, İTALYA
-      start_date: 2026-02-23
-      description_en: International Outerwear Fair
-      end_date: 2026-02-25
-      name_tr: THE ONE MILANO
-      location_en: MILAN, ITALY
-      name_en: THE ONE MILANO
-    representative:
-      hide_phone: false
-      team_member: Yeşim Kırgül
-    settings:
-      order: 1
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      logo: /images/ekran-resmi-2025-11-06-10.35.43.png
-      background_image: /images/ekran-resmi-2025-11-06-10.35.47.png
