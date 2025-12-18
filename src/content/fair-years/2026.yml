@@ -594,7 +594,7 @@ fairs:
       hide_dates: true
       location_tr: ASTANA, KAZAKİSTAN
       start_date: 2026-10-27
-      description_en: NTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
+      description_en: INTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
       end_date: 2026-10-30
       name_tr: INTERLIGHT SMART CITY & HOME
       location_en: ASTANA, KAZAKHSTAN
@@ -604,31 +604,9 @@ fairs:
       background_image: /images/gorsel-interlight.jpg
   - representative:
       hide_phone: true
-      team_member: Pınar Yalçın
-    settings:
-      order: 24
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI AYDINLATMA VE AKILLI BİNA TEKNOLOJİLERİ FUARI
-      sector: Elektrik, Enerji ve Aydınlatma
-      hide_dates: true
-      location_tr: MOSKOVA, RUSYA
-      start_date: 1901-01-01
-      description_en: INTERNATIONAL TRADE FAIR FOR LIGHTING AND BUILDING SERVICES TECHNOLOGY
-      end_date: 1901-01-01
-      name_tr: INTERLIGHT SMART CITY & HOME
-      location_en: MOSCOW, RUSSIA
-      name_en: INTERLIGHT SMART CITY & HOME
-    visuals:
-      logo: /images/logo-ınterlıght.png
-      background_image: /images/gorsel-interlightsmart.jpg
-  - representative:
-      hide_phone: true
       team_member: Ahmet Hilmi Çoruk
     settings:
-      order: 25
+      order: 24
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -650,7 +628,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 26
+      order: 25
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -668,27 +646,3 @@ fairs:
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png
-  - representative:
-      hide_phone: true
-      team_member: Pınar Yalçın
-    settings:
-      order: 27
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI AĞAÇ İŞLEME VE MOBİLYA ENDÜSTRİSİ İÇİN EKİPMAN,
-        MALZEME VE BİLEŞENLERİ FUARI
-      sector: Mobilya ve Mobilya Yan Sanayi
-      hide_dates: true
-      location_tr: MOSKOVA, RUSYA
-      start_date: 1901-01-01
-      description_en: ANNUAL INTERNATIONAL EXHIBITION OF EQUIPMENT, MATERIALS AND
-        COMPONENTS FOR THE WOODWORKING AND FURNITURE INDUSTRY
-      end_date: 1901-01-01
-      name_tr: WOODEX 2026
-      location_en: MOSCOW, RUSSIA
-      name_en: WOODEX 2026
-    visuals:
-      logo: /images/logo-woodex.png
-      background_image: /images/gorsel-woodex.png
