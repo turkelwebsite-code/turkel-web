@@ -513,6 +513,30 @@ fairs:
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
   - representative:
       hide_phone: true
+      team_member: Arzu Günal
+    settings:
+      order: 19
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI İÇ MEKAN KUMAŞLARI, EV TEKSTİLİ VE DEKORASYON
+        MALZEMELERİ FUARI
+      sector: Ev Tekstili ve Dekorasyon
+      hide_dates: true
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2026-09-22
+      description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILES AND
+        INTERIOR DESIGN SOLUTIONS
+      end_date: 2026-09-24
+      name_tr: "HOMETEXTILE & DESIGN "
+      location_en: MOSCOW, RUSSIA
+      name_en: "HOMETEXTILE & DESIGN "
+    visuals:
+      logo: /images/logo-hometextile.png
+      background_image: /images/gorsel-hometextile.jpg
+  - representative:
+      hide_phone: true
       team_member: Seval Arslan
     settings:
       order: 16
@@ -578,30 +602,6 @@ fairs:
     visuals:
       logo: /images/saudilifestyleweek.png
       background_image: /images/gorsel-saudi.jpg
-  - representative:
-      hide_phone: true
-      team_member: Arzu Günal
-    settings:
-      order: 19
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI İÇ MEKAN KUMAŞLARI, EV TEKSTİLİ VE DEKORASYON
-        MALZEMELERİ FUARI
-      sector: Ev Tekstili ve Dekorasyon
-      hide_dates: true
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-09-22
-      description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILES AND
-        INTERIOR DESIGN SOLUTIONS
-      end_date: 2026-09-24
-      name_tr: "HOMETEXTILE & DESIGN "
-      location_en: MOSCOW, RUSSIA
-      name_en: "HOMETEXTILE & DESIGN "
-    visuals:
-      logo: /images/logo-hometextile.png
-      background_image: /images/gorsel-hometextile.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
