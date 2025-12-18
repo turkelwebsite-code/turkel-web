@@ -387,32 +387,10 @@ fairs:
       title_en: Sales Director
       team_member: Pınar Yalçın
       hide_phone: true
-  - representative:
-      hide_phone: true
-      team_member: Gül Baykara
-    settings:
-      order: 16
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARASI KIŞ MODA FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-06-23
-      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
-      end_date: 2026-06-25
-      name_tr: 29.LESHOW MOSKOVA
-      location_en: MOSCOW, RUSSIA
-      name_en: 29TH LESHOW MOSCOW
-    visuals:
-      logo: /images/leshow-logo-fair.png
-      background_image: /images/leshow-gorsel-fair.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 17
+      order: 15
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Elektrik, Enerji ve Aydınlatma
@@ -441,7 +419,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 18
+      order: 16
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Tel, Boru, Kalıp ve Plastik
@@ -467,6 +445,50 @@ fairs:
       title_en: Sales Director
       team_member: Ahmet Hilmi Çoruk
       hide_phone: true
+  - representative:
+      hide_phone: true
+      team_member: Gül Baykara
+    settings:
+      order: 17
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARASI KIŞ MODA FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2026-06-23
+      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
+      end_date: 2026-06-25
+      name_tr: 29.LESHOW MOSKOVA
+      location_en: MOSCOW, RUSSIA
+      name_en: 29TH LESHOW MOSCOW
+    visuals:
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/leshow-gorsel-fair.jpg
+  - basic_info:
+      description_tr: TARIM, TARIM TEKNOLOJİLERİ VE HAYVANCILIK FUARI
+      sector: Diğer
+      hide_dates: false
+      location_tr: KAZAN, TATARİSTAN
+      start_date: 2026-07-08
+      description_en: AGRICULTURE, AGRICULTURAL TECHNOLOGIES, AND LIVESTOCK FAIR
+      end_date: 2026-07-10
+      name_tr: "AGROVOLGA "
+      location_en: KAZAN, TATARSTAN
+      name_en: "AGROVOLGA "
+    representative:
+      hide_phone: false
+      team_member: Pınar Yalçın
+    settings:
+      order: 18
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      background_image: /images/ekran-resmi-2025-09-25-09.56.32.png
+      logo: /images/ekran-resmi-2025-09-25-09.57.28.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
@@ -670,25 +692,3 @@ fairs:
     visuals:
       logo: /images/logo-woodex.png
       background_image: /images/gorsel-woodex.png
-  - basic_info:
-      description_tr: TARIM, TARIM TEKNOLOJİLERİ VE HAYVANCILIK FUARI
-      sector: Diğer
-      hide_dates: false
-      location_tr: KAZAN, TATARİSTAN
-      start_date: 2026-07-08
-      description_en: AGRICULTURE, AGRICULTURAL TECHNOLOGIES, AND LIVESTOCK FAIR
-      end_date: 2026-07-10
-      name_tr: AGROVOLGA 2026
-      location_en: KAZAN, TATARSTAN
-      name_en: AGROVOLGA 2026
-    representative:
-      hide_phone: false
-      team_member: Pınar Yalçın
-    settings:
-      order: 28
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      background_image: /images/ekran-resmi-2025-09-25-09.56.32.png
-      logo: /images/ekran-resmi-2025-09-25-09.57.28.png
