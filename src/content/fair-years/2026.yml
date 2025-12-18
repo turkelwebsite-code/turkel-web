@@ -165,7 +165,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 4
+      order: 7
     basic_info:
       description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
       sector: Moda
@@ -194,7 +194,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 5
+      order: 8
     basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
@@ -223,7 +223,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 6
+      order: 9
     basic_info:
       description_tr: ULUSLARARASI SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
@@ -253,7 +253,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 15
+      order: 10
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -274,7 +274,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 7
+      order: 11
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Elektrik, Enerji ve Aydınlatma
