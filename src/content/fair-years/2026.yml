@@ -546,7 +546,7 @@ fairs:
     basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda
-      hide_dates: true
+      hide_dates: false
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 2026-09-27
       description_en: BABY & CHILDREN'S CLOTHING AND EQUIPMENT FAIR
