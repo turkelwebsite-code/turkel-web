@@ -603,32 +603,10 @@ fairs:
       logo: /images/logo-interlight.png
       background_image: /images/gorsel-interlight.jpg
   - representative:
-      hide_phone: true
-      team_member: Ahmet Hilmi Çoruk
-    settings:
-      order: 24
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI HAVUZ, SAĞLIK VE AÇIK HAVA FUARI
-      sector: Tekne, Havuz ve Yan Sanayi
-      hide_dates: true
-      location_tr: BARSELONA, İSPANYA
-      start_date: 1901-01-01
-      description_en: INTERNATIONAL POOL, HEALTH AND OUTDOOR FAIR
-      end_date: 1901-01-01
-      name_tr: PISCINA BARCELONA
-      location_en: BARCELONA, SPAIN
-      name_en: PISCINA BARCELONA
-    visuals:
-      logo: /images/logo-piscina.png
-      background_image: /images/gorsel-piscina.jpg
-  - representative:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 25
+      order: 24
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -646,3 +624,25 @@ fairs:
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png
+  - representative:
+      hide_phone: true
+      team_member: Ahmet Hilmi Çoruk
+    settings:
+      order: 25
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI HAVUZ, SAĞLIK VE AÇIK HAVA FUARI
+      sector: Tekne, Havuz ve Yan Sanayi
+      hide_dates: true
+      location_tr: BARSELONA, İSPANYA
+      start_date: 1901-01-01
+      description_en: INTERNATIONAL POOL, HEALTH AND OUTDOOR FAIR
+      end_date: 1901-01-01
+      name_tr: PISCINA BARCELONA
+      location_en: BARCELONA, SPAIN
+      name_en: PISCINA BARCELONA
+    visuals:
+      logo: /images/logo-piscina.png
+      background_image: /images/gorsel-piscina.jpg
