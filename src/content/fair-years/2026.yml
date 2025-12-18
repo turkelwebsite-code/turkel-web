@@ -502,12 +502,12 @@ fairs:
       sector: Moda
       hide_dates: true
       location_tr: HARROGATE, İNGİLTERE
-      start_date: 1901-01-01
+      start_date: 2026-03-22
       description_en: INTERNATIONAL BRIDAL FAIR
-      end_date: 1901-01-03
-      name_tr: HARROGE BRIDAL – WHITE GALLERY
+      end_date: 2026-03-24
+      name_tr: HARROGATE BRIDAL – WHITE GALLERY
       location_en: HARROGATE, UK
-      name_en: HARROGE BRIDAL – WHITE GALLERY
+      name_en: HARROGATE BRIDAL – WHITE GALLERY
     visuals:
       logo: /images/logo-bridal.png
       background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
