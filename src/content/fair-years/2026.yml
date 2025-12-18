@@ -491,6 +491,28 @@ fairs:
       logo: /images/ekran-resmi-2025-09-25-09.57.28.png
   - representative:
       hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 19
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI BEBEK GİYİM VE ARAÇ GEREÇLERİ FUARI
+      sector: Moda
+      hide_dates: true
+      location_tr: KÖLN, ALMANYA
+      start_date: 2026-09-15
+      description_en: INTERNATIONAL TRADE FAIR FOR BABY AND TODDLER OUTFITTING
+      end_date: 2026-09-17
+      name_tr: KIND+JUGEND
+      location_en: COLOGNE, GERMANY
+      name_en: KIND+JUGEND
+    visuals:
+      logo: /images/kind-logo-fair.png
+      background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
+  - representative:
+      hide_phone: true
       team_member: Arzu Günal
     settings:
       order: 20
@@ -513,28 +535,6 @@ fairs:
     visuals:
       logo: /images/logo-hometextile.png
       background_image: /images/gorsel-hometextile.jpg
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 19
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI BEBEK GİYİM VE ARAÇ GEREÇLERİ FUARI
-      sector: Moda
-      hide_dates: true
-      location_tr: KÖLN, ALMANYA
-      start_date: 2026-09-15
-      description_en: INTERNATIONAL TRADE FAIR FOR BABY AND TODDLER OUTFITTING
-      end_date: 2026-09-17
-      name_tr: KIND+JUGEND
-      location_en: COLOGNE, GERMANY
-      name_en: KIND+JUGEND
-    visuals:
-      logo: /images/kind-logo-fair.png
-      background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
   - representative:
       hide_phone: true
       team_member: Seval Arslan
