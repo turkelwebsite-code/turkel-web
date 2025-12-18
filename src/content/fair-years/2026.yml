@@ -70,7 +70,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 2
+      order: 3
     basic_info:
       description_tr: ULUSLARARASI EV TEKSTİLİ VE DEKORASYON FUARI
       sector: Ev Tekstili ve Dekorasyon
@@ -111,7 +111,7 @@ fairs:
       hide_phone: false
       team_member: Seval Arslan
     settings:
-      order: 1
+      order: 4
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -133,7 +133,7 @@ fairs:
       hide_phone: false
       team_member: Gül Baykara
     settings:
-      order: 1
+      order: 5
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -155,7 +155,7 @@ fairs:
       hide_phone: false
       team_member: Seval Arslan
     settings:
-      order: 1
+      order: 6
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
