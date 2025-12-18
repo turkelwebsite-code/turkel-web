@@ -523,7 +523,7 @@ fairs:
       description_tr: ULUSLARARASI İÇ MEKAN KUMAŞLARI, EV TEKSTİLİ VE DEKORASYON
         MALZEMELERİ FUARI
       sector: Ev Tekstili ve Dekorasyon
-      hide_dates: true
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-09-22
       description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILES AND
