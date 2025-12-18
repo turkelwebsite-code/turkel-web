@@ -303,7 +303,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 8
+      order: 12
     basic_info:
       description_tr: ULUSLARARASI BORU VE TEL FUARI
       sector: Tel, Boru, Kalıp ve Plastik
@@ -344,7 +344,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 1
+      order: 13
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -354,7 +354,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 9
+      order: 14
     basic_info:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: Diğer
@@ -383,7 +383,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 20
+      order: 15
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
@@ -413,7 +413,7 @@ fairs:
       hide_phone: true
       team_member: Gül Baykara
     settings:
-      order: 10
+      order: 16
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -434,7 +434,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 12
+      order: 17
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Elektrik, Enerji ve Aydınlatma
@@ -463,7 +463,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 13
+      order: 18
     basic_info:
       description_tr: ULUSLARARASI KALIP VE PLASTİK FUARI
       sector: Tel, Boru, Kalıp ve Plastik
@@ -493,7 +493,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 14
+      order: 19
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -515,7 +515,7 @@ fairs:
       hide_phone: true
       team_member: Arzu Günal
     settings:
-      order: 19
+      order: 20
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -539,7 +539,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 16
+      order: 21
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -561,7 +561,7 @@ fairs:
       hide_phone: true
       team_member: Pınar Yalçın
     settings:
-      order: 17
+      order: 22
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -584,7 +584,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 18
+      order: 23
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -606,7 +606,7 @@ fairs:
       hide_phone: true
       team_member: Pınar Yalçın
     settings:
-      order: 20
+      order: 24
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -628,7 +628,7 @@ fairs:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
     settings:
-      order: 21
+      order: 25
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -650,7 +650,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 22
+      order: 26
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -672,7 +672,7 @@ fairs:
       hide_phone: true
       team_member: Pınar Yalçın
     settings:
-      order: 23
+      order: 27
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -707,7 +707,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 13
+      order: 28
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
