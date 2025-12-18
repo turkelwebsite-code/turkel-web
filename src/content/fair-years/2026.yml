@@ -568,7 +568,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI MODA FUARI
       sector: Moda
-      hide_dates: true
+      hide_dates: false
       location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 2026-10-05
       description_en: INTERNATIONAL FASHION FAIR
