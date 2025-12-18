@@ -550,9 +550,9 @@ fairs:
       start_date: 1901-01-01
       description_en: NTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
       end_date: 1901-01-01
-      name_tr: INTERLIGHT CENTRAL ASIA
+      name_tr: INTERLIGHT SMART CITY
       location_en: ASTANA, KAZAKHSTAN
-      name_en: INTERLIGHT CENTRAL ASIA
+      name_en: INTERLIGHT SMART CITY
     visuals:
       logo: /images/logo-interlight.png
       background_image: /images/gorsel-interlight.jpg
