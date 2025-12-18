@@ -613,7 +613,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI MOBİLYA, BAĞLANTI ELEMANLARI VE YAN SANAYİ FUARI
       sector: Mobilya ve Mobilya Yan Sanayi
-      hide_dates: true
+      hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-11-23
       description_en: INTERNATIONAL EXHIBITION FOR FURNITURE, FITTINGS AND UPHOLSTERY
