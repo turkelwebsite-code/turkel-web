@@ -593,12 +593,12 @@ fairs:
       sector: Mobilya ve Mobilya Yan Sanayi
       hide_dates: true
       location_tr: MOSKOVA, RUSYA
-      start_date: 1901-01-01
+      start_date: 2026-11-23
       description_en: INTERNATIONAL EXHIBITION FOR FURNITURE, FITTINGS AND UPHOLSTERY
-      end_date: 1901-01-01
-      name_tr: 36.MEBEL
+      end_date: 2026-11-26
+      name_tr: MEBEL
       location_en: MOSCOW, RUSSIA
-      name_en: 36TH MEBEL
+      name_en: MEBEL
     visuals:
       logo: /images/logo-mebel.png
       background_image: /images/gorsel-mebel.png
