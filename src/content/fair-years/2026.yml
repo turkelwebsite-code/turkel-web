@@ -592,13 +592,13 @@ fairs:
       sector: Ev Tekstili ve Dekorasyon
       hide_dates: true
       location_tr: MOSKOVA, RUSYA
-      start_date: 1901-01-01
+      start_date: 2026-09-22
       description_en: INTERNATIONAL TRADE FAIR OF INTERIOR FABRICS, HOME TEXTILES AND
         INTERIOR DESIGN SOLUTIONS
-      end_date: 1901-01-01
-      name_tr: HOMETEXTILE & DESIGN 2026
+      end_date: 2026-09-24
+      name_tr: "HOMETEXTILE & DESIGN "
       location_en: MOSCOW, RUSSIA
-      name_en: HOMETEXTILE & DESIGN 2026
+      name_en: "HOMETEXTILE & DESIGN "
     visuals:
       logo: /images/logo-hometextile.png
       background_image: /images/gorsel-hometextile.jpg
