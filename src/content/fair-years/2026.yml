@@ -249,32 +249,10 @@ fairs:
       title_en: Sales Director
       team_member: Seval Arslan
       hide_phone: true
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 10
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI GELİNLİK FUARI
-      sector: Moda
-      hide_dates: true
-      location_tr: HARROGATE, İNGİLTERE
-      start_date: 2026-03-22
-      description_en: INTERNATIONAL BRIDAL FAIR
-      end_date: 2026-03-24
-      name_tr: HARROGATE BRIDAL – WHITE GALLERY
-      location_en: HARROGATE, UK
-      name_en: HARROGATE BRIDAL – WHITE GALLERY
-    visuals:
-      logo: /images/logo-bridal.png
-      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 11
+      order: 10
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Elektrik, Enerji ve Aydınlatma
@@ -300,6 +278,28 @@ fairs:
       title_en: Sales Director
       team_member: Pınar Yalçın
       hide_phone: true
+  - representative:
+      hide_phone: true
+      team_member: Seval Arslan
+    settings:
+      order: 10
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI GELİNLİK FUARI
+      sector: Moda
+      hide_dates: true
+      location_tr: HARROGATE, İNGİLTERE
+      start_date: 2026-03-22
+      description_en: INTERNATIONAL BRIDAL FAIR
+      end_date: 2026-03-24
+      name_tr: HARROGATE BRIDAL – WHITE GALLERY
+      location_en: HARROGATE, UK
+      name_en: HARROGATE BRIDAL – WHITE GALLERY
+    visuals:
+      logo: /images/logo-bridal.png
+      background_image: /images/2019-gelinlik-trendleri-neler-1.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
