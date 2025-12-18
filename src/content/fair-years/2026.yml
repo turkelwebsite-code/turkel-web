@@ -548,9 +548,9 @@ fairs:
       sector: Moda
       hide_dates: true
       location_tr: RİYAD, SUUDİ ARABİSTAN
-      start_date: 1901-01-01
+      start_date: 2026-09-27
       description_en: BABY & CHILDREN'S CLOTHING AND EQUIPMENT FAIR
-      end_date: 1901-01-01
+      end_date: 2026-09-29
       name_tr: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
       location_en: RIYADH, SAUDI ARABIA
       name_en: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
@@ -559,9 +559,31 @@ fairs:
       background_image: /images/gorsel-kidstoys.jpg
   - representative:
       hide_phone: true
-      team_member: Pınar Yalçın
+      team_member: Seval Arslan
     settings:
       order: 22
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARARASI MODA FUARI
+      sector: Moda
+      hide_dates: true
+      location_tr: RİYAD, SUUDİ ARABİSTAN
+      start_date: 2026-10-05
+      description_en: INTERNATIONAL FASHION FAIR
+      end_date: 2026-10-07
+      name_tr: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
+      location_en: RIYADH, SAUDI ARABIA
+      name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
+    visuals:
+      logo: /images/saudilifestyleweek.png
+      background_image: /images/gorsel-saudi.jpg
+  - representative:
+      hide_phone: true
+      team_member: Pınar Yalçın
+    settings:
+      order: 23
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -571,37 +593,15 @@ fairs:
       sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: true
       location_tr: ASTANA, KAZAKİSTAN
-      start_date: 1901-01-01
+      start_date: 2026-10-27
       description_en: NTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
-      end_date: 1901-01-01
-      name_tr: INTERLIGHT SMART CITY
+      end_date: 2026-10-30
+      name_tr: INTERLIGHT SMART CITY & HOME
       location_en: ASTANA, KAZAKHSTAN
-      name_en: INTERLIGHT SMART CITY
+      name_en: INTERLIGHT SMART CITY & HOME
     visuals:
       logo: /images/logo-interlight.png
       background_image: /images/gorsel-interlight.jpg
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 23
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARARASI MODA FUARI
-      sector: Moda
-      hide_dates: true
-      location_tr: RİYAD, SUUDİ ARABİSTAN
-      start_date: 1901-01-01
-      description_en: INTERNATIONAL FASHION FAIR
-      end_date: 1901-01-01
-      name_tr: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
-      location_en: RIYADH, SAUDI ARABIA
-      name_en: SAUDI LIFESTYLE WEEK FASHION SPORTS WEAR DESIGN
-    visuals:
-      logo: /images/saudilifestyleweek.png
-      background_image: /images/gorsel-saudi.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
