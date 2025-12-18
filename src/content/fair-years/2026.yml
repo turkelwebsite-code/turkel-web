@@ -167,35 +167,6 @@ fairs:
       show_in_forms: true
       order: 7
     basic_info:
-      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-03-27
-      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
-      date_tr: 27 - 28 MART 2026
-      end_date: 2026-03-28
-      name_tr: 43. WEDDING FASHION MOSCOW
-      location_en: MOSCOW, RUSSIA
-      date_en: 27 - 28 MARCH 2026
-      name_en: 43. WEDDING FASHION MOSCOW
-    visuals:
-      logo: /images/fair-logo-wedding.png
-      background_image: /images/fair-bg-wedding.png
-    representative:
-      name: Seval ARSLAN
-      title: Satış Direktörü
-      email: seval@turkel.com.tr
-      phone: ""
-      title_tr: Satış Direktörü
-      title_en: Sales Director
-      team_member: Seval Arslan
-      hide_phone: true
-  - settings:
-      show_in_slider: false
-      show_in_forms: true
-      order: 8
-    basic_info:
       description_tr: KOZMETİK, GÜZELLİK, WELLNESS & SPA VE SAÇ ÜRÜNLERİ FUARI
       sector: Güzellik ve Kozmetik
       hide_dates: false
@@ -211,6 +182,35 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2025-09-03-21.23.28.png
       background_image: /images/fair-bg-beauty.png
+    representative:
+      name: Seval ARSLAN
+      title: Satış Direktörü
+      email: seval@turkel.com.tr
+      phone: ""
+      title_tr: Satış Direktörü
+      title_en: Sales Director
+      team_member: Seval Arslan
+      hide_phone: true
+  - settings:
+      show_in_slider: false
+      show_in_forms: true
+      order: 8
+    basic_info:
+      description_tr: GELİNLİK, ABİYE, DAMATLIK VE GELİNLİK KUMAŞI FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2026-03-27
+      description_en: INTERNATIONAL TRADE SHOW BRIDALWEAR, EVENINGWEAR, ACCESSORIES
+      date_tr: 27 - 28 MART 2026
+      end_date: 2026-03-28
+      name_tr: 43. WEDDING FASHION MOSCOW
+      location_en: MOSCOW, RUSSIA
+      date_en: 27 - 28 MARCH 2026
+      name_en: 43. WEDDING FASHION MOSCOW
+    visuals:
+      logo: /images/fair-logo-wedding.png
+      background_image: /images/fair-bg-wedding.png
     representative:
       name: Seval ARSLAN
       title: Satış Direktörü
