@@ -322,7 +322,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 13
+      order: 12
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -332,7 +332,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 14
+      order: 13
     basic_info:
       description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
       sector: Diğer
@@ -361,7 +361,7 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 15
+      order: 14
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
       sector: Diğer
