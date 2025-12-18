@@ -500,7 +500,7 @@ fairs:
     basic_info:
       description_tr: ULUSLARARASI BEBEK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda
-      hide_dates: true
+      hide_dates: false
       location_tr: KÖLN, ALMANYA
       start_date: 2026-09-15
       description_en: INTERNATIONAL TRADE FAIR FOR BABY AND TODDLER OUTFITTING
