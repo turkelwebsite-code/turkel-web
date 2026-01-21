@@ -332,35 +332,6 @@ fairs:
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 13
-    basic_info:
-      description_tr: ULUSLARARASI GÜVENLİK VE YANGIN KORUMA FUARI
-      sector: Diğer
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-04-22
-      description_en: INTERNATIONAL SECURITY AND FIRE PROTECTION FAIR
-      date_tr: 22 - 24 NİSAN 2026
-      end_date: 2026-04-24
-      name_tr: SECURIKA MOSCOW
-      location_en: MOSCOW, RUSSIA
-      date_en: 22 - 24 APRIL 2026
-      name_en: SECURIKA MOSCOW
-    visuals:
-      logo: /images/fair-logo-securika.png
-      background_image: /images/fair-bg-securika.png
-    representative:
-      name: Neşe ŞENYURT
-      title: ""
-      email: nese@turkel.com.tr
-      phone: ""
-      title_tr: Satış Temsilcisi
-      title_en: Sales Representative
-      team_member: Gül Baykara
-      hide_phone: true
-  - settings:
-      show_in_slider: false
-      show_in_forms: true
       order: 14
     basic_info:
       description_tr: ULUSLARARASI TİCARET FUARI
