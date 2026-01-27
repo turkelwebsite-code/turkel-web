@@ -140,28 +140,6 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2025-11-06-10.35.43.png
       background_image: /images/ekran-resmi-2025-11-06-10.35.47.png
-  - basic_info:
-      description_tr: ULUSLARARASI MODA VE MÜCEVHER FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MİLANO, İTALYA
-      start_date: 2026-02-21
-      description_en: INTERNATIONAL FASHION AND JEWELRY FAIR
-      end_date: 2026-02-23
-      name_tr: MILANO FASHION & JEWELS
-      location_en: MILAN, ITALY
-      name_en: MILANO FASHION & JEWELS
-    representative:
-      hide_phone: false
-      team_member: Seval Arslan
-    settings:
-      order: 6
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      logo: /images/ekran-resmi-2025-11-06-10.22.27.png
-      background_image: /images/ekran-resmi-2025-11-06-10.22.56.png
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -307,28 +285,6 @@ fairs:
       title_en: Sales Director
       team_member: Ahmet Hilmi Çoruk
       hide_phone: true
-  - basic_info:
-      description_tr: ULUSLARARASI ELEKTRONİK FUARI
-      sector: Elektrik, Enerji ve Aydınlatma
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-04-14
-      description_en: INTERNATIONAL ELECTRONICS FAIR
-      end_date: 2026-04-16
-      name_tr: EXPO ELECTRONICA
-      location_en: MOSCOW, RUSSIA
-      name_en: EXPO ELECTRONICA
-    representative:
-      hide_phone: false
-      team_member: Pınar Yalçın
-    settings:
-      order: 12
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    visuals:
-      logo: /images/logo-1.png
-      background_image: /images/ee_website_sector_images_1_189bc3b4a7.png
   - settings:
       show_in_slider: false
       show_in_forms: true
