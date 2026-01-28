@@ -506,11 +506,33 @@ fairs:
     visuals:
       logo: /images/saudilifestyleweek.png
       background_image: /images/gorsel-saudi.jpg
+  - basic_info:
+      description_tr: ULUSLARARASI OFİS MOBİLYALARI VE DONANIM FUARI
+      sector: Mobilya ve Mobilya Yan Sanayi
+      hide_dates: false
+      location_tr: KÖLN, ALMANYA
+      start_date: 2026-10-27
+      description_en: INTERNATIONAL OFFICE FURNITURE AND EQUIPMENT FAIR
+      end_date: 2026-10-30
+      name_tr: ORGATEC
+      location_en: COLOGNE, GERMANY
+      name_en: ORGATEC
+    representative:
+      hide_phone: false
+      team_member: Pınar Yalçın
+    settings:
+      order: 23
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/orgatec-logo.png
+      background_image: /images/orgatec_2300_m01_m05_mobile.jpg
   - representative:
       hide_phone: true
       team_member: Pınar Yalçın
     settings:
-      order: 23
+      order: 24
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -533,7 +555,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 24
+      order: 25
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -555,7 +577,7 @@ fairs:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
     settings:
-      order: 25
+      order: 26
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
