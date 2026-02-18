@@ -9,6 +9,6 @@ department:
 email: ozge@turkel.com.tr
 phone: ""
 order: 2
-is_active: true
+is_active: false
 is_fair_representative: false
 ---
