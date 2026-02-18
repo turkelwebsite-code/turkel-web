@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: turkelwebsite-code/turkel-web
   branch: master
   squash_merges: true
 
