@@ -577,7 +577,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 25
+      order: 27
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
