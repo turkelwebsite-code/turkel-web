@@ -320,7 +320,7 @@ fairs:
       order: 15
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
-      sector: Yapı ve İnşaat
+      sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-08
