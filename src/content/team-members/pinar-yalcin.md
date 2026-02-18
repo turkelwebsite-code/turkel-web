@@ -4,8 +4,8 @@ title:
   tr: Satış Direktörü
   en: Sales Director
 department:
-  tr: Mobilya ve Mobilya Yan Sanayi & Elektrik ve Aydınlatma Fuarları
-  en: Furniture and Furniture Auxiliary Industry & Electrical and Lighting Fairs
+  tr: Yapı & İnşaat, Elektrik & Aydınlatma, Mobilya & Mobilya Yan Sanayi Fuarları
+  en: Construction & Building, Electrical & Lighting, Furniture & Furniture Auxiliary Industry Fairs
 email: pinar@turkel.com.tr
 phone: ""
 order: 1
