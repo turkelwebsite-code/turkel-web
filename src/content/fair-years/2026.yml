@@ -577,12 +577,12 @@ fairs:
       description_tr: ULUSLARARASI YAPI, İNŞAAT MALZEMELERİ VE TEKNOLOJİLERİ FUARI
       sector: Yapı ve İnşaat
       hide_dates: false
-      location_tr: RİYAD / SUUDİ ARABİSTAN
+      location_tr: RİYAD, SUUDİ ARABİSTAN
       start_date: 2026-11-02
       description_en: INTERNATIONAL CONSTRUCTION, BUILDING MATERIALS AND TECHNOLOGIES FAIR
       end_date: 2026-11-05
       name_tr: SAUDI BUILD
-      location_en: RIYADH / SAUDI ARABIA
+      location_en: RIYADH, SAUDI ARABIA
       name_en: SAUDI BUILD
     representative:
       hide_phone: false
