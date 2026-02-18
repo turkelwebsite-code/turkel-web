@@ -551,6 +551,28 @@ fairs:
     visuals:
       logo: /images/logo-interlight.png
       background_image: /images/gorsel-interlight.jpg
+  - basic_info:
+      description_tr: ULUSLARARASI YAPI, İNŞAAT MALZEMELERİ VE TEKNOLOJİLERİ FUARI
+      sector: Yapı ve İnşaat
+      hide_dates: false
+      location_tr: SUUDI ARABISTAN / RIYAD
+      start_date: 2026-11-02
+      description_en: INTERNATIONAL CONSTRUCTION, BUILDING MATERIALS AND TECHNOLOGIES FAIR
+      end_date: 2026-11-05
+      name_tr: SAUDI BUILD
+      location_en: SAUDI ARABIA / RIYADH
+      name_en: SAUDI BUILD
+    representative:
+      hide_phone: false
+      team_member: Pınar Yalçın
+    settings:
+      order: 25
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2026-02-18-16.26.55.png
+      background_image: /images/exhibit-profile-2-1.jpg
   - representative:
       hide_phone: false
       team_member: Pınar Yalçın
@@ -577,7 +599,7 @@ fairs:
       hide_phone: true
       team_member: Ahmet Hilmi Çoruk
     settings:
-      order: 26
+      order: 27
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
