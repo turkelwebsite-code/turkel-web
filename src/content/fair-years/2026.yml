@@ -537,19 +537,18 @@ fairs:
       show_in_forms: true
       show_in_chronology: false
     basic_info:
-      description_tr: ULUSLARARASI AYDINLATMA, ELEKTRİK MÜHENDİSLİĞİ VE GÜVENLİK
-        SİSTEMLERİ FUARI
+      description_tr: ULUSLARARASI ELEKTRİK, AYDINLATMA VE BİNA OTOMASYON FUARI
       sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: ASTANA, KAZAKİSTAN
       start_date: 2026-10-27
-      description_en: INTERNATIONAL LIGHTING, ELECTRICAL ENGINEERING AND SECURITY SYSTEMS FAIR
+      description_en: INTERNATIONAL ELECTRICITY, LIGHTING AND BUILDING AUTOMATION FAIR
       end_date: 2026-10-30
       name_tr: INTERLIGHT SMART CITY & HOME
       location_en: ASTANA, KAZAKHSTAN
       name_en: INTERLIGHT SMART CITY & HOME
     visuals:
-      logo: /images/logo-interlight.png
+      logo: /images/ekran-resmi-2026-02-19-14.39.44.png
       background_image: /images/gorsel-interlight.jpg
   - basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ, AYDINLATMA VE YENİLENEBİLİR ENERJİ FUARI
