@@ -319,15 +319,15 @@ fairs:
       show_in_forms: true
       order: 15
     basic_info:
-      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ AYDINLATMA VE BİNA OTOMASYON FUARI
+      description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Elektrik, Enerji ve Aydınlatma
       hide_dates: false
       location_tr: MOSKOVA, RUSYA
       start_date: 2026-06-08
-      description_en: INTERNATIONAL ELECTRICITY, ENERGY LIGHTING AND BUILDING AUTOMATION FAIR
+      description_en: INTERNATIONAL ELECTRICITY, ENERGY AND LIGHTING FAIR
       date_tr: 8 - 10 HAZİRAN 2026
       end_date: 2026-06-10
-      name_tr: ELECTRO
+      name_tr: ELEKTRO
       location_en: MOSCOW, RUSSIA
       date_en: 8 - 10 JUNE 2026
       name_en: ELECTRO
