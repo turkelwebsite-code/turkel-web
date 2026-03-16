@@ -358,10 +358,32 @@ fairs:
     visuals:
       background_image: /images/ekran-resmi-2025-09-25-09.56.32.png
       logo: /images/ekran-resmi-2025-09-25-09.57.28.png
+  - basic_info:
+      description_tr: EV KOKULARI FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: LONDRA, İNGİLTERE
+      start_date: 2026-07-09
+      description_en: HOME FRAGRANCES FAIR
+      end_date: 2026-07-10
+      name_tr: THE LONDON HOME FRAGRANCES SHOW
+      location_en: LONDON, UK
+      name_en: THE LONDON HOME FRAGRANCES SHOW
+    representative:
+      hide_phone: false
+      team_member: Seval Arslan
+    settings:
+      order: 14
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2026-03-16-11.16.23.png
+      background_image: /images/japanese-cherry-3063992_1280.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
-      order: 14
+      order: 15
     basic_info:
       description_tr: ULUSLARARASI ELEKTRİK, ENERJİ VE AYDINLATMA FUARI
       sector: Elektrik, Enerji ve Aydınlatma
@@ -391,7 +413,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 15
+      order: 16
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -413,7 +435,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 16
+      order: 17
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -435,7 +457,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 17
+      order: 18
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -468,7 +490,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 18
+      order: 19
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -479,7 +501,7 @@ fairs:
       hide_phone: true
       team_member: Pınar Yalçın
     settings:
-      order: 19
+      order: 20
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -512,7 +534,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 20
+      order: 21
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -534,7 +556,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 21
+      order: 22
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -545,7 +567,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 22
+      order: 23
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
