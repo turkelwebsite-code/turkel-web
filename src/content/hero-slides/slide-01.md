@@ -1,16 +1,16 @@
 ---
-title_tr: 18. HOMEDECO KAZAKİSTAN
-title_en: 18. HOMEDECO KAZAKHSTAN
-date_tr: 16-18 ŞUBAT 2026
-date_en: 16-18 JANUARY 2026
+title_tr: 19. HOMEDECO KAZAKİSTAN
+title_en: 19TH HOMEDECO KAZAKHSTAN
+date_tr: 28-30 MART 2027
+date_en: 28-30 MARCH 2027
 location_tr: ALMATI, KAZAKİSTAN
-location_en: ALMATY, KAZAKİSTAN
-description_tr: 18. Uluslararası Homedeco Kazakistan, 16-18 Şubat tarihleri
+location_en: ALMATY, KAZAKHSTAN
+description_tr: 19. Uluslararası Homedeco Kazakistan, 28-30 Mart tarihleri
   arasında Almatı'daki Atakent Fuar Merkezi'nde, sektördeki en son trendleri
   sergilemek üzere gerçekleşecek.
-description_en: The 18th International Homedeco Kazakhstan will take place from
-  February 16-18 at the Atakent Fair Center in Almaty to showcase the latest
-  trends in the industry.
+description_en: The 19th International Homedeco Kazakhstan will take place from
+  March 28-30 at the Atakent Fair Center in Almaty to showcase the latest trends
+  in the industry.
 background_image: /images/homedeco-slider.png
 logo: /images/homedeco-logo.png
 website_url: https://homedecofair.com/
