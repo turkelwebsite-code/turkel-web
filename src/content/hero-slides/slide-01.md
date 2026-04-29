@@ -11,7 +11,7 @@ description_tr: 19. Uluslararası Homedeco Kazakistan, 28-30 Mart tarihleri
 description_en: The 19th International Homedeco Kazakhstan will take place from
   March 28-30 at the Atakent Fair Center in Almaty to showcase the latest trends
   in the industry.
-background_image: /images/adsız-tasarım-1-.png
+background_image: /images/adsız-tasarım-1-kopyası.png
 logo: /images/homedeco-logo.png
 website_url: https://homedecofair.com/
 mini_images:
