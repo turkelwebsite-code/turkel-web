@@ -1,8 +1,8 @@
 ---
 title_tr: 29. LESHOW MOSKOVA
 title_en: 29th Leshow Moscow
-date_tr: 23-25 ​​HAZİRAN 2026
-date_en: 23-25 ​​JUNE 2026
+date_tr: 19-21 ​​AĞUSTOS 2026
+date_en: 19-21 ​​AUGUST 2026
 location_tr: Moskova, Rusya
 location_en: Moscow, Russia
 description_tr: Kış modasının en önemli etkinliği! LeShow, 29 yıldır aralıksız
