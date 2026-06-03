@@ -314,28 +314,6 @@ fairs:
       title_en: Sales Director
       team_member: Ahmet Hilmi Çoruk
       hide_phone: true
-  - representative:
-      hide_phone: true
-      team_member: Gül Baykara
-    settings:
-      order: 12
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARASI KIŞ MODA FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-08-19
-      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
-      end_date: 2026-08-21
-      name_tr: 29.LESHOW MOSKOVA
-      location_en: MOSCOW, RUSSIA
-      name_en: 29TH LESHOW MOSCOW
-    visuals:
-      logo: /images/leshow-logo-fair.png
-      background_image: /images/leshow-gorsel-fair.jpg
   - basic_info:
       description_tr: TARIM, TARIM TEKNOLOJİLERİ VE HAYVANCILIK FUARI
       sector: Diğer
@@ -351,7 +329,7 @@ fairs:
       hide_phone: false
       team_member: Pınar Yalçın
     settings:
-      order: 13
+      order: 12
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -373,13 +351,35 @@ fairs:
       hide_phone: false
       team_member: Seval Arslan
     settings:
-      order: 14
+      order: 13
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
     visuals:
       logo: /images/ekran-resmi-2026-03-16-11.16.23.png
       background_image: /images/japanese-cherry-3063992_1280.jpg
+  - representative:
+      hide_phone: true
+      team_member: Gül Baykara
+    settings:
+      order: 14
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    basic_info:
+      description_tr: ULUSLARASI KIŞ MODA FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2026-08-19
+      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
+      end_date: 2026-08-21
+      name_tr: 29.LESHOW MOSKOVA
+      location_en: MOSCOW, RUSSIA
+      name_en: 29TH LESHOW MOSCOW
+    visuals:
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/leshow-gorsel-fair.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
@@ -409,11 +409,32 @@ fairs:
       title_en: Sales Director
       team_member: Pınar Yalçın
       hide_phone: true
+  - basic_info:
+      description_tr: MODA VE MÜCEVHER FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MİLANO, İTALYA
+      start_date: 2026-09-12
+      description_en: FASHION & JEWELS FAIR
+      end_date: 2026-09-14
+      name_tr: MILANO FASHION & JEWELS
+      location_en: MILAN, ITALY
+      name_en: MILANO FASHION & JEWELS
+    representative:
+      hide_phone: false
+    settings:
+      order: 16
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/ekran-resmi-2026-06-03-16.39.08.png
+      background_image: /images/cq5dam.web.1280.1280.jpg
   - representative:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 16
+      order: 17
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
@@ -431,15 +452,7 @@ fairs:
     visuals:
       logo: /images/kind-logo-fair.png
       background_image: /images/ekran-resmi-2025-09-03-21.37.51.png
-  - representative:
-      hide_phone: true
-      team_member: Seval Arslan
-    settings:
-      order: 17
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
+  - basic_info:
       description_tr: BEBEK & ÇOCUK GİYİM VE ARAÇ GEREÇLERİ FUARI
       sector: Moda
       hide_dates: false
@@ -450,6 +463,14 @@ fairs:
       name_tr: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
       location_en: RIYADH, SAUDI ARABIA
       name_en: KIDS TOYS & STATIONARY PAPER & GIFT HOMEWARE
+    representative:
+      hide_phone: false
+      team_member: Seval Arslan
+    settings:
+      order: 18
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
     visuals:
       logo: /images/logo-kidstoys.png
       background_image: /images/gorsel-kidstoys.jpg
@@ -457,7 +478,7 @@ fairs:
       hide_phone: true
       team_member: Seval Arslan
     settings:
-      order: 18
+      order: 19
       show_in_slider: false
       show_in_forms: true
       show_in_chronology: false
