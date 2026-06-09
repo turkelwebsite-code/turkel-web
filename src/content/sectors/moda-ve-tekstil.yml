@@ -1,6 +1,6 @@
-name_tr: Tekne, Havuz ve Yan Sanayi
-name_en: Boat, Pool and Sub-Industry
-slug: tekne-havuz-yansanayi
+name_tr: Endüstriyel ve Sektörel Fuarlar
+name_en: Industrial & Specialized Trade Fairs
+slug: endustriyel-sektorel-fuarlar
 order: 7
 is_active: true
 description_tr: ""
