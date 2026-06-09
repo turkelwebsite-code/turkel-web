@@ -2,6 +2,6 @@ name_tr: Tel, Boru, Kalıp ve Plastik
 name_en: Wire, Pipe, Mold and Plastic
 slug: tel-boru-kalip-plastik
 order: 6
-is_active: true
+is_active: false
 description_tr: ""
 description_en: ""
