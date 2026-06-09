@@ -4,8 +4,8 @@ title:
   tr: Satış Sorumlusu
   en: Sales Representative
 department:
-  tr: Kalıp & Plastik, İhtisas, Havuz
-  en: Mold & Plastic, Specialty, Pool
+  tr: Endüstriyel ve Sektörel Fuarlar
+  en: Industrial and Sectoral Fairs
 email: serap@turkel.com.tr
 phone: ""
 order: 2

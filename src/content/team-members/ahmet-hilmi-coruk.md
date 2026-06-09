@@ -4,8 +4,8 @@ title:
   tr: Satış Direktörü
   en: Sales Director
 department:
-  tr: Kalıp & Plastik, İhtisas, Havuz
-  en: Mold & Plastic, Specialty, Pool
+  tr: Endüstriyel ve Sektörel Fuarlar
+  en: Industrial and Sectoral Fairs
 email: ahmethilmi@turkel.com.tr
 phone: ""
 order: 1
