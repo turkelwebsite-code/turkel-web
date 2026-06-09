@@ -4,8 +4,8 @@ title:
   tr: Satış Direktörü
   en: Sales Director
 department:
-  tr: Deri Fuarları & Güvenlik Sistemleri Fuarları
-  en: Leather Fairs & Security Systems Fairs
+  tr: Deri Fuarları
+  en: Leather Fairs
 email: gul@turkel.com.tr
 phone: ""
 order: 1

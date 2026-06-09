@@ -4,8 +4,8 @@ title:
   tr: Satış Temsilcisi
   en: Sales Representative
 department:
-  tr: Deri Fuarları & Güvenlik Sistemleri Fuarları
-  en: Leather Fairs & Security Systems Fairs
+  tr: Deri Fuarları
+  en: Leather Fairs
 email: nese@turkel.com.tr
 phone: +90 216 123 45 79
 order: 1
