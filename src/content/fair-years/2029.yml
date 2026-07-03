@@ -1,15 +1,39 @@
-cms_button_label: "➕ Yeni Yıl Ekle"
-year: 2029
-page_slug: 2029-fuar-takvimi
-page_slug_en: 2029-fair-calendar
-is_active: false
+cms_button_label: 2027 Fuarları
+year: 2027
+page_slug: 2027-fuar-takvimi
+page_slug_en: 2027-fair-calendar
+is_active: true
 display_status: Aktif Fuarlar
 menu_order: 0
 page_content:
-  title_tr: 2029 Fuar Takvimi
-  title_en: 2029 Fair Calendar
-  menu_title_tr: 2029 Fuar Takvimi
-  menu_title_en: 2029 Fair Calendar
-  description_tr: 2029 yılında dünya çapında organize edeceğimiz prestijli fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
-  description_en: In 2029, we bring Turkish companies together with global markets at prestigious fairs we organize worldwide.
-fairs: []
+  title_tr: 2027 Fuar Takvimi
+  title_en: 2027 Fair Calendar
+  menu_title_tr: 2027 Fuar Takvimi
+  menu_title_en: 2027 Fair Calendar
+  description_tr: 2027 yılında dünya çapında organize edeceğimiz prestijli
+    fuarlarda, Türk firmalarını global pazarlarla buluşturuyoruz.
+  description_en: In 2027, we bring Turkish companies together with global markets
+    at prestigious fairs we organize worldwide.
+fairs:
+  - basic_info:
+      description_tr: LESHOW MOSKOVA ULUSLARARASI DIŞ GİYİM VE BİLEŞENLERİ FUARI
+      sector: Moda
+      hide_dates: false
+      location_tr: MOSKOVA, RUSYA
+      start_date: 2027-06-09
+      description_en: INTERNATIONAL TRADE FAIR OF OUTERWEAR COLLECTIONS & COMPONENTS
+      end_date: 2027-06-11
+      name_tr: LESHOW MOSKOVA
+      location_en: MOSCOW, RUSSIA
+      name_en: LESHOW MOSCOW
+    representative:
+      hide_phone: false
+      team_member: Gül Baykara
+    settings:
+      order: 1
+      show_in_slider: false
+      show_in_forms: true
+      show_in_chronology: false
+    visuals:
+      logo: /images/leshow-logo-fair.png
+      background_image: /images/0161.jpg
