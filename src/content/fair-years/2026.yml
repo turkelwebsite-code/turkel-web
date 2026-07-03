@@ -358,28 +358,6 @@ fairs:
     visuals:
       logo: /images/ekran-resmi-2026-03-16-11.16.23.png
       background_image: /images/japanese-cherry-3063992_1280.jpg
-  - representative:
-      hide_phone: true
-      team_member: Gül Baykara
-    settings:
-      order: 14
-      show_in_slider: false
-      show_in_forms: true
-      show_in_chronology: false
-    basic_info:
-      description_tr: ULUSLARASI KIŞ MODA FUARI
-      sector: Moda
-      hide_dates: false
-      location_tr: MOSKOVA, RUSYA
-      start_date: 2026-08-19
-      description_en: INTERNATIONAL WINTER FASHION TRADE SHOW
-      end_date: 2026-08-21
-      name_tr: 29.LESHOW MOSKOVA
-      location_en: MOSCOW, RUSSIA
-      name_en: 29TH LESHOW MOSCOW
-    visuals:
-      logo: /images/leshow-logo-fair.png
-      background_image: /images/leshow-gorsel-fair.jpg
   - settings:
       show_in_slider: false
       show_in_forms: true
